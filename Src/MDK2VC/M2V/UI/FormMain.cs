@@ -44,10 +44,9 @@ namespace MDK2VC
 
         private void btnSelectVCPath_Click(object sender, EventArgs e)
         {
-            var fileDlg = new OpenFileDialog();
-            fileDlg.Multiselect = true;
+            var fileDlg = new SaveFileDialog();
             fileDlg.Title = "请选择文件";
-            fileDlg.Filter = "MDK|*.vcxproj";
+            fileDlg.Filter = "VC项目|*.vcxproj";
             if (fileDlg.ShowDialog() == DialogResult.OK)
             {
                 tBoxVCPath.Text = fileDlg.FileName;
