@@ -99,20 +99,20 @@ namespace MDK2VC
             var Target = Targets.Element("Target");
             var Groups = Target.Element("Groups");
 
-            var groupsss = Groups.Elements("Group");
-            foreach(var grou in groupsss)
+            var Group = Groups.Elements("Group");
+            foreach(var grou in Group)
             {                
                 var aa = grou.Element("GroupName");
                 builder.AppendLine(aa.Value);
-                var fffs = grou.Elements("Files");
-                foreach (var ff in fffs)
+                var Files = grou.Elements("Files");
+                foreach (var File in Files)
                 {
-                    var fn = ff.Elements("File");
-                    foreach (var fd in fn)
+                    var file = File.Elements("File");
+                    foreach (var ff in file)
                     {
-                        var fn1 = fd.Element("FilePath");
-                        if (fn1 != null)
-                            builder.AppendLine(fn1.Value);
+                        var FilePath = ff.Element("FilePath");
+                        if (FilePath != null)
+                            builder.AppendLine(FilePath.Value);
                     }
                 }
             }
