@@ -33,9 +33,9 @@
             this.tBoxMDKPath = new System.Windows.Forms.TextBox();
             this.tBoxVCPath = new System.Windows.Forms.TextBox();
             this.btnTrans = new System.Windows.Forms.Button();
-            this.textBoxDemo = new System.Windows.Forms.TextBox();
             this.btnSelMDKPath = new System.Windows.Forms.Button();
             this.btnSelectVCPath = new System.Windows.Forms.Button();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -78,14 +78,7 @@
             this.btnTrans.TabIndex = 4;
             this.btnTrans.Text = "转换";
             this.btnTrans.UseVisualStyleBackColor = true;
-            // 
-            // textBoxDemo
-            // 
-            this.textBoxDemo.Location = new System.Drawing.Point(32, 117);
-            this.textBoxDemo.Multiline = true;
-            this.textBoxDemo.Name = "textBoxDemo";
-            this.textBoxDemo.Size = new System.Drawing.Size(419, 153);
-            this.textBoxDemo.TabIndex = 5;
+            this.btnTrans.Click += new System.EventHandler(this.btnTrans_Click);
             // 
             // btnSelMDKPath
             // 
@@ -107,14 +100,22 @@
             this.btnSelectVCPath.UseVisualStyleBackColor = true;
             this.btnSelectVCPath.Click += new System.EventHandler(this.btnSelectVCPath_Click);
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(20, 127);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(492, 161);
+            this.richTextBox1.TabIndex = 8;
+            this.richTextBox1.Text = "";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(524, 300);
+            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.btnSelectVCPath);
             this.Controls.Add(this.btnSelMDKPath);
-            this.Controls.Add(this.textBoxDemo);
             this.Controls.Add(this.btnTrans);
             this.Controls.Add(this.tBoxVCPath);
             this.Controls.Add(this.tBoxMDKPath);
@@ -136,9 +137,9 @@
         private System.Windows.Forms.TextBox tBoxMDKPath;
         private System.Windows.Forms.TextBox tBoxVCPath;
         private System.Windows.Forms.Button btnTrans;
-        private System.Windows.Forms.TextBox textBoxDemo;
         private System.Windows.Forms.Button btnSelMDKPath;
         private System.Windows.Forms.Button btnSelectVCPath;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
 
