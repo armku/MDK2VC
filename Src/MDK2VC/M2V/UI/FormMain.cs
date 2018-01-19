@@ -27,5 +27,33 @@ namespace MDK2VC
             tBoxMDKPath.Text = cfg.MdkPath;
             tBoxVCPath.Text = cfg.VcPath;
         }
+
+        private void btnSelMDKPath_Click(object sender, EventArgs e)
+        {
+            var fileDlg = new OpenFileDialog();
+            fileDlg.Multiselect = true;
+            fileDlg.Title = "请选择文件";
+            fileDlg.Filter = "MDK|*.uvprojx";
+            if (fileDlg.ShowDialog() == DialogResult.OK)
+            {
+                tBoxMDKPath.Text = fileDlg.FileName;
+                cfg.MdkPath = fileDlg.FileName;
+                cfg.Save();
+            }
+        }
+
+        private void btnSelectVCPath_Click(object sender, EventArgs e)
+        {
+            var fileDlg = new OpenFileDialog();
+            fileDlg.Multiselect = true;
+            fileDlg.Title = "请选择文件";
+            fileDlg.Filter = "MDK|*.vcxproj";
+            if (fileDlg.ShowDialog() == DialogResult.OK)
+            {
+                tBoxVCPath.Text = fileDlg.FileName;
+                cfg.VcPath = fileDlg.FileName;
+                cfg.Save();
+            }
+        }
     }
 }

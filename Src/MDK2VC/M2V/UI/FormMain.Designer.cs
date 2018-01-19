@@ -95,6 +95,7 @@
             this.btnSelMDKPath.TabIndex = 6;
             this.btnSelMDKPath.Text = "...";
             this.btnSelMDKPath.UseVisualStyleBackColor = true;
+            this.btnSelMDKPath.Click += new System.EventHandler(this.btnSelMDKPath_Click);
             // 
             // btnSelectVCPath
             // 
@@ -104,8 +105,9 @@
             this.btnSelectVCPath.TabIndex = 7;
             this.btnSelectVCPath.Text = "...";
             this.btnSelectVCPath.UseVisualStyleBackColor = true;
+            this.btnSelectVCPath.Click += new System.EventHandler(this.btnSelectVCPath_Click);
             // 
-            // Form1
+            // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -118,7 +120,7 @@
             this.Controls.Add(this.tBoxMDKPath);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
+            this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MDK2VC";
             this.Load += new System.EventHandler(this.FormMain_Load);

@@ -9,7 +9,7 @@ using System.Text;
 namespace MDK2VC.M2V
 {
     [XmlConfigFile(@"Config/SysConfig.config")]
-    class SysConfig : XmlConfig<SysConfig>
+    public class SysConfig : XmlConfig<SysConfig>
     {
         /// <summary>
         /// MDK 工程文件路径
