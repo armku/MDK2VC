@@ -30,6 +30,7 @@ namespace MDK2VC
             tBoxMDKPath.Text = cfg.MdkPath;
             tBoxvcxproj.Text = cfg.vcxproj;
             tboxfilters.Text = cfg.filters;
+            tboxsln.Text = cfg.sln;
         }
 
         private void btnSelMDKPath_Click(object sender, EventArgs e)
@@ -56,7 +57,9 @@ namespace MDK2VC
                 tBoxvcxproj.Text = fileDlg.FileName;
                 cfg.vcxproj = fileDlg.FileName;
                 cfg.filters = cfg.vcxproj + ".filters";
+                cfg.sln = cfg.vcxproj.Substring(0, cfg.vcxproj.Length - 7) + "sln";
                 tboxfilters.Text = cfg.filters;
+                tboxsln.Text = cfg.sln;
                 cfg.Save();
             }
         }
@@ -375,11 +378,55 @@ namespace MDK2VC
             fs.Flush();
             fs.Close();
         }
+        void createsln(string filename)
+        {
+            var builder = new StringBuilder();
+
+            builder.AppendLine("");
+            builder.AppendLine("Microsoft Visual Studio Solution File, Format Version 12.00");
+            builder.AppendLine("# Visual Studio 15");
+            builder.AppendLine("VisualStudioVersion = 15.0.27130.2020");
+            builder.AppendLine("MinimumVisualStudioVersion = 10.0.40219.1");
+            builder.AppendLine("Project(\"{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}\") = \"f111\", \"f111.vcxproj\", \"{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}\"");
+            builder.AppendLine("EndProject");
+            builder.AppendLine("Global");
+            builder.AppendLine("	GlobalSection(SolutionConfigurationPlatforms) = preSolution");
+            builder.AppendLine("		Debug|x64 = Debug|x64");
+            builder.AppendLine("		Debug|x86 = Debug|x86");
+            builder.AppendLine("		Release|x64 = Release|x64");
+            builder.AppendLine("		Release|x86 = Release|x86");
+            builder.AppendLine("	EndGlobalSection");
+            builder.AppendLine("	GlobalSection(ProjectConfigurationPlatforms) = postSolution");
+            builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Debug|x64.ActiveCfg = Debug|x64");
+            builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Debug|x64.Build.0 = Debug|x64");
+            builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Debug|x86.ActiveCfg = Debug|Win32");
+            builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Debug|x86.Build.0 = Debug|Win32");
+            builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Release|x64.ActiveCfg = Release|x64");
+            builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Release|x64.Build.0 = Release|x64");
+            builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Release|x86.ActiveCfg = Release|Win32");
+            builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Release|x86.Build.0 = Release|Win32");
+            builder.AppendLine("	EndGlobalSection");
+            builder.AppendLine("	GlobalSection(SolutionProperties) = preSolution");
+            builder.AppendLine("		HideSolutionNode = FALSE");
+            builder.AppendLine("	EndGlobalSection");
+            builder.AppendLine("	GlobalSection(ExtensibilityGlobals) = postSolution");
+            builder.AppendLine("		SolutionGuid = {133C6D99-11F2-4EE7-A3DA-7F3CF3AB45A5}");
+            builder.AppendLine("	EndGlobalSection");
+            builder.AppendLine("EndGlobal");
+            builder.AppendLine("");
+
+            var fs = new FileStream(filename, FileMode.Create);
+            byte[] data = new UTF8Encoding().GetBytes(builder.ToString());
+            fs.Write(data);
+            fs.Flush();
+            fs.Close();
+        }
 
         private void btnTest_Click(object sender, EventArgs e)
         {
             createvcxproj(cfg.vcxproj, @".\demo.dsp");
             createfilters(cfg.filters);
+            createsln(cfg.sln);
         }
 
         private void btnOpenDsw_Click(object sender, EventArgs e)

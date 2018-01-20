@@ -22,5 +22,6 @@ namespace MDK2VC.M2V
         [Description("VC 工程文件路径")]
         public string vcxproj { get; set; }
         public string filters { get; set; }
+        public string sln { get; set; }
     }
 }
