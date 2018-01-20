@@ -300,10 +300,12 @@ namespace MDK2VC
             builder.AppendLine("      <WarningLevel>Level3</WarningLevel>");
             builder.AppendLine("      <Optimization>Disabled</Optimization>");
             builder.AppendLine("      <SDLCheck>true</SDLCheck>");
-            builder.AppendLine("      <ConformanceMode>true</ConformanceMode>");            
+            builder.AppendLine("      <ConformanceMode>true</ConformanceMode>");
+
             builder.Append(@"      <AdditionalIncludeDirectories>");
             builder.Append(getIncludePath()).AppendLine(";%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>");
             getDefineToVc(builder);
+
             builder.AppendLine("    </ClCompile>");
             builder.AppendLine("  </ItemDefinitionGroup>");
             builder.AppendLine("  <ItemDefinitionGroup Condition=\"'$(Configuration)|$(Platform)' == 'Release|Win32'\">");
@@ -328,8 +330,11 @@ namespace MDK2VC
             builder.AppendLine("      <IntrinsicFunctions>true</IntrinsicFunctions>");
             builder.AppendLine("      <SDLCheck>true</SDLCheck>");
             builder.AppendLine("      <ConformanceMode>true</ConformanceMode>");
-            builder.AppendLine(@"      <AdditionalIncludeDirectories>..\..\..\STDOS\STDOS;..\..\..\STDOS\SYSTEM\STM32F1\CMSIS;..\..\..\STDOS\SYSTEM\STM32F1\FWLib\inc;..\..\..\STDOS\STDOS\Kernel;..\..\..\STDOS\STDOS\Device;..\..\..\STDOS\STDOS\Core;..\..\..\STDOS\SYSTEM\STM32F1\startup;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>");
-            builder.AppendLine("      <PreprocessorDefinitions>STM32F10X_HD;STM32F1;DEBUG;USE_STDPERIPH_DRIVER;%(PreprocessorDefinitions)</PreprocessorDefinitions>");
+
+            builder.Append(@"      <AdditionalIncludeDirectories>");
+            builder.Append(getIncludePath()).AppendLine(";%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>");
+            getDefineToVc(builder);
+
             builder.AppendLine("    </ClCompile>");
             builder.AppendLine(@"    <Link>");
             builder.AppendLine(@"      <EnableCOMDATFolding>true</EnableCOMDATFolding>");
