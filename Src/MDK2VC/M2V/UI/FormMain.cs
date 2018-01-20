@@ -214,9 +214,14 @@ namespace MDK2VC
                 builder.AppendLine("    </Filter>");
             }
         }
-
-        void createvcxproj(string filename, string name)
+        string getFileNameony(string filename)
         {
+            var filenameoly = filename.Substring(filename.LastIndexOf("\\") + 1, (filename.LastIndexOf(".") - filename.LastIndexOf("\\") - 1)); //文件名
+
+            return filenameoly;
+        }
+        void createvcxproj(string filename, string name)
+        {            
             var builder = new StringBuilder();
             builder.AppendLine("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
             builder.AppendLine("<Project DefaultTargets=\"Build\" ToolsVersion=\"15.0\" xmlns=\"http://schemas.microsoft.com/developer/msbuild/2003\">");
@@ -296,6 +301,9 @@ namespace MDK2VC
             builder.AppendLine("      <Optimization>Disabled</Optimization>");
             builder.AppendLine("      <SDLCheck>true</SDLCheck>");
             builder.AppendLine("      <ConformanceMode>true</ConformanceMode>");
+            builder.Append(@"      <AdditionalIncludeDirectories>");
+            builder.Append(getIncludePath()).AppendLine(";%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>");
+            getDefineToVc(builder);
             builder.AppendLine("    </ClCompile>");
             builder.AppendLine("  </ItemDefinitionGroup>");
             builder.AppendLine("  <ItemDefinitionGroup Condition=\"'$(Configuration)|$(Platform)' == 'Debug|x64'\">");
@@ -319,6 +327,9 @@ namespace MDK2VC
             builder.AppendLine("      <IntrinsicFunctions>true</IntrinsicFunctions>");
             builder.AppendLine("      <SDLCheck>true</SDLCheck>");
             builder.AppendLine("      <ConformanceMode>true</ConformanceMode>");
+            builder.Append(@"      <AdditionalIncludeDirectories>");
+            builder.Append(getIncludePath()).AppendLine(";%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>");
+            getDefineToVc(builder);
             builder.AppendLine("    </ClCompile>");
             builder.AppendLine("    <Link>");
             builder.AppendLine("      <EnableCOMDATFolding>true</EnableCOMDATFolding>");
@@ -381,13 +392,19 @@ namespace MDK2VC
         void createsln(string filename)
         {
             var builder = new StringBuilder();
-
+            var file = getFileNameony(filename);
             builder.AppendLine("");
             builder.AppendLine("Microsoft Visual Studio Solution File, Format Version 12.00");
             builder.AppendLine("# Visual Studio 15");
             builder.AppendLine("VisualStudioVersion = 15.0.27130.2020");
             builder.AppendLine("MinimumVisualStudioVersion = 10.0.40219.1");
-            builder.AppendLine("Project(\"{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}\") = \"f111\", \"f111.vcxproj\", \"{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}\"");
+
+            builder.Append("Project(\"{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}\") = \"");
+            builder.Append(file);
+            builder.Append("\", \"");
+            builder.Append(file);
+            builder.AppendLine(".vcxproj\", \"{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}\"");
+
             builder.AppendLine("EndProject");
             builder.AppendLine("Global");
             builder.AppendLine("	GlobalSection(SolutionConfigurationPlatforms) = preSolution");
