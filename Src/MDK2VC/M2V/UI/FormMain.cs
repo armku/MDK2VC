@@ -65,11 +65,11 @@ namespace MDK2VC
         {
             var builder = new StringBuilder();
             getDefine(builder);
-            getIncludePath(builder);
+            builder.AppendLine(getIncludePath());
             getGroups(builder);
             richTextBox1.Text = builder.ToString();
         }
-        void getIncludePath(StringBuilder builder)
+        string getIncludePath()
         {
             var doc = XElement.Load(cfg.MdkPath);
             var Targets = doc.Element("Targets");
@@ -80,7 +80,7 @@ namespace MDK2VC
             var VariousControls = Cads.Element("VariousControls");
             var IncludePath = VariousControls.Element("IncludePath");
 
-            builder.AppendLine(IncludePath.Value);
+            return IncludePath.Value;
 
         }
         void getDefine(StringBuilder builder)
@@ -107,14 +107,14 @@ namespace MDK2VC
             var VariousControls = Cads.Element("VariousControls");
             var Define = VariousControls.Element("Define");
 
-            builder.Append("# ADD CPP /nologo /W3 /GX /O2 /D \"WIN32\" /D \"NDEBUG\" /D \"_WINDOWS\" /D \"_MBCS\"");
+            builder.Append("      <PreprocessorDefinitions>");
 
             var strs = Define.Value.ToString().Split(new char[] { ','});
             foreach(var str in strs)
             {
-                builder.Append(" /D ").Append(str);
+                builder.Append(str).Append(";");
             }            
-            builder.AppendLine(" /YX /FD /c");
+            builder.AppendLine("%(PreprocessorDefinitions)</PreprocessorDefinitions>");
         }
         void getGroups(StringBuilder builder)
         {
@@ -258,9 +258,10 @@ namespace MDK2VC
             builder.AppendLine("      <WarningLevel>Level3</WarningLevel>");
             builder.AppendLine("      <Optimization>Disabled</Optimization>");
             builder.AppendLine("      <SDLCheck>true</SDLCheck>");
-            builder.AppendLine("      <ConformanceMode>true</ConformanceMode>");
-            builder.AppendLine(@"      <AdditionalIncludeDirectories>..\..\..\STDOS\STDOS;..\..\..\STDOS\\SYSTEM\\STM32F1\\CMSIS;..\..\..\STDOS\SYSTEM\STM32F1\FWLib\inc;..\..\..\STDOS\STDOS\Kernel;..\..\..\STDOS\STDOS\Device;..\..\..\STDOS\STDOS\Core;..\..\..\STDOS\SYSTEM\STM32F1\startup;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>");
-            builder.AppendLine("      <PreprocessorDefinitions>STM32F10X_HD;STM32F1;DEBUG;USE_STDPERIPH_DRIVER;%(PreprocessorDefinitions)</PreprocessorDefinitions>");
+            builder.AppendLine("      <ConformanceMode>true</ConformanceMode>");            
+            builder.Append(@"      <AdditionalIncludeDirectories>");
+            builder.Append(getIncludePath()).AppendLine(";%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>");
+            getDefineToVc(builder);
             builder.AppendLine("    </ClCompile>");
             builder.AppendLine("  </ItemDefinitionGroup>");
             builder.AppendLine("  <ItemDefinitionGroup Condition=\"'$(Configuration)|$(Platform)' == 'Release|Win32'\">");
