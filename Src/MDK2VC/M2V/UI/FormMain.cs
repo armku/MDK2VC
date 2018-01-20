@@ -119,6 +119,40 @@ namespace MDK2VC
                 }
             }
         }
+        void getGroupsToVc(StringBuilder builder)
+        {
+            var doc = XElement.Load(cfg.MdkPath);
+            var Targets = doc.Element("Targets");
+            var Target = Targets.Element("Target");
+            var Groups = Target.Element("Groups");
+
+            var Group = Groups.Elements("Group");
+            foreach (var grou in Group)
+            {
+                var aa = grou.Element("GroupName");
+                builder.Append("# Begin Group \"").Append(aa.Value).AppendLine("\"");
+                builder.AppendLine("");
+                builder.AppendLine("# PROP Default_Filter \"cpp; c; cxx; rc; def; r; odl; idl; hpj; bat\"");
+                
+                var Files = grou.Elements("Files");
+                foreach (var File in Files)
+                {
+                    var file = File.Elements("File");
+                    foreach (var ff in file)
+                    {
+                        var FilePath = ff.Element("FilePath");
+                        builder.AppendLine("# Begin Source File");
+                        builder.AppendLine("");
+                        builder.Append("SOURCE=");
+                        if (FilePath != null)
+                            builder.AppendLine(FilePath.Value);
+                        builder.AppendLine("# End Source File");
+                    }
+                }
+                builder.AppendLine("# End Group");
+            }
+        }
+
         void createdsw(string filename, string name)
         {
             var builder = new StringBuilder();
@@ -281,6 +315,7 @@ namespace MDK2VC
             builder.AppendLine(@"SOURCE=..\..\..\MCU\STM32\STDOS\STDOS\Core\Version.h");
             builder.AppendLine(@"# End Source File");
             builder.AppendLine(@"# End Group");
+            getGroupsToVc(builder);
             builder.AppendLine(@"# Begin Group ""Resource Files""");
             builder.AppendLine(@"");
             builder.AppendLine(@"# PROP Default_Filter ""ico; cur; bmp; dlg; rc2; rct; bin; rgs; gif; jpg; jpeg; jpe""");
