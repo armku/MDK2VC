@@ -31,12 +31,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.tBoxMDKPath = new System.Windows.Forms.TextBox();
-            this.tBoxVCPath = new System.Windows.Forms.TextBox();
+            this.tBoxVCPathdsp = new System.Windows.Forms.TextBox();
             this.btnTrans = new System.Windows.Forms.Button();
             this.btnSelMDKPath = new System.Windows.Forms.Button();
             this.btnSelectVCPath = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.btnTest = new System.Windows.Forms.Button();
+            this.btnOpenDsw = new System.Windows.Forms.Button();
+            this.tboxdsw = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -64,16 +66,16 @@
             this.tBoxMDKPath.Size = new System.Drawing.Size(367, 21);
             this.tBoxMDKPath.TabIndex = 2;
             // 
-            // tBoxVCPath
+            // tBoxVCPathdsp
             // 
-            this.tBoxVCPath.Location = new System.Drawing.Point(65, 54);
-            this.tBoxVCPath.Name = "tBoxVCPath";
-            this.tBoxVCPath.Size = new System.Drawing.Size(367, 21);
-            this.tBoxVCPath.TabIndex = 3;
+            this.tBoxVCPathdsp.Location = new System.Drawing.Point(65, 54);
+            this.tBoxVCPathdsp.Name = "tBoxVCPathdsp";
+            this.tBoxVCPathdsp.Size = new System.Drawing.Size(367, 21);
+            this.tBoxVCPathdsp.TabIndex = 3;
             // 
             // btnTrans
             // 
-            this.btnTrans.Location = new System.Drawing.Point(143, 81);
+            this.btnTrans.Location = new System.Drawing.Point(136, 191);
             this.btnTrans.Name = "btnTrans";
             this.btnTrans.Size = new System.Drawing.Size(75, 23);
             this.btnTrans.TabIndex = 4;
@@ -103,15 +105,15 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(20, 127);
+            this.richTextBox1.Location = new System.Drawing.Point(12, 271);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(492, 161);
+            this.richTextBox1.Size = new System.Drawing.Size(492, 139);
             this.richTextBox1.TabIndex = 8;
             this.richTextBox1.Text = "";
             // 
             // btnTest
             // 
-            this.btnTest.Location = new System.Drawing.Point(295, 81);
+            this.btnTest.Location = new System.Drawing.Point(288, 191);
             this.btnTest.Name = "btnTest";
             this.btnTest.Size = new System.Drawing.Size(75, 23);
             this.btnTest.TabIndex = 9;
@@ -119,17 +121,36 @@
             this.btnTest.UseVisualStyleBackColor = true;
             this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
+            // btnOpenDsw
+            // 
+            this.btnOpenDsw.Location = new System.Drawing.Point(438, 79);
+            this.btnOpenDsw.Name = "btnOpenDsw";
+            this.btnOpenDsw.Size = new System.Drawing.Size(75, 23);
+            this.btnOpenDsw.TabIndex = 11;
+            this.btnOpenDsw.Text = "...";
+            this.btnOpenDsw.UseVisualStyleBackColor = true;
+            this.btnOpenDsw.Click += new System.EventHandler(this.btnOpenDsw_Click);
+            // 
+            // tboxdsw
+            // 
+            this.tboxdsw.Location = new System.Drawing.Point(65, 81);
+            this.tboxdsw.Name = "tboxdsw";
+            this.tboxdsw.Size = new System.Drawing.Size(367, 21);
+            this.tboxdsw.TabIndex = 10;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(524, 300);
+            this.ClientSize = new System.Drawing.Size(524, 422);
+            this.Controls.Add(this.btnOpenDsw);
+            this.Controls.Add(this.tboxdsw);
             this.Controls.Add(this.btnTest);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.btnSelectVCPath);
             this.Controls.Add(this.btnSelMDKPath);
             this.Controls.Add(this.btnTrans);
-            this.Controls.Add(this.tBoxVCPath);
+            this.Controls.Add(this.tBoxVCPathdsp);
             this.Controls.Add(this.tBoxMDKPath);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -147,12 +168,14 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tBoxMDKPath;
-        private System.Windows.Forms.TextBox tBoxVCPath;
+        private System.Windows.Forms.TextBox tBoxVCPathdsp;
         private System.Windows.Forms.Button btnTrans;
         private System.Windows.Forms.Button btnSelMDKPath;
         private System.Windows.Forms.Button btnSelectVCPath;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button btnTest;
+        private System.Windows.Forms.Button btnOpenDsw;
+        private System.Windows.Forms.TextBox tboxdsw;
     }
 }
 
