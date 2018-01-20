@@ -141,7 +141,7 @@ namespace MDK2VC
                 }
             }
         }
-        void getGroupsToVc(StringBuilder builder)
+        void getGroupsToFilters(StringBuilder builder)
         {
             var doc = XElement.Load(cfg.MdkPath);
             var Targets = doc.Element("Targets");
@@ -151,11 +151,7 @@ namespace MDK2VC
             var Group = Groups.Elements("Group");
             foreach (var grou in Group)
             {
-                var aa = grou.Element("GroupName");
-                builder.Append("# Begin Group \"").Append(aa.Value).AppendLine("\"");
-                builder.AppendLine("");
-                builder.AppendLine("# PROP Default_Filter \"cpp; c; cxx; rc; def; r; odl; idl; hpj; bat\"");
-                
+                var aa = grou.Element("GroupName");                
                 var Files = grou.Elements("Files");
                 foreach (var File in Files)
                 {
@@ -163,15 +159,14 @@ namespace MDK2VC
                     foreach (var ff in file)
                     {
                         var FilePath = ff.Element("FilePath");
-                        builder.AppendLine("# Begin Source File");
-                        builder.AppendLine("");
-                        builder.Append("SOURCE=");
+                        builder.Append("    <ClCompile Include=\"");
                         if (FilePath != null)
-                            builder.AppendLine(FilePath.Value);
-                        builder.AppendLine("# End Source File");
+                            builder.Append(FilePath.Value);
+                        builder.AppendLine("\">");
+                        builder.Append("      <Filter>").Append(aa.Value).AppendLine("</Filter>");
+                        builder.AppendLine("    </ClCompile>");
                     }
                 }
-                builder.AppendLine("# End Group");
             }
         }
 
@@ -354,6 +349,7 @@ namespace MDK2VC
             builder.AppendLine("    <ClCompile Include=\"..\\..\\SYSTEM\\STM32F1\\CMSIS\\core_cm3.c\">");
             builder.AppendLine("      <Filter>CMSIS</Filter>");
             builder.AppendLine("    </ClCompile>");
+            getGroupsToFilters(builder);
             builder.AppendLine("  </ItemGroup>");
             builder.AppendLine("</Project>");
 
