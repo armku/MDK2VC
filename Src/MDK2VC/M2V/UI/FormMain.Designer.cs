@@ -34,7 +34,6 @@
             this.tBoxvcxproj = new System.Windows.Forms.TextBox();
             this.btnTrans = new System.Windows.Forms.Button();
             this.btnSelMDKPath = new System.Windows.Forms.Button();
-            this.btnSelectVCPath = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.btnTest = new System.Windows.Forms.Button();
             this.tboxfilters = new System.Windows.Forms.TextBox();
@@ -72,7 +71,8 @@
             // 
             this.tBoxvcxproj.Location = new System.Drawing.Point(65, 43);
             this.tBoxvcxproj.Name = "tBoxvcxproj";
-            this.tBoxvcxproj.Size = new System.Drawing.Size(397, 21);
+            this.tBoxvcxproj.ReadOnly = true;
+            this.tBoxvcxproj.Size = new System.Drawing.Size(448, 21);
             this.tBoxvcxproj.TabIndex = 3;
             // 
             // btnTrans
@@ -94,16 +94,6 @@
             this.btnSelMDKPath.Text = "...";
             this.btnSelMDKPath.UseVisualStyleBackColor = true;
             this.btnSelMDKPath.Click += new System.EventHandler(this.btnSelMDKPath_Click);
-            // 
-            // btnSelectVCPath
-            // 
-            this.btnSelectVCPath.Location = new System.Drawing.Point(468, 41);
-            this.btnSelectVCPath.Name = "btnSelectVCPath";
-            this.btnSelectVCPath.Size = new System.Drawing.Size(45, 23);
-            this.btnSelectVCPath.TabIndex = 7;
-            this.btnSelectVCPath.Text = "...";
-            this.btnSelectVCPath.UseVisualStyleBackColor = true;
-            this.btnSelectVCPath.Click += new System.EventHandler(this.btnSelectVCPath_Click);
             // 
             // richTextBox1
             // 
@@ -168,7 +158,6 @@
             this.Controls.Add(this.tboxfilters);
             this.Controls.Add(this.btnTest);
             this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.btnSelectVCPath);
             this.Controls.Add(this.btnSelMDKPath);
             this.Controls.Add(this.btnTrans);
             this.Controls.Add(this.tBoxvcxproj);
@@ -192,7 +181,6 @@
         private System.Windows.Forms.TextBox tBoxvcxproj;
         private System.Windows.Forms.Button btnTrans;
         private System.Windows.Forms.Button btnSelMDKPath;
-        private System.Windows.Forms.Button btnSelectVCPath;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button btnTest;
         private System.Windows.Forms.TextBox tboxfilters;

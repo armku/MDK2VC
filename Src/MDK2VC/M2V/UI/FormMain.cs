@@ -43,27 +43,19 @@ namespace MDK2VC
             {
                 tBoxMDKPath.Text = fileDlg.FileName;
                 cfg.MdkPath = fileDlg.FileName;
-                cfg.Save();
-            }
-        }
+                var fp = cfg.MdkPath.Substring(0,cfg.MdkPath.Length-7);
+                cfg.vcxproj = fp + "vcxproj";
+                cfg.filters = fp + "filters";
+                cfg.sln = fp + "sln";
 
-        private void btnSelectVCPath_Click(object sender, EventArgs e)
-        {
-            var fileDlg = new SaveFileDialog();
-            fileDlg.Title = "请选择文件";
-            fileDlg.Filter = "VC项目|*.vcxproj";
-            if (fileDlg.ShowDialog() == DialogResult.OK)
-            {
-                tBoxvcxproj.Text = fileDlg.FileName;
-                cfg.vcxproj = fileDlg.FileName;
-                cfg.filters = cfg.vcxproj + ".filters";
-                cfg.sln = cfg.vcxproj.Substring(0, cfg.vcxproj.Length - 7) + "sln";
+                tBoxvcxproj.Text = cfg.vcxproj;
                 tboxfilters.Text = cfg.filters;
                 tboxsln.Text = cfg.sln;
+
                 cfg.Save();
             }
         }
-
+        
         private void btnTrans_Click(object sender, EventArgs e)
         {
             var builder = new StringBuilder();
@@ -444,19 +436,6 @@ namespace MDK2VC
             createvcxproj(cfg.vcxproj, @".\demo.dsp");
             createfilters(cfg.filters);
             createsln(cfg.sln);
-        }
-
-        private void btnOpenDsw_Click(object sender, EventArgs e)
-        {
-            var fileDlg = new SaveFileDialog();
-            fileDlg.Title = "请选择文件";
-            fileDlg.Filter = "VC项目|*.filters";
-            if (fileDlg.ShowDialog() == DialogResult.OK)
-            {
-                tboxfilters.Text = fileDlg.FileName;
-                cfg.filters = fileDlg.FileName;
-                cfg.Save();
-            }
-        }
+        }        
     }
 }
