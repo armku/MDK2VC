@@ -116,6 +116,50 @@ namespace MDK2VC
                     }
                 }
             }
-        }        
+        }
+
+        private void btnTest_Click(object sender, EventArgs e)
+        {
+            var builderdef = new StringBuilder();
+            getDefine(builderdef);
+
+            var builderinclude = new StringBuilder();
+            getIncludePath(builderinclude);
+
+            var xDoc = new XDocument();
+            var Project = new XElement("Project",new XAttribute("DefaultTargets", "Build"));
+            var ItemGroup = new XElement("ItemGroup",new XAttribute("Label", "ProjectConfigurations"));
+
+            var ItemDefinitionGroup = new XElement("ItemDefinitionGroup",new XAttribute("Condition", @"'$(Configuration)|$(Platform)'=='Release|x64'"));
+            var ClCompile = new XElement("ClCompile");
+            var AdditionalIncludeDirectories = new XElement("AdditionalIncludeDirectories", builderinclude.ToString());
+            var PreprocessorDefinitions = new XElement("PreprocessorDefinitions", builderdef.ToString()+@";%(PreprocessorDefinitions)");
+
+
+            ClCompile.Add(AdditionalIncludeDirectories);
+            ClCompile.Add(PreprocessorDefinitions);
+
+            ItemDefinitionGroup.Add(ClCompile);
+
+            var ItemGroupfiles = new XElement("ItemGroup");
+            for(int i=0;i<10;i++)
+            {
+                var f1 = new XElement("ClCompile" , new XAttribute("Include", @"..\..\STDOS\App\AT.cpp"));   
+                
+                ItemGroupfiles.Add(f1);
+            }
+
+
+
+            Project.Add(ItemGroup);
+            Project.Add(ItemDefinitionGroup);
+            Project.Add(ItemGroupfiles);
+
+
+            xDoc.Add(Project);
+
+
+            xDoc.Save(cfg.VcPath);
+        }
     }
 }

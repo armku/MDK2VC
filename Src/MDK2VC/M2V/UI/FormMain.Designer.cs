@@ -36,6 +36,7 @@
             this.btnSelMDKPath = new System.Windows.Forms.Button();
             this.btnSelectVCPath = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.btnTest = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -108,11 +109,22 @@
             this.richTextBox1.TabIndex = 8;
             this.richTextBox1.Text = "";
             // 
+            // btnTest
+            // 
+            this.btnTest.Location = new System.Drawing.Point(295, 81);
+            this.btnTest.Name = "btnTest";
+            this.btnTest.Size = new System.Drawing.Size(75, 23);
+            this.btnTest.TabIndex = 9;
+            this.btnTest.Text = "Test";
+            this.btnTest.UseVisualStyleBackColor = true;
+            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(524, 300);
+            this.Controls.Add(this.btnTest);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.btnSelectVCPath);
             this.Controls.Add(this.btnSelMDKPath);
@@ -140,6 +152,7 @@
         private System.Windows.Forms.Button btnSelMDKPath;
         private System.Windows.Forms.Button btnSelectVCPath;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Button btnTest;
     }
 }
 
