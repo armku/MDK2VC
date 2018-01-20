@@ -282,60 +282,12 @@ namespace MDK2VC
             builder.AppendLine(@"# Begin Target");
             builder.AppendLine(@"");
             builder.AppendLine(@"# Name ""demo - Win32 Release""");
-            builder.AppendLine(@"# Name ""demo - Win32 Debug""");
-            builder.AppendLine(@"# Begin Group ""Source Files""");
-            builder.AppendLine(@"");
-            builder.AppendLine(@"# PROP Default_Filter ""cpp; c; cxx; rc; def; r; odl; idl; hpj; bat""");
-            builder.AppendLine(@"# Begin Source File");
-            builder.AppendLine(@"");
-            builder.AppendLine(@"SOURCE=..\..\..\MCU\STM32\STDOS\STDOS\Core\Array.cpp");
-            builder.AppendLine(@"# End Source File");
-            builder.AppendLine(@"# Begin Source File");
-            builder.AppendLine(@"");
-            builder.AppendLine(@"SOURCE=..\..\..\MCU\STM32\STDOS\STDOS\Core\Buffer.cpp");
-            builder.AppendLine(@"# End Source File");
-            builder.AppendLine(@"# Begin Source File");
-            builder.AppendLine(@"");
-            builder.AppendLine(@"SOURCE=..\..\..\MCU\STM32\STDOS\STDOS\Core\Version.cpp");
-            builder.AppendLine(@"# End Source File");
-            builder.AppendLine(@"# End Group");
-            builder.AppendLine(@"# Begin Group ""Header Files""");
-            builder.AppendLine(@"");
-            builder.AppendLine(@"# PROP Default_Filter ""h; hpp; hxx; hm; inl""");
-            builder.AppendLine(@"# Begin Source File");
-            builder.AppendLine(@"");
-            builder.AppendLine(@"SOURCE=..\..\..\MCU\STM32\STDOS\STDOS\Core\_Core.h");
-            builder.AppendLine(@"# End Source File");
-            builder.AppendLine(@"# Begin Source File");
-            builder.AppendLine(@"");
-            builder.AppendLine(@"SOURCE=..\..\..\MCU\STM32\STDOS\STDOS\Core\Type.h");
-            builder.AppendLine(@"# End Source File");
-            builder.AppendLine(@"# Begin Source File");
-            builder.AppendLine(@"");
-            builder.AppendLine(@"SOURCE=..\..\..\MCU\STM32\STDOS\STDOS\Core\Version.h");
-            builder.AppendLine(@"# End Source File");
-            builder.AppendLine(@"# End Group");
-            getGroupsToVc(builder);
-            builder.AppendLine(@"# Begin Group ""Resource Files""");
-            builder.AppendLine(@"");
-            builder.AppendLine(@"# PROP Default_Filter ""ico; cur; bmp; dlg; rc2; rct; bin; rgs; gif; jpg; jpeg; jpe""");
-            builder.AppendLine(@"# End Group");
+            builder.AppendLine(@"# Name ""demo - Win32 Debug""");            
+            getGroupsToVc(builder);            
             builder.AppendLine(@"# End Target");
             builder.AppendLine(@"# End Project");
             builder.AppendLine(@"");
-
-
-
-
-
-
-
-
-
-
-
-
-
+            
             var fs = new FileStream(filename, FileMode.Create);
             byte[] data = new UTF8Encoding().GetBytes(builder.ToString());
             fs.Write(data);
