@@ -42,7 +42,7 @@ namespace MDK2VC
                 cfg.MdkPath = fileDlg.FileName;
                 var fp = cfg.MdkPath.Substring(0,cfg.MdkPath.Length-7);
                 cfg.vcxproj = fp + "vcxproj";
-                cfg.filters = fp + "filters";
+                cfg.filters = fp + "vcxproj" + ".filters";
                 cfg.sln = fp + "sln";
 
                 tBoxvcxproj.Text = cfg.vcxproj;
