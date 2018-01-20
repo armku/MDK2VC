@@ -94,6 +94,26 @@ namespace MDK2VC
 
             builder.AppendLine(Define.Value);
         }
+        void getDefineToVc(StringBuilder builder)
+        {
+            var doc = XElement.Load(cfg.MdkPath);
+            var Targets = doc.Element("Targets");
+            var Target = Targets.Element("Target");
+            var TargetOption = Target.Element("TargetOption");
+            var TargetArmAds = TargetOption.Element("TargetArmAds");
+            var Cads = TargetArmAds.Element("Cads");
+            var VariousControls = Cads.Element("VariousControls");
+            var Define = VariousControls.Element("Define");
+
+            builder.Append("# ADD CPP /nologo /W3 /GX /O2 /D \"WIN32\" /D \"NDEBUG\" /D \"_WINDOWS\" /D \"_MBCS\"");
+
+            var strs = Define.Value.ToString().Split(new char[] { ','});
+            foreach(var str in strs)
+            {
+                builder.Append(" /D ").Append(str);
+            }            
+            builder.AppendLine(" /YX /FD /c");
+        }
         void getGroups(StringBuilder builder)
         {
             var doc = XElement.Load(cfg.MdkPath);
@@ -240,7 +260,8 @@ namespace MDK2VC
             builder.AppendLine("# PROP Intermediate_Dir \"Release\"");
             builder.AppendLine("# PROP Target_Dir \"\"");
             builder.AppendLine("# ADD BASE CPP /nologo /W3 /GX /O2 /D \"WIN32\" /D \"NDEBUG\" /D \"_WINDOWS\" /D \"_MBCS\" /YX /FD /c");
-            builder.AppendLine("# ADD CPP /nologo /W3 /GX /O2 /D \"WIN32\" /D \"NDEBUG\" /D \"_WINDOWS\" /D \"_MBCS\" /YX /FD /c");
+            getDefineToVc(builder);
+            //builder.AppendLine("# ADD CPP /nologo /W3 /GX /O2 /D \"WIN32\" /D \"NDEBUG\" /D \"_WINDOWS\" /D \"_MBCS\" /YX /FD /c");
             builder.AppendLine("# ADD BASE MTL /nologo /D \"NDEBUG\" /mktyplib203 /win32");
             builder.AppendLine("# ADD MTL /nologo /D \"NDEBUG\" /mktyplib203 /win32");
             builder.AppendLine("# ADD BASE RSC /l 0x804 /d \"NDEBUG\"");
