@@ -178,7 +178,7 @@ namespace MDK2VC
         void createvcxproj(string filename, string name)
         {
             var builder = new StringBuilder();
-            builder.AppendLine("<?xml version=\"1.0\" encoding=\"utf - 8\"?>");
+            builder.AppendLine("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
             builder.AppendLine("<Project DefaultTargets=\"Build\" ToolsVersion=\"15.0\" xmlns=\"http://schemas.microsoft.com/developer/msbuild/2003\">");
             builder.AppendLine("  <ItemGroup Label=\"ProjectConfigurations\">");
             builder.AppendLine("    <ProjectConfiguration Include=\"Debug | Win32\">");
