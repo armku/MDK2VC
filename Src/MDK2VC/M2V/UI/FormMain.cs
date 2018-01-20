@@ -322,7 +322,7 @@ namespace MDK2VC
         {
             var builder = new StringBuilder();
 
-            builder.AppendLine("<?xml version=\"1.0\" encoding=\"utf - 8\"?>");
+            builder.AppendLine("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
             builder.AppendLine("<Project ToolsVersion=\"4.0\" xmlns=\"http://schemas.microsoft.com/developer/msbuild/2003\">");
             builder.AppendLine("  <ItemGroup>");
             builder.AppendLine("    <Filter Include=\"CMSIS\">");
