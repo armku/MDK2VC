@@ -28,8 +28,8 @@ namespace MDK2VC
         {
             cfg = SysConfig.Current;
             tBoxMDKPath.Text = cfg.MdkPath;
-            tBoxVCPathdsp.Text = cfg.vcdsp;
-            tboxdsw.Text = cfg.vcdsw;
+            tBoxVCPathdsp.Text = cfg.vcxproj;
+            tboxdsw.Text = cfg.filters;
         }
 
         private void btnSelMDKPath_Click(object sender, EventArgs e)
@@ -50,11 +50,11 @@ namespace MDK2VC
         {
             var fileDlg = new SaveFileDialog();
             fileDlg.Title = "请选择文件";
-            fileDlg.Filter = "VC项目|*.dsp";
+            fileDlg.Filter = "VC项目|*.vcxproj";
             if (fileDlg.ShowDialog() == DialogResult.OK)
             {
                 tBoxVCPathdsp.Text = fileDlg.FileName;
-                cfg.vcdsp = fileDlg.FileName;
+                cfg.vcxproj = fileDlg.FileName;
                 cfg.Save();
             }
         }
@@ -318,19 +318,19 @@ namespace MDK2VC
 
         private void btnTest_Click(object sender, EventArgs e)
         {
-            createdsw(cfg.vcdsw, @".\demo.dsp");
-            createdsp(cfg.vcdsp);
+            createdsw(cfg.filters, @".\demo.dsp");
+            createdsp(cfg.vcxproj);
         }
 
         private void btnOpenDsw_Click(object sender, EventArgs e)
         {
             var fileDlg = new SaveFileDialog();
             fileDlg.Title = "请选择文件";
-            fileDlg.Filter = "VC项目|*.dsw";
+            fileDlg.Filter = "VC项目|*.filters";
             if (fileDlg.ShowDialog() == DialogResult.OK)
             {
                 tboxdsw.Text = fileDlg.FileName;
-                cfg.vcdsw = fileDlg.FileName;
+                cfg.filters = fileDlg.FileName;
                 cfg.Save();
             }
         }

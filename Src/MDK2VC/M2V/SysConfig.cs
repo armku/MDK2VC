@@ -20,7 +20,7 @@ namespace MDK2VC.M2V
         /// VC 工程文件路径
         /// </summary>
         [Description("VC 工程文件路径")]
-        public string vcdsp { get; set; }
-        public string vcdsw { get; set; }
+        public string vcxproj { get; set; }
+        public string filters { get; set; }
     }
 }

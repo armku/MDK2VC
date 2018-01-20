@@ -39,6 +39,7 @@
             this.btnTest = new System.Windows.Forms.Button();
             this.btnOpenDsw = new System.Windows.Forms.Button();
             this.tboxdsw = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -53,11 +54,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 57);
+            this.label2.Location = new System.Drawing.Point(12, 57);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 12);
+            this.label2.Size = new System.Drawing.Size(47, 12);
             this.label2.TabIndex = 1;
-            this.label2.Text = "VC项目";
+            this.label2.Text = "vcxproj";
             // 
             // tBoxMDKPath
             // 
@@ -138,11 +139,21 @@
             this.tboxdsw.Size = new System.Drawing.Size(367, 21);
             this.tboxdsw.TabIndex = 10;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(10, 84);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(47, 12);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "filters";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(524, 422);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnOpenDsw);
             this.Controls.Add(this.tboxdsw);
             this.Controls.Add(this.btnTest);
@@ -156,7 +167,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "MDK2VC";
+            this.Text = "MDK5.24 2 VC2017";
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -176,6 +187,7 @@
         private System.Windows.Forms.Button btnTest;
         private System.Windows.Forms.Button btnOpenDsw;
         private System.Windows.Forms.TextBox tboxdsw;
+        private System.Windows.Forms.Label label3;
     }
 }
 
