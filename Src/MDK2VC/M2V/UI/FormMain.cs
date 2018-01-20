@@ -77,9 +77,9 @@ namespace MDK2VC
             var Cads = TargetArmAds.Element("Cads");
             var VariousControls = Cads.Element("VariousControls");
             var IncludePath = VariousControls.Element("IncludePath");
-                                   
+
             builder.AppendLine(IncludePath.Value);
-           
+
         }
         void getDefine(StringBuilder builder)
         {
@@ -91,7 +91,7 @@ namespace MDK2VC
             var Cads = TargetArmAds.Element("Cads");
             var VariousControls = Cads.Element("VariousControls");
             var Define = VariousControls.Element("Define");
-                        
+
             builder.AppendLine(Define.Value);
         }
         void getGroups(StringBuilder builder)
@@ -102,8 +102,8 @@ namespace MDK2VC
             var Groups = Target.Element("Groups");
 
             var Group = Groups.Elements("Group");
-            foreach(var grou in Group)
-            {                
+            foreach (var grou in Group)
+            {
                 var aa = grou.Element("GroupName");
                 builder.AppendLine(aa.Value);
                 var Files = grou.Elements("Files");
@@ -119,7 +119,7 @@ namespace MDK2VC
                 }
             }
         }
-        void createdsw(string filename,string name)
+        void createdsw(string filename, string name)
         {
             var builder = new StringBuilder();
             builder.AppendLine("Microsoft Developer Studio Workspace File, Format Version 6.00");
@@ -166,51 +166,51 @@ namespace MDK2VC
             builder.AppendLine(@"# Microsoft Developer Studio Generated Build File, Format Version 6.00");
             builder.AppendLine(@"# ** DO NOT EDIT **");
             builder.AppendLine(@"");
-            builder.AppendLine(@"# TARGTYPE ""Win32(x86) Application"" 0x0101");
+            builder.AppendLine("# TARGTYPE \"Win32(x86) Application\" 0x0101");
             builder.AppendLine(@"");
             builder.AppendLine(@"CFG=demo - Win32 Debug");
             builder.AppendLine(@"!MESSAGE This is not a valid makefile. To build this project using NMAKE,");
             builder.AppendLine(@"!MESSAGE use the Export Makefile command and run");
             builder.AppendLine(@"!MESSAGE ");
-            builder.AppendLine(@"!MESSAGE NMAKE /f ""demo.mak"".");
+            builder.AppendLine("!MESSAGE NMAKE /f \"demo.mak\".");
             builder.AppendLine(@"!MESSAGE ");
             builder.AppendLine(@"!MESSAGE You can specify a configuration when running NMAKE");
             builder.AppendLine(@"!MESSAGE by defining the macro CFG on the command line. For example:");
             builder.AppendLine(@"!MESSAGE");
-            builder.AppendLine(@"!MESSAGE NMAKE /f ""demo.mak"" CFG=""demo - Win32 Debug""");
+            builder.AppendLine("!MESSAGE NMAKE /f \"demo.mak\" CFG=\"demo - Win32 Debug\"");
             builder.AppendLine(@"!MESSAGE ");
             builder.AppendLine(@"!MESSAGE Possible choices for configuration are:");
             builder.AppendLine(@"!MESSAGE ");
-            builder.AppendLine(@"!MESSAGE ""demo - Win32 Release"" (based on ""Win32(x86) Application"")");
-            builder.AppendLine(@"!MESSAGE ""demo - Win32 Debug"" (based on ""Win32(x86) Application"")");
+            builder.AppendLine("!MESSAGE \"demo - Win32 Release\" (based on \"Win32(x86) Application\")");
+            builder.AppendLine("!MESSAGE \"demo - Win32 Debug\" (based on \"Win32(x86) Application\")");
             builder.AppendLine(@"!MESSAGE ");
             builder.AppendLine(@"");
             builder.AppendLine(@"# Begin Project");
             builder.AppendLine(@"# PROP AllowPerConfigDependencies 0");
-            builder.AppendLine(@"# PROP Scc_ProjName """);
-            builder.AppendLine(@"# PROP Scc_LocalPath """);
+            builder.AppendLine("# PROP Scc_ProjName \"\"");
+            builder.AppendLine("# PROP Scc_LocalPath \"\"");
             builder.AppendLine(@"CPP=cl.exe");
             builder.AppendLine(@"MTL=midl.exe");
             builder.AppendLine(@"RSC=rc.exe");
             builder.AppendLine(@"");
-            builder.AppendLine(@"!IF  ""$(CFG)"" == ""demo - Win32 Release""");
+            builder.AppendLine("!IF  \"$(CFG)\" == \"demo - Win32 Release\"");
             builder.AppendLine(@"");
             builder.AppendLine(@"# PROP BASE Use_MFC 0");
             builder.AppendLine(@"# PROP BASE Use_Debug_Libraries 0");
-            builder.AppendLine(@"# PROP BASE Output_Dir ""Release""");
-            builder.AppendLine(@"# PROP BASE Intermediate_Dir ""Release""");
-            builder.AppendLine(@"# PROP BASE Target_Dir """);
+            builder.AppendLine("# PROP BASE Output_Dir \"Release\"");
+            builder.AppendLine("# PROP BASE Intermediate_Dir \"Release\"");
+            builder.AppendLine("# PROP BASE Target_Dir \"\"");
             builder.AppendLine(@"# PROP Use_MFC 0");
             builder.AppendLine(@"# PROP Use_Debug_Libraries 0");
-            builder.AppendLine(@"# PROP Output_Dir ""Release""");
-            builder.AppendLine(@"# PROP Intermediate_Dir ""Release""");
-            builder.AppendLine(@"# PROP Target_Dir """"");
-            builder.AppendLine(@"# ADD BASE CPP /nologo /W3 /GX /O2 /D ""WIN32"" /D ""NDEBUG"" /D ""_WINDOWS"" /D ""_MBCS"" /YX /FD /c");
-            builder.AppendLine(@"# ADD CPP /nologo /W3 /GX /O2 /D ""WIN32"" /D ""NDEBUG"" /D ""_WINDOWS"" /D ""_MBCS"" /YX /FD /c");
-            builder.AppendLine(@"# ADD BASE MTL /nologo /D ""NDEBUG"" /mktyplib203 /win32");
-            builder.AppendLine(@"# ADD MTL /nologo /D ""NDEBUG"" /mktyplib203 /win32");
-            builder.AppendLine(@"# ADD BASE RSC /l 0x804 /d ""NDEBUG""");
-            builder.AppendLine(@"# ADD RSC /l 0x804 /d ""NDEBUG""");
+            builder.AppendLine("# PROP Output_Dir \"Release\"");
+            builder.AppendLine("# PROP Intermediate_Dir \"Release\"");
+            builder.AppendLine("# PROP Target_Dir \"\"");
+            builder.AppendLine("# ADD BASE CPP /nologo /W3 /GX /O2 /D \"WIN32\" /D \"NDEBUG\" /D \"_WINDOWS\" /D \"_MBCS\" /YX /FD /c");
+            builder.AppendLine("# ADD CPP /nologo /W3 /GX /O2 /D \"WIN32\" /D \"NDEBUG\" /D \"_WINDOWS\" /D \"_MBCS\" /YX /FD /c");
+            builder.AppendLine("# ADD BASE MTL /nologo /D \"NDEBUG\" /mktyplib203 /win32");
+            builder.AppendLine("# ADD MTL /nologo /D \"NDEBUG\" /mktyplib203 /win32");
+            builder.AppendLine("# ADD BASE RSC /l 0x804 /d \"NDEBUG\"");
+            builder.AppendLine("# ADD RSC /l 0x804 /d \"NDEBUG\"");
             builder.AppendLine(@"BSC32=bscmake.exe");
             builder.AppendLine(@"# ADD BASE BSC32 /nologo");
             builder.AppendLine(@"# ADD BSC32 /nologo");
@@ -218,24 +218,24 @@ namespace MDK2VC
             builder.AppendLine(@"# ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /machine:I386");
             builder.AppendLine(@"# ADD LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /machine:I386");
             builder.AppendLine(@"");
-            builder.AppendLine(@"!ELSEIF  ""$(CFG)"" == ""demo - Win32 Debug""");
+            builder.AppendLine("!ELSEIF  \"$(CFG)\" == \"demo - Win32 Debug\"");
             builder.AppendLine(@"");
             builder.AppendLine(@"# PROP BASE Use_MFC 0");
             builder.AppendLine(@"# PROP BASE Use_Debug_Libraries 1");
-            builder.AppendLine(@"# PROP BASE Output_Dir ""Debug""");
-            builder.AppendLine(@"# PROP BASE Intermediate_Dir ""Debug""");
-            builder.AppendLine(@"# PROP BASE Target_Dir """);
+            builder.AppendLine("# PROP BASE Output_Dir \"Debug\"");
+            builder.AppendLine("# PROP BASE Intermediate_Dir \"Debug\"");
+            builder.AppendLine("# PROP BASE Target_Dir \"\"");
             builder.AppendLine(@"# PROP Use_MFC 0");
             builder.AppendLine(@"# PROP Use_Debug_Libraries 1");
-            builder.AppendLine(@"# PROP Output_Dir ""Debug""");
-            builder.AppendLine(@"# PROP Intermediate_Dir ""Debug""");
-            builder.AppendLine(@"# PROP Target_Dir """);
-            builder.AppendLine(@"# ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D ""WIN32"" / D ""_DEBUG"" / D ""_WINDOWS"" / D ""_MBCS"" / YX /FD /GZ /c");
-            builder.AppendLine(@"# ADD CPP /nologo /W3 /Gm /GX /ZI /Od /D ""WIN32"" / D ""_DEBUG"" / D ""_WINDOWS"" / D ""_MBCS"" / YX /FD /GZ /c");
-            builder.AppendLine(@"# ADD BASE MTL /nologo /D ""_DEBUG"" / mktyplib203 /win32");
-            builder.AppendLine(@"# ADD MTL /nologo /D ""_DEBUG"" / mktyplib203 /win32");
-            builder.AppendLine(@"# ADD BASE RSC /l 0x804 /d ""_DEBUG""");
-            builder.AppendLine(@"# ADD RSC /l 0x804 /d ""_DEBUG""");
+            builder.AppendLine("# PROP Output_Dir \"Debug\"");
+            builder.AppendLine("# PROP Intermediate_Dir \"Debug\"");
+            builder.AppendLine("# PROP Target_Dir \"\"");
+            builder.AppendLine("# ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D \"WIN32\" / D \"_DEBUG\" / D \"_WINDOWS\" / D \"_MBCS\" / YX /FD /GZ /c");
+            builder.AppendLine("# ADD CPP /nologo /W3 /Gm /GX /ZI /Od /D \"WIN32\" / D \"_DEBUG\" / D \"_WINDOWS\" / D \"_MBCS\" / YX /FD /GZ /c");
+            builder.AppendLine("# ADD BASE MTL /nologo /D \"_DEBUG\" / mktyplib203 /win32");
+            builder.AppendLine("# ADD MTL /nologo /D \"_DEBUG\" / mktyplib203 /win32");
+            builder.AppendLine("# ADD BASE RSC /l 0x804 /d \"_DEBUG\"");
+            builder.AppendLine("# ADD RSC /l 0x804 /d \"_DEBUG\"");
             builder.AppendLine(@"BSC32 =bscmake.exe");
             builder.AppendLine(@"# ADD BASE BSC32 /nologo");
             builder.AppendLine(@"# ADD BSC32 /nologo");
@@ -310,7 +310,7 @@ namespace MDK2VC
 
         private void btnTest_Click(object sender, EventArgs e)
         {
-           createdsw(cfg.vcdsw, @".\demo.dsp");
+            createdsw(cfg.vcdsw, @".\demo.dsp");
             createdsp(cfg.vcdsp);
         }
 
@@ -321,7 +321,7 @@ namespace MDK2VC
             fileDlg.Filter = "VC项目|*.dsw";
             if (fileDlg.ShowDialog() == DialogResult.OK)
             {
-                tboxdsw .Text = fileDlg.FileName;
+                tboxdsw.Text = fileDlg.FileName;
                 cfg.vcdsw = fileDlg.FileName;
                 cfg.Save();
             }
