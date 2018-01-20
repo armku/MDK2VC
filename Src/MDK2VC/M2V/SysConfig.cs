@@ -1,6 +1,4 @@
-﻿using NewLife;
-using NewLife.Xml;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -11,8 +9,7 @@ namespace MDK2VC.M2V
     /// <summary>
     /// 系统参数配置
     /// </summary>
-    [XmlConfigFile(@"Config/SysConfig.config")]
-    public class SysConfig : XmlConfig<SysConfig>
+    public class SysConfig 
     {
         /// <summary>
         /// MDK 工程文件路径

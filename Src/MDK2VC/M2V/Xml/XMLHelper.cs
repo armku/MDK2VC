@@ -306,6 +306,7 @@ namespace MDK2VC.M2V.Xml
             fs.Flush();
             fs.Close();
         }
+        
         public void createfilters(string filename,string path)
         {
             var builder = new StringBuilder();
@@ -374,6 +375,13 @@ namespace MDK2VC.M2V.Xml
             fs.Write(data);
             fs.Flush();
             fs.Close();
+        }
+    }
+    static class fff
+    {
+        public static void Write(this FileStream fs, byte[] array)
+        {
+            fs.Write(array, 0, array.Length);
         }
     }
 }

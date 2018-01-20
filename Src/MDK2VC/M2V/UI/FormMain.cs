@@ -15,7 +15,7 @@ namespace MDK2VC
         /// <summary>
         /// 项目配置
         /// </summary>
-        SysConfig cfg;
+        SysConfig cfg=new SysConfig();
         XMLHelper helper = new XMLHelper();
         public FormMain()
         {
@@ -24,7 +24,6 @@ namespace MDK2VC
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            cfg = SysConfig.Current;
             tBoxMDKPath.Text = cfg.MdkPath;
             tBoxvcxproj.Text = cfg.vcxproj;
             tboxfilters.Text = cfg.filters;
@@ -48,9 +47,7 @@ namespace MDK2VC
 
                 tBoxvcxproj.Text = cfg.vcxproj;
                 tboxfilters.Text = cfg.filters;
-                tboxsln.Text = cfg.sln;
-
-                cfg.Save();
+                tboxsln.Text = cfg.sln;                
             }
         }
         
