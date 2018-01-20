@@ -53,7 +53,6 @@
     <Compile Include="M2V\UI\FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="M2V\Xml\mdkprj.cs" />
     <Compile Include="M2V\Xml\XMLHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

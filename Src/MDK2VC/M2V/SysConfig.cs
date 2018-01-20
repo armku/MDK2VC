@@ -8,6 +8,9 @@ using System.Text;
 
 namespace MDK2VC.M2V
 {
+    /// <summary>
+    /// 系统参数配置
+    /// </summary>
     [XmlConfigFile(@"Config/SysConfig.config")]
     public class SysConfig : XmlConfig<SysConfig>
     {
@@ -17,11 +20,19 @@ namespace MDK2VC.M2V
         [Description("MDK 工程文件路径")]
         public string MdkPath { get; set; }
         /// <summary>
-        /// VC 工程文件路径
+        /// vcxproj文件路径
         /// </summary>
-        [Description("VC 工程文件路径")]
+        [Description("vcxproj文件路径")]
         public string vcxproj { get; set; }
+        /// <summary>
+        /// filters文件路径
+        /// </summary>
+        [Description("filters文件路径")]
         public string filters { get; set; }
+        /// <summary>
+        /// sln文件路径
+        /// </summary>
+        [Description("sln文件路径")]
         public string sln { get; set; }
     }
 }
