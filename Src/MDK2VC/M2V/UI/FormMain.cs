@@ -28,8 +28,8 @@ namespace MDK2VC
         {
             cfg = SysConfig.Current;
             tBoxMDKPath.Text = cfg.MdkPath;
-            tBoxVCPathdsp.Text = cfg.vcxproj;
-            tboxdsw.Text = cfg.filters;
+            tBoxvcxproj.Text = cfg.vcxproj;
+            tboxfilters.Text = cfg.filters;
         }
 
         private void btnSelMDKPath_Click(object sender, EventArgs e)
@@ -53,7 +53,7 @@ namespace MDK2VC
             fileDlg.Filter = "VC项目|*.vcxproj";
             if (fileDlg.ShowDialog() == DialogResult.OK)
             {
-                tBoxVCPathdsp.Text = fileDlg.FileName;
+                tBoxvcxproj.Text = fileDlg.FileName;
                 cfg.vcxproj = fileDlg.FileName;
                 cfg.Save();
             }
@@ -173,38 +173,264 @@ namespace MDK2VC
             }
         }
 
-        void createdsw(string filename, string name)
+        void createvcxproj(string filename, string name)
         {
             var builder = new StringBuilder();
-            builder.AppendLine("Microsoft Developer Studio Workspace File, Format Version 6.00");
-            builder.AppendLine("# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!");
+            builder.AppendLine("<?xml version=\"1.0\" encoding=\"utf - 8\"?>");
+            builder.AppendLine("<Project DefaultTargets=\"Build\" ToolsVersion=\"15.0\" xmlns=\"http://schemas.microsoft.com/developer/msbuild/2003\">");
+            builder.AppendLine("  <ItemGroup Label=\"ProjectConfigurations\">");
+            builder.AppendLine("    <ProjectConfiguration Include=\"Debug | Win32\">");
+            builder.AppendLine("      <Configuration>Debug</Configuration>");
             builder.AppendLine("");
-            builder.AppendLine("###############################################################################");
             builder.AppendLine("");
-            builder.Append(@"Project: ").Append(@"""demo""=").Append(name).AppendLine(@" - Package Owner=<4>");
             builder.AppendLine("");
-            builder.AppendLine(@"Package=<5>");
-            builder.AppendLine("{{{");
-            builder.AppendLine("}}}");
             builder.AppendLine("");
-            builder.AppendLine(@"Package=<4>");
-            builder.AppendLine("{{{");
-            builder.AppendLine("}}}");
             builder.AppendLine("");
-            builder.AppendLine("###############################################################################");
             builder.AppendLine("");
-            builder.AppendLine("Global:");
             builder.AppendLine("");
-            builder.AppendLine(@"Package=<5>");
-            builder.AppendLine("{{{");
-            builder.AppendLine("}}}");
             builder.AppendLine("");
-            builder.AppendLine(@"Package=<3>");
-            builder.AppendLine("{{{");
-            builder.AppendLine("}}}");
             builder.AppendLine("");
-            builder.AppendLine("###############################################################################");
             builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine(""); builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine(""); builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine(""); builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine(""); builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine(""); builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+            builder.AppendLine("");
+
+
+
 
             var fs = new FileStream(filename, FileMode.Create);
             byte[] data = new UTF8Encoding().GetBytes(builder.ToString());
@@ -212,7 +438,7 @@ namespace MDK2VC
             fs.Flush();
             fs.Close();
         }
-        void createdsp(string filename)
+        void createfilters(string filename)
         {
             var builder = new StringBuilder();
 
@@ -318,8 +544,8 @@ namespace MDK2VC
 
         private void btnTest_Click(object sender, EventArgs e)
         {
-            createdsw(cfg.filters, @".\demo.dsp");
-            createdsp(cfg.vcxproj);
+            createvcxproj(cfg.vcxproj, @".\demo.dsp");
+            createfilters(cfg.filters);
         }
 
         private void btnOpenDsw_Click(object sender, EventArgs e)
@@ -329,7 +555,7 @@ namespace MDK2VC
             fileDlg.Filter = "VC项目|*.filters";
             if (fileDlg.ShowDialog() == DialogResult.OK)
             {
-                tboxdsw.Text = fileDlg.FileName;
+                tboxfilters.Text = fileDlg.FileName;
                 cfg.filters = fileDlg.FileName;
                 cfg.Save();
             }
