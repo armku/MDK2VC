@@ -29,6 +29,7 @@ namespace MDK2VC
             tBoxvcxproj.Text = cfg.vcxproj;
             tboxfilters.Text = cfg.filters;
             tboxsln.Text = cfg.sln;
+            btnSelMDKPath.Focus();
         }
 
         private void btnSelMDKPath_Click(object sender, EventArgs e)
@@ -59,6 +60,7 @@ namespace MDK2VC
             if((cfg.MdkPath==null) || (!File.Exists(cfg.MdkPath)))
             {
                 MessageBox.Show("请选择正确的文件");
+                btnSelMDKPath.Focus();
                 return;
             }
 
@@ -73,6 +75,7 @@ namespace MDK2VC
             if ((cfg.MdkPath == null) || (!File.Exists(cfg.MdkPath)))
             {
                 MessageBox.Show("请选择正确的文件");
+                btnSelMDKPath.Focus();
                 return;
             }
             helper.createvcxproj(cfg.vcxproj,cfg.MdkPath);
