@@ -64,6 +64,7 @@
             // 
             this.tBoxMDKPath.Location = new System.Drawing.Point(65, 11);
             this.tBoxMDKPath.Name = "tBoxMDKPath";
+            this.tBoxMDKPath.ReadOnly = true;
             this.tBoxMDKPath.Size = new System.Drawing.Size(397, 21);
             this.tBoxMDKPath.TabIndex = 2;
             // 

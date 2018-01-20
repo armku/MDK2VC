@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
 
@@ -54,6 +55,13 @@ namespace MDK2VC
         private void btnTrans_Click(object sender, EventArgs e)
         {
             var builder = new StringBuilder();
+
+            if((cfg.MdkPath==null) || (!File.Exists(cfg.MdkPath)))
+            {
+                MessageBox.Show("请选择正确的文件");
+                return;
+            }
+
             helper.getDefine(builder,cfg.MdkPath);
             builder.AppendLine(helper.getIncludePath(cfg.MdkPath));
             helper.getGroups(builder,cfg.MdkPath);
@@ -62,6 +70,11 @@ namespace MDK2VC
         
         private void btnTest_Click(object sender, EventArgs e)
         {
+            if ((cfg.MdkPath == null) || (!File.Exists(cfg.MdkPath)))
+            {
+                MessageBox.Show("请选择正确的文件");
+                return;
+            }
             helper.createvcxproj(cfg.vcxproj,cfg.MdkPath);
             helper.createfilters(cfg.filters,cfg.MdkPath);
             helper.createsln(cfg.sln);
