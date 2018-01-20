@@ -37,7 +37,6 @@
             this.btnSelectVCPath = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.btnTest = new System.Windows.Forms.Button();
-            this.btnOpenDsw = new System.Windows.Forms.Button();
             this.tboxfilters = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -122,21 +121,11 @@
             this.btnTest.UseVisualStyleBackColor = true;
             this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
-            // btnOpenDsw
-            // 
-            this.btnOpenDsw.Location = new System.Drawing.Point(438, 79);
-            this.btnOpenDsw.Name = "btnOpenDsw";
-            this.btnOpenDsw.Size = new System.Drawing.Size(75, 23);
-            this.btnOpenDsw.TabIndex = 11;
-            this.btnOpenDsw.Text = "...";
-            this.btnOpenDsw.UseVisualStyleBackColor = true;
-            this.btnOpenDsw.Click += new System.EventHandler(this.btnOpenDsw_Click);
-            // 
             // tboxfilters
             // 
             this.tboxfilters.Location = new System.Drawing.Point(65, 81);
             this.tboxfilters.Name = "tboxfilters";
-            this.tboxfilters.Size = new System.Drawing.Size(367, 21);
+            this.tboxfilters.Size = new System.Drawing.Size(448, 21);
             this.tboxfilters.TabIndex = 10;
             // 
             // label3
@@ -154,7 +143,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(524, 422);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.btnOpenDsw);
             this.Controls.Add(this.tboxfilters);
             this.Controls.Add(this.btnTest);
             this.Controls.Add(this.richTextBox1);
@@ -185,7 +173,6 @@
         private System.Windows.Forms.Button btnSelectVCPath;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button btnTest;
-        private System.Windows.Forms.Button btnOpenDsw;
         private System.Windows.Forms.TextBox tboxfilters;
         private System.Windows.Forms.Label label3;
     }

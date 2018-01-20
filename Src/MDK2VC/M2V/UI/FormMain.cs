@@ -169,6 +169,32 @@ namespace MDK2VC
                 }
             }
         }
+        void getGroupsToProj(StringBuilder builder)
+        {
+            var doc = XElement.Load(cfg.MdkPath);
+            var Targets = doc.Element("Targets");
+            var Target = Targets.Element("Target");
+            var Groups = Target.Element("Groups");
+
+            var Group = Groups.Elements("Group");
+            foreach (var grou in Group)
+            {
+                var aa = grou.Element("GroupName");
+                var Files = grou.Elements("Files");
+                foreach (var File in Files)
+                {
+                    var file = File.Elements("File");
+                    foreach (var ff in file)
+                    {
+                        var FilePath = ff.Element("FilePath");
+                        builder.Append("    <ClCompile Include=\"");
+                        if (FilePath != null)
+                            builder.Append(FilePath.Value);
+                        builder.AppendLine("\" /> ");
+                    }
+                }
+            }
+        }
 
         void createvcxproj(string filename, string name)
         {
@@ -295,13 +321,7 @@ namespace MDK2VC
             builder.AppendLine(@"    </Link>");
             builder.AppendLine(@"  </ItemDefinitionGroup>");
             builder.AppendLine(@"  <ItemGroup>");
-            builder.AppendLine("    <ClCompile Include=\"..\\..\\STDOS\\App\\AT.cpp\" />");
-            builder.AppendLine("    <ClCompile Include=\"..\\..\\STDOS\\App\\BlinkPort.cpp\" />");
-            builder.AppendLine("    <ClCompile Include=\"..\\..\\STDOS\\App\\bspkey.cpp\" />");
-            builder.AppendLine("    <ClCompile Include=\"..\\..\\STDOS\\App\\FlushPort.cpp\" />");
-            builder.AppendLine("    <ClCompile Include=\"..\\..\\STDOS\\App\\lcd_dr.cpp\" />");
-            builder.AppendLine("    <ClCompile Include=\"..\\..\\SYSTEM\\STM32F1\\CMSIS\\core_cm3.c\" />");
-            builder.AppendLine("    <ClCompile Include=\"..\\..\\SYSTEM\\STM32F1\\CMSIS\\system_stm32f10x.c\\\" />");
+            getGroupsToProj(builder);
             builder.AppendLine(@"  </ItemGroup>");
             builder.AppendLine("  <Import Project=\"$(VCTargetsPath)\\Microsoft.Cpp.targets\" />");
             builder.AppendLine("  <ImportGroup Label=\"ExtensionTargets\">");
