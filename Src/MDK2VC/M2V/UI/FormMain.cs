@@ -195,6 +195,22 @@ namespace MDK2VC
                 }
             }
         }
+        void getGrouptoFilters(StringBuilder builder)
+        {
+            var doc = XElement.Load(cfg.MdkPath);
+            var Targets = doc.Element("Targets");
+            var Target = Targets.Element("Target");
+            var Groups = Target.Element("Groups");
+
+            var Group = Groups.Elements("Group");
+            foreach (var grou in Group)
+            {
+                var aa = grou.Element("GroupName");
+                builder.Append("    <Filter Include=\"").Append(aa.Value).AppendLine("\">");
+                builder.AppendLine("      <UniqueIdentifier>{926455ce-06fe-4d2e-a713-9c90bcdea046}</UniqueIdentifier>");
+                builder.AppendLine("    </Filter>");
+            }
+        }
 
         void createvcxproj(string filename, string name)
         {
@@ -341,12 +357,7 @@ namespace MDK2VC
             builder.AppendLine("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
             builder.AppendLine("<Project ToolsVersion=\"4.0\" xmlns=\"http://schemas.microsoft.com/developer/msbuild/2003\">");
             builder.AppendLine("  <ItemGroup>");
-            builder.AppendLine("    <Filter Include=\"CMSIS\">");
-            builder.AppendLine("      <UniqueIdentifier>{62538fdf-9df4-4575-b1e1-b2fb18ba74ec}</UniqueIdentifier>");
-            builder.AppendLine("    </Filter>");
-            builder.AppendLine("    <Filter Include=\"App\">");
-            builder.AppendLine("      <UniqueIdentifier>{926455ce-06fe-4d2e-a713-9c90bcdea046}</UniqueIdentifier>");
-            builder.AppendLine("    </Filter>");
+            getGrouptoFilters(builder);
             builder.AppendLine("  </ItemGroup>");
             builder.AppendLine("  <ItemGroup>");
             getGroupsToFilters(builder);
