@@ -207,7 +207,7 @@ namespace MDK2VC
             {
                 var aa = grou.Element("GroupName");
                 builder.Append("    <Filter Include=\"").Append(aa.Value).AppendLine("\">");
-                builder.Append("      <UniqueIdentifier>{").Append("926455ce-06fe-4d2e-a713-9c90bcdea046").AppendLine("}</UniqueIdentifier>");
+                builder.Append("      <UniqueIdentifier>").Append(Guid.NewGuid().ToString("B")).AppendLine("</UniqueIdentifier>");
                 builder.AppendLine("    </Filter>");
             }
         }
