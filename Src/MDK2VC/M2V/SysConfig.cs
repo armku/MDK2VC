@@ -18,6 +18,10 @@ namespace MDK2VC.M2V
         [Description("MDK 工程文件路径")]
         public string MdkPath { get; set; }
         /// <summary>
+        /// MDK文件包含路径
+        /// </summary>
+        public string MdkIncludePath { get; set; } = @"C:\Keil_v5\ARM\ARMCC\include";
+        /// <summary>
         /// vcxproj文件路径
         /// </summary>
         [Description("vcxproj文件路径")]
@@ -90,7 +94,7 @@ namespace MDK2VC.M2V
             {
                 var builder = new StringBuilder();
                 builder.Append("      <AdditionalIncludeDirectories>");
-                builder.Append(IncludePath);
+                builder.Append(IncludePath).Append(";").Append(this.MdkIncludePath);
                 builder.Append(";%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>");
                 return builder.ToString();
             }
