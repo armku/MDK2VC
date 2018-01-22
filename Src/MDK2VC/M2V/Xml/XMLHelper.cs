@@ -150,13 +150,7 @@ namespace MDK2VC.M2V.Xml
                 builder.Append("      <UniqueIdentifier>").Append(Guid.NewGuid().ToString("B")).AppendLine("</UniqueIdentifier>");
                 builder.AppendLine("    </Filter>");
             }
-        }
-        public string getFileNameony(string filename)
-        {
-            var filenameoly = filename.Substring(filename.LastIndexOf("\\") + 1, (filename.LastIndexOf(".") - filename.LastIndexOf("\\") - 1)); //文件名
-
-            return filenameoly;
-        }
+        }       
         public void createvcxproj(SysConfig cfg)
         {
             var builder = new StringBuilder();
@@ -330,7 +324,6 @@ namespace MDK2VC.M2V.Xml
         public void createsln(SysConfig cfg)
         {
             var builder = new StringBuilder();
-            var file = getFileNameony(cfg.sln);
             builder.AppendLine("");
             builder.AppendLine("Microsoft Visual Studio Solution File, Format Version 12.00");
             builder.AppendLine("# Visual Studio 15");
@@ -338,9 +331,9 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("MinimumVisualStudioVersion = 10.0.40219.1");
 
             builder.Append("Project(\"{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}\") = \"");
-            builder.Append(file);
+            builder.Append(cfg.FileNameWithoutExtension);
             builder.Append("\", \"");
-            builder.Append(file);
+            builder.Append(cfg.FileNameWithoutExtension);
             builder.AppendLine(".vcxproj\", \"{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}\"");
 
             builder.AppendLine("EndProject");
