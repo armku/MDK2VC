@@ -40,6 +40,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tboxsln = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -78,7 +79,7 @@
             // 
             // btnTrans
             // 
-            this.btnTrans.Location = new System.Drawing.Point(126, 124);
+            this.btnTrans.Location = new System.Drawing.Point(40, 124);
             this.btnTrans.Name = "btnTrans";
             this.btnTrans.Size = new System.Drawing.Size(75, 23);
             this.btnTrans.TabIndex = 4;
@@ -106,7 +107,7 @@
             // 
             // btnTest
             // 
-            this.btnTest.Location = new System.Drawing.Point(281, 124);
+            this.btnTest.Location = new System.Drawing.Point(226, 124);
             this.btnTest.Name = "btnTest";
             this.btnTest.Size = new System.Drawing.Size(75, 23);
             this.btnTest.TabIndex = 9;
@@ -148,11 +149,21 @@
             this.tboxsln.Size = new System.Drawing.Size(448, 21);
             this.tboxsln.TabIndex = 13;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(316, 129);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(41, 12);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "未转换";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(524, 422);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tboxsln);
             this.Controls.Add(this.label3);
@@ -188,6 +199,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tboxsln;
+        private System.Windows.Forms.Label label5;
     }
 }
 
