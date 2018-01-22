@@ -250,9 +250,7 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("      <Optimization>Disabled</Optimization>");
             builder.AppendLine("      <SDLCheck>true</SDLCheck>");
             builder.AppendLine("      <ConformanceMode>true</ConformanceMode>");
-            builder.Append(@"      <AdditionalIncludeDirectories>");
-            builder.Append(getIncludePath(cfg.MdkPath)).AppendLine(";%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>");
-            getDefineToVc(builder, cfg.MdkPath);
+            builder.AppendLine(cfg.MacroDefineVC);
             builder.AppendLine("    </ClCompile>");
             builder.AppendLine("  </ItemDefinitionGroup>");
             builder.AppendLine("  <ItemDefinitionGroup Condition=\"'$(Configuration)|$(Platform)' == 'Debug|x64'\">");
@@ -261,11 +259,7 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("      <Optimization>Disabled</Optimization>");
             builder.AppendLine("      <SDLCheck>true</SDLCheck>");
             builder.AppendLine("      <ConformanceMode>true</ConformanceMode>");
-
-            builder.Append(@"      <AdditionalIncludeDirectories>");
-            builder.Append(getIncludePath(cfg.MdkPath)).AppendLine(";%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>");
-            getDefineToVc(builder, cfg.MdkPath);
-
+            builder.AppendLine(cfg.MacroDefineVC);
             builder.AppendLine("    </ClCompile>");
             builder.AppendLine("  </ItemDefinitionGroup>");
             builder.AppendLine("  <ItemDefinitionGroup Condition=\"'$(Configuration)|$(Platform)' == 'Release|Win32'\">");
@@ -276,9 +270,7 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("      <IntrinsicFunctions>true</IntrinsicFunctions>");
             builder.AppendLine("      <SDLCheck>true</SDLCheck>");
             builder.AppendLine("      <ConformanceMode>true</ConformanceMode>");
-            builder.Append(@"      <AdditionalIncludeDirectories>");
-            builder.Append(getIncludePath(cfg.MdkPath)).AppendLine(";%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>");
-            getDefineToVc(builder, cfg.MdkPath);
+            builder.AppendLine(cfg.MacroDefineVC);
             builder.AppendLine("    </ClCompile>");
             builder.AppendLine("    <Link>");
             builder.AppendLine("      <EnableCOMDATFolding>true</EnableCOMDATFolding>");
@@ -293,11 +285,7 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("      <IntrinsicFunctions>true</IntrinsicFunctions>");
             builder.AppendLine("      <SDLCheck>true</SDLCheck>");
             builder.AppendLine("      <ConformanceMode>true</ConformanceMode>");
-
-            builder.Append(@"      <AdditionalIncludeDirectories>");
-            builder.Append(getIncludePath(cfg.MdkPath)).AppendLine(";%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>");
-            getDefineToVc(builder, cfg.MdkPath);
-
+            builder.AppendLine(cfg.MacroDefineVC);
             builder.AppendLine("    </ClCompile>");
             builder.AppendLine(@"    <Link>");
             builder.AppendLine(@"      <EnableCOMDATFolding>true</EnableCOMDATFolding>");

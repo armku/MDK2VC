@@ -63,8 +63,7 @@ namespace MDK2VC.M2V
             {
                 var builder = new StringBuilder();
                 builder.Append("      <PreprocessorDefinitions>");
-                builder.Append(MacroDefine).AppendLine("%(PreprocessorDefinitions)</PreprocessorDefinitions>"); ;
-                builder.AppendLine("%(PreprocessorDefinitions)</PreprocessorDefinitions>");
+                builder.Append(MacroDefine).Append("%(PreprocessorDefinitions)</PreprocessorDefinitions>");
                 return builder.ToString();
             }
         }
