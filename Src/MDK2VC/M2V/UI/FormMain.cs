@@ -60,7 +60,11 @@ namespace MDK2VC
                 return;
             }
 
-            helper.getDefine(builder,cfg.MdkPath);
+            //helper.getDefine(builder,cfg.MdkPath);
+            cfg.MacroDefine = helper.GetMacroDefine(cfg.MdkPath);
+            builder.AppendLine(cfg.MacroDefine);
+
+
             builder.AppendLine(helper.getIncludePath(cfg.MdkPath));
             helper.getGroups(builder,cfg.MdkPath);
             richTextBox1.Text = builder.ToString();
@@ -74,6 +78,7 @@ namespace MDK2VC
                 btnSelMDKPath.Focus();
                 return;
             }
+            cfg.MacroDefine = helper.GetMacroDefine(cfg.MdkPath);
             helper.createvcxproj(cfg);
             helper.createfilters(cfg);
             helper.createsln(cfg);

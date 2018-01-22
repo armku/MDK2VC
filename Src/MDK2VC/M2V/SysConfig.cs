@@ -51,6 +51,24 @@ namespace MDK2VC.M2V
             }
         }
         /// <summary>
+        /// 预定义
+        /// </summary>
+        public string MacroDefine { get; set; }
+        /// <summary>
+        /// 预定义 VC2017版本
+        /// </summary>
+        public string MacroDefineVC
+        {
+            get
+            {
+                var builder = new StringBuilder();
+                builder.Append("      <PreprocessorDefinitions>");
+                builder.Append(MacroDefine).AppendLine("%(PreprocessorDefinitions)</PreprocessorDefinitions>"); ;
+                builder.AppendLine("%(PreprocessorDefinitions)</PreprocessorDefinitions>");
+                return builder.ToString();
+            }
+        }
+        /// <summary>
         /// 仅文件名，不包含路径 hello
         /// </summary>
         public string FileNameWithoutExtension

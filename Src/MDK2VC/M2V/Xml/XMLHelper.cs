@@ -56,6 +56,24 @@ namespace MDK2VC.M2V.Xml
             }
             builder.AppendLine("%(PreprocessorDefinitions)</PreprocessorDefinitions>");
         }
+        public String GetMacroDefine(string path)
+        {
+            var builder = new StringBuilder();
+            var doc = XElement.Load(path);
+            var Targets = doc.Element("Targets");
+            var Target = Targets.Element("Target");
+            var TargetOption = Target.Element("TargetOption");
+            var TargetArmAds = TargetOption.Element("TargetArmAds");
+            var Cads = TargetArmAds.Element("Cads");
+            var VariousControls = Cads.Element("VariousControls");
+            var Define = VariousControls.Element("Define");
+            var strs = Define.Value.ToString().Split(new char[] { ',' });
+            foreach (var str in strs)
+            {
+                builder.Append(str).Append(";");
+            }
+            return builder.ToString();
+        }
         public void getGroups(StringBuilder builder,string path)
         {
             var doc = XElement.Load(path);
