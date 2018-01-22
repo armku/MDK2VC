@@ -39,14 +39,10 @@ namespace MDK2VC
             fileDlg.Title = "请选择文件";
             fileDlg.Filter = "MDK|*.uvprojx";
             if (fileDlg.ShowDialog() == DialogResult.OK)
-            {
-                tBoxMDKPath.Text = fileDlg.FileName;
+            {                
                 cfg.MdkPath = fileDlg.FileName;
-                var fp = cfg.MdkPath.Substring(0,cfg.MdkPath.Length-7);
-                cfg.vcxproj = fp + "vcxproj";
-                cfg.filters = fp + "vcxproj" + ".filters";
-                cfg.sln = fp + "sln";
 
+                tBoxMDKPath.Text = cfg.MdkPath;
                 tBoxvcxproj.Text = cfg.vcxproj;
                 tboxfilters.Text = cfg.filters;
                 tboxsln.Text = cfg.sln;                
@@ -81,6 +77,13 @@ namespace MDK2VC
             helper.createvcxproj(cfg.vcxproj,cfg.MdkPath);
             helper.createfilters(cfg.filters,cfg.MdkPath);
             helper.createsln(cfg.sln);
-        }        
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var aa = cfg.MdkPath;
+            aa = Path.GetDirectoryName(aa);
+            MessageBox.Show(aa);
+        }
     }
 }

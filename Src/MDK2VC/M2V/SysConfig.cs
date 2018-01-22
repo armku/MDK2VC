@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -20,27 +21,60 @@ namespace MDK2VC.M2V
         /// vcxproj文件路径
         /// </summary>
         [Description("vcxproj文件路径")]
-        public string vcxproj { get; set; }
+        public string vcxproj
+        {
+            get
+            {
+                return this.DirectoryName +"\\"+ FileNameWithoutExtension + ".vcxproj";
+            }
+        }
         /// <summary>
         /// filters文件路径
         /// </summary>
         [Description("filters文件路径")]
-        public string filters { get; set; }
+        public string filters
+        {
+            get
+            {
+                return this.DirectoryName + "\\" + FileNameWithoutExtension + ".vcxproj.filters";
+            }
+        }
         /// <summary>
         /// sln文件路径
         /// </summary>
         [Description("sln文件路径")]
-        public string sln { get; set; }
-        /// <summary>
-        /// 仅文件名，不包含路径
-        /// </summary>
-        public string FileNameOnly
+        public string sln
         {
             get
             {
-                var filenameoly = MdkPath.Substring(MdkPath.LastIndexOf("\\") + 1, (MdkPath.LastIndexOf(".") - MdkPath.LastIndexOf("\\") - 1)); //文件名
-
-                return filenameoly;
+                return this.DirectoryName + "\\" + FileNameWithoutExtension + ".sln";
+            }
+        }
+        /// <summary>
+        /// 仅文件名，不包含路径 hello
+        /// </summary>
+        public string FileNameWithoutExtension
+        {
+            get
+            {
+                return Path.GetFileNameWithoutExtension(MdkPath);
+            }
+        }
+        public string DirectoryName
+        {
+            get
+            {
+                return Path.GetDirectoryName(MdkPath);
+            }
+        }
+        /// <summary>
+        /// 返回扩展名 ：.txt
+        /// </summary>
+        public string Extension
+        {
+            get
+            {
+                return Path.GetExtension(MdkPath);
             }
         }
         /// <summary>
@@ -49,7 +83,7 @@ namespace MDK2VC.M2V
         public string PathNameOnly
         {
             get
-            {
+            {                
                 return "";
             }
         }
