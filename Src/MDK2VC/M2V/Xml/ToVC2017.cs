@@ -34,7 +34,7 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("  </ItemGroup>");
             builder.AppendLine("  <PropertyGroup Label=\"Globals\">");
             builder.AppendLine("    <VCProjectVersion>15.0</VCProjectVersion>");
-            builder.AppendLine("    <ProjectGuid>{DB72F4F2-0882-46C5-83D8-39933DDC3412}</ProjectGuid>");
+            builder.Append("    <ProjectGuid>").Append(cfg.projguidvc).AppendLine("</ProjectGuid>");
             builder.AppendLine("    <RootNamespace>STM32F1</RootNamespace>");
             builder.AppendLine("    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>");
             builder.AppendLine("  </PropertyGroup>");

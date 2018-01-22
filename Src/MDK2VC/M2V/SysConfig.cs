@@ -67,6 +67,16 @@ namespace MDK2VC.M2V
                 return builder.ToString();
             }
         }
+        public string projguid { get; set; }
+        public string projguidvc
+        {
+            get
+            {
+                var builder = new StringBuilder();
+                builder.Append(projguid);
+                return builder.ToString();
+            }
+        }
         /// <summary>
         /// 文件路径
         /// </summary>

@@ -79,6 +79,7 @@ namespace MDK2VC
             }
             cfg.MacroDefine = FromMDK5.GetMacroDefine(cfg.MdkPath);
             cfg.IncludePath = FromMDK5.getIncludePath(cfg.MdkPath);
+            cfg.projguid = Guid.NewGuid().ToString("B");
             ToVC2017.createvcxproj(cfg);
             ToVC2017.createfilters(cfg);
             ToVC2017.createsln(cfg);
