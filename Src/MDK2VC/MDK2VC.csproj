@@ -52,7 +52,6 @@
     </Compile>
     <Compile Include="M2V\Xml\FromMDK5.cs" />
     <Compile Include="M2V\Xml\ToVC2017.cs" />
-    <Compile Include="M2V\Xml\XMLHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="M2V\UI\FormMain.resx">

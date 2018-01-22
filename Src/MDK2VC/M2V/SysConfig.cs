@@ -68,6 +68,24 @@ namespace MDK2VC.M2V
             }
         }
         /// <summary>
+        /// 文件路径
+        /// </summary>
+        public string IncludePath
+        {
+            get;set;
+        }
+        public string IncludePathVC
+        {
+            get
+            {
+                var builder = new StringBuilder();
+                builder.Append("      <AdditionalIncludeDirectories>");
+                builder.Append(IncludePath);
+                builder.Append(";%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>");
+                return builder.ToString();
+            }
+        }
+        /// <summary>
         /// 仅文件名，不包含路径 hello
         /// </summary>
         public string FileNameWithoutExtension
@@ -104,5 +122,12 @@ namespace MDK2VC.M2V
                 return "";
             }
         }
+    }
+}
+static class fff
+{
+    public static void Write(this FileStream fs, byte[] array)
+    {
+        fs.Write(array, 0, array.Length);
     }
 }

@@ -17,7 +17,6 @@ namespace MDK2VC
         /// 项目配置
         /// </summary>
         SysConfig cfg=new SysConfig();
-        XMLHelper helper = new XMLHelper();
         public FormMain()
         {
             InitializeComponent();
@@ -61,11 +60,12 @@ namespace MDK2VC
             }
 
             cfg.MacroDefine = FromMDK5.GetMacroDefine(cfg.MdkPath);
+            cfg.IncludePath = FromMDK5.getIncludePath(cfg.MdkPath);
             builder.AppendLine(cfg.MacroDefine);
 
 
-            builder.AppendLine(helper.getIncludePath(cfg.MdkPath));
-            helper.getGroups(builder,cfg.MdkPath);
+            builder.AppendLine(cfg.IncludePathVC);
+            FromMDK5.getGroups(builder,cfg.MdkPath);
             richTextBox1.Text = builder.ToString();
         }
         
@@ -78,16 +78,10 @@ namespace MDK2VC
                 return;
             }
             cfg.MacroDefine = FromMDK5.GetMacroDefine(cfg.MdkPath);
-            helper.createvcxproj(cfg);
-            helper.createfilters(cfg);
-            helper.createsln(cfg);
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            var aa = cfg.MdkPath;
-            aa = Path.GetDirectoryName(aa);
-            MessageBox.Show(aa);
+            cfg.IncludePath = FromMDK5.getIncludePath(cfg.MdkPath);
+            ToVC2017.createvcxproj(cfg);
+            ToVC2017.createfilters(cfg);
+            ToVC2017.createsln(cfg);
         }
     }
 }
