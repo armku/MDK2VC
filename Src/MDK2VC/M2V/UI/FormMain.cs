@@ -64,7 +64,7 @@ namespace MDK2VC
             builder.AppendLine(cfg.MacroDefine);
 
 
-            builder.AppendLine(cfg.IncludePathVC);
+            builder.AppendLine(cfg.IncludePath);
             FromMDK5.getGroups(builder,cfg.MdkPath);
             richTextBox1.Text = builder.ToString();
         }
