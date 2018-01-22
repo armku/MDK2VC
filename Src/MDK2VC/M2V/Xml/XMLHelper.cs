@@ -157,7 +157,7 @@ namespace MDK2VC.M2V.Xml
 
             return filenameoly;
         }
-        public void createvcxproj(string filename,string path)
+        public void createvcxproj(SysConfig cfg)
         {
             var builder = new StringBuilder();
             builder.AppendLine("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
@@ -239,8 +239,8 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("      <SDLCheck>true</SDLCheck>");
             builder.AppendLine("      <ConformanceMode>true</ConformanceMode>");
             builder.Append(@"      <AdditionalIncludeDirectories>");
-            builder.Append(getIncludePath(path)).AppendLine(";%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>");
-            getDefineToVc(builder,path);
+            builder.Append(getIncludePath(cfg.MdkPath)).AppendLine(";%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>");
+            getDefineToVc(builder, cfg.MdkPath);
             builder.AppendLine("    </ClCompile>");
             builder.AppendLine("  </ItemDefinitionGroup>");
             builder.AppendLine("  <ItemDefinitionGroup Condition=\"'$(Configuration)|$(Platform)' == 'Debug|x64'\">");
@@ -251,8 +251,8 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("      <ConformanceMode>true</ConformanceMode>");
 
             builder.Append(@"      <AdditionalIncludeDirectories>");
-            builder.Append(getIncludePath(path)).AppendLine(";%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>");
-            getDefineToVc(builder,path);
+            builder.Append(getIncludePath(cfg.MdkPath)).AppendLine(";%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>");
+            getDefineToVc(builder, cfg.MdkPath);
 
             builder.AppendLine("    </ClCompile>");
             builder.AppendLine("  </ItemDefinitionGroup>");
@@ -265,8 +265,8 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("      <SDLCheck>true</SDLCheck>");
             builder.AppendLine("      <ConformanceMode>true</ConformanceMode>");
             builder.Append(@"      <AdditionalIncludeDirectories>");
-            builder.Append(getIncludePath(path)).AppendLine(";%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>");
-            getDefineToVc(builder,path);
+            builder.Append(getIncludePath(cfg.MdkPath)).AppendLine(";%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>");
+            getDefineToVc(builder, cfg.MdkPath);
             builder.AppendLine("    </ClCompile>");
             builder.AppendLine("    <Link>");
             builder.AppendLine("      <EnableCOMDATFolding>true</EnableCOMDATFolding>");
@@ -283,8 +283,8 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("      <ConformanceMode>true</ConformanceMode>");
 
             builder.Append(@"      <AdditionalIncludeDirectories>");
-            builder.Append(getIncludePath(path)).AppendLine(";%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>");
-            getDefineToVc(builder,path);
+            builder.Append(getIncludePath(cfg.MdkPath)).AppendLine(";%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>");
+            getDefineToVc(builder, cfg.MdkPath);
 
             builder.AppendLine("    </ClCompile>");
             builder.AppendLine(@"    <Link>");
@@ -293,44 +293,44 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine(@"    </Link>");
             builder.AppendLine(@"  </ItemDefinitionGroup>");
             builder.AppendLine(@"  <ItemGroup>");
-            getGroupsToProj(builder,path);
+            getGroupsToProj(builder, cfg.MdkPath);
             builder.AppendLine(@"  </ItemGroup>");
             builder.AppendLine("  <Import Project=\"$(VCTargetsPath)\\Microsoft.Cpp.targets\" />");
             builder.AppendLine("  <ImportGroup Label=\"ExtensionTargets\">");
             builder.AppendLine(@"  </ImportGroup>");
             builder.AppendLine(@"</Project>");
 
-            var fs = new FileStream(filename, FileMode.Create);
+            var fs = new FileStream(cfg.vcxproj, FileMode.Create);
             byte[] data = new UTF8Encoding().GetBytes(builder.ToString());
             fs.Write(data);
             fs.Flush();
             fs.Close();
         }
         
-        public void createfilters(string filename,string path)
+        public void createfilters(SysConfig cfg)
         {
             var builder = new StringBuilder();
 
             builder.AppendLine("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
             builder.AppendLine("<Project ToolsVersion=\"4.0\" xmlns=\"http://schemas.microsoft.com/developer/msbuild/2003\">");
             builder.AppendLine("  <ItemGroup>");
-            getGrouptoFilters(builder,path);
+            getGrouptoFilters(builder, cfg.MdkPath);
             builder.AppendLine("  </ItemGroup>");
             builder.AppendLine("  <ItemGroup>");
-            getGroupsToFilters(builder,path);
+            getGroupsToFilters(builder, cfg.MdkPath);
             builder.AppendLine("  </ItemGroup>");
             builder.AppendLine("</Project>");
 
-            var fs = new FileStream(filename, FileMode.Create);
+            var fs = new FileStream(cfg.filters, FileMode.Create);
             byte[] data = new UTF8Encoding().GetBytes(builder.ToString());
             fs.Write(data);
             fs.Flush();
             fs.Close();
         }
-        public void createsln(string filename)
+        public void createsln(SysConfig cfg)
         {
             var builder = new StringBuilder();
-            var file = getFileNameony(filename);
+            var file = getFileNameony(cfg.sln);
             builder.AppendLine("");
             builder.AppendLine("Microsoft Visual Studio Solution File, Format Version 12.00");
             builder.AppendLine("# Visual Studio 15");
@@ -370,7 +370,7 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("EndGlobal");
             builder.AppendLine("");
 
-            var fs = new FileStream(filename, FileMode.Create);
+            var fs = new FileStream(cfg.sln, FileMode.Create);
             byte[] data = new UTF8Encoding().GetBytes(builder.ToString());
             fs.Write(data);
             fs.Flush();

@@ -74,9 +74,9 @@ namespace MDK2VC
                 btnSelMDKPath.Focus();
                 return;
             }
-            helper.createvcxproj(cfg.vcxproj,cfg.MdkPath);
-            helper.createfilters(cfg.filters,cfg.MdkPath);
-            helper.createsln(cfg.sln);
+            helper.createvcxproj(cfg);
+            helper.createfilters(cfg);
+            helper.createsln(cfg);
         }
 
         private void button1_Click(object sender, EventArgs e)
