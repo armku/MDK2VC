@@ -60,8 +60,7 @@ namespace MDK2VC
                 return;
             }
 
-            //helper.getDefine(builder,cfg.MdkPath);
-            cfg.MacroDefine = helper.GetMacroDefine(cfg.MdkPath);
+            cfg.MacroDefine = FromMDK5.GetMacroDefine(cfg.MdkPath);
             builder.AppendLine(cfg.MacroDefine);
 
 
@@ -78,7 +77,7 @@ namespace MDK2VC
                 btnSelMDKPath.Focus();
                 return;
             }
-            cfg.MacroDefine = helper.GetMacroDefine(cfg.MdkPath);
+            cfg.MacroDefine = FromMDK5.GetMacroDefine(cfg.MdkPath);
             helper.createvcxproj(cfg);
             helper.createfilters(cfg);
             helper.createsln(cfg);

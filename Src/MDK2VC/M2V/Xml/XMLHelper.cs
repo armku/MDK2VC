@@ -23,57 +23,6 @@ namespace MDK2VC.M2V.Xml
             return IncludePath.Value;
 
         }
-        public void getDefine(StringBuilder builder,string path)
-        {            
-            var doc = XElement.Load(path);
-            var Targets = doc.Element("Targets");
-            var Target = Targets.Element("Target");
-            var TargetOption = Target.Element("TargetOption");
-            var TargetArmAds = TargetOption.Element("TargetArmAds");
-            var Cads = TargetArmAds.Element("Cads");
-            var VariousControls = Cads.Element("VariousControls");
-            var Define = VariousControls.Element("Define");
-
-            builder.AppendLine(Define.Value);
-        }
-        public void getDefineToVc(StringBuilder builder,string path)
-        {            
-            var doc = XElement.Load(path);
-            var Targets = doc.Element("Targets");
-            var Target = Targets.Element("Target");
-            var TargetOption = Target.Element("TargetOption");
-            var TargetArmAds = TargetOption.Element("TargetArmAds");
-            var Cads = TargetArmAds.Element("Cads");
-            var VariousControls = Cads.Element("VariousControls");
-            var Define = VariousControls.Element("Define");
-
-            builder.Append("      <PreprocessorDefinitions>");
-
-            var strs = Define.Value.ToString().Split(new char[] { ',' });
-            foreach (var str in strs)
-            {
-                builder.Append(str).Append(";");
-            }
-            builder.AppendLine("%(PreprocessorDefinitions)</PreprocessorDefinitions>");
-        }
-        public String GetMacroDefine(string path)
-        {
-            var builder = new StringBuilder();
-            var doc = XElement.Load(path);
-            var Targets = doc.Element("Targets");
-            var Target = Targets.Element("Target");
-            var TargetOption = Target.Element("TargetOption");
-            var TargetArmAds = TargetOption.Element("TargetArmAds");
-            var Cads = TargetArmAds.Element("Cads");
-            var VariousControls = Cads.Element("VariousControls");
-            var Define = VariousControls.Element("Define");
-            var strs = Define.Value.ToString().Split(new char[] { ',' });
-            foreach (var str in strs)
-            {
-                builder.Append(str).Append(";");
-            }
-            return builder.ToString();
-        }
         public void getGroups(StringBuilder builder,string path)
         {
             var doc = XElement.Load(path);
