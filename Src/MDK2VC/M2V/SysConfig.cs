@@ -31,5 +31,27 @@ namespace MDK2VC.M2V
         /// </summary>
         [Description("sln文件路径")]
         public string sln { get; set; }
+        /// <summary>
+        /// 仅文件名，不包含路径
+        /// </summary>
+        public string FileNameOnly
+        {
+            get
+            {
+                var filenameoly = MdkPath.Substring(MdkPath.LastIndexOf("\\") + 1, (MdkPath.LastIndexOf(".") - MdkPath.LastIndexOf("\\") - 1)); //文件名
+
+                return filenameoly;
+            }
+        }
+        /// <summary>
+        /// 仅仅文件路径，不包含文件名
+        /// </summary>
+        public string PathNameOnly
+        {
+            get
+            {
+                return "";
+            }
+        }
     }
 }
