@@ -84,6 +84,12 @@ namespace MDK2VC
             ToVC2017.createfilters(cfg);
             ToVC2017.createsln(cfg);
             label5.Text = "转换完：" + DateTime.Now.ToString("HH:mm:ss");
+            btnOpen.Visible = true;
+        }
+
+        private void btnOpen_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(cfg.sln);
         }
     }
 }

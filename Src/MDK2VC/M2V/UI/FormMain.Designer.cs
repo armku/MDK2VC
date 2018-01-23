@@ -41,6 +41,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tboxsln = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnOpen = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -158,11 +159,23 @@
             this.label5.TabIndex = 15;
             this.label5.Text = "未转换";
             // 
+            // btnOpen
+            // 
+            this.btnOpen.Location = new System.Drawing.Point(420, 124);
+            this.btnOpen.Name = "btnOpen";
+            this.btnOpen.Size = new System.Drawing.Size(75, 23);
+            this.btnOpen.TabIndex = 16;
+            this.btnOpen.Text = "打开";
+            this.btnOpen.UseVisualStyleBackColor = true;
+            this.btnOpen.Visible = false;
+            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(524, 422);
+            this.Controls.Add(this.btnOpen);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tboxsln);
@@ -200,6 +213,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tboxsln;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnOpen;
     }
 }
 
