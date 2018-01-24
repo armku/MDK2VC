@@ -91,5 +91,10 @@ namespace MDK2VC
         {
             System.Diagnostics.Process.Start(cfg.sln);
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(cfg.MdkPath);
+        }
     }
 }
