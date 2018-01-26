@@ -151,5 +151,10 @@ namespace MDK2VC
                 notifyIcon1.Visible = true;
             }
         }
+
+        private void notifyIcon1_DoubleClick(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Normal;
+        }
     }
 }
