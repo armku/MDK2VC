@@ -59,14 +59,15 @@ namespace MDK2VC
                 btnSelMDKPath.Focus();
                 return;
             }
+            manager.from = new Fromuvprojx();
 
-            cfg.MacroDefine = Fromuvprojx.GetMacroDefine(cfg.MdkPath);
-            cfg.IncludePath = Fromuvprojx.getIncludePath(cfg.MdkPath);
+            cfg.MacroDefine = manager.from.GetMacroDefine(cfg.MdkPath);
+            cfg.IncludePath = manager.from.getIncludePath(cfg.MdkPath);
             builder.AppendLine(cfg.MacroDefine);
 
 
             builder.AppendLine(cfg.IncludePath);
-            Fromuvprojx.getGroups(builder,cfg.MdkPath);
+            manager.from.getGroups(builder,cfg.MdkPath);
             richTextBox1.Text = builder.ToString();
         }
         
@@ -79,8 +80,9 @@ namespace MDK2VC
                 return;
             }
             manager.to = new ToVC2017();
-            cfg.MacroDefine = Fromuvprojx.GetMacroDefine(cfg.MdkPath);
-            cfg.IncludePath = Fromuvprojx.getIncludePath(cfg.MdkPath);
+            manager.from = new Fromuvprojx();
+            cfg.MacroDefine = manager.from.GetMacroDefine(cfg.MdkPath);
+            cfg.IncludePath = manager.from.getIncludePath(cfg.MdkPath);
             cfg.projguid = Guid.NewGuid().ToString("B");
             manager.to.createvcxproj(cfg);
             manager.to.createfilters(cfg);
