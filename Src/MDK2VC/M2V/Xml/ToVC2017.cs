@@ -137,7 +137,7 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine(@"    </Link>");
             builder.AppendLine(@"  </ItemDefinitionGroup>");
             builder.AppendLine(@"  <ItemGroup>");
-            FromMDK5.getGroupsToProj(builder, cfg.MdkPath);
+            Fromuvprojx.getGroupsToProj(builder, cfg.MdkPath);
             builder.AppendLine(@"  </ItemGroup>");
             builder.AppendLine("  <Import Project=\"$(VCTargetsPath)\\Microsoft.Cpp.targets\" />");
             builder.AppendLine("  <ImportGroup Label=\"ExtensionTargets\">");
@@ -157,10 +157,10 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
             builder.AppendLine("<Project ToolsVersion=\"4.0\" xmlns=\"http://schemas.microsoft.com/developer/msbuild/2003\">");
             builder.AppendLine("  <ItemGroup>");
-            FromMDK5.getGrouptoFilters(builder, cfg.MdkPath);
+            Fromuvprojx.getGrouptoFilters(builder, cfg.MdkPath);
             builder.AppendLine("  </ItemGroup>");
             builder.AppendLine("  <ItemGroup>");
-            FromMDK5.getGroupsToFilters(builder, cfg.MdkPath);
+            Fromuvprojx.getGroupsToFilters(builder, cfg.MdkPath);
             builder.AppendLine("  </ItemGroup>");
             builder.AppendLine("</Project>");
 

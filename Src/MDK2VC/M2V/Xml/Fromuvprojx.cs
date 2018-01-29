@@ -6,7 +6,7 @@ using System.Xml.Linq;
 
 namespace MDK2VC.M2V.Xml
 {
-    public class FromMDK5
+    public class Fromuvprojx
     {
         /// <summary>
         /// 获取宏定义
