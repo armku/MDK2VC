@@ -37,7 +37,7 @@ namespace MDK2VC
             var fileDlg = new OpenFileDialog();
             fileDlg.Multiselect = true;
             fileDlg.Title = "请选择文件";
-            fileDlg.Filter = "MDK|*.uvprojx";
+            fileDlg.Filter = "MDK|*.uvprojx;*.uvproj";
             if (fileDlg.ShowDialog() == DialogResult.OK)
             {                
                 cfg.MdkPath = fileDlg.FileName;
@@ -59,7 +59,18 @@ namespace MDK2VC
                 btnSelMDKPath.Focus();
                 return;
             }
-            manager.from = new Fromuvprojx();
+            switch (Path.GetExtension(cfg.MdkPath))
+            {
+                case ".uvproj":
+                    manager.from = new Fromuvprojx();
+                    break;
+                case ".uvprojx":
+                    manager.from = new Fromuvprojx();
+                    break;
+                default:
+                    break;
+            }
+            
             manager.to = new ToVC2017();
 
             cfg.MacroDefine = manager.from.GetMacroDefine(cfg.MdkPath);
