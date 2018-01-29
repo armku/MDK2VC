@@ -71,6 +71,9 @@ namespace MDK2VC.M2V
                 return builder.ToString();
             }
         }
+        /// <summary>
+        /// 
+        /// </summary>
         public string projguid { get; set; }
         public string projguidvc
         {
