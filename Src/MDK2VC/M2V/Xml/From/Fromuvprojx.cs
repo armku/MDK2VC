@@ -44,8 +44,9 @@ namespace MDK2VC.M2V.Xml
 
             return IncludePath.Value;
         }
-        public void getGroups(StringBuilder builder, string path)
+        public String getGroups(string path)
         {
+            var builder = new StringBuilder();
             var doc = XElement.Load(path);
             var Targets = doc.Element("Targets");
             var Target = Targets.Element("Target");
@@ -68,9 +69,11 @@ namespace MDK2VC.M2V.Xml
                     }
                 }
             }
+            return builder.ToString();
         }
-        public static void getGroupsToFilters(StringBuilder builder, string path)
+        public string getGroupsToFilters(string path)
         {
+            var builder = new StringBuilder();
             var doc = XElement.Load(path);
             var Targets = doc.Element("Targets");
             var Target = Targets.Element("Target");
@@ -96,9 +99,11 @@ namespace MDK2VC.M2V.Xml
                     }
                 }
             }
+            return builder.ToString();
         }
-        public static void getGroupsToProj(StringBuilder builder, string path)
+        public string getGroupsToProj(string path)
         {
+            var builder = new StringBuilder();
             var doc = XElement.Load(path);
             var Targets = doc.Element("Targets");
             var Target = Targets.Element("Target");
@@ -122,9 +127,11 @@ namespace MDK2VC.M2V.Xml
                     }
                 }
             }
+            return builder.ToString();
         }
-        public static void getGrouptoFilters(StringBuilder builder, string path)
+        public String getGrouptoFilters(string path)
         {
+            var builder = new StringBuilder();
             var doc = XElement.Load(path);
             var Targets = doc.Element("Targets");
             var Target = Targets.Element("Target");
@@ -138,6 +145,7 @@ namespace MDK2VC.M2V.Xml
                 builder.Append("      <UniqueIdentifier>").Append(Guid.NewGuid().ToString("B")).AppendLine("</UniqueIdentifier>");
                 builder.AppendLine("    </Filter>");
             }
+            return builder.ToString();
         }
     }
 }

@@ -60,30 +60,24 @@ namespace MDK2VC
                 return;
             }
             manager.from = new Fromuvprojx();
+            manager.to = new ToVC2017();
 
             cfg.MacroDefine = manager.from.GetMacroDefine(cfg.MdkPath);
             cfg.IncludePath = manager.from.getIncludePath(cfg.MdkPath);
+            cfg.Groups = manager.from.getGroups(cfg.MdkPath);
+            cfg.BuilderGroupsToFilters = manager.from.getGroupsToFilters(cfg.MdkPath);
+            cfg.BuilderGroupsToProj = manager.from.getGroupsToProj(cfg.MdkPath);
+            cfg.BuilderGrouptoFilters = manager.from.getGrouptoFilters(cfg.MdkPath);
+            
             builder.AppendLine(cfg.MacroDefine);
-
-
             builder.AppendLine(cfg.IncludePath);
-            manager.from.getGroups(builder,cfg.MdkPath);
+            builder.Append(cfg.Groups);
             richTextBox1.Text = builder.ToString();
         }
         
         private void btnTest_Click(object sender, EventArgs e)
-        {
-            if ((cfg.MdkPath == null) || (!File.Exists(cfg.MdkPath)))
-            {
-                MessageBox.Show("请选择正确的文件");
-                btnSelMDKPath.Focus();
-                return;
-            }
-            manager.to = new ToVC2017();
-            manager.from = new Fromuvprojx();
-            cfg.MacroDefine = manager.from.GetMacroDefine(cfg.MdkPath);
-            cfg.IncludePath = manager.from.getIncludePath(cfg.MdkPath);
-            cfg.projguid = Guid.NewGuid().ToString("B");
+        {           
+            btnTrans_Click(sender, e);
             manager.to.createvcxproj(cfg);
             manager.to.createfilters(cfg);
             manager.to.createsln(cfg);

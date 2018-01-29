@@ -9,6 +9,9 @@ namespace MDK2VC.M2V.Xml
     {
         String GetMacroDefine(string path);
         string getIncludePath(string path);
-        void getGroups(StringBuilder builder, string path);
+        String getGroups(string path);
+        String getGroupsToFilters(string path);
+        String getGroupsToProj( string path);
+        String getGrouptoFilters(string path);
     }
 }

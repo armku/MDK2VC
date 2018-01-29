@@ -136,6 +136,10 @@ namespace MDK2VC.M2V
                 return "";
             }
         }
+        public string Groups { get; set; }
+        public string BuilderGroupsToFilters { get; set; }
+        public string BuilderGroupsToProj { get; set; }
+        public string BuilderGrouptoFilters { get; set; }
     }
 }
 static class fff
