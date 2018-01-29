@@ -13,6 +13,7 @@ namespace MDK2VC
 {
     public partial class FormMain : Form
     {
+        CoreManager manager = new CoreManager();
         /// <summary>
         /// 项目配置
         /// </summary>

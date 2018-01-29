@@ -53,8 +53,12 @@
     <Compile Include="M2V\UI\FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="M2V\Xml\Fromuvprojx.cs" />
-    <Compile Include="M2V\Xml\ToVC2017.cs" />
+    <Compile Include="M2V\CoreManager.cs" />
+    <Compile Include="M2V\Xml\From\Fromuvproj.cs" />
+    <Compile Include="M2V\Xml\From\Fromuvprojx.cs" />
+    <Compile Include="M2V\Xml\Interface\IFrom.cs" />
+    <Compile Include="M2V\Xml\Interface\ITo.cs" />
+    <Compile Include="M2V\Xml\To\ToVC2017.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="M2V\UI\FormMain.resx">

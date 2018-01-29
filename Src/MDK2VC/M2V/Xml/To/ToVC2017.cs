@@ -7,7 +7,7 @@ using System.Xml.Linq;
 
 namespace MDK2VC.M2V.Xml
 {
-    public class ToVC2017
+    public class ToVC2017: ITo
     {        
         public static void createvcxproj(SysConfig cfg)
         {
