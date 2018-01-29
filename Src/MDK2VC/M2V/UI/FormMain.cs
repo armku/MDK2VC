@@ -78,12 +78,13 @@ namespace MDK2VC
                 btnSelMDKPath.Focus();
                 return;
             }
+            manager.to = new ToVC2017();
             cfg.MacroDefine = Fromuvprojx.GetMacroDefine(cfg.MdkPath);
             cfg.IncludePath = Fromuvprojx.getIncludePath(cfg.MdkPath);
             cfg.projguid = Guid.NewGuid().ToString("B");
-            ToVC2017.createvcxproj(cfg);
-            ToVC2017.createfilters(cfg);
-            ToVC2017.createsln(cfg);
+            manager.to.createvcxproj(cfg);
+            manager.to.createfilters(cfg);
+            manager.to.createsln(cfg);
             label5.Text = "转换完：" + DateTime.Now.ToString("HH:mm:ss");
             btnOpen.Visible = true;
         }

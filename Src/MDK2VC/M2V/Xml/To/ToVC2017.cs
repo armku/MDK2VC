@@ -9,7 +9,7 @@ namespace MDK2VC.M2V.Xml
 {
     public class ToVC2017: ITo
     {        
-        public static void createvcxproj(SysConfig cfg)
+        public void createvcxproj(SysConfig cfg)
         {
             var builder = new StringBuilder();
             builder.AppendLine("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
@@ -150,7 +150,7 @@ namespace MDK2VC.M2V.Xml
             fs.Flush();
             fs.Close();
         }
-        public static void createfilters(SysConfig cfg)
+        public void createfilters(SysConfig cfg)
         {
             var builder = new StringBuilder();
 
@@ -170,7 +170,7 @@ namespace MDK2VC.M2V.Xml
             fs.Flush();
             fs.Close();
         }
-        public static void createsln(SysConfig cfg)
+        public void createsln(SysConfig cfg)
         {
             var builder = new StringBuilder();
             builder.AppendLine("");
