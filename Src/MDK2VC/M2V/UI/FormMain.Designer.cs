@@ -88,7 +88,7 @@
             // 
             // btnTrans
             // 
-            this.btnTrans.Location = new System.Drawing.Point(40, 124);
+            this.btnTrans.Location = new System.Drawing.Point(29, 155);
             this.btnTrans.Name = "btnTrans";
             this.btnTrans.Size = new System.Drawing.Size(75, 23);
             this.btnTrans.TabIndex = 4;
@@ -108,9 +108,9 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(12, 153);
+            this.richTextBox1.Location = new System.Drawing.Point(4, 184);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(492, 71);
+            this.richTextBox1.Size = new System.Drawing.Size(509, 349);
             this.richTextBox1.TabIndex = 8;
             this.richTextBox1.Text = "";
             // 
@@ -213,7 +213,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(524, 234);
+            this.ClientSize = new System.Drawing.Size(524, 154);
             this.Controls.Add(this.btnOpen);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
