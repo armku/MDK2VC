@@ -145,6 +145,10 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine(@"  </ImportGroup>");
             builder.AppendLine(@"</Project>");
 
+            if(!Directory.Exists(cfg.VCPath))
+            {
+                Directory.CreateDirectory(cfg.VCPath);
+            }
             var fs = new FileStream(cfg.vcxproj, FileMode.Create);
             byte[] data = new UTF8Encoding().GetBytes(builder.ToString());
             fs.Write(data);
@@ -184,7 +188,7 @@ namespace MDK2VC.M2V.Xml
 
             builder.Append("Project(\"{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}\") = \"");
             builder.Append(cfg.FileNameWithoutExtension);
-            builder.Append("\", \"");
+            builder.Append("\", \"VC2017\\");
             builder.Append(cfg.FileNameWithoutExtension);
             builder.AppendLine(".vcxproj\", \"{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}\"");
 

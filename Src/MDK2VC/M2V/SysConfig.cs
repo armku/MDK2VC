@@ -21,6 +21,13 @@ namespace MDK2VC.M2V
         /// MDK文件包含路径
         /// </summary>
         public string MdkIncludePath { get; set; } = @"C:\Keil_v5\ARM\ARMCC\include";
+        public string VCPath
+        {
+            get
+            {
+                return this.DirectoryName + "\\VC2017";
+            }
+        }
         /// <summary>
         /// vcxproj文件路径
         /// </summary>
@@ -29,7 +36,7 @@ namespace MDK2VC.M2V
         {
             get
             {
-                return this.DirectoryName +"\\"+ FileNameWithoutExtension + ".vcxproj";
+                return this.VCPath + "\\"+ FileNameWithoutExtension + ".vcxproj";
             }
         }
         /// <summary>
@@ -40,7 +47,7 @@ namespace MDK2VC.M2V
         {
             get
             {
-                return this.DirectoryName + "\\" + FileNameWithoutExtension + ".vcxproj.filters";
+                return this.VCPath + "\\" + FileNameWithoutExtension + ".vcxproj.filters";
             }
         }
         /// <summary>
