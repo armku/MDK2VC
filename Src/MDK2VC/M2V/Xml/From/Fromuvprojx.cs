@@ -122,7 +122,7 @@ namespace MDK2VC.M2V.Xml
                         var FilePath = ff.Element("FilePath");
                         builder.Append("    <ClCompile Include=\"");
                         if (FilePath != null)
-                            builder.Append(FilePath.Value);
+                            builder.Append("..\\"+FilePath.Value);
                         builder.AppendLine("\" /> ");
                     }
                 }
