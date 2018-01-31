@@ -42,7 +42,14 @@ namespace MDK2VC.M2V.Xml
             var VariousControls = Cads.Element("VariousControls");
             var IncludePath = VariousControls.Element("IncludePath");
 
-            return IncludePath.Value;
+            var IncludePaths = IncludePath.Value.ToString().Split(new char[] { ';'});
+            var builder = new StringBuilder();
+            foreach(var vn in IncludePaths)
+            {
+                builder.Append("..\\").Append(vn).Append(";");
+            }
+            builder.Remove(builder.Length - 1, 1);
+            return builder.ToString();
         }
         public String getGroups(string path)
         {

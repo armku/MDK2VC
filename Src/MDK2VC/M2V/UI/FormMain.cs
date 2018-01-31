@@ -79,6 +79,7 @@ namespace MDK2VC
             cfg.BuilderGroupsToFilters = manager.from.getGroupsToFilters(cfg.MdkPath);
             cfg.BuilderGroupsToProj = manager.from.getGroupsToProj(cfg.MdkPath);
             cfg.BuilderGrouptoFilters = manager.from.getGrouptoFilters(cfg.MdkPath);
+            cfg.projguid = Guid.NewGuid().ToString("B");
             
             builder.AppendLine(cfg.MacroDefine);
             builder.AppendLine(cfg.IncludePath);
