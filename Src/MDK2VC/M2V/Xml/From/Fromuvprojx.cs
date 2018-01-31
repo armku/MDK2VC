@@ -92,7 +92,12 @@ namespace MDK2VC.M2V.Xml
                         var FilePath = ff.Element("FilePath");
                         builder.Append("    <ClCompile Include=\"");
                         if (FilePath != null)
-                            builder.Append(FilePath.Value);
+                        {
+                            if (FilePath.Value.StartsWith(".\\"))
+                                builder.Append(FilePath.Value.Replace(".\\","..\\"));
+                            else
+                                builder.Append("..\\"+FilePath.Value);
+                        }
                         builder.AppendLine("\">");
                         builder.Append("      <Filter>").Append(aa.Value).AppendLine("</Filter>");
                         builder.AppendLine("    </ClCompile>");
@@ -122,7 +127,12 @@ namespace MDK2VC.M2V.Xml
                         var FilePath = ff.Element("FilePath");
                         builder.Append("    <ClCompile Include=\"");
                         if (FilePath != null)
-                            builder.Append("..\\"+FilePath.Value);
+                        {
+                            if (FilePath.Value.StartsWith(".\\"))
+                                builder.Append(FilePath.Value.Replace(".\\","..\\"));
+                            else
+                            builder.Append("..\\" + FilePath.Value);
+                        }
                         builder.AppendLine("\" /> ");
                     }
                 }
@@ -141,7 +151,10 @@ namespace MDK2VC.M2V.Xml
             foreach (var grou in Group)
             {
                 var aa = grou.Element("GroupName");
-                builder.Append("    <Filter Include=\"").Append(aa.Value).AppendLine("\">");
+                if (aa.Value.StartsWith(".\\"))
+                    builder.Append("    <Filter Include=\"").Append(aa.Value.Replace(".\\","..\\")).AppendLine("\">");
+                else
+                    builder.Append("    <Filter Include=\"").Append(aa.Value).AppendLine("\">");
                 builder.Append("      <UniqueIdentifier>").Append(Guid.NewGuid().ToString("B")).AppendLine("</UniqueIdentifier>");
                 builder.AppendLine("    </Filter>");
             }
