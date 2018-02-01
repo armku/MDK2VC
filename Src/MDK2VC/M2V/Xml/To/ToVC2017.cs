@@ -188,7 +188,7 @@ namespace MDK2VC.M2V.Xml
 
             builder.Append("Project(\"{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}\") = \"");
             builder.Append(cfg.FileNameWithoutExtension);
-            builder.Append("\", \"VC2017\\");
+            builder.Append("\",\"");
             builder.Append(cfg.FileNameWithoutExtension);
             builder.AppendLine(".vcxproj\", \"{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}\"");
 

@@ -58,7 +58,7 @@ namespace MDK2VC.M2V
         {
             get
             {
-                return this.DirectoryName + "\\" + FileNameWithoutExtension + ".sln";
+                return this.VCPath + "\\" + FileNameWithoutExtension + ".sln";
             }
         }
         /// <summary>
