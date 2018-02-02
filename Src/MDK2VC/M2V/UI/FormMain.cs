@@ -121,19 +121,6 @@ namespace MDK2VC
                 notifyIcon1.Visible = false;
             }
         }
-        private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (MessageBox.Show("是否确认退出程序？", "退出", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
-            {
-                // 关闭所有的线程
-                this.Dispose();
-                this.Close();
-            }
-            else
-            {
-                e.Cancel = true;
-            }
-        }
 
         private void 显示ToolStripMenuItem_Click(object sender, EventArgs e)
         {
