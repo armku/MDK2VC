@@ -94,17 +94,22 @@ namespace MDK2VC
             manager.to.createfilters(cfg);
             manager.to.createsln(cfg);
             label5.Text = "转换完：" + DateTime.Now.ToString("HH:mm:ss");
-            btnOpen.Visible = true;
         }
-
-        private void btnOpen_Click(object sender, EventArgs e)
+        /// <summary>
+        /// 打开文件
+        /// </summary>
+        /// <param name="file"></param>
+        private void OpenFile(string file)
         {
-            System.Diagnostics.Process.Start(cfg.sln);
+            if (File.Exists(file))
+                System.Diagnostics.Process.Start(file);
+            else
+                MessageBox.Show("文件不存在 "+file);
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(cfg.MdkPath);
+            this.OpenFile(cfg.MdkPath);
         }
 
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -152,6 +157,11 @@ namespace MDK2VC
         private void notifyIcon1_DoubleClick(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Normal;
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            this.OpenFile(cfg.sln);
         }
     }
 }
