@@ -25,6 +25,9 @@ namespace MDK2VC
 
         private void FormMain_Load(object sender, EventArgs e)
         {
+            cfg.MdkPath= Properties.Settings.Default.LastFileName;
+            if (cfg.MdkPath.Length < 5)
+                cfg.MdkPath = ".uvprojx";
             tBoxMDKPath.Text = cfg.MdkPath;
             tBoxvcxproj.Text = cfg.vcxproj;
             tboxfilters.Text = cfg.filters;
@@ -45,7 +48,10 @@ namespace MDK2VC
                 tBoxMDKPath.Text = cfg.MdkPath;
                 tBoxvcxproj.Text = cfg.vcxproj;
                 tboxfilters.Text = cfg.filters;
-                tboxsln.Text = cfg.sln;                
+                tboxsln.Text = cfg.sln;
+
+                Properties.Settings.Default.LastFileName = cfg.MdkPath;
+                Properties.Settings.Default.Save();
             }
         }
         
