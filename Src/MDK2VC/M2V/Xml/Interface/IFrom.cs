@@ -21,13 +21,7 @@ namespace MDK2VC.M2V.Xml
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        List<String> getIncludePathNew(string path);
-        /// <summary>
-        /// 获取包含路径
-        /// </summary>
-        /// <param name="path"></param>
-        /// <returns></returns>
-        string getIncludePath(string path);
+        List<String> getIncludePath(string path);        
         /// <summary>
         /// 获取组
         /// </summary>

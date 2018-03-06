@@ -16,7 +16,7 @@ namespace MDK2VC.M2V
         /// MDK 工程文件路径
         /// </summary>
         [Description("MDK 工程文件路径")]
-        public string MdkPath { get; set; }
+        public string FromFilePath { get; set; }
         /// <summary>
         /// MDK文件包含路径
         /// </summary>
@@ -145,14 +145,14 @@ namespace MDK2VC.M2V
         {
             get
             {
-                return Path.GetFileNameWithoutExtension(MdkPath);
+                return Path.GetFileNameWithoutExtension(FromFilePath);
             }
         }
         public string DirectoryName
         {
             get
             {
-                return Path.GetDirectoryName(MdkPath);
+                return Path.GetDirectoryName(FromFilePath);
             }
         }
         /// <summary>
@@ -162,7 +162,7 @@ namespace MDK2VC.M2V
         {
             get
             {
-                return Path.GetExtension(MdkPath);
+                return Path.GetExtension(FromFilePath);
             }
         }
         /// <summary>

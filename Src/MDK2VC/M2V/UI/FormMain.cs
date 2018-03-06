@@ -25,10 +25,10 @@ namespace MDK2VC
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            cfg.MdkPath= Properties.Settings.Default.LastFileName;
-            if (cfg.MdkPath.Length < 5)
-                cfg.MdkPath = ".uvprojx";
-            tBoxMDKPath.Text = cfg.MdkPath;
+            cfg.FromFilePath= Properties.Settings.Default.LastFileName;
+            if (cfg.FromFilePath.Length < 5)
+                cfg.FromFilePath = ".uvprojx";
+            tBoxMDKPath.Text = cfg.FromFilePath;
             tBoxvcxproj.Text = cfg.vcxproj;
             tboxfilters.Text = cfg.filters;
             tboxsln.Text = cfg.sln;
@@ -43,14 +43,14 @@ namespace MDK2VC
             fileDlg.Filter = "MDK|*.uvprojx;*.uvproj";
             if (fileDlg.ShowDialog() == DialogResult.OK)
             {                
-                cfg.MdkPath = fileDlg.FileName;
+                cfg.FromFilePath = fileDlg.FileName;
 
-                tBoxMDKPath.Text = cfg.MdkPath;
+                tBoxMDKPath.Text = cfg.FromFilePath;
                 tBoxvcxproj.Text = cfg.vcxproj;
                 tboxfilters.Text = cfg.filters;
                 tboxsln.Text = cfg.sln;
 
-                Properties.Settings.Default.LastFileName = cfg.MdkPath;
+                Properties.Settings.Default.LastFileName = cfg.FromFilePath;
                 Properties.Settings.Default.Save();
             }
         }
@@ -59,13 +59,13 @@ namespace MDK2VC
         {
             var builder = new StringBuilder();
 
-            if((cfg.MdkPath==null) || (!File.Exists(cfg.MdkPath)))
+            if((cfg.FromFilePath==null) || (!File.Exists(cfg.FromFilePath)))
             {
                 MessageBox.Show("请选择正确的文件");
                 btnSelMDKPath.Focus();
                 return;
             }
-            switch (Path.GetExtension(cfg.MdkPath))
+            switch (Path.GetExtension(cfg.FromFilePath))
             {
                 case ".uvproj":
                     manager.from = new Fromuvprojx();
@@ -79,12 +79,12 @@ namespace MDK2VC
             
             manager.to = new ToVC2017();
 
-            cfg.MacroDefine = manager.from.GetMacroDefine(cfg.MdkPath);
-            cfg.IncludePath = manager.from.getIncludePathNew(cfg.MdkPath);
-            cfg.Groups = manager.from.getGroups(cfg.MdkPath);
-            cfg.BuilderGroupsToFilters = manager.from.getGroupsToFilters(cfg.MdkPath);
-            cfg.BuilderGroupsToProj = manager.from.getGroupsToProj(cfg.MdkPath);
-            cfg.BuilderGrouptoFilters = manager.from.getGrouptoFilters(cfg.MdkPath);
+            cfg.MacroDefine = manager.from.GetMacroDefine(cfg.FromFilePath);
+            cfg.IncludePath = manager.from.getIncludePath(cfg.FromFilePath);
+            cfg.Groups = manager.from.getGroups(cfg.FromFilePath);
+            cfg.BuilderGroupsToFilters = manager.from.getGroupsToFilters(cfg.FromFilePath);
+            cfg.BuilderGroupsToProj = manager.from.getGroupsToProj(cfg.FromFilePath);
+            cfg.BuilderGrouptoFilters = manager.from.getGrouptoFilters(cfg.FromFilePath);
             cfg.projguid = Guid.NewGuid().ToString("B");
             
             builder.AppendLine(cfg.MacroDefineStr);
@@ -115,7 +115,7 @@ namespace MDK2VC
 
         private void label1_Click(object sender, EventArgs e)
         {
-            this.OpenFile(cfg.MdkPath);
+            this.OpenFile(cfg.FromFilePath);
         }
 
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
