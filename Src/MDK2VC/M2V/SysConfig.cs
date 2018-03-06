@@ -109,9 +109,23 @@ namespace MDK2VC.M2V
         /// <summary>
         /// 文件路径
         /// </summary>
-        public string IncludePath
+        public List<String> IncludePath { private get; set; }
+        /// <summary>
+        /// 文件路径
+        /// </summary>
+        public string IncludePathStr
         {
-            get;set;
+            get
+            {
+                var builder = new StringBuilder();
+                for(int i=0;i<IncludePath.Count;i++)
+                {
+                    builder.Append(IncludePath[i]);
+                    if (i != IncludePath.Count - 1)
+                        builder.Append(";");
+                }
+                return builder.ToString();
+            }
         }
         public string IncludePathVC
         {
@@ -119,7 +133,7 @@ namespace MDK2VC.M2V
             {
                 var builder = new StringBuilder();
                 builder.Append("      <AdditionalIncludeDirectories>");
-                builder.Append(IncludePath).Append(";").Append(this.MdkIncludePath);
+                builder.Append(IncludePathStr).Append(";").Append(this.MdkIncludePath);
                 builder.Append(";%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>");
                 return builder.ToString();
             }

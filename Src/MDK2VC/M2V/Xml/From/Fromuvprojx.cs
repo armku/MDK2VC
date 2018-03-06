@@ -34,6 +34,25 @@ namespace MDK2VC.M2V.Xml
             //return builder.ToString();
             return ret;
         }        
+        public List<String> getIncludePathNew(string path)
+        {
+            var ret = new List<String>();
+            var doc = XElement.Load(path);
+            var Targets = doc.Element("Targets");
+            var Target = Targets.Element("Target");
+            var TargetOption = Target.Element("TargetOption");
+            var TargetArmAds = TargetOption.Element("TargetArmAds");
+            var Cads = TargetArmAds.Element("Cads");
+            var VariousControls = Cads.Element("VariousControls");
+            var IncludePath = VariousControls.Element("IncludePath");
+
+            var IncludePaths = IncludePath.Value.ToString().Split(new char[] { ';'});
+            foreach(var vn in IncludePaths)
+            {
+                ret.Add("..\\"+vn);
+            }
+            return ret;
+        }
         public string getIncludePath(string path)
         {
             var doc = XElement.Load(path);
@@ -45,9 +64,9 @@ namespace MDK2VC.M2V.Xml
             var VariousControls = Cads.Element("VariousControls");
             var IncludePath = VariousControls.Element("IncludePath");
 
-            var IncludePaths = IncludePath.Value.ToString().Split(new char[] { ';'});
+            var IncludePaths = IncludePath.Value.ToString().Split(new char[] { ';' });
             var builder = new StringBuilder();
-            foreach(var vn in IncludePaths)
+            foreach (var vn in IncludePaths)
             {
                 builder.Append("..\\").Append(vn).Append(";");
             }

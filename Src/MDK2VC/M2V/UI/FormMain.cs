@@ -80,7 +80,7 @@ namespace MDK2VC
             manager.to = new ToVC2017();
 
             cfg.MacroDefine = manager.from.GetMacroDefine(cfg.MdkPath);
-            cfg.IncludePath = manager.from.getIncludePath(cfg.MdkPath);
+            cfg.IncludePath = manager.from.getIncludePathNew(cfg.MdkPath);
             cfg.Groups = manager.from.getGroups(cfg.MdkPath);
             cfg.BuilderGroupsToFilters = manager.from.getGroupsToFilters(cfg.MdkPath);
             cfg.BuilderGroupsToProj = manager.from.getGroupsToProj(cfg.MdkPath);
@@ -88,7 +88,7 @@ namespace MDK2VC
             cfg.projguid = Guid.NewGuid().ToString("B");
             
             builder.AppendLine(cfg.MacroDefineStr);
-            builder.AppendLine(cfg.IncludePath);
+            builder.AppendLine(cfg.IncludePathStr);
             builder.Append(cfg.Groups);
             richTextBox1.Text = builder.ToString();
         }
