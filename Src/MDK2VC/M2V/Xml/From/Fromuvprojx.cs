@@ -13,8 +13,9 @@ namespace MDK2VC.M2V.Xml
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        public String GetMacroDefine(string path)
+        public List<String> GetMacroDefine(string path)
         {
+            var ret = new List<String>();
             var builder = new StringBuilder();
             var doc = XElement.Load(path);
             var Targets = doc.Element("Targets");
@@ -28,9 +29,11 @@ namespace MDK2VC.M2V.Xml
             foreach (var str in strs)
             {
                 builder.Append(str).Append(";");
+                ret.Add(str);
             }
-            return builder.ToString();
-        }
+            //return builder.ToString();
+            return ret;
+        }        
         public string getIncludePath(string path)
         {
             var doc = XElement.Load(path);

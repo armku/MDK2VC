@@ -87,7 +87,7 @@ namespace MDK2VC
             cfg.BuilderGrouptoFilters = manager.from.getGrouptoFilters(cfg.MdkPath);
             cfg.projguid = Guid.NewGuid().ToString("B");
             
-            builder.AppendLine(cfg.MacroDefine);
+            builder.AppendLine(cfg.MacroDefineStr);
             builder.AppendLine(cfg.IncludePath);
             builder.Append(cfg.Groups);
             richTextBox1.Text = builder.ToString();

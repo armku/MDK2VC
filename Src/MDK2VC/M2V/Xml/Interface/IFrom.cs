@@ -9,13 +9,13 @@ namespace MDK2VC.M2V.Xml
     /// 
     /// </summary>
     public interface IFrom
-    {
+    {        
         /// <summary>
         /// 获取宏定义
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        String GetMacroDefine(string path);
+        List<String> GetMacroDefine(string path);
         /// <summary>
         /// 获取包含路径
         /// </summary>

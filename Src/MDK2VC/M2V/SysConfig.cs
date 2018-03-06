@@ -62,9 +62,24 @@ namespace MDK2VC.M2V
             }
         }
         /// <summary>
+        /// 宏定义
+        /// </summary>
+        public List<string> MacroDefine { private get; set; }
+        /// <summary>
         /// 预定义
         /// </summary>
-        public string MacroDefine { get; set; }
+        public string MacroDefineStr
+        {
+            get
+            {
+                var builder = new StringBuilder();
+                foreach(var str in MacroDefine)
+                {
+                    builder.Append(str.Trim()).Append(";");
+                }
+                return builder.ToString();
+            }
+        }
         /// <summary>
         /// 预定义 VC2017版本
         /// </summary>
@@ -74,7 +89,7 @@ namespace MDK2VC.M2V
             {
                 var builder = new StringBuilder();
                 builder.Append("      <PreprocessorDefinitions>");
-                builder.Append(MacroDefine).Append("%(PreprocessorDefinitions)</PreprocessorDefinitions>");
+                builder.Append(MacroDefineStr).Append("%(PreprocessorDefinitions)</PreprocessorDefinitions>");
                 return builder.ToString();
             }
         }
