@@ -82,11 +82,16 @@ namespace MDK2VC
 
             cfg.MacroDefine = manager.from.GetMacroDefine(cfg.FromFilePath);
             cfg.IncludePath = manager.from.getIncludePath(cfg.FromFilePath);
+            cfg.ProjFiles = manager.from.GetFiles(cfg.FromFilePath);
+            this.ShowFiles(cfg.ProjFiles);
+
+
+
+
+
 
 
             cfg.Groups = manager.from.getGroups(cfg.FromFilePath);
-
-
             cfg.BuilderGroupsToFilters = manager.from.getGroupsToFilters(cfg.FromFilePath);
             cfg.BuilderGroupsToProj = manager.from.getGroupsToProj(cfg.FromFilePath);
             cfg.BuilderGrouptoFilters = manager.from.getGrouptoFilters(cfg.FromFilePath);
@@ -175,12 +180,11 @@ namespace MDK2VC
         {
             this.OpenFile(cfg.sln);
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        BTree<Node> GetFiles(string filename)
         {
-            BTree<Node> tree1 = new BTree<Node>();
+            var tree1 = new BTree<Node>();
             tree1.Data = new Node("文件", true);
-            
+
             var doc = XElement.Load(cfg.FromFilePath);
             var Targets = doc.Element("Targets");
             var Target = Targets.Element("Target");
@@ -189,7 +193,7 @@ namespace MDK2VC
             var Group = Groups.Elements("Group");
             foreach (var grou in Group)
             {
-                var aa = grou.Element("GroupName");                
+                var aa = grou.Element("GroupName");
                 var tree2 = new BTree<Node>();
                 tree2.Data = new Node(aa.Value, false);
                 tree1.AddNode(tree2);
@@ -202,7 +206,7 @@ namespace MDK2VC
                     {
                         var FilePath = ff.Element("FilePath");
                         if (FilePath != null)
-                        {                            
+                        {
                             var tree3 = new BTree<Node>();
                             tree3.Data = new Node(FilePath.Value, false);
                             tree2.AddNode(tree3);
@@ -210,11 +214,10 @@ namespace MDK2VC
                     }
                 }
             }
-
-
-
-
-
+            return tree1;
+        }
+        void ShowFiles(BTree<Node> tree1)
+        {
             var tn = new TreeNode();
             tn.Tag = tree1;
             tn.Text = tree1.Data.Name;
@@ -224,7 +227,7 @@ namespace MDK2VC
                 tn1.Tag = tree1.Nodes[i];
                 tn1.Text = tree1.Nodes[i].Data.Name;
 
-                for(int j=0;j<tree1.Nodes[i].Nodes.Count;j++)
+                for (int j = 0; j < tree1.Nodes[i].Nodes.Count; j++)
                 {
                     var tn2 = new TreeNode();
                     tn2.Tag = tree1.Nodes[i];

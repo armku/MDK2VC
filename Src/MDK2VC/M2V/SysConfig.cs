@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MDK2VC.M2V.Xml;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
@@ -110,6 +111,10 @@ namespace MDK2VC.M2V
         /// 文件路径
         /// </summary>
         public List<String> IncludePath { private get; set; }
+        /// <summary>
+        /// 项目包含文件
+        /// </summary>
+        public BTree<Node> ProjFiles { get; set; }
         /// <summary>
         /// 文件路径
         /// </summary>
