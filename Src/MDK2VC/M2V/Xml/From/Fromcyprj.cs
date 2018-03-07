@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Xml.Linq;
@@ -49,6 +50,7 @@ namespace MDK2VC.M2V.Xml
             //        ret.Add(str);
             //    }
             //}
+            ret.Add("DEBUG");
             return ret;
         }
         public List<String> getIncludePath(string path)
@@ -82,6 +84,7 @@ namespace MDK2VC.M2V.Xml
             //{
             //    ret.Add("..\\" + vn);
             //}
+            ret.Add("DEBUG");
             return ret;
         }
         /// <summary>
@@ -95,35 +98,32 @@ namespace MDK2VC.M2V.Xml
             var tree1 = new BTree<Node>();
             tree1.Data = new Node("文件", "", true);
 
-            //var doc = XElement.Load(filename);
-            //var Targets = doc.Element("Targets");
-            //var Target = Targets.Element("Target");
-            //var Groups = Target.Element("Groups");
+            var i = 0;
+            if (File.Exists(filename))
+            {
+                using (StreamReader sr = File.OpenText(filename))
+                {
+                    var s = "";
+                    var tree2 = new BTree<Node>();
+                    tree2.Data = new Node("test", "", false);
+                    tree1.AddNode(tree2);
+                    while ((s = sr.ReadLine()) != null)
+                    {
+                        var ssspaces = s.Split(' ');
+                        foreach (var sss in ssspaces)
+                        {
+                            var ssequals = sss.Split('=');
+                            if ((ssequals != null) && ssequals.Length == 2 && ssequals[0].Equals("persistent")&& ssequals[1].Split('"')[1].Length!=0)
+                            {                                
+                                var tree3 = new BTree<Node>();
+                                tree3.Data = new Node(ssequals[1].Split('"')[1], "", false);
+                                tree2.AddNode(tree3);
+                            }
+                        }
 
-            //var Group = Groups.Elements("Group");
-            //foreach (var grou in Group)
-            //{
-            //    var aa = grou.Element("GroupName");
-            //    var tree2 = new BTree<Node>();
-            //    tree2.Data = new Node(aa.Value, "", false);
-            //    tree1.AddNode(tree2);
-
-            //    var Files = grou.Elements("Files");
-            //    foreach (var File in Files)
-            //    {
-            //        var file = File.Elements("File");
-            //        foreach (var ff in file)
-            //        {
-            //            var FilePath = ff.Element("FilePath");
-            //            if (FilePath != null)
-            //            {
-            //                var tree3 = new BTree<Node>();
-            //                tree3.Data = new Node(FilePath.Value, "", false);
-            //                tree2.AddNode(tree3);
-            //            }
-            //        }
-            //    }
-            //}
+                    }
+                }
+            }
             return tree1;
         }
     }
