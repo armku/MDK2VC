@@ -214,9 +214,9 @@
             this.toolStripStatusLabel3,
             this.toolStripStatusLabel4,
             this.toolStripStatusLabel5});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 347);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 154);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1123, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(519, 22);
             this.statusStrip1.TabIndex = 17;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -252,16 +252,16 @@
             // 
             // treeView1
             // 
-            this.treeView1.Location = new System.Drawing.Point(519, 23);
+            this.treeView1.Location = new System.Drawing.Point(4, 350);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(548, 312);
+            this.treeView1.Size = new System.Drawing.Size(509, 312);
             this.treeView1.TabIndex = 18;
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1123, 369);
+            this.ClientSize = new System.Drawing.Size(519, 176);
             this.Controls.Add(this.treeView1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.label5);
