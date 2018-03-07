@@ -85,12 +85,23 @@ namespace MDK2VC.M2V.Xml
     }
     public class Node
     {
-        public Node(string name, bool isdir)
+        public Node(string name,String parentname, bool isdir)
         {
             this.Name = name;
-            this.IsDir = isdir;
+            this.ParentName = parentname;
+            this.IsFile = isdir;
         }
+        /// <summary>
+        /// 当前名称
+        /// </summary>
         public string Name { get; set; }
-        public bool IsDir { get; set; }
+        /// <summary>
+        /// 上级名称
+        /// </summary>
+        public String ParentName { get; set; }
+        /// <summary>
+        /// 是否是文件
+        /// </summary>
+        public bool IsFile { get; set; }
     }
 }

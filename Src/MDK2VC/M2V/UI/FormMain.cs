@@ -181,7 +181,7 @@ namespace MDK2VC
         BTree<Node> GetFiles(string filename)
         {
             var tree1 = new BTree<Node>();
-            tree1.Data = new Node("文件", true);
+            tree1.Data = new Node("文件","", true);
 
             var doc = XElement.Load(cfg.FromFilePath);
             var Targets = doc.Element("Targets");
@@ -193,7 +193,7 @@ namespace MDK2VC
             {
                 var aa = grou.Element("GroupName");
                 var tree2 = new BTree<Node>();
-                tree2.Data = new Node(aa.Value, false);
+                tree2.Data = new Node(aa.Value,tree1.Data.Name, false);
                 tree1.AddNode(tree2);
 
                 var Files = grou.Elements("Files");
@@ -206,7 +206,7 @@ namespace MDK2VC
                         if (FilePath != null)
                         {
                             var tree3 = new BTree<Node>();
-                            tree3.Data = new Node(FilePath.Value, false);
+                            tree3.Data = new Node(FilePath.Value,tree2.Data.Name, false);
                             tree2.AddNode(tree3);
                         }
                     }
