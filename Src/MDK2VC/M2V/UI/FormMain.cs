@@ -8,6 +8,7 @@ using System.Drawing;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace MDK2VC
 {
@@ -17,7 +18,7 @@ namespace MDK2VC
         /// <summary>
         /// 项目配置
         /// </summary>
-        SysConfig cfg=new SysConfig();
+        SysConfig cfg = new SysConfig();
         public FormMain()
         {
             InitializeComponent();
@@ -25,7 +26,7 @@ namespace MDK2VC
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            cfg.FromFilePath= Properties.Settings.Default.LastFileName;
+            cfg.FromFilePath = Properties.Settings.Default.LastFileName;
             if (cfg.FromFilePath.Length < 5)
                 cfg.FromFilePath = ".uvprojx";
             tBoxMDKPath.Text = cfg.FromFilePath;
@@ -42,7 +43,7 @@ namespace MDK2VC
             fileDlg.Title = "请选择文件";
             fileDlg.Filter = "MDK|*.uvprojx;*.uvproj";
             if (fileDlg.ShowDialog() == DialogResult.OK)
-            {                
+            {
                 cfg.FromFilePath = fileDlg.FileName;
 
                 tBoxMDKPath.Text = cfg.FromFilePath;
@@ -54,12 +55,12 @@ namespace MDK2VC
                 Properties.Settings.Default.Save();
             }
         }
-        
+
         private void btnTrans_Click(object sender, EventArgs e)
         {
             var builder = new StringBuilder();
 
-            if((cfg.FromFilePath==null) || (!File.Exists(cfg.FromFilePath)))
+            if ((cfg.FromFilePath == null) || (!File.Exists(cfg.FromFilePath)))
             {
                 MessageBox.Show("请选择正确的文件");
                 btnSelMDKPath.Focus();
@@ -76,25 +77,30 @@ namespace MDK2VC
                 default:
                     break;
             }
-            
+
             manager.to = new ToVC2017();
 
             cfg.MacroDefine = manager.from.GetMacroDefine(cfg.FromFilePath);
             cfg.IncludePath = manager.from.getIncludePath(cfg.FromFilePath);
+
+
             cfg.Groups = manager.from.getGroups(cfg.FromFilePath);
+
+
             cfg.BuilderGroupsToFilters = manager.from.getGroupsToFilters(cfg.FromFilePath);
             cfg.BuilderGroupsToProj = manager.from.getGroupsToProj(cfg.FromFilePath);
             cfg.BuilderGrouptoFilters = manager.from.getGrouptoFilters(cfg.FromFilePath);
             cfg.projguid = Guid.NewGuid().ToString("B");
-            
+
             builder.AppendLine(cfg.MacroDefineStr);
             builder.AppendLine(cfg.IncludePathStr);
+
             builder.Append(cfg.Groups);
             richTextBox1.Text = builder.ToString();
         }
-        
+
         private void btnTest_Click(object sender, EventArgs e)
-        {           
+        {
             btnTrans_Click(sender, e);
             manager.to.createvcxproj(cfg);
             manager.to.createfilters(cfg);
@@ -110,7 +116,7 @@ namespace MDK2VC
             if (File.Exists(file))
                 System.Diagnostics.Process.Start(file);
             else
-                MessageBox.Show("文件不存在 "+file);
+                MessageBox.Show("文件不存在 " + file);
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -168,6 +174,69 @@ namespace MDK2VC
         private void label4_Click(object sender, EventArgs e)
         {
             this.OpenFile(cfg.sln);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            BTree<Node> tree1 = new BTree<Node>();
+            tree1.Data = new Node("文件", true);
+            
+            var doc = XElement.Load(cfg.FromFilePath);
+            var Targets = doc.Element("Targets");
+            var Target = Targets.Element("Target");
+            var Groups = Target.Element("Groups");
+
+            var Group = Groups.Elements("Group");
+            foreach (var grou in Group)
+            {
+                var aa = grou.Element("GroupName");                
+                var tree2 = new BTree<Node>();
+                tree2.Data = new Node(aa.Value, false);
+                tree1.AddNode(tree2);
+
+                var Files = grou.Elements("Files");
+                foreach (var File in Files)
+                {
+                    var file = File.Elements("File");
+                    foreach (var ff in file)
+                    {
+                        var FilePath = ff.Element("FilePath");
+                        if (FilePath != null)
+                        {                            
+                            var tree3 = new BTree<Node>();
+                            tree3.Data = new Node(FilePath.Value, false);
+                            tree2.AddNode(tree3);
+                        }
+                    }
+                }
+            }
+
+
+
+
+
+            var tn = new TreeNode();
+            tn.Tag = tree1;
+            tn.Text = tree1.Data.Name;
+            for (int i = 0; i < tree1.Nodes.Count; i++)
+            {
+                var tn1 = new TreeNode();
+                tn1.Tag = tree1.Nodes[i];
+                tn1.Text = tree1.Nodes[i].Data.Name;
+
+                for(int j=0;j<tree1.Nodes[i].Nodes.Count;j++)
+                {
+                    var tn2 = new TreeNode();
+                    tn2.Tag = tree1.Nodes[i];
+                    tn2.Text = tree1.Nodes[i].Nodes[j].Data.Name;
+                    tn1.Nodes.Add(tn2);
+                }
+
+                tn.Nodes.Add(tn1);
+
+            }
+            treeView1.Nodes.Clear();
+            treeView1.Nodes.Add(tn);
         }
     }
 }
