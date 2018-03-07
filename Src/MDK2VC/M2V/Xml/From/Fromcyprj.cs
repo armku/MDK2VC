@@ -98,26 +98,42 @@ namespace MDK2VC.M2V.Xml
             var tree1 = new BTree<Node>();
             tree1.Data = new Node("文件", "", true);
 
-            var i = 0;
+            var treenodes = new BTree<Node>[100];
+            for (int j = 0; j < 100; j++)
+                treenodes[j] = new BTree<Node>();
+
+            var i = 1;
+            var namegroup = "";
             if (File.Exists(filename))
             {
                 using (StreamReader sr = File.OpenText(filename))
                 {
-                    var s = "";
-                    var tree2 = new BTree<Node>();
-                    tree2.Data = new Node("test", "", false);
-                    tree1.AddNode(tree2);
+                    var s = "";                    
                     while ((s = sr.ReadLine()) != null)
                     {
                         var ssspaces = s.Split(' ');
                         foreach (var sss in ssspaces)
                         {
-                            var ssequals = sss.Split('=');
-                            if ((ssequals != null) && ssequals.Length == 2 && ssequals[0].Equals("persistent")&& ssequals[1].Split('"')[1].Length!=0)
-                            {                                
-                                var tree3 = new BTree<Node>();
-                                tree3.Data = new Node(ssequals[1].Split('"')[1], "", false);
-                                tree2.AddNode(tree3);
+                            var ssequals = sss.Split('=');                            
+                            if ((ssequals != null) && ssequals.Length == 2 && ssequals[0].Equals("name"))
+                            {
+                                namegroup = ssequals[1].Split('"')[1];
+                            }
+                            if ((ssequals != null) && ssequals.Length == 2 && ssequals[0].Equals("persistent"))
+                            {
+                                if (ssequals[1].Split('"')[1].Length == 0)
+                                {
+                                    treenodes[i] = new BTree<Node>();
+                                    treenodes[i].Data = new Node(namegroup + i.ToString(), "", false);
+                                    tree1.AddNode(treenodes[i]);
+                                    i++;
+                                }
+                                else
+                                {
+                                    var tree3 = new BTree<Node>();
+                                    tree3.Data = new Node(ssequals[1].Split('"')[1], "", false);
+                                    treenodes[i - 1].AddNode(tree3);
+                                }
                             }
                         }
 
