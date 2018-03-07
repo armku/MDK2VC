@@ -58,7 +58,7 @@
     <Compile Include="M2V\Xml\From\Fromuvproj.cs" />
     <Compile Include="M2V\Xml\From\Fromuvprojx.cs" />
     <Compile Include="M2V\Xml\Interface\IFrom.cs" />
-    <Compile Include="M2V\Xml\Interface\ITo.cs" />
+    <Compile Include="M2V\Xml\Interface\IToVC2017.cs" />
     <Compile Include="M2V\Xml\To\ToVC2017.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

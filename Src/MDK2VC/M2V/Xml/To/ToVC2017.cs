@@ -7,7 +7,7 @@ using System.Xml.Linq;
 
 namespace MDK2VC.M2V.Xml
 {
-    public class ToVC2017: ITo
+    public class ToVC2017: IToVC2017
     {        
         private String getMacroDefineVC(string definestr)
         {

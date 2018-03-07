@@ -14,7 +14,7 @@ namespace MDK2VC.M2V.Xml
         /// <summary>
         /// 目标
         /// </summary>
-        public ITo to
+        public IToVC2017 to
         { get; set; }
     }
 }
