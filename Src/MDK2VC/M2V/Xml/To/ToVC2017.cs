@@ -249,33 +249,33 @@ namespace MDK2VC.M2V.Xml
 
 
 
-        public String getGroups(SysConfig cfg)
-        {
-            var builder = new StringBuilder();
-            var doc = XElement.Load(cfg.FromFilePath);
-            var Targets = doc.Element("Targets");
-            var Target = Targets.Element("Target");
-            var Groups = Target.Element("Groups");
+        //public String getGroups(SysConfig cfg)
+        //{
+        //    var builder = new StringBuilder();
+        //    var doc = XElement.Load(cfg.FromFilePath);
+        //    var Targets = doc.Element("Targets");
+        //    var Target = Targets.Element("Target");
+        //    var Groups = Target.Element("Groups");
 
-            var Group = Groups.Elements("Group");
-            foreach (var grou in Group)
-            {
-                var aa = grou.Element("GroupName");
-                builder.AppendLine(aa.Value);
-                var Files = grou.Elements("Files");
-                foreach (var File in Files)
-                {
-                    var file = File.Elements("File");
-                    foreach (var ff in file)
-                    {
-                        var FilePath = ff.Element("FilePath");
-                        if (FilePath != null)
-                            builder.AppendLine(FilePath.Value);
-                    }
-                }
-            }
-            return builder.ToString();
-        }
+        //    var Group = Groups.Elements("Group");
+        //    foreach (var grou in Group)
+        //    {
+        //        var aa = grou.Element("GroupName");
+        //        builder.AppendLine(aa.Value);
+        //        var Files = grou.Elements("Files");
+        //        foreach (var File in Files)
+        //        {
+        //            var file = File.Elements("File");
+        //            foreach (var ff in file)
+        //            {
+        //                var FilePath = ff.Element("FilePath");
+        //                if (FilePath != null)
+        //                    builder.AppendLine(FilePath.Value);
+        //            }
+        //        }
+        //    }
+        //    return builder.ToString();
+        //}
         public string getGroupsToFilters(SysConfig cfg)
         {
             var builder = new StringBuilder();
