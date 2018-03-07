@@ -30,24 +30,5 @@ namespace MDK2VC.M2V.Xml
         /// <returns></returns>
         [Description("获取工程中文件")]
         BTree<Node> GetFiles(string filename);
-
-
-
-
-
-
-
-
-
-
-        /// <summary>
-        /// 获取组
-        /// </summary>
-        /// <param name="path"></param>
-        /// <returns></returns>
-        String getGroups(string path);
-        String getGroupsToFilters(string path);
-        String getGroupsToProj( string path);
-        String getGrouptoFilters(string path);
     }
 }

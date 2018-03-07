@@ -91,9 +91,9 @@ namespace MDK2VC
 
 
 
-            cfg.BuilderGroupsToFilters = manager.from.getGroupsToFilters(cfg.FromFilePath);
-            cfg.BuilderGroupsToProj = manager.from.getGroupsToProj(cfg.FromFilePath);
-            cfg.BuilderGrouptoFilters = manager.from.getGrouptoFilters(cfg.FromFilePath);
+            cfg.BuilderGroupsToFilters = manager.to.getGroupsToFilters(cfg,cfg.FromFilePath);
+            cfg.BuilderGroupsToProj = manager.to.getGroupsToProj(cfg, cfg.FromFilePath);
+            cfg.BuilderGrouptoFilters = manager.to.getGrouptoFilters(cfg, cfg.FromFilePath);
             cfg.projguid = Guid.NewGuid().ToString("B");
 
             builder.AppendLine(cfg.MacroDefineStr);

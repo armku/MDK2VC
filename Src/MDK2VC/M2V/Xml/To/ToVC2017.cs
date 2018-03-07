@@ -242,5 +242,128 @@ namespace MDK2VC.M2V.Xml
             fs.Flush();
             fs.Close();
         }
+
+
+
+
+
+
+
+        public String getGroups(SysConfig cfg, string path)
+        {
+            var builder = new StringBuilder();
+            var doc = XElement.Load(path);
+            var Targets = doc.Element("Targets");
+            var Target = Targets.Element("Target");
+            var Groups = Target.Element("Groups");
+
+            var Group = Groups.Elements("Group");
+            foreach (var grou in Group)
+            {
+                var aa = grou.Element("GroupName");
+                builder.AppendLine(aa.Value);
+                var Files = grou.Elements("Files");
+                foreach (var File in Files)
+                {
+                    var file = File.Elements("File");
+                    foreach (var ff in file)
+                    {
+                        var FilePath = ff.Element("FilePath");
+                        if (FilePath != null)
+                            builder.AppendLine(FilePath.Value);
+                    }
+                }
+            }
+            return builder.ToString();
+        }
+        public string getGroupsToFilters(SysConfig cfg, string path)
+        {
+            var builder = new StringBuilder();
+            var doc = XElement.Load(path);
+            var Targets = doc.Element("Targets");
+            var Target = Targets.Element("Target");
+            var Groups = Target.Element("Groups");
+
+            var Group = Groups.Elements("Group");
+            foreach (var grou in Group)
+            {
+                var aa = grou.Element("GroupName");
+                var Files = grou.Elements("Files");
+                foreach (var File in Files)
+                {
+                    var file = File.Elements("File");
+                    foreach (var ff in file)
+                    {
+                        var FilePath = ff.Element("FilePath");
+                        builder.Append("    <ClCompile Include=\"");
+                        if (FilePath != null)
+                        {
+                            if (FilePath.Value.StartsWith(".\\"))
+                                builder.Append(FilePath.Value.Replace(".\\", "..\\"));
+                            else
+                                builder.Append("..\\" + FilePath.Value);
+                        }
+                        builder.AppendLine("\">");
+                        builder.Append("      <Filter>").Append(aa.Value).AppendLine("</Filter>");
+                        builder.AppendLine("    </ClCompile>");
+                    }
+                }
+            }
+            return builder.ToString();
+        }
+        public string getGroupsToProj(SysConfig cfg, string path)
+        {
+            var builder = new StringBuilder();
+            var doc = XElement.Load(path);
+            var Targets = doc.Element("Targets");
+            var Target = Targets.Element("Target");
+            var Groups = Target.Element("Groups");
+
+            var Group = Groups.Elements("Group");
+            foreach (var grou in Group)
+            {
+                var aa = grou.Element("GroupName");
+                var Files = grou.Elements("Files");
+                foreach (var File in Files)
+                {
+                    var file = File.Elements("File");
+                    foreach (var ff in file)
+                    {
+                        var FilePath = ff.Element("FilePath");
+                        builder.Append("    <ClCompile Include=\"");
+                        if (FilePath != null)
+                        {
+                            if (FilePath.Value.StartsWith(".\\"))
+                                builder.Append(FilePath.Value.Replace(".\\", "..\\"));
+                            else
+                                builder.Append("..\\" + FilePath.Value);
+                        }
+                        builder.AppendLine("\" /> ");
+                    }
+                }
+            }
+            return builder.ToString();
+        }
+        public String getGrouptoFilters(SysConfig cfg, string path)
+        {
+            var builder = new StringBuilder();
+            var doc = XElement.Load(path);
+            var Targets = doc.Element("Targets");
+            var Target = Targets.Element("Target");
+            var Groups = Target.Element("Groups");
+
+            var Group = Groups.Elements("Group");
+            foreach (var grou in Group)
+            {
+                var aa = grou.Element("GroupName");
+                if (aa.Value.StartsWith(".\\"))
+                    builder.Append("    <Filter Include=\"").Append(aa.Value.Replace(".\\", "..\\")).AppendLine("\">");
+                else
+                    builder.Append("    <Filter Include=\"").Append(aa.Value).AppendLine("\">");
+                builder.Append("      <UniqueIdentifier>").Append(Guid.NewGuid().ToString("B")).AppendLine("</UniqueIdentifier>");
+                builder.AppendLine("    </Filter>");
+            }
+            return builder.ToString();
+        }
     }
 }

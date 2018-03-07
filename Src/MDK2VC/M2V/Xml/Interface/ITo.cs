@@ -25,5 +25,21 @@ namespace MDK2VC.M2V.Xml
         /// </summary>
         /// <param name="cfg"></param>
         void createsln(SysConfig cfg);
+
+
+
+
+
+
+
+        /// <summary>
+        /// 获取组
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        String getGroups(SysConfig cfg, string path);
+        String getGroupsToFilters(SysConfig cfg, string path);
+        String getGroupsToProj(SysConfig cfg, string path);
+        String getGrouptoFilters(SysConfig cfg, string path);
     }
 }
