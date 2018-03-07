@@ -91,7 +91,6 @@ namespace MDK2VC
 
 
 
-            cfg.Groups = manager.from.getGroups(cfg.FromFilePath);
             cfg.BuilderGroupsToFilters = manager.from.getGroupsToFilters(cfg.FromFilePath);
             cfg.BuilderGroupsToProj = manager.from.getGroupsToProj(cfg.FromFilePath);
             cfg.BuilderGrouptoFilters = manager.from.getGrouptoFilters(cfg.FromFilePath);
@@ -100,7 +99,6 @@ namespace MDK2VC
             builder.AppendLine(cfg.MacroDefineStr);
             builder.AppendLine(cfg.IncludePathStr);
 
-            builder.Append(cfg.Groups);
             richTextBox1.Text = builder.ToString();
         }
 

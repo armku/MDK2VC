@@ -82,19 +82,6 @@ namespace MDK2VC.M2V
             }
         }
         /// <summary>
-        /// 预定义 VC2017版本
-        /// </summary>
-        public string MacroDefineVC
-        {
-            get
-            {
-                var builder = new StringBuilder();
-                builder.Append("      <PreprocessorDefinitions>");
-                builder.Append(MacroDefineStr).Append("%(PreprocessorDefinitions)</PreprocessorDefinitions>");
-                return builder.ToString();
-            }
-        }
-        /// <summary>
         /// 
         /// </summary>
         public string projguid { get; set; }
@@ -132,17 +119,6 @@ namespace MDK2VC.M2V
                 return builder.ToString();
             }
         }
-        public string IncludePathVC
-        {
-            get
-            {
-                var builder = new StringBuilder();
-                builder.Append("      <AdditionalIncludeDirectories>");
-                builder.Append(IncludePathStr).Append(";").Append(this.MdkIncludePath);
-                builder.Append(";%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>");
-                return builder.ToString();
-            }
-        }
         /// <summary>
         /// 仅文件名，不包含路径 hello
         /// </summary>
@@ -170,17 +146,6 @@ namespace MDK2VC.M2V
                 return Path.GetExtension(FromFilePath);
             }
         }
-        /// <summary>
-        /// 仅仅文件路径，不包含文件名
-        /// </summary>
-        public string PathNameOnly
-        {
-            get
-            {                
-                return "";
-            }
-        }
-        public string Groups { get; set; }
         public string BuilderGroupsToFilters { get; set; }
         public string BuilderGroupsToProj { get; set; }
         public string BuilderGrouptoFilters { get; set; }

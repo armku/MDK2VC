@@ -9,6 +9,23 @@ namespace MDK2VC.M2V.Xml
 {
     public class ToVC2017: ITo
     {        
+        private String getMacroDefineVC(string definestr)
+        {
+            var builder = new StringBuilder();
+            builder.Append("      <PreprocessorDefinitions>");
+            builder.Append(definestr).Append("%(PreprocessorDefinitions)</PreprocessorDefinitions>");
+            return builder.ToString();
+        }
+        private String getIncludePathVC(SysConfig cfg)
+        {
+            var builder = new StringBuilder();
+            builder.Append("      <AdditionalIncludeDirectories>");
+            builder.Append(cfg.IncludePathStr).Append(";").Append(cfg.MdkIncludePath);
+            builder.Append(";%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>");
+            return builder.ToString();
+        }
+
+
         public void createvcxproj(SysConfig cfg)
         {
             var builder = new StringBuilder();
@@ -90,8 +107,8 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("      <Optimization>Disabled</Optimization>");
             builder.AppendLine("      <SDLCheck>true</SDLCheck>");
             builder.AppendLine("      <ConformanceMode>true</ConformanceMode>");
-            builder.AppendLine(cfg.IncludePathVC);
-            builder.AppendLine(cfg.MacroDefineVC);
+            builder.AppendLine(this.getIncludePathVC(cfg));
+            builder.AppendLine(this.getMacroDefineVC(cfg.MacroDefineStr));
             builder.AppendLine("    </ClCompile>");
             builder.AppendLine("  </ItemDefinitionGroup>");
             builder.AppendLine("  <ItemDefinitionGroup Condition=\"'$(Configuration)|$(Platform)' == 'Debug|x64'\">");
@@ -100,8 +117,8 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("      <Optimization>Disabled</Optimization>");
             builder.AppendLine("      <SDLCheck>true</SDLCheck>");
             builder.AppendLine("      <ConformanceMode>true</ConformanceMode>");
-            builder.AppendLine(cfg.IncludePathVC);
-            builder.AppendLine(cfg.MacroDefineVC);
+            builder.AppendLine(this.getIncludePathVC(cfg));
+            builder.AppendLine(this.getMacroDefineVC(cfg.MacroDefineStr));
             builder.AppendLine("    </ClCompile>");
             builder.AppendLine("  </ItemDefinitionGroup>");
             builder.AppendLine("  <ItemDefinitionGroup Condition=\"'$(Configuration)|$(Platform)' == 'Release|Win32'\">");
@@ -112,8 +129,8 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("      <IntrinsicFunctions>true</IntrinsicFunctions>");
             builder.AppendLine("      <SDLCheck>true</SDLCheck>");
             builder.AppendLine("      <ConformanceMode>true</ConformanceMode>");
-            builder.AppendLine(cfg.IncludePathVC);
-            builder.AppendLine(cfg.MacroDefineVC);
+            builder.AppendLine(this.getIncludePathVC(cfg));
+            builder.AppendLine(this.getMacroDefineVC(cfg.MacroDefineStr));
             builder.AppendLine("    </ClCompile>");
             builder.AppendLine("    <Link>");
             builder.AppendLine("      <EnableCOMDATFolding>true</EnableCOMDATFolding>");
@@ -128,8 +145,8 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("      <IntrinsicFunctions>true</IntrinsicFunctions>");
             builder.AppendLine("      <SDLCheck>true</SDLCheck>");
             builder.AppendLine("      <ConformanceMode>true</ConformanceMode>");
-            builder.AppendLine(cfg.IncludePathVC);
-            builder.AppendLine(cfg.MacroDefineVC);
+            builder.AppendLine(this.getIncludePathVC(cfg));
+            builder.AppendLine(this.getMacroDefineVC(cfg.MacroDefineStr));
             builder.AppendLine("    </ClCompile>");
             builder.AppendLine(@"    <Link>");
             builder.AppendLine(@"      <EnableCOMDATFolding>true</EnableCOMDATFolding>");
