@@ -249,10 +249,10 @@ namespace MDK2VC.M2V.Xml
 
 
 
-        public String getGroups(SysConfig cfg, string path)
+        public String getGroups(SysConfig cfg)
         {
             var builder = new StringBuilder();
-            var doc = XElement.Load(path);
+            var doc = XElement.Load(cfg.FromFilePath);
             var Targets = doc.Element("Targets");
             var Target = Targets.Element("Target");
             var Groups = Target.Element("Groups");
@@ -276,10 +276,10 @@ namespace MDK2VC.M2V.Xml
             }
             return builder.ToString();
         }
-        public string getGroupsToFilters(SysConfig cfg, string path)
+        public string getGroupsToFilters(SysConfig cfg)
         {
             var builder = new StringBuilder();
-            var doc = XElement.Load(path);
+            var doc = XElement.Load(cfg.FromFilePath);
             var Targets = doc.Element("Targets");
             var Target = Targets.Element("Target");
             var Groups = Target.Element("Groups");
@@ -311,10 +311,10 @@ namespace MDK2VC.M2V.Xml
             }
             return builder.ToString();
         }
-        public string getGroupsToProj(SysConfig cfg, string path)
+        public string getGroupsToProj(SysConfig cfg)
         {
             var builder = new StringBuilder();
-            var doc = XElement.Load(path);
+            var doc = XElement.Load(cfg.FromFilePath);
             var Targets = doc.Element("Targets");
             var Target = Targets.Element("Target");
             var Groups = Target.Element("Groups");
@@ -344,10 +344,10 @@ namespace MDK2VC.M2V.Xml
             }
             return builder.ToString();
         }
-        public String getGrouptoFilters(SysConfig cfg, string path)
+        public String getGrouptoFilters(SysConfig cfg)
         {
             var builder = new StringBuilder();
-            var doc = XElement.Load(path);
+            var doc = XElement.Load(cfg.FromFilePath);
             var Targets = doc.Element("Targets");
             var Target = Targets.Element("Target");
             var Groups = Target.Element("Groups");

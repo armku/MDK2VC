@@ -37,9 +37,9 @@ namespace MDK2VC.M2V.Xml
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        String getGroups(SysConfig cfg, string path);
-        String getGroupsToFilters(SysConfig cfg, string path);
-        String getGroupsToProj(SysConfig cfg, string path);
-        String getGrouptoFilters(SysConfig cfg, string path);
+        String getGroups(SysConfig cfg);
+        String getGroupsToFilters(SysConfig cfg);
+        String getGroupsToProj(SysConfig cfg);
+        String getGrouptoFilters(SysConfig cfg);
     }
 }
