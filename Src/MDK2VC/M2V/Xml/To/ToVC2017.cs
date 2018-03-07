@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Xml.Linq;
 
 namespace MDK2VC.M2V.Xml
 {
-    public class ToVC2017: IToVC2017
-    {        
+    public class ToVC2017 : IToVC2017
+    {
         private String getMacroDefineVC(string definestr)
         {
             var builder = new StringBuilder();
@@ -24,7 +22,6 @@ namespace MDK2VC.M2V.Xml
             builder.Append(";%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>");
             return builder.ToString();
         }
-
 
         public void createvcxproj(SysConfig cfg)
         {
@@ -162,7 +159,7 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine(@"  </ImportGroup>");
             builder.AppendLine(@"</Project>");
 
-            if(!Directory.Exists(cfg.VCPath))
+            if (!Directory.Exists(cfg.VCPath))
             {
                 Directory.CreateDirectory(cfg.VCPath);
             }
@@ -242,66 +239,23 @@ namespace MDK2VC.M2V.Xml
             fs.Flush();
             fs.Close();
         }
-
-
-
-
-
-
-
-        //public String getGroups(SysConfig cfg)
-        //{
-        //    var builder = new StringBuilder();
-        //    var doc = XElement.Load(cfg.FromFilePath);
-        //    var Targets = doc.Element("Targets");
-        //    var Target = Targets.Element("Target");
-        //    var Groups = Target.Element("Groups");
-
-        //    var Group = Groups.Elements("Group");
-        //    foreach (var grou in Group)
-        //    {
-        //        var aa = grou.Element("GroupName");
-        //        builder.AppendLine(aa.Value);
-        //        var Files = grou.Elements("Files");
-        //        foreach (var File in Files)
-        //        {
-        //            var file = File.Elements("File");
-        //            foreach (var ff in file)
-        //            {
-        //                var FilePath = ff.Element("FilePath");
-        //                if (FilePath != null)
-        //                    builder.AppendLine(FilePath.Value);
-        //            }
-        //        }
-        //    }
-        //    return builder.ToString();
-        //}
         public string getGroupsToProj(SysConfig cfg)
         {
             var builder = new StringBuilder();
-            var doc = XElement.Load(cfg.FromFilePath);
-            var Targets = doc.Element("Targets");
-            var Target = Targets.Element("Target");
-            var Groups = Target.Element("Groups");
 
-            var Group = Groups.Elements("Group");
-            foreach (var grou in Group)
+            if (cfg.ProjFiles.Nodes.Count != 0)
             {
-                var aa = grou.Element("GroupName");
-                var Files = grou.Elements("Files");
-                foreach (var File in Files)
+                for (int i = 0; i < cfg.ProjFiles.Nodes.Count; i++)
                 {
-                    var file = File.Elements("File");
-                    foreach (var ff in file)
+                    for (int j = 0; j < cfg.ProjFiles.Nodes[i].Nodes.Count; j++)
                     {
-                        var FilePath = ff.Element("FilePath");
                         builder.Append("    <ClCompile Include=\"");
-                        if (FilePath != null)
+                        if (cfg.ProjFiles.Nodes[i].Nodes[j].Data.Name != null)
                         {
-                            if (FilePath.Value.StartsWith(".\\"))
-                                builder.Append(FilePath.Value.Replace(".\\", "..\\"));
+                            if (cfg.ProjFiles.Nodes[i].Nodes[j].Data.Name.StartsWith(".\\"))
+                                builder.Append(cfg.ProjFiles.Nodes[i].Nodes[j].Data.Name.Replace(".\\", "..\\"));
                             else
-                                builder.Append("..\\" + FilePath.Value);
+                                builder.Append("..\\" + cfg.ProjFiles.Nodes[i].Nodes[j].Data.Name);
                         }
                         builder.AppendLine("\" /> ");
                     }
@@ -313,11 +267,11 @@ namespace MDK2VC.M2V.Xml
         {
             var builder = new StringBuilder();
 
-            if(cfg.ProjFiles.Nodes.Count!=0)
+            if (cfg.ProjFiles.Nodes.Count != 0)
             {
-                for(int i=0;i<cfg.ProjFiles.Nodes.Count;i++)
+                for (int i = 0; i < cfg.ProjFiles.Nodes.Count; i++)
                 {
-                    for(int j=0;j<cfg.ProjFiles.Nodes[i].Nodes.Count;j++)
+                    for (int j = 0; j < cfg.ProjFiles.Nodes[i].Nodes.Count; j++)
                     {
                         builder.Append("    <ClCompile Include=\"");
                         if (cfg.ProjFiles.Nodes[i].Nodes[j].Data != null)
@@ -332,14 +286,14 @@ namespace MDK2VC.M2V.Xml
                         builder.AppendLine("    </ClCompile>");
                     }
                 }
-            }            
+            }
             return builder.ToString();
         }
-        
+
         public String getGrouptoFilters(SysConfig cfg)
         {
             var builder = new StringBuilder();
-            
+
             if (cfg.ProjFiles.Nodes.Count != 0)
             {
                 for (int i = 0; i < cfg.ProjFiles.Nodes.Count; i++)
@@ -349,9 +303,9 @@ namespace MDK2VC.M2V.Xml
                     else
                         builder.Append("    <Filter Include=\"").Append(cfg.ProjFiles.Nodes[i].Data.Name).AppendLine("\">");
                     builder.Append("      <UniqueIdentifier>").Append(Guid.NewGuid().ToString("B")).AppendLine("</UniqueIdentifier>");
-                    builder.AppendLine("    </Filter>");                    
-                }                
-            }            
+                    builder.AppendLine("    </Filter>");
+                }
+            }
             return builder.ToString();
         }
     }
