@@ -55,6 +55,7 @@
     </Compile>
     <Compile Include="M2V\CoreManager.cs" />
     <Compile Include="M2V\Xml\BTree.cs" />
+    <Compile Include="M2V\Xml\From\Fromcyprj.cs" />
     <Compile Include="M2V\Xml\From\Fromuvproj.cs" />
     <Compile Include="M2V\Xml\From\Fromuvprojx.cs" />
     <Compile Include="M2V\Xml\Interface\IFrom.cs" />

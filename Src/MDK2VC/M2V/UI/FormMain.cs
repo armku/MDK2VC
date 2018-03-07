@@ -41,7 +41,7 @@ namespace MDK2VC
             var fileDlg = new OpenFileDialog();
             fileDlg.Multiselect = true;
             fileDlg.Title = "请选择文件";
-            fileDlg.Filter = "MDK|*.uvprojx;*.uvproj";
+            fileDlg.Filter = "MDK|*.uvprojx;*.uvproj;*cyprj";
             if (fileDlg.ShowDialog() == DialogResult.OK)
             {
                 cfg.FromFilePath = fileDlg.FileName;
@@ -73,6 +73,9 @@ namespace MDK2VC
                     break;
                 case ".uvprojx":
                     manager.from = new Fromuvprojx();
+                    break;
+                case ".cyprj":
+                    manager.from = new Fromcyprj();
                     break;
                 default:
                     break;
