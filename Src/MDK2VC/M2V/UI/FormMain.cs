@@ -69,7 +69,7 @@ namespace MDK2VC
             switch (Path.GetExtension(cfg.FromFilePath))
             {
                 case ".uvproj":
-                    manager.from = new Fromuvprojx();
+                    manager.from = new Fromuvproj();
                     break;
                 case ".uvprojx":
                     manager.from = new Fromuvprojx();
