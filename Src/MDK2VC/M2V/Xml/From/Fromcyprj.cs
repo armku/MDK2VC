@@ -95,8 +95,8 @@ namespace MDK2VC.M2V.Xml
         [Description("获取工程中文件")]
         public BTree<Node> GetFiles(string filename)
         {
-            var tree1 = new BTree<Node>();
-            tree1.Data = new Node("文件", "", true);
+            var treelevel_0 = new BTree<Node>();
+            treelevel_0.Data = new Node("文件", "", true);
 
             var treenodes = new BTree<Node>[100];
             for (int j = 0; j < 100; j++)
@@ -106,12 +106,16 @@ namespace MDK2VC.M2V.Xml
             var namegroup = "";
             if (File.Exists(filename))
             {
-                using (StreamReader sr = File.OpenText(filename))
+                using (var sr = File.OpenText(filename))
                 {
                     var s = "";                    
                     while ((s = sr.ReadLine()) != null)
                     {
-                        var ssspaces = s.Split(' ');
+                        if (s.IndexOf("type_name") <= 0)
+                            continue;
+                        if (s.IndexOf("xml_contents_version") >= 0)
+                            continue;
+                            var ssspaces = s.Split(' ');
                         foreach (var sss in ssspaces)
                         {
                             var ssequals = sss.Split('=');                            
@@ -125,7 +129,7 @@ namespace MDK2VC.M2V.Xml
                                 {
                                     treenodes[i] = new BTree<Node>();
                                     treenodes[i].Data = new Node(namegroup + i.ToString(), "", false);
-                                    tree1.AddNode(treenodes[i]);
+                                    treelevel_0.AddNode(treenodes[i]);
                                     i++;
                                 }
                                 else
@@ -140,7 +144,7 @@ namespace MDK2VC.M2V.Xml
                     }
                 }
             }
-            return tree1;
+            return treelevel_0;
         }
     }
 }

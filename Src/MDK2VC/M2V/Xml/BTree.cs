@@ -85,7 +85,13 @@ namespace MDK2VC.M2V.Xml
     }
     public class Node
     {
-        public Node(string name,String parentname, bool isdir)
+        /// <summary>
+        /// 构造
+        /// </summary>
+        /// <param name="name">名称</param>
+        /// <param name="parentname">上级名称，默认空</param>
+        /// <param name="isdir">是否文件夹，默认false</param>
+        public Node(string name,String parentname="", bool isdir=false)
         {
             this.Name = name;
             this.ParentName = parentname;
