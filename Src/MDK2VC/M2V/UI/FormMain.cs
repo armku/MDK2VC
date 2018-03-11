@@ -230,12 +230,12 @@ namespace MDK2VC
                 for (int j = 0; j < tree1.Nodes[i].Nodes.Count; j++)
                 {
                     var tn2 = new TreeNode();
-                    tn2.Tag = tree1.Nodes[i];
+                    tn2.Tag = tree1.Nodes[i].Nodes[j];
                     tn2.Text = tree1.Nodes[i].Nodes[j].Data.Name;
                     for (int k = 0; k < tree1.Nodes[i].Nodes[j].Nodes.Count; k++)
                     {
                         var tn3 = new TreeNode();
-                        tn3.Tag = tree1.Nodes[i].Nodes[j];
+                        tn3.Tag = tree1.Nodes[i].Nodes[j].Nodes[k];
                         tn3.Text = tree1.Nodes[i].Nodes[j].Nodes[k].Data.Name;
 
 
