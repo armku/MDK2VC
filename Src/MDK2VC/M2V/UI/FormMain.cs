@@ -58,8 +58,6 @@ namespace MDK2VC
 
         private void btnTrans_Click(object sender, EventArgs e)
         {
-            var builder = new StringBuilder();
-
             if ((cfg.FromFilePath == null) || (!File.Exists(cfg.FromFilePath)))
             {
                 MessageBox.Show("请选择正确的文件");
@@ -99,6 +97,7 @@ namespace MDK2VC
             cfg.BuilderGrouptoFilters = manager.to.getGrouptoFilters(cfg);
             cfg.projguid = Guid.NewGuid().ToString("B");
 
+            var builder = new StringBuilder();
             builder.AppendLine(cfg.MacroDefineStr);
             builder.AppendLine(cfg.IncludePathStr);
 
