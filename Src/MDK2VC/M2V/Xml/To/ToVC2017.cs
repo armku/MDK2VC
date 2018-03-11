@@ -298,12 +298,27 @@ namespace MDK2VC.M2V.Xml
             {
                 for (int i = 0; i < cfg.ProjFiles.Nodes.Count; i++)
                 {
-                    if (cfg.ProjFiles.Nodes[i].Data.Name.StartsWith(".\\"))
-                        builder.Append("    <Filter Include=\"").Append(cfg.ProjFiles.Nodes[i].Data.Name.Replace(".\\", "..\\")).AppendLine("\">");
+                    if (cfg.ProjFiles.Nodes[i].Nodes != null)
+                    {
+                        if (cfg.ProjFiles.Nodes[i].Data.Name.StartsWith(".\\"))
+                            builder.Append("    <Filter Include=\"").Append(cfg.ProjFiles.Nodes[i].Data.Name.Replace(".\\", "..\\")).AppendLine("\">");
+                        else
+                            builder.Append("    <Filter Include=\"").Append(cfg.ProjFiles.Nodes[i].Data.Name).AppendLine("\">");
+                        builder.Append("      <UniqueIdentifier>").Append(Guid.NewGuid().ToString("B")).AppendLine("</UniqueIdentifier>");
+                        builder.AppendLine("    </Filter>");
+                    }
                     else
-                        builder.Append("    <Filter Include=\"").Append(cfg.ProjFiles.Nodes[i].Data.Name).AppendLine("\">");
-                    builder.Append("      <UniqueIdentifier>").Append(Guid.NewGuid().ToString("B")).AppendLine("</UniqueIdentifier>");
-                    builder.AppendLine("    </Filter>");
+                    {
+                        for(int j=0;j<cfg.ProjFiles.Nodes[i].Nodes.Count;j++)
+                        {
+                            if (cfg.ProjFiles.Nodes[i].Nodes[j].Data.Name.StartsWith(".\\"))
+                                builder.Append("    <Filter Include=\"").Append(cfg.ProjFiles.Nodes[i].Nodes[j].Data.Name.Replace(".\\", "..\\")).AppendLine("\">");
+                            else
+                                builder.Append("    <Filter Include=\"").Append(cfg.ProjFiles.Nodes[i].Nodes[j].Data.Name).AppendLine("\">");
+                            builder.Append("      <UniqueIdentifier>").Append(Guid.NewGuid().ToString("B")).AppendLine("</UniqueIdentifier>");
+                            builder.AppendLine("    </Filter>");
+                        }
+                    }
                 }
             }
             return builder.ToString();
