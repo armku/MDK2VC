@@ -98,27 +98,25 @@ namespace MDK2VC.M2V.Xml
             var treelevel_0 = new BTree<Node>();
             treelevel_0.Data = new Node("文件", "", true);
 
-            var treenodes = new BTree<Node>[100];
-            for (int j = 0; j < 100; j++)
-                treenodes[j] = new BTree<Node>();
-
             var i = 1;
             var namegroup = "";
+            var parent = treelevel_0;
+            bool hasfiles = false;
             if (File.Exists(filename))
             {
                 using (var sr = File.OpenText(filename))
                 {
-                    var s = "";                    
+                    var s = "";
                     while ((s = sr.ReadLine()) != null)
                     {
                         if (s.IndexOf("type_name") <= 0)
                             continue;
                         if (s.IndexOf("xml_contents_version") >= 0)
                             continue;
-                            var ssspaces = s.Split(' ');
+                        var ssspaces = s.Split(' ');
                         foreach (var sss in ssspaces)
                         {
-                            var ssequals = sss.Split('=');                            
+                            var ssequals = sss.Split('=');
                             if ((ssequals != null) && ssequals.Length == 2 && ssequals[0].Equals("name"))
                             {
                                 namegroup = ssequals[1].Split('"')[1];
@@ -127,16 +125,36 @@ namespace MDK2VC.M2V.Xml
                             {
                                 if (ssequals[1].Split('"')[1].Length == 0)
                                 {
-                                    treenodes[i] = new BTree<Node>();
-                                    treenodes[i].Data = new Node(namegroup + i.ToString(), "", false);
-                                    treelevel_0.AddNode(treenodes[i]);
+                                    //文件夹
+                                    var tnode = new BTree<Node>();
+                                    tnode.Data = new Node(namegroup + i.ToString(), "", true);
+                                    parent.AddNode(tnode);
+                                    if (hasfiles)
+                                    {
+                                        parent = tnode;
+                                    }
+                                    hasfiles = true;
+                                    //treelevel_0.AddNode(treenodes[i]);
                                     i++;
                                 }
                                 else
                                 {
-                                    var tree3 = new BTree<Node>();
-                                    tree3.Data = new Node(ssequals[1].Split('"')[1], "", false);
-                                    treenodes[i - 1].AddNode(tree3);
+                                    //文件
+                                    if (ssequals[1].Split('"')[1].IndexOf(".cyprj") >= 0)
+                                    {
+                                        //工程名称
+                                        treelevel_0.Data.Name = ssequals[1].Split('"')[1];
+                                        hasfiles = true;
+                                    }
+                                    else
+                                    {
+                                        var tree3 = new BTree<Node>();
+                                        tree3.Data = new Node(ssequals[1].Split('"')[1]);
+                                        parent.AddNode(tree3);
+                                        hasfiles = true;
+                                        //treenodes[i - 1].AddNode(tree3);
+                                        //i++;
+                                    }
                                 }
                             }
                         }
