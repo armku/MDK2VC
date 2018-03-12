@@ -322,9 +322,7 @@ namespace MDK2VC.M2V.Xml
                             for (int m = 0; m < cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Nodes[l].Nodes.Count; m++)
                             {
 
-
-                                System.Windows.Forms.MessageBox.Show("mmmmm");
-
+                                                                
                                 if (cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Nodes[l].Nodes.Count == 0)
                                 {
                                     builder.Append("    <ClCompile Include=\"");
@@ -346,10 +344,7 @@ namespace MDK2VC.M2V.Xml
                                 }
                                 else { }
                             }
-
-
-
-
+                            
                             if (cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Nodes[l].Nodes.Count == 0)
                             {
                                 builder.Append("    <ClCompile Include=\"");
