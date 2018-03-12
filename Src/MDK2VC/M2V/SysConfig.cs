@@ -146,13 +146,16 @@ namespace MDK2VC.M2V
                 return Path.GetExtension(FromFilePath);
             }
         }
-        public string BuilderGroupsToFilters { get; set; }
+        /// <summary>
+        /// 过滤器文件、目录列表
+        /// </summary>
+        public string ToFilter_FileFolders { get; set; }
         /// <summary>
         /// 所有文件列表
         /// </summary>
         public string ToProj_Files { get; set; }
         /// <summary>
-        /// 所有文件及目录列表，过滤器
+        /// 过滤器目录列表
         /// </summary>
         public string ToFilter_files { get; set; }
     }

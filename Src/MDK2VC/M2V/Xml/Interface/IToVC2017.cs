@@ -25,7 +25,12 @@ namespace MDK2VC.M2V.Xml
         /// </summary>
         /// <param name="cfg"></param>
         void createsln(SysConfig cfg);
-        String getGroupsToFilters(SysConfig cfg);
+        /// <summary>
+        /// 获取过滤器文件、文件夹列表
+        /// </summary>
+        /// <param name="cfg"></param>
+        /// <returns></returns>
+        String Get_ToFilter_FolderFiles(SysConfig cfg);
         /// <summary>
         /// 获取所有文件列表
         /// </summary>
@@ -33,7 +38,7 @@ namespace MDK2VC.M2V.Xml
         /// <returns></returns>
         String Get_ToProj_Files(SysConfig cfg);
         /// <summary>
-        /// 获取过滤器文件、目录列表
+        /// 获取过滤器目录列表
         /// </summary>
         /// <param name="cfg"></param>
         /// <returns></returns>

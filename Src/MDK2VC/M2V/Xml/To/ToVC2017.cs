@@ -180,7 +180,7 @@ namespace MDK2VC.M2V.Xml
             //Fromuvprojx.getGrouptoFilters(builder, cfg.MdkPath);
             builder.AppendLine("  </ItemGroup>");
             builder.AppendLine("  <ItemGroup>");
-            builder.Append(cfg.BuilderGroupsToFilters.ToString());
+            builder.Append(cfg.ToFilter_FileFolders.ToString());
             //Fromuvprojx.getGroupsToFilters(builder, cfg.MdkPath);
             builder.AppendLine("  </ItemGroup>");
             builder.AppendLine("</Project>");
@@ -286,7 +286,12 @@ namespace MDK2VC.M2V.Xml
             }
             return builder.ToString();
         }
-        public string getGroupsToFilters(SysConfig cfg)
+        /// <summary>
+        /// 获取过滤器文件、文件夹列表
+        /// </summary>
+        /// <param name="cfg"></param>
+        /// <returns></returns>
+        public string Get_ToFilter_FolderFiles(SysConfig cfg)
         {
             var builder = new StringBuilder();
 
@@ -313,7 +318,7 @@ namespace MDK2VC.M2V.Xml
             return builder.ToString();
         }
         /// <summary>
-        /// 获取过滤器文件、目录列表
+        /// 获取过滤器目录列表
         /// </summary>
         /// <param name="cfg"></param>
         /// <returns></returns>
@@ -325,14 +330,32 @@ namespace MDK2VC.M2V.Xml
             {
                 for (int i = 0; i < cfg.ProjFiles.Nodes.Count; i++)
                 {
-                    if (cfg.ProjFiles.Nodes[i].Nodes != null)
+                    if (cfg.ProjFiles.Nodes[i].Nodes.Count == 0)
                     {
-                        if (cfg.ProjFiles.Nodes[i].Data.Name.StartsWith(".\\"))
-                            builder.Append("    <Filter Include=\"").Append(cfg.ProjFiles.Nodes[i].Data.Name.Replace(".\\", "..\\")).AppendLine("\">");
-                        else
-                            builder.Append("    <Filter Include=\"").Append(cfg.ProjFiles.Nodes[i].Data.Name).AppendLine("\">");
-                        builder.Append("      <UniqueIdentifier>").Append(Guid.NewGuid().ToString("B")).AppendLine("</UniqueIdentifier>");
-                        builder.AppendLine("    </Filter>");
+                        if (cfg.ProjFiles.Nodes[i].Nodes != null)
+                        {
+                            if (cfg.ProjFiles.Nodes[i].Data.Name.StartsWith(".\\"))
+                                builder.Append("    <Filter Include=\"").Append(cfg.ProjFiles.Nodes[i].Data.Name.Replace(".\\", "..\\")).AppendLine("\">");
+                            else
+                                builder.Append("    <Filter Include=\"").Append(cfg.ProjFiles.Nodes[i].Data.Name).AppendLine("\">");
+                            builder.Append("      <UniqueIdentifier>").Append(Guid.NewGuid().ToString("B")).AppendLine("</UniqueIdentifier>");
+                            builder.AppendLine("    </Filter>");
+                        }
+                    }
+                    else
+                    {
+                        for(int j=0;j<cfg.ProjFiles.Nodes[i].Nodes.Count;j++)
+                        {
+                            if (cfg.ProjFiles.Nodes[i].Nodes[j].Nodes != null)
+                            {
+                                if (cfg.ProjFiles.Nodes[i].Nodes[j].Data.Name.StartsWith(".\\"))
+                                    builder.Append("    <Filter Include=\"").Append(cfg.ProjFiles.Nodes[i].Nodes[j].Data.Name.Replace(".\\", "..\\")).AppendLine("\">");
+                                else
+                                    builder.Append("    <Filter Include=\"").Append(cfg.ProjFiles.Nodes[i].Nodes[j].Data.Name).AppendLine("\">");
+                                builder.Append("      <UniqueIdentifier>").Append(Guid.NewGuid().ToString("B")).AppendLine("</UniqueIdentifier>");
+                                builder.AppendLine("    </Filter>");
+                            }
+                        }
                     }
                 }
             }
