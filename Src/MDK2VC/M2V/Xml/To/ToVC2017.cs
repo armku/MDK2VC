@@ -314,60 +314,51 @@ namespace MDK2VC.M2V.Xml
             for (int i = 0; i < cfg.ProjFiles.Nodes.Count; i++)
             {
                 for (int j = 0; j < cfg.ProjFiles.Nodes[i].Nodes.Count; j++)
-                {
-                    if (cfg.ProjFiles.Nodes[i].Nodes[j].Nodes.Count == 0)
+                {   
+                    
+                    for (int k = 0; k < cfg.ProjFiles.Nodes[i].Nodes[j].Nodes.Count; k++)
                     {
-                        var path0 = cfg.ProjFiles.Data.Name + @"\";
-                        builder.Append("    <ClCompile Include=\"");
-                        if (cfg.ProjFiles.Nodes[i].Nodes[j].Data != null)
+                        for(int l=0;l<cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Nodes.Count;l++)
                         {
-                            if (cfg.ProjFiles.Nodes[i].Nodes[j].Data.Name.StartsWith(".\\"))
-                                builder.Append(cfg.ProjFiles.Nodes[i].Nodes[j].Data.Name.Replace(".\\", "..\\"));
-                            else
-                                builder.Append("..\\" + cfg.ProjFiles.Nodes[i].Nodes[j].Data.Name);
-                        }
-                        builder.AppendLine("\">");
-                        builder.Append("      <Filter>").Append(path0 + cfg.ProjFiles.Nodes[i].Data.Name).AppendLine("</Filter>");
-                        builder.AppendLine("    </ClCompile>");
-                    }
-                    else
-                    {
-                        if (cfg.ProjFiles.Nodes[i].Nodes[j].Nodes.Count == 0)
-                        {
-                            var path1 = cfg.ProjFiles.Data.Name + @"\" + cfg.ProjFiles.Nodes[i].Data.Name + @"\";
-                            for (int k = 0; k < cfg.ProjFiles.Nodes[i].Nodes[j].Nodes.Count; k++)
+
+
+
+
+
+                            if (cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Nodes.Count == 0)
                             {
                                 builder.Append("    <ClCompile Include=\"");
-                                if (cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Data != null)
+                                if (cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Nodes[l].Data != null)
                                 {
-                                    if (cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Data.Name.StartsWith(".\\"))
-                                        builder.Append(cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Data.Name.Replace(".\\", "..\\"));
+                                    if (cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Nodes[l].Data.Name.StartsWith(".\\"))
+                                        builder.Append(cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Nodes[l].Data.Name.Replace(".\\", "..\\"));
                                     else
-                                        builder.Append("..\\" + cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Data.Name);
+                                        builder.Append("..\\" + cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Nodes[l].Data.Name);
                                 }
                                 builder.AppendLine("\">");
-                                builder.Append("      <Filter>").Append(path1 + cfg.ProjFiles.Nodes[i].Nodes[j].Data.Name).AppendLine("</Filter>");
+                                var path2 = cfg.ProjFiles.Data.Name + @"\" + cfg.ProjFiles.Nodes[i].Data.Name + @"\" + cfg.ProjFiles.Nodes[i].Nodes[j].Data.Name + @"\";
+                                builder.Append("      <Filter>").Append(path2 + cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[l].Data.Name).AppendLine("</Filter>");
                                 builder.AppendLine("    </ClCompile>");
                             }
+                            else { }
                         }
-                        else
+
+                        if (cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Nodes.Count == 0)
                         {
+                            builder.Append("    <ClCompile Include=\"");
+                            if (cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Data != null)
+                            {
+                                if (cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Data.Name.StartsWith(".\\"))
+                                    builder.Append(cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Data.Name.Replace(".\\", "..\\"));
+                                else
+                                    builder.Append("..\\" + cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Data.Name);
+                            }
+                            builder.AppendLine("\">");
                             var path2 = cfg.ProjFiles.Data.Name + @"\" + cfg.ProjFiles.Nodes[i].Data.Name + @"\";
-                            for (int k = 0; k < cfg.ProjFiles.Nodes[i].Nodes[j].Nodes.Count; k++)
-                            {
-                                builder.Append("    <ClCompile Include=\"");
-                                if (cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Data != null)
-                                {
-                                    if (cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Data.Name.StartsWith(".\\"))
-                                        builder.Append(cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Data.Name.Replace(".\\", "..\\"));
-                                    else
-                                        builder.Append("..\\" + cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Data.Name);
-                                }
-                                builder.AppendLine("\">");
-                                builder.Append("      <Filter>").Append(path2 + cfg.ProjFiles.Nodes[i].Nodes[j].Data.Name).AppendLine("</Filter>");
-                                builder.AppendLine("    </ClCompile>");
-                            }
+                            builder.Append("      <Filter>").Append(path2 + cfg.ProjFiles.Nodes[i].Nodes[j].Data.Name).AppendLine("</Filter>");
+                            builder.AppendLine("    </ClCompile>");
                         }
+                        else { }
                     }
                 }
             }
