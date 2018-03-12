@@ -68,6 +68,7 @@ namespace MDK2VC.M2V.Xml
             var doc = XElement.Load(filename);
             var Targets = doc.Element("Targets");
             var Target = Targets.Element("Target");
+            tree1.Data.Name = Target.Element("TargetName").Value;
             var Groups = Target.Element("Groups");
 
             var Group = Groups.Elements("Group");
