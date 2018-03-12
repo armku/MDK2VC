@@ -397,36 +397,11 @@ namespace MDK2VC.M2V.Xml
         public String Get_ToFilter_Folders(SysConfig cfg)
         {
             var builder = new StringBuilder();
-
-            if (cfg.ProjFiles.Data.Name.StartsWith(".\\"))
-                builder.Append("    <Filter Include=\"").Append(cfg.ProjFiles.Data.Name.Replace(".\\", "..\\")).AppendLine("\">");
-            else
-                builder.Append("    <Filter Include=\"").Append(cfg.ProjFiles.Data.Name).AppendLine("\">");
-            builder.Append("      <UniqueIdentifier>").Append(Guid.NewGuid().ToString("B")).AppendLine("</UniqueIdentifier>");
-            builder.AppendLine("    </Filter>");
-
+                        
             for (int i = 0; i < cfg.ProjFiles.Nodes.Count; i++)
-            {
-                var path0 = cfg.ProjFiles.Data.Name + @"\";
-
-                if (cfg.ProjFiles.Nodes[i].Data.Name.StartsWith(".\\"))
-                    builder.Append("    <Filter Include=\"").Append(cfg.ProjFiles.Nodes[i].Data.Name.Replace(".\\", "..\\")).AppendLine("\">");
-                else
-                    builder.Append("    <Filter Include=\"").Append(path0 + cfg.ProjFiles.Nodes[i].Data.Name).AppendLine("\">");
-                builder.Append("      <UniqueIdentifier>").Append(Guid.NewGuid().ToString("B")).AppendLine("</UniqueIdentifier>");
-                builder.AppendLine("    </Filter>");
-
+            {                
                 for (int j = 0; j < cfg.ProjFiles.Nodes[i].Nodes.Count; j++)
-                {
-                    var path1 = cfg.ProjFiles.Data.Name + @"\" + cfg.ProjFiles.Nodes[i].Data.Name + @"\";
-
-                    if (cfg.ProjFiles.Nodes[i].Nodes[j].Data.Name.StartsWith(".\\"))
-                        builder.Append("    <Filter Include=\"").Append(cfg.ProjFiles.Nodes[i].Nodes[j].Data.Name.Replace(".\\", "..\\")).AppendLine("\">");
-                    else
-                        builder.Append("    <Filter Include=\"").Append(path1 + cfg.ProjFiles.Nodes[i].Nodes[j].Data.Name).AppendLine("\">");
-                    builder.Append("      <UniqueIdentifier>").Append(Guid.NewGuid().ToString("B")).AppendLine("</UniqueIdentifier>");
-                    builder.AppendLine("    </Filter>");
-
+                {                    
                     for (int k = 0; k < cfg.ProjFiles.Nodes[i].Nodes[j].Nodes.Count; k++)
                     {
                         var path2 = cfg.ProjFiles.Data.Name + @"\" + cfg.ProjFiles.Nodes[i].Data.Name + @"\" + cfg.ProjFiles.Nodes[i].Nodes[j].Data.Name + @"\";
@@ -441,8 +416,44 @@ namespace MDK2VC.M2V.Xml
                             builder.AppendLine("    </Filter>");
                         }
                     }
+
+                    if (cfg.ProjFiles.Nodes[i].Nodes[j].Nodes.Count != 0)
+                    {
+                        var path1 = cfg.ProjFiles.Data.Name + @"\" + cfg.ProjFiles.Nodes[i].Data.Name + @"\";
+
+                        if (cfg.ProjFiles.Nodes[i].Nodes[j].Data.Name.StartsWith(".\\"))
+                            builder.Append("    <Filter Include=\"").Append(cfg.ProjFiles.Nodes[i].Nodes[j].Data.Name.Replace(".\\", "..\\")).AppendLine("\">");
+                        else
+                            builder.Append("    <Filter Include=\"").Append(path1 + cfg.ProjFiles.Nodes[i].Nodes[j].Data.Name).AppendLine("\">");
+                        builder.Append("      <UniqueIdentifier>").Append(Guid.NewGuid().ToString("B")).AppendLine("</UniqueIdentifier>");
+                        builder.AppendLine("    </Filter>");
+                    }
                 }
+
+                if (cfg.ProjFiles.Nodes[i].Nodes.Count != 0)
+                {
+                    var path0 = cfg.ProjFiles.Data.Name + @"\";
+
+                    if (cfg.ProjFiles.Nodes[i].Data.Name.StartsWith(".\\"))
+                        builder.Append("    <Filter Include=\"").Append(cfg.ProjFiles.Nodes[i].Data.Name.Replace(".\\", "..\\")).AppendLine("\">");
+                    else
+                        builder.Append("    <Filter Include=\"").Append(path0 + cfg.ProjFiles.Nodes[i].Data.Name).AppendLine("\">");
+                    builder.Append("      <UniqueIdentifier>").Append(Guid.NewGuid().ToString("B")).AppendLine("</UniqueIdentifier>");
+                    builder.AppendLine("    </Filter>");
+                }
+                else { }
             }
+
+            if (cfg.ProjFiles.Nodes.Count != 0)
+            {
+                if (cfg.ProjFiles.Data.Name.StartsWith(".\\"))
+                    builder.Append("    <Filter Include=\"").Append(cfg.ProjFiles.Data.Name.Replace(".\\", "..\\")).AppendLine("\">");
+                else
+                    builder.Append("    <Filter Include=\"").Append(cfg.ProjFiles.Data.Name).AppendLine("\">");
+                builder.Append("      <UniqueIdentifier>").Append(Guid.NewGuid().ToString("B")).AppendLine("</UniqueIdentifier>");
+                builder.AppendLine("    </Filter>");
+            }
+            else { }
 
             return builder.ToString();
         }
