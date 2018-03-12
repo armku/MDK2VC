@@ -239,7 +239,7 @@ namespace MDK2VC.M2V.Xml
             fs.Flush();
             fs.Close();
         }
-        public string getGroupsToProj(SysConfig cfg)
+        public string Get_ToProj_Files(SysConfig cfg)
         {
             var builder = new StringBuilder();
 
