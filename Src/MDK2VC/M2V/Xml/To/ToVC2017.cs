@@ -398,12 +398,29 @@ namespace MDK2VC.M2V.Xml
                         }
                         builder.AppendLine("\">");
                         var path2 = cfg.ProjFiles.Data.Name + @"\" +
-                                    cfg.ProjFiles.Nodes[i].Data.Name + @"\" ;
+                                    cfg.ProjFiles.Nodes[i].Data.Name;
                         builder.Append("      <Filter>").Append(path2).AppendLine("</Filter>");
                         builder.AppendLine("    </ClCompile>");
                     }
                     else { }
                 }
+
+                if (cfg.ProjFiles.Nodes[i].Nodes.Count == 0)
+                {
+                    builder.Append("    <ClCompile Include=\"");
+                    if (cfg.ProjFiles.Nodes[i].Data != null)
+                    {
+                        if (cfg.ProjFiles.Nodes[i].Data.Name.StartsWith(".\\"))
+                            builder.Append(cfg.ProjFiles.Nodes[i].Data.Name.Replace(".\\", "..\\"));
+                        else
+                            builder.Append("..\\" + cfg.ProjFiles.Nodes[i].Data.Name);
+                    }
+                    builder.AppendLine("\">");
+                    var path2 = cfg.ProjFiles.Data.Name;
+                    builder.Append("      <Filter>").Append(path2).AppendLine("</Filter>");
+                    builder.AppendLine("    </ClCompile>");
+                }
+                else { }
             }
             return builder.ToString();
         }
