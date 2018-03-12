@@ -301,17 +301,37 @@ namespace MDK2VC.M2V.Xml
                 {
                     for (int j = 0; j < cfg.ProjFiles.Nodes[i].Nodes.Count; j++)
                     {
-                        builder.Append("    <ClCompile Include=\"");
-                        if (cfg.ProjFiles.Nodes[i].Nodes[j].Data != null)
+                        if (cfg.ProjFiles.Nodes[i].Nodes[j].Nodes.Count == 0)
                         {
-                            if (cfg.ProjFiles.Nodes[i].Nodes[j].Data.Name.StartsWith(".\\"))
-                                builder.Append(cfg.ProjFiles.Nodes[i].Nodes[j].Data.Name.Replace(".\\", "..\\"));
-                            else
-                                builder.Append("..\\" + cfg.ProjFiles.Nodes[i].Nodes[j].Data.Name);
+                            builder.Append("    <ClCompile Include=\"");
+                            if (cfg.ProjFiles.Nodes[i].Nodes[j].Data != null)
+                            {
+                                if (cfg.ProjFiles.Nodes[i].Nodes[j].Data.Name.StartsWith(".\\"))
+                                    builder.Append(cfg.ProjFiles.Nodes[i].Nodes[j].Data.Name.Replace(".\\", "..\\"));
+                                else
+                                    builder.Append("..\\" + cfg.ProjFiles.Nodes[i].Nodes[j].Data.Name);
+                            }
+                            builder.AppendLine("\">");
+                            builder.Append("      <Filter>").Append(cfg.ProjFiles.Nodes[i].Data.Name).AppendLine("</Filter>");
+                            builder.AppendLine("    </ClCompile>");
                         }
-                        builder.AppendLine("\">");
-                        builder.Append("      <Filter>").Append(cfg.ProjFiles.Nodes[i].Data.Name).AppendLine("</Filter>");
-                        builder.AppendLine("    </ClCompile>");
+                        else
+                        {
+                            for(int k=0;k< cfg.ProjFiles.Nodes[i].Nodes[j].Nodes.Count;k++)
+                            {
+                                builder.Append("    <ClCompile Include=\"");
+                                if (cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Data != null)
+                                {
+                                    if (cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Data.Name.StartsWith(".\\"))
+                                        builder.Append(cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Data.Name.Replace(".\\", "..\\"));
+                                    else
+                                        builder.Append("..\\" + cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Data.Name);
+                                }
+                                builder.AppendLine("\">");
+                                builder.Append("      <Filter>").Append(cfg.ProjFiles.Nodes[i].Nodes[j].Data.Name).AppendLine("</Filter>");
+                                builder.AppendLine("    </ClCompile>");
+                            }
+                        }
                     }
                 }
             }
