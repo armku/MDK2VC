@@ -151,7 +151,10 @@ namespace MDK2VC.M2V
         /// 所有文件列表
         /// </summary>
         public string ToProj_Files { get; set; }
-        public string BuilderGrouptoFilters { get; set; }
+        /// <summary>
+        /// 所有文件及目录列表，过滤器
+        /// </summary>
+        public string ToFilter_files { get; set; }
     }
 }
 static class fff

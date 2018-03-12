@@ -32,6 +32,11 @@ namespace MDK2VC.M2V.Xml
         /// <param name="cfg"></param>
         /// <returns></returns>
         String Get_ToProj_Files(SysConfig cfg);
-        String getGrouptoFilters(SysConfig cfg);
+        /// <summary>
+        /// 获取过滤器文件、目录列表
+        /// </summary>
+        /// <param name="cfg"></param>
+        /// <returns></returns>
+        String Get_ToFilter_Files(SysConfig cfg);
     }
 }
