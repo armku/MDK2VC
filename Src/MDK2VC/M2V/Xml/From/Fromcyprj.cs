@@ -182,11 +182,16 @@ namespace MDK2VC.M2V.Xml
                                         //特殊目录
                                         var tree3 = new BTree<Node>();
                                         tree3.Data = new Node(ssequals[1].Split('"')[1]);
+                                        tree3.Data.Name = "PSoC5";
                                         currentnode.AddNode(tree3);
 
                                         grandparentnode = parentnode;
                                         parentnode = currentnode;
                                         currentnode = tree3;
+
+                                        grandparentnode = parentnode;
+                                        parentnode = currentnode;
+                                        
                                         hasfiles = false;
                                     }
                                     else
