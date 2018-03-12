@@ -94,7 +94,7 @@ namespace MDK2VC
 
             cfg.ToFilter_FileFolders = manager.to.Get_ToFilter_FolderFiles(cfg);
             cfg.ToProj_Files = manager.to.Get_ToProj_Files(cfg);
-            cfg.ToFilter_files = manager.to.Get_ToFilter_Files(cfg);
+            cfg.ToFilter_files = manager.to.Get_ToFilter_Folders(cfg);
             cfg.projguid = Guid.NewGuid().ToString("B");
 
             var builder = new StringBuilder();

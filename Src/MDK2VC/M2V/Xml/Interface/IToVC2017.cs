@@ -42,6 +42,6 @@ namespace MDK2VC.M2V.Xml
         /// </summary>
         /// <param name="cfg"></param>
         /// <returns></returns>
-        String Get_ToFilter_Files(SysConfig cfg);
+        String Get_ToFilter_Folders(SysConfig cfg);
     }
 }

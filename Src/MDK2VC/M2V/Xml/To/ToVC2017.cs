@@ -342,7 +342,7 @@ namespace MDK2VC.M2V.Xml
         /// </summary>
         /// <param name="cfg"></param>
         /// <returns></returns>
-        public String Get_ToFilter_Files(SysConfig cfg)
+        public String Get_ToFilter_Folders(SysConfig cfg)
         {
             var builder = new StringBuilder();
 
