@@ -238,7 +238,15 @@ namespace MDK2VC
                         tn3.Tag = tree1.Nodes[i].Nodes[j].Nodes[k];
                         tn3.Text = tree1.Nodes[i].Nodes[j].Nodes[k].Data.Name;
 
+                        for (int l = 0; l < tree1.Nodes[i].Nodes[j].Nodes[k].Nodes.Count; l++)
+                        {
+                            var tn4 = new TreeNode();
+                            tn4.Tag = tree1.Nodes[i].Nodes[j].Nodes[k].Nodes[l];
+                            tn4.Text = tree1.Nodes[i].Nodes[j].Nodes[k].Nodes[l].Data.Name;
+                            
 
+                            tn3.Nodes.Add(tn4);
+                        }
 
                         tn2.Nodes.Add(tn3);
                     }

@@ -270,14 +270,21 @@ namespace MDK2VC.M2V.Xml
                         {
                             for (int k = 0; k < cfg.ProjFiles.Nodes[i].Nodes[j].Nodes.Count; k++)
                             {
-                                if (cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Data.Name != null)
+                                //if (cfg.ProjFiles.Nodes[i].Nodes[j].Nodes.Count == 0)
                                 {
-                                    builder.Append("    <ClCompile Include=\"");
-                                    if (cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Data.Name.StartsWith(".\\"))
-                                        builder.Append(cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Data.Name.Replace(".\\", "..\\"));
-                                    else
-                                        builder.Append("..\\" + cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Data.Name);
-                                    builder.AppendLine("\" /> ");
+                                    if (cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Data.Name != null)
+                                    {
+                                        builder.Append("    <ClCompile Include=\"");
+                                        if (cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Data.Name.StartsWith(".\\"))
+                                            builder.Append(cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Data.Name.Replace(".\\", "..\\"));
+                                        else
+                                            builder.Append("..\\" + cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Data.Name);
+                                        builder.AppendLine("\" /> ");
+                                    }
+                                }
+                                //else
+                                {
+
                                 }
                             }
                         }
