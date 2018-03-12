@@ -314,7 +314,7 @@ namespace MDK2VC.M2V.Xml
             for (int i = 0; i < cfg.ProjFiles.Nodes.Count; i++)
             {
                 for (int j = 0; j < cfg.ProjFiles.Nodes[i].Nodes.Count; j++)
-                {                       
+                {
                     for (int k = 0; k < cfg.ProjFiles.Nodes[i].Nodes[j].Nodes.Count; k++)
                     {
                         for (int l = 0; l < cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Nodes.Count; l++)
@@ -336,8 +336,12 @@ namespace MDK2VC.M2V.Xml
                                             builder.Append("..\\" + cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Nodes[l].Nodes[m].Data.Name);
                                     }
                                     builder.AppendLine("\">");
-                                    var path2 = cfg.ProjFiles.Data.Name + @"\" + cfg.ProjFiles.Nodes[i].Data.Name + @"\" + cfg.ProjFiles.Nodes[i].Nodes[j].Data.Name + @"\" + cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Data.Name + @"\";
-                                    builder.Append("      <Filter>").Append(path2 + cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[l].Nodes[m].Data.Name).AppendLine("</Filter>");
+                                    var path2 = cfg.ProjFiles.Data.Name + @"\" +
+                                                cfg.ProjFiles.Nodes[i].Data.Name + @"\" +
+                                                cfg.ProjFiles.Nodes[i].Nodes[j].Data.Name + @"\" +
+                                                cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Data.Name + @"\" +
+                                                cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[l].Nodes[m].Data.Name;
+                                    builder.Append("      <Filter>").Append(path2).AppendLine("</Filter>");
                                     builder.AppendLine("    </ClCompile>");
                                 }
                                 else { }
@@ -357,8 +361,11 @@ namespace MDK2VC.M2V.Xml
                                         builder.Append("..\\" + cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Nodes[l].Data.Name);
                                 }
                                 builder.AppendLine("\">");
-                                var path2 = cfg.ProjFiles.Data.Name + @"\" + cfg.ProjFiles.Nodes[i].Data.Name + @"\" + cfg.ProjFiles.Nodes[i].Nodes[j].Data.Name + @"\";
-                                builder.Append("      <Filter>").Append(path2 + cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Data.Name).AppendLine("</Filter>");
+                                var path2 = cfg.ProjFiles.Data.Name + @"\" +
+                                            cfg.ProjFiles.Nodes[i].Data.Name + @"\" +
+                                            cfg.ProjFiles.Nodes[i].Nodes[j].Data.Name + @"\" +
+                                            cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Data.Name;
+                                builder.Append("      <Filter>").Append(path2).AppendLine("</Filter>");
                                 builder.AppendLine("    </ClCompile>");
                             }
                             else { }
@@ -375,8 +382,10 @@ namespace MDK2VC.M2V.Xml
                                     builder.Append("..\\" + cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Data.Name);
                             }
                             builder.AppendLine("\">");
-                            var path2 = cfg.ProjFiles.Data.Name + @"\" + cfg.ProjFiles.Nodes[i].Data.Name + @"\";
-                            builder.Append("      <Filter>").Append(path2 + cfg.ProjFiles.Nodes[i].Nodes[j].Data.Name).AppendLine("</Filter>");
+                            var path2 = cfg.ProjFiles.Data.Name + @"\" +
+                                        cfg.ProjFiles.Nodes[i].Data.Name + @"\" +
+                                        cfg.ProjFiles.Nodes[i].Nodes[j].Data.Name;
+                            builder.Append("      <Filter>").Append(path2).AppendLine("</Filter>");
                             builder.AppendLine("    </ClCompile>");
                         }
                         else { }
