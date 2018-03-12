@@ -314,18 +314,39 @@ namespace MDK2VC.M2V.Xml
             for (int i = 0; i < cfg.ProjFiles.Nodes.Count; i++)
             {
                 for (int j = 0; j < cfg.ProjFiles.Nodes[i].Nodes.Count; j++)
-                {   
-                    
+                {                       
                     for (int k = 0; k < cfg.ProjFiles.Nodes[i].Nodes[j].Nodes.Count; k++)
                     {
-                        for(int l=0;l<cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Nodes.Count;l++)
+                        for (int l = 0; l < cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Nodes.Count; l++)
                         {
+                            for (int m = 0; m < cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Nodes[l].Nodes.Count; m++)
+                            {
+
+
+                                System.Windows.Forms.MessageBox.Show("mmmmm");
+
+                                if (cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Nodes[l].Nodes.Count == 0)
+                                {
+                                    builder.Append("    <ClCompile Include=\"");
+                                    if (cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Nodes[l].Nodes[m].Data != null)
+                                    {
+                                        if (cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Nodes[l].Nodes[m].Data.Name.StartsWith(".\\"))
+                                            builder.Append(cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Nodes[l].Nodes[m].Data.Name.Replace(".\\", "..\\"));
+                                        else
+                                            builder.Append("..\\" + cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Nodes[l].Nodes[m].Data.Name);
+                                    }
+                                    builder.AppendLine("\">");
+                                    var path2 = cfg.ProjFiles.Data.Name + @"\" + cfg.ProjFiles.Nodes[i].Data.Name + @"\" + cfg.ProjFiles.Nodes[i].Nodes[j].Data.Name + @"\" + cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Data.Name + @"\";
+                                    builder.Append("      <Filter>").Append(path2 + cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[l].Nodes[m].Data.Name).AppendLine("</Filter>");
+                                    builder.AppendLine("    </ClCompile>");
+                                }
+                                else { }
+                            }
 
 
 
 
-
-                            if (cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Nodes.Count == 0)
+                            if (cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Nodes[l].Nodes.Count == 0)
                             {
                                 builder.Append("    <ClCompile Include=\"");
                                 if (cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Nodes[l].Data != null)
@@ -337,7 +358,7 @@ namespace MDK2VC.M2V.Xml
                                 }
                                 builder.AppendLine("\">");
                                 var path2 = cfg.ProjFiles.Data.Name + @"\" + cfg.ProjFiles.Nodes[i].Data.Name + @"\" + cfg.ProjFiles.Nodes[i].Nodes[j].Data.Name + @"\";
-                                builder.Append("      <Filter>").Append(path2 + cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[l].Data.Name).AppendLine("</Filter>");
+                                builder.Append("      <Filter>").Append(path2 + cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Data.Name).AppendLine("</Filter>");
                                 builder.AppendLine("    </ClCompile>");
                             }
                             else { }
