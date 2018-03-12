@@ -93,7 +93,7 @@ namespace MDK2VC
 
 
             cfg.BuilderGroupsToFilters = manager.to.getGroupsToFilters(cfg);
-            cfg.BuilderGroupsToProj = manager.to.getGroupsToProj(cfg);
+            cfg.ToProj_Files = manager.to.getGroupsToProj(cfg);
             cfg.BuilderGrouptoFilters = manager.to.getGrouptoFilters(cfg);
             cfg.projguid = Guid.NewGuid().ToString("B");
 

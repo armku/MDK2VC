@@ -152,7 +152,7 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine(@"  </ItemDefinitionGroup>");
             builder.AppendLine(@"  <ItemGroup>");
             //Fromuvprojx.getGroupsToProj(builder, cfg.MdkPath);
-            builder.Append(cfg.BuilderGroupsToProj.ToString());
+            builder.Append(cfg.ToProj_Files.ToString());
             builder.AppendLine(@"  </ItemGroup>");
             builder.AppendLine("  <Import Project=\"$(VCTargetsPath)\\Microsoft.Cpp.targets\" />");
             builder.AppendLine("  <ImportGroup Label=\"ExtensionTargets\">");

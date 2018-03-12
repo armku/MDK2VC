@@ -147,7 +147,10 @@ namespace MDK2VC.M2V
             }
         }
         public string BuilderGroupsToFilters { get; set; }
-        public string BuilderGroupsToProj { get; set; }
+        /// <summary>
+        /// 所有文件列表
+        /// </summary>
+        public string ToProj_Files { get; set; }
         public string BuilderGrouptoFilters { get; set; }
     }
 }
