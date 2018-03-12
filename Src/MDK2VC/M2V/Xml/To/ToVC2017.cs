@@ -255,7 +255,7 @@ namespace MDK2VC.M2V.Xml
                     for (int j = 0; j < cfg.ProjFiles.Nodes[i].Nodes.Count; j++)
                     {
                         if (cfg.ProjFiles.Nodes[i].Nodes[j].Nodes.Count == 0)
-                        {                            
+                        {
                             if (cfg.ProjFiles.Nodes[i].Nodes[j].Data.Name != null)
                             {
                                 builder.Append("    <ClCompile Include=\"");
@@ -266,26 +266,35 @@ namespace MDK2VC.M2V.Xml
                                 builder.AppendLine("\" /> ");
                             }
                         }
-                        else
+                        for (int k = 0; k < cfg.ProjFiles.Nodes[i].Nodes[j].Nodes.Count; k++)
                         {
-                            for (int k = 0; k < cfg.ProjFiles.Nodes[i].Nodes[j].Nodes.Count; k++)
+                            if (cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Nodes.Count == 0)
                             {
-                                //if (cfg.ProjFiles.Nodes[i].Nodes[j].Nodes.Count == 0)
+                                if (cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Data.Name != null)
                                 {
-                                    if (cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Data.Name != null)
+                                    builder.Append("    <ClCompile Include=\"");
+                                    if (cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Data.Name.StartsWith(".\\"))
+                                        builder.Append(cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Data.Name.Replace(".\\", "..\\"));
+                                    else
+                                        builder.Append("..\\" + cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Data.Name);
+                                    builder.AppendLine("\" /> ");
+                                }
+                            }
+                            for (int l = 0; l < cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Nodes.Count; l++)
+                            {
+                                if (cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Nodes[l].Nodes.Count == 0)
+                                {
+                                    if (cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Nodes[l].Data.Name != null)
                                     {
                                         builder.Append("    <ClCompile Include=\"");
-                                        if (cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Data.Name.StartsWith(".\\"))
-                                            builder.Append(cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Data.Name.Replace(".\\", "..\\"));
+                                        if (cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Nodes[l].Data.Name.StartsWith(".\\"))
+                                            builder.Append(cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Nodes[l].Data.Name.Replace(".\\", "..\\"));
                                         else
-                                            builder.Append("..\\" + cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Data.Name);
+                                            builder.Append("..\\" + cfg.ProjFiles.Nodes[i].Nodes[j].Nodes[k].Nodes[l].Data.Name);
                                         builder.AppendLine("\" /> ");
                                     }
                                 }
-                                //else
-                                {
 
-                                }
                             }
                         }
                     }
