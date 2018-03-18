@@ -153,9 +153,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(10, 100);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(23, 12);
+            this.label4.Size = new System.Drawing.Size(41, 12);
             this.label4.TabIndex = 14;
-            this.label4.Text = "sln";
+            this.label4.Text = "VC工程";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // tboxsln
@@ -235,8 +235,8 @@
             // toolStripStatusLabel3
             // 
             this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-            this.toolStripStatusLabel3.Size = new System.Drawing.Size(122, 17);
-            this.toolStripStatusLabel3.Text = "双击\"sln\"打开sln工程";
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(146, 17);
+            this.toolStripStatusLabel3.Text = "双击\"VC工程\"打开VC工程";
             // 
             // toolStripStatusLabel4
             // 
