@@ -14,14 +14,11 @@ namespace MDK2VC.M2V
     public class SysConfig 
     {
         /// <summary>
-        /// MDK 工程文件路径
+        /// 工程文件路径
         /// </summary>
-        [Description("MDK 工程文件路径")]
+        [Description("工程文件路径")]
         public string FromFilePath { get; set; }
         /// <summary>
-        /// MDK文件包含路径
-        /// </summary>
-        public string MdkIncludePath { get; set; } = @"C:\Keil_v5\ARM\ARMCC\include";
         public string VCPath
         {
             get

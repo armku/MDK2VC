@@ -18,7 +18,7 @@ namespace MDK2VC.M2V.Xml
         {
             var builder = new StringBuilder();
             builder.Append("      <AdditionalIncludeDirectories>");
-            builder.Append(cfg.IncludePathStr).Append(";").Append(cfg.MdkIncludePath);
+            builder.Append(cfg.IncludePathStr);
             builder.Append(";%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>");
             return builder.ToString();
         }

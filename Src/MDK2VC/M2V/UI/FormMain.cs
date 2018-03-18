@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
+using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml.Linq;
@@ -34,6 +35,7 @@ namespace MDK2VC
             tboxfilters.Text = cfg.filters;
             tboxsln.Text = cfg.sln;
             btnSelMDKPath.Focus();
+            this.Text = "MDK4 MDK5 2 VC2017 Ver:"+ Assembly.GetExecutingAssembly().GetName().Version.ToString() + " Net:"+System.Environment.Version.ToString();
         }
 
         private void btnSelMDKPath_Click(object sender, EventArgs e)
@@ -85,12 +87,6 @@ namespace MDK2VC
             cfg.IncludePath = manager.from.getIncludePath(cfg.FromFilePath);
             cfg.ProjFiles = manager.from.GetFiles(cfg.FromFilePath);
             this.ShowFiles(cfg.ProjFiles);
-
-
-
-
-
-
 
             cfg.ToFilter_FileFolders = manager.to.Get_ToFilter_FolderFiles(cfg);
             cfg.ToProj_Files = manager.to.Get_ToProj_Files(cfg);

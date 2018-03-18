@@ -16,75 +16,17 @@ namespace MDK2VC.M2V.Xml
      /// <returns></returns>
         public List<String> GetMacroDefine(string path)
         {
-            XElement Define = null;
-
             var ret = new List<String>();
-            //var builder = new StringBuilder();
-            //var doc = XElement.Load(path);
-            //var Targets = doc.Element("Targets");
-            //var Target = Targets.Element("Target");
-            //var TargetOption = Target.Element("TargetOption");
-
-            //var TargetArmAds51 = TargetOption.Element("Target51");
-            //var TargetArmAdsM3 = TargetOption.Element("TargetArmAds");
-            //if (TargetArmAds51 != null && TargetArmAds51.HasElements)
-            //{
-            //    var Cads = TargetArmAds51.Element("C51");
-            //    var VariousControls = Cads.Element("VariousControls");
-            //    Define = VariousControls.Element("Define");
-            //}
-            //else if (TargetArmAdsM3 != null && TargetArmAdsM3.HasElements)
-            //{
-            //    var Cads = TargetArmAdsM3.Element("Cads");
-            //    var VariousControls = Cads.Element("VariousControls");
-            //    Define = VariousControls.Element("Define");
-            //}
-            //else { }
-
-            //if (Define != null)
-            //{
-            //    var strs = Define.Value.ToString().Split(new char[] { ',' });
-            //    foreach (var str in strs)
-            //    {
-            //        builder.Append(str).Append(";");
-            //        ret.Add(str);
-            //    }
-            //}
+                       
             ret.Add("DEBUG");
             return ret;
         }
         public List<String> getIncludePath(string path)
         {
-            XElement IncludePath = null;
-
             var ret = new List<String>();
-            //var doc = XElement.Load(path);
-            //var Targets = doc.Element("Targets");
-            //var Target = Targets.Element("Target");
-            //var TargetOption = Target.Element("TargetOption");
 
-            //var TargetArmAds51 = TargetOption.Element("Target51");
-            //var TargetArmAdsM3 = TargetOption.Element("TargetArmAds");
-            //if (TargetArmAds51 != null && TargetArmAds51.HasElements)
-            //{
-            //    var Cads = TargetArmAds51.Element("C51");
-            //    var VariousControls = Cads.Element("VariousControls");
-            //    IncludePath = VariousControls.Element("IncludePath");
-            //}
-            //else if (TargetArmAdsM3 != null && TargetArmAdsM3.HasElements)
-            //{
-            //    var Cads = TargetArmAdsM3.Element("Cads");
-            //    var VariousControls = Cads.Element("VariousControls");
-            //    IncludePath = VariousControls.Element("IncludePath");
-            //}
-            //else { }
-
-            //var IncludePaths = IncludePath.Value.ToString().Split(new char[] { ';' });
-            //foreach (var vn in IncludePaths)
-            //{
-            //    ret.Add("..\\" + vn);
-            //}
-            ret.Add("DEBUG");
+            ret.Add(@".");
+            ret.Add(@"..\Generated_Source\PSoC5");
             return ret;
         }
         /// <summary>

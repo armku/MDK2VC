@@ -52,6 +52,7 @@ namespace MDK2VC.M2V.Xml
             {
                 ret.Add("..\\"+vn);
             }
+            ret.Add(@"C:\Keil_v5\ARM\ARMCC\include");
             return ret;
         }
         /// <summary>
