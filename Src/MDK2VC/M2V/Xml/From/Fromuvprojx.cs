@@ -34,7 +34,16 @@ namespace MDK2VC.M2V.Xml
             }
             //return builder.ToString();
             return ret;
-        }        
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        public String GetTargetName(string path)
+        {
+            return "DEBUG";
+        }
         public List<String> getIncludePath(string path)
         {
             var ret = new List<String>();

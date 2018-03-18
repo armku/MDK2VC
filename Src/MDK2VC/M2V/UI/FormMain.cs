@@ -86,6 +86,7 @@ namespace MDK2VC
             cfg.MacroDefine = manager.from.GetMacroDefine(cfg.FromFilePath);
             cfg.IncludePath = manager.from.getIncludePath(cfg.FromFilePath);
             cfg.ProjFiles = manager.from.GetFiles(cfg.FromFilePath);
+            cfg.TargetName = manager.from.GetTargetName(cfg.FromFilePath);
             this.ShowFiles(cfg.ProjFiles);
 
             cfg.ToFilter_FileFolders = manager.to.Get_ToFilter_FolderFiles(cfg);

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Xml;
 using System.Xml.Linq;
 
 namespace MDK2VC.M2V.Xml
@@ -20,6 +21,15 @@ namespace MDK2VC.M2V.Xml
                        
             ret.Add("DEBUG");
             return ret;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        public String GetTargetName(string path)
+        {
+            return "DEBUG";
         }
         public List<String> getIncludePath(string path)
         {

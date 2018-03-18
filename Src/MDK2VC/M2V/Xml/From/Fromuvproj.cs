@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Xml;
 using System.Xml.Linq;
 
 namespace MDK2VC.M2V.Xml
@@ -16,41 +17,54 @@ namespace MDK2VC.M2V.Xml
         /// <returns></returns>
         public List<String> GetMacroDefine(string path)
         {
-            XElement Define = null;
-
-            var ret = new List<String>();
-            var builder = new StringBuilder();
-            var doc = XElement.Load(path);
-            var Targets = doc.Element("Targets");
-            var Target = Targets.Element("Target");
-            var TargetOption = Target.Element("TargetOption");
-
-            var TargetArmAds51 = TargetOption.Element("Target51");
-            var TargetArmAdsM3 = TargetOption.Element("TargetArmAds");
-            if (TargetArmAds51!=null && TargetArmAds51.HasElements)
+            var TargetName = GetTargetName(path);
+            var xmlDoc = new XmlDocument();
+            var aa = "none";
+            xmlDoc.Load(path);
+            foreach (XmlNode node in xmlDoc.SelectNodes(".//Targets/Target"))
             {
-                var Cads = TargetArmAds51.Element("C51");
-                var VariousControls = Cads.Element("VariousControls");
-                Define = VariousControls.Element("Define");
-            }
-            else if (TargetArmAdsM3!=null && TargetArmAdsM3.HasElements)
-            {
-                var Cads = TargetArmAdsM3.Element("Cads");
-                var VariousControls = Cads.Element("VariousControls");
-                Define = VariousControls.Element("Define");
-            }
-            else { }
-
-            if (Define != null)
-            {
-                var strs = Define.Value.ToString().Split(new char[] { ',' });
-                foreach (var str in strs)
+                if (node.SelectSingleNode("./TargetName").InnerText == TargetName)
                 {
-                    builder.Append(str).Append(";");
-                    ret.Add(str);
+                    aa = node.SelectSingleNode(".//VariousControls/Define").InnerText;
+                    break;
                 }
             }
+            var ret = new List<String>();
+            var strs = aa.Split(new char[] { ',' });
+            foreach (var str in strs)
+            {
+                ret.Add(str);
+            }
+            
             return ret;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        public String GetTargetName(string path)
+        {
+            string[] items = this.MDK_TargetRead(path);
+            if (items.Length > 0)
+                return items[0];
+            else
+                return "DEBUG";
+        }
+        private XmlDocument xmlDoc = new XmlDocument();
+        private string[] MDK_TargetRead(string Doc)
+        {
+            if (Doc == "") return null;
+            this.xmlDoc.Load(Doc);
+            XmlNodeList list = this.xmlDoc.SelectNodes(".//Targets/*");
+            string[] strArray = new string[list.Count];
+            int index = 0;
+            foreach (XmlNode node in list)
+            {
+                strArray[index] = node.SelectSingleNode("./TargetName").InnerText;
+                index++;
+            }
+            return strArray;
         }
         public List<String> getIncludePath(string path)
         {

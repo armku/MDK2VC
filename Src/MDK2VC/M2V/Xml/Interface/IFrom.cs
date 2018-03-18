@@ -18,6 +18,12 @@ namespace MDK2VC.M2V.Xml
         /// <returns></returns>
         List<String> GetMacroDefine(string path);
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        String GetTargetName(string path);
+        /// <summary>
         /// 获取包含路径
         /// </summary>
         /// <param name="path"></param>

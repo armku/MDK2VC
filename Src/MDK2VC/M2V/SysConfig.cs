@@ -19,6 +19,10 @@ namespace MDK2VC.M2V
         [Description("工程文件路径")]
         public string FromFilePath { get; set; }
         /// <summary>
+        /// 
+        /// </summary>
+        public string TargetName { get; set; }
+        /// <summary>
         public string VCPath
         {
             get
