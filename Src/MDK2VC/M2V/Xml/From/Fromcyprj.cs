@@ -25,7 +25,7 @@ namespace MDK2VC.M2V.Xml
         {
             var ret = new List<String>();
 
-            ret.Add(@".");
+            ret.Add(@"..");
             ret.Add(@"..\Generated_Source\PSoC5");
             return ret;
         }
