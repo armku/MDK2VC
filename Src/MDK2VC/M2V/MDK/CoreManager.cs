@@ -21,11 +21,11 @@ namespace MDK
         /// </summary>
         public IToVC2017 to
         { get; set; }
-        public _Config Config;
+        public MDK2VC.M2V._Config Config;
         public XDocument document = new XDocument();
         
         public string FileName = "";
-        public SysConfig ProjectIno;
+        public MDK2VC.M2V.SysConfig ProjectIno;
         public XmlDocument xmlDoc = new XmlDocument();
         public void Creat_Config(string DocName)
         {

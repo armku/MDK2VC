@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace MDK2VC.M2V
@@ -11,8 +12,91 @@ namespace MDK2VC.M2V
     /// <summary>
     /// 系统参数配置
     /// </summary>
+    [StructLayout(LayoutKind.Sequential)]
     public class SysConfig 
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        [Description("")]
+        public string UV4_Path { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        [Description("")]
+        public string MDK_Project_Path { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        [Description("")]
+        public string MDK_Project_File { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        [Description("")]
+        public string MDK_Target { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        [Description("")]
+        public string ProjectName { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        [Description("")]
+        public string IncludePath { get; set; }
+        /// <summary>
+        /// vcxproj文件路径
+        /// </summary>
+        [Description("vcxproj文件路径")]
+        public string VCProject_Path { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        [Description("")]
+        public string VcxprojName { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        [Description("")]
+        public string VC_Filters_Name { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        [Description("")]
+        public string VC_UserFileName { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        [Description("")]
+        public string NMakePreprocessorDefinitions { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        [Description("")]
+        public string NMakeBuildCommandLine { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        [Description("")]
+        public string NMakeCleanCommandLine { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        [Description("")]
+        public string LocalDebuggerCommandArguments { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        [Description("")]
+        public string LocalDebuggerWorkingDirectory { get; set; }
+
+
+
+
+
+
+
         /// <summary>
         /// 工程文件路径
         /// </summary>
@@ -159,6 +243,31 @@ namespace MDK2VC.M2V
         /// 过滤器目录列表
         /// </summary>
         public string ToFilter_files { get; set; }
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public struct _Config
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        [Description("")]
+        public string ToolName { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        [Description("")]
+        public string ToolsVersion { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        [Description("")]
+        public string UV4Path { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        [Description("")]
+        public string DocName { get; set; }
     }
 }
 static class fff

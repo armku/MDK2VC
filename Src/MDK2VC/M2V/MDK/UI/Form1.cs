@@ -19,7 +19,7 @@ namespace MDK
         /// <summary>
         /// 项目配置
         /// </summary>
-        SysConfig cfg = new SysConfig();
+        MDK2VC.M2V.SysConfig cfg = new MDK2VC.M2V.SysConfig();
         public Form1()
         {
             this.InitializeComponent();

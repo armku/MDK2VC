@@ -56,7 +56,6 @@
     <Compile Include="M2V\MDK\Interface\IToVC2017.cs" />
     <Compile Include="M2V\MDK\Properties\Resources.cs" />
     <Compile Include="M2V\MDK\Properties\Settings.cs" />
-    <Compile Include="M2V\MDK\SysConfig.cs" />
     <Compile Include="M2V\MDK\To\ToVC2017.cs" />
     <Compile Include="M2V\MDK\UI\Form1.cs">
       <SubType>Form</SubType>
