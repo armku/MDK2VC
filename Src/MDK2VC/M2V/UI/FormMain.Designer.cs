@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.tBoxMDKPath = new System.Windows.Forms.TextBox();
             this.btnTrans = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.btnTest = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
@@ -76,13 +75,13 @@
             this.tBoxMDKPath.Location = new System.Drawing.Point(44, 20);
             this.tBoxMDKPath.Name = "tBoxMDKPath";
             this.tBoxMDKPath.ReadOnly = true;
-            this.tBoxMDKPath.Size = new System.Drawing.Size(982, 21);
+            this.tBoxMDKPath.Size = new System.Drawing.Size(891, 21);
             this.tBoxMDKPath.TabIndex = 2;
             this.tBoxMDKPath.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tBoxMDKPath_MouseDoubleClick);
             // 
             // btnTrans
             // 
-            this.btnTrans.Location = new System.Drawing.Point(23, 364);
+            this.btnTrans.Location = new System.Drawing.Point(11, 475);
             this.btnTrans.Name = "btnTrans";
             this.btnTrans.Size = new System.Drawing.Size(75, 23);
             this.btnTrans.TabIndex = 4;
@@ -90,17 +89,9 @@
             this.btnTrans.UseVisualStyleBackColor = true;
             this.btnTrans.Click += new System.EventHandler(this.btnTrans_Click);
             // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(603, 367);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(240, 66);
-            this.richTextBox1.TabIndex = 8;
-            this.richTextBox1.Text = "";
-            // 
             // btnTest
             // 
-            this.btnTest.Location = new System.Drawing.Point(170, 364);
+            this.btnTest.Location = new System.Drawing.Point(158, 475);
             this.btnTest.Name = "btnTest";
             this.btnTest.Size = new System.Drawing.Size(75, 23);
             this.btnTest.TabIndex = 9;
@@ -111,7 +102,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(282, 369);
+            this.label5.Location = new System.Drawing.Point(270, 480);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 12);
             this.label5.TabIndex = 15;
@@ -156,9 +147,9 @@
             this.toolStripStatusLabel3,
             this.toolStripStatusLabel4,
             this.toolStripStatusLabel5});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 568);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 507);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1057, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(966, 22);
             this.statusStrip1.TabIndex = 17;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -194,9 +185,11 @@
             // 
             // treeView1
             // 
-            this.treeView1.Location = new System.Drawing.Point(12, 393);
+            this.treeView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.treeView1.Location = new System.Drawing.Point(643, 16);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(509, 40);
+            this.treeView1.Size = new System.Drawing.Size(292, 153);
             this.treeView1.TabIndex = 18;
             // 
             // groupBox1
@@ -207,7 +200,7 @@
             this.groupBox1.Controls.Add(this.tBoxMDKPath);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1033, 54);
+            this.groupBox1.Size = new System.Drawing.Size(942, 54);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Project File Path";
@@ -222,7 +215,7 @@
             this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox4.Size = new System.Drawing.Size(1033, 90);
+            this.groupBox4.Size = new System.Drawing.Size(942, 90);
             this.groupBox4.TabIndex = 21;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Target Info";
@@ -240,7 +233,7 @@
             this.TargetStatus.Name = "TargetStatus";
             this.TargetStatus.ReadOnly = true;
             this.TargetStatus.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.TargetStatus.Size = new System.Drawing.Size(1021, 66);
+            this.TargetStatus.Size = new System.Drawing.Size(930, 66);
             this.TargetStatus.TabIndex = 0;
             // 
             // groupBox5
@@ -250,12 +243,13 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox5.Controls.Add(this.FileBox);
             this.groupBox5.Controls.Add(this.GroupListBox);
+            this.groupBox5.Controls.Add(this.treeView1);
             this.groupBox5.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(5, 292);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox5.Size = new System.Drawing.Size(1033, 262);
+            this.groupBox5.Size = new System.Drawing.Size(942, 176);
             this.groupBox5.TabIndex = 22;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Source Groups";
@@ -271,7 +265,7 @@
             this.FileBox.ItemHeight = 14;
             this.FileBox.Location = new System.Drawing.Point(264, 16);
             this.FileBox.Name = "FileBox";
-            this.FileBox.Size = new System.Drawing.Size(762, 241);
+            this.FileBox.Size = new System.Drawing.Size(351, 155);
             this.FileBox.TabIndex = 1;
             // 
             // GroupListBox
@@ -287,7 +281,7 @@
             this.GroupListBox.Location = new System.Drawing.Point(5, 16);
             this.GroupListBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.GroupListBox.Name = "GroupListBox";
-            this.GroupListBox.Size = new System.Drawing.Size(255, 241);
+            this.GroupListBox.Size = new System.Drawing.Size(255, 155);
             this.GroupListBox.TabIndex = 0;
             // 
             // groupBox3
@@ -300,7 +294,7 @@
             this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox3.Size = new System.Drawing.Size(1033, 48);
+            this.groupBox3.Size = new System.Drawing.Size(942, 48);
             this.groupBox3.TabIndex = 23;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Target Groups";
@@ -312,7 +306,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.elementHost.Location = new System.Drawing.Point(6, 16);
             this.elementHost.Name = "elementHost";
-            this.elementHost.Size = new System.Drawing.Size(1021, 25);
+            this.elementHost.Size = new System.Drawing.Size(930, 25);
             this.elementHost.TabIndex = 11;
             this.elementHost.Text = "elementHost1";
             this.elementHost.Child = null;
@@ -339,7 +333,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox2.Size = new System.Drawing.Size(1033, 57);
+            this.groupBox2.Size = new System.Drawing.Size(942, 57);
             this.groupBox2.TabIndex = 24;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Target";
@@ -351,7 +345,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.elementHost1.Location = new System.Drawing.Point(6, 16);
             this.elementHost1.Name = "elementHost1";
-            this.elementHost1.Size = new System.Drawing.Size(1021, 34);
+            this.elementHost1.Size = new System.Drawing.Size(930, 34);
             this.elementHost1.TabIndex = 11;
             this.elementHost1.Text = "elementHost1";
             this.elementHost1.Child = null;
@@ -374,24 +368,22 @@
             this.tBoxSlnPath.Location = new System.Drawing.Point(45, 22);
             this.tBoxSlnPath.Name = "tBoxSlnPath";
             this.tBoxSlnPath.ReadOnly = true;
-            this.tBoxSlnPath.Size = new System.Drawing.Size(976, 22);
+            this.tBoxSlnPath.Size = new System.Drawing.Size(885, 22);
             this.tBoxSlnPath.TabIndex = 12;
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1057, 590);
+            this.ClientSize = new System.Drawing.Size(966, 529);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.treeView1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnTest);
-            this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.btnTrans);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMain";
@@ -419,7 +411,6 @@
         #endregion
         private System.Windows.Forms.TextBox tBoxMDKPath;
         private System.Windows.Forms.Button btnTrans;
-        private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button btnTest;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NotifyIcon notifyIcon1;

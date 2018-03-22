@@ -73,7 +73,7 @@ namespace MDK2VC
             builder.AppendLine(cfg.MacroDefineStr);
             builder.AppendLine(cfg.IncludePathStr);
 
-            richTextBox1.Text = builder.ToString();
+            TargetStatus.Text= builder.ToString();
         }
 
         private void btnTest_Click(object sender, EventArgs e)
