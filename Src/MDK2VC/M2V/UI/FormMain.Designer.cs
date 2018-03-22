@@ -30,17 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.tBoxMDKPath = new System.Windows.Forms.TextBox();
-            this.tBoxvcxproj = new System.Windows.Forms.TextBox();
             this.btnTrans = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.btnTest = new System.Windows.Forms.Button();
-            this.tboxfilters = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.tboxsln = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -53,53 +46,43 @@
             this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
             this.treeView1 = new System.Windows.Forms.TreeView();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.TargetStatus = new System.Windows.Forms.TextBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.FileBox = new System.Windows.Forms.ListBox();
+            this.GroupListBox = new System.Windows.Forms.ListBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.elementHost = new System.Windows.Forms.Integration.ElementHost();
+            this.labelOpenProj = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
+            this.labelOpenVC = new System.Windows.Forms.Label();
+            this.tBoxSlnPath = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 12);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "MDK项目";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 46);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 12);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "vcxproj";
             // 
             // tBoxMDKPath
             // 
-            this.tBoxMDKPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.tBoxMDKPath.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tBoxMDKPath.Location = new System.Drawing.Point(65, 11);
+            this.tBoxMDKPath.Location = new System.Drawing.Point(44, 20);
             this.tBoxMDKPath.Name = "tBoxMDKPath";
             this.tBoxMDKPath.ReadOnly = true;
-            this.tBoxMDKPath.Size = new System.Drawing.Size(448, 21);
+            this.tBoxMDKPath.Size = new System.Drawing.Size(982, 21);
             this.tBoxMDKPath.TabIndex = 2;
             this.tBoxMDKPath.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tBoxMDKPath_MouseDoubleClick);
             // 
-            // tBoxvcxproj
-            // 
-            this.tBoxvcxproj.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tBoxvcxproj.Location = new System.Drawing.Point(65, 43);
-            this.tBoxvcxproj.Name = "tBoxvcxproj";
-            this.tBoxvcxproj.ReadOnly = true;
-            this.tBoxvcxproj.Size = new System.Drawing.Size(448, 21);
-            this.tBoxvcxproj.TabIndex = 3;
-            // 
             // btnTrans
             // 
-            this.btnTrans.Location = new System.Drawing.Point(29, 155);
+            this.btnTrans.Location = new System.Drawing.Point(23, 364);
             this.btnTrans.Name = "btnTrans";
             this.btnTrans.Size = new System.Drawing.Size(75, 23);
             this.btnTrans.TabIndex = 4;
@@ -109,15 +92,15 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(4, 184);
+            this.richTextBox1.Location = new System.Drawing.Point(603, 367);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(509, 160);
+            this.richTextBox1.Size = new System.Drawing.Size(240, 66);
             this.richTextBox1.TabIndex = 8;
             this.richTextBox1.Text = "";
             // 
             // btnTest
             // 
-            this.btnTest.Location = new System.Drawing.Point(170, 124);
+            this.btnTest.Location = new System.Drawing.Point(170, 364);
             this.btnTest.Name = "btnTest";
             this.btnTest.Size = new System.Drawing.Size(75, 23);
             this.btnTest.TabIndex = 9;
@@ -125,50 +108,10 @@
             this.btnTest.UseVisualStyleBackColor = true;
             this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
             // 
-            // tboxfilters
-            // 
-            this.tboxfilters.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tboxfilters.Location = new System.Drawing.Point(65, 70);
-            this.tboxfilters.Name = "tboxfilters";
-            this.tboxfilters.ReadOnly = true;
-            this.tboxfilters.Size = new System.Drawing.Size(448, 21);
-            this.tboxfilters.TabIndex = 10;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 73);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 12);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "filters";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 100);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 12);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "VC工程";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // tboxsln
-            // 
-            this.tboxsln.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tboxsln.Location = new System.Drawing.Point(65, 97);
-            this.tboxsln.Name = "tboxsln";
-            this.tboxsln.ReadOnly = true;
-            this.tboxsln.Size = new System.Drawing.Size(448, 21);
-            this.tboxsln.TabIndex = 13;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(309, 129);
+            this.label5.Location = new System.Drawing.Point(282, 369);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 12);
             this.label5.TabIndex = 15;
@@ -213,9 +156,9 @@
             this.toolStripStatusLabel3,
             this.toolStripStatusLabel4,
             this.toolStripStatusLabel5});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 152);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 568);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(519, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1057, 22);
             this.statusStrip1.TabIndex = 17;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -251,30 +194,205 @@
             // 
             // treeView1
             // 
-            this.treeView1.Location = new System.Drawing.Point(4, 350);
+            this.treeView1.Location = new System.Drawing.Point(12, 393);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(509, 312);
+            this.treeView1.Size = new System.Drawing.Size(509, 40);
             this.treeView1.TabIndex = 18;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.labelOpenProj);
+            this.groupBox1.Controls.Add(this.tBoxMDKPath);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1033, 54);
+            this.groupBox1.TabIndex = 19;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Project File Path";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox4.Controls.Add(this.TargetStatus);
+            this.groupBox4.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Location = new System.Drawing.Point(6, 194);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox4.Size = new System.Drawing.Size(1033, 90);
+            this.groupBox4.TabIndex = 21;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Target Info";
+            // 
+            // TargetStatus
+            // 
+            this.TargetStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TargetStatus.BackColor = System.Drawing.SystemColors.Window;
+            this.TargetStatus.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TargetStatus.Location = new System.Drawing.Point(5, 19);
+            this.TargetStatus.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.TargetStatus.Multiline = true;
+            this.TargetStatus.Name = "TargetStatus";
+            this.TargetStatus.ReadOnly = true;
+            this.TargetStatus.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.TargetStatus.Size = new System.Drawing.Size(1021, 66);
+            this.TargetStatus.TabIndex = 0;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox5.Controls.Add(this.FileBox);
+            this.groupBox5.Controls.Add(this.GroupListBox);
+            this.groupBox5.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox5.Location = new System.Drawing.Point(5, 292);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox5.Size = new System.Drawing.Size(1033, 262);
+            this.groupBox5.TabIndex = 22;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Source Groups";
+            // 
+            // FileBox
+            // 
+            this.FileBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.FileBox.FormattingEnabled = true;
+            this.FileBox.HorizontalScrollbar = true;
+            this.FileBox.IntegralHeight = false;
+            this.FileBox.ItemHeight = 14;
+            this.FileBox.Location = new System.Drawing.Point(264, 16);
+            this.FileBox.Name = "FileBox";
+            this.FileBox.Size = new System.Drawing.Size(762, 241);
+            this.FileBox.TabIndex = 1;
+            // 
+            // GroupListBox
+            // 
+            this.GroupListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.GroupListBox.BackColor = System.Drawing.SystemColors.Window;
+            this.GroupListBox.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GroupListBox.FormattingEnabled = true;
+            this.GroupListBox.HorizontalScrollbar = true;
+            this.GroupListBox.IntegralHeight = false;
+            this.GroupListBox.ItemHeight = 14;
+            this.GroupListBox.Location = new System.Drawing.Point(5, 16);
+            this.GroupListBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.GroupListBox.Name = "GroupListBox";
+            this.GroupListBox.Size = new System.Drawing.Size(255, 241);
+            this.GroupListBox.TabIndex = 0;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.elementHost);
+            this.groupBox3.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(11, 138);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox3.Size = new System.Drawing.Size(1033, 48);
+            this.groupBox3.TabIndex = 23;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Target Groups";
+            // 
+            // elementHost
+            // 
+            this.elementHost.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.elementHost.Location = new System.Drawing.Point(6, 16);
+            this.elementHost.Name = "elementHost";
+            this.elementHost.Size = new System.Drawing.Size(1021, 25);
+            this.elementHost.TabIndex = 11;
+            this.elementHost.Text = "elementHost1";
+            this.elementHost.Child = null;
+            // 
+            // labelOpenProj
+            // 
+            this.labelOpenProj.AutoSize = true;
+            this.labelOpenProj.Location = new System.Drawing.Point(9, 23);
+            this.labelOpenProj.Name = "labelOpenProj";
+            this.labelOpenProj.Size = new System.Drawing.Size(29, 12);
+            this.labelOpenProj.TabIndex = 3;
+            this.labelOpenProj.Text = "Open";
+            this.labelOpenProj.Click += new System.EventHandler(this.labelOpenProj_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.labelOpenVC);
+            this.groupBox2.Controls.Add(this.tBoxSlnPath);
+            this.groupBox2.Controls.Add(this.elementHost1);
+            this.groupBox2.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(10, 73);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox2.Size = new System.Drawing.Size(1033, 57);
+            this.groupBox2.TabIndex = 24;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Target";
+            // 
+            // elementHost1
+            // 
+            this.elementHost1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.elementHost1.Location = new System.Drawing.Point(6, 16);
+            this.elementHost1.Name = "elementHost1";
+            this.elementHost1.Size = new System.Drawing.Size(1021, 34);
+            this.elementHost1.TabIndex = 11;
+            this.elementHost1.Text = "elementHost1";
+            this.elementHost1.Child = null;
+            // 
+            // labelOpenVC
+            // 
+            this.labelOpenVC.AutoSize = true;
+            this.labelOpenVC.Location = new System.Drawing.Point(10, 25);
+            this.labelOpenVC.Name = "labelOpenVC";
+            this.labelOpenVC.Size = new System.Drawing.Size(35, 14);
+            this.labelOpenVC.TabIndex = 13;
+            this.labelOpenVC.Text = "Open";
+            this.labelOpenVC.Click += new System.EventHandler(this.labelOpenVC_Click);
+            // 
+            // tBoxSlnPath
+            // 
+            this.tBoxSlnPath.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tBoxSlnPath.Location = new System.Drawing.Point(45, 22);
+            this.tBoxSlnPath.Name = "tBoxSlnPath";
+            this.tBoxSlnPath.ReadOnly = true;
+            this.tBoxSlnPath.Size = new System.Drawing.Size(976, 22);
+            this.tBoxSlnPath.TabIndex = 12;
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(519, 174);
+            this.ClientSize = new System.Drawing.Size(1057, 590);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox5);
+            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.treeView1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.tboxsln);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.tboxfilters);
             this.Controls.Add(this.btnTest);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.btnTrans);
-            this.Controls.Add(this.tBoxvcxproj);
-            this.Controls.Add(this.tBoxMDKPath);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -285,24 +403,24 @@
             this.contextMenuStrip1.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tBoxMDKPath;
-        private System.Windows.Forms.TextBox tBoxvcxproj;
         private System.Windows.Forms.Button btnTrans;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button btnTest;
-        private System.Windows.Forms.TextBox tboxfilters;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox tboxsln;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
@@ -315,6 +433,19 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel5;
         private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.TextBox TargetStatus;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.ListBox FileBox;
+        private System.Windows.Forms.ListBox GroupListBox;
+        private System.Windows.Forms.GroupBox groupBox3;
+        public System.Windows.Forms.Integration.ElementHost elementHost;
+        private System.Windows.Forms.Label labelOpenProj;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label labelOpenVC;
+        private System.Windows.Forms.TextBox tBoxSlnPath;
+        public System.Windows.Forms.Integration.ElementHost elementHost1;
     }
 }
 
