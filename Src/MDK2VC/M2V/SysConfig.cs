@@ -98,7 +98,7 @@ namespace MDK2VC.M2V
         /// <summary>
         /// 文件路径
         /// </summary>
-        public List<String> IncludePath { private get; set; }
+        public List<String> IncludePathOld { private get; set; }
         /// <summary>
         /// 项目包含文件
         /// </summary>
@@ -111,10 +111,10 @@ namespace MDK2VC.M2V
             get
             {
                 var builder = new StringBuilder();
-                for(int i=0;i<IncludePath.Count;i++)
+                for(int i=0;i<IncludePathOld.Count;i++)
                 {
-                    builder.Append(IncludePath[i]);
-                    if (i != IncludePath.Count - 1)
+                    builder.Append(IncludePathOld[i]);
+                    if (i != IncludePathOld.Count - 1)
                         builder.Append(";");
                 }
                 return builder.ToString();
