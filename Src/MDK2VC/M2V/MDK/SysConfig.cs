@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -9,28 +10,104 @@ namespace MDK
     [StructLayout(LayoutKind.Sequential)]
     public struct SysConfig
     {
-        public string UV4_Path;
-        public string MDK_Project_Path;
-        public string MDK_Project_File;
-        public string MDK_Target;
-        public string ProjectName;
-        public string IncludePath;
-        public string VCProject_Path;
-        public string VcxprojName;
-        public string VC_Filters_Name;
-        public string VC_UserFileName;
-        public string NMakePreprocessorDefinitions;
-        public string NMakeBuildCommandLine;
-        public string NMakeCleanCommandLine;
-        public string LocalDebuggerCommandArguments;
-        public string LocalDebuggerWorkingDirectory;
+        /// <summary>
+        /// 
+        /// </summary>
+        [Description("")]
+        public string UV4_Path { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        [Description("")]
+        public string MDK_Project_Path { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        [Description("")]
+        public string MDK_Project_File { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        [Description("")]
+        public string MDK_Target { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        [Description("")]
+        public string ProjectName { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        [Description("")]
+        public string IncludePath { get; set; }
+        /// <summary>
+        /// vcxproj文件路径
+        /// </summary>
+        [Description("vcxproj文件路径")]
+        public string VCProject_Path { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        [Description("")]
+        public string VcxprojName { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        [Description("")]
+        public string VC_Filters_Name { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        [Description("")]
+        public string VC_UserFileName { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        [Description("")]
+        public string NMakePreprocessorDefinitions { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        [Description("")]
+        public string NMakeBuildCommandLine { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        [Description("")]
+        public string NMakeCleanCommandLine { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        [Description("")]
+        public string LocalDebuggerCommandArguments { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        [Description("")]
+        public string LocalDebuggerWorkingDirectory { get; set; }
     }
     [StructLayout(LayoutKind.Sequential)]
     public struct _Config
     {
-        public string ToolName;
-        public string ToolsVersion;
-        public string UV4Path;
-        public string DocName;
+        /// <summary>
+        /// 
+        /// </summary>
+        [Description("")]
+        public string ToolName { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        [Description("")]
+        public string ToolsVersion { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        [Description("")]
+        public string UV4Path { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        [Description("")]
+        public string DocName { get; set; }
     }
 }
