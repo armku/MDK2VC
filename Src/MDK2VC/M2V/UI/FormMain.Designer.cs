@@ -147,6 +147,7 @@
             this.label3.Size = new System.Drawing.Size(47, 12);
             this.label3.TabIndex = 12;
             this.label3.Text = "filters";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 

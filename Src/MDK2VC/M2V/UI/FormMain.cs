@@ -258,5 +258,10 @@ namespace MDK2VC
             treeView1.Nodes.Clear();
             treeView1.Nodes.Add(tn);
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            new MDK.Form1().ShowDialog();
+        }
     }
 }

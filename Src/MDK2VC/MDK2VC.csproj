@@ -34,6 +34,8 @@
     <ApplicationIcon>Flash.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,8 +46,24 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="M2V\MDK\CoreManager.cs" />
+    <Compile Include="M2V\MDK\From\Fromuvproj.cs" />
+    <Compile Include="M2V\MDK\Interface\IFrom.cs" />
+    <Compile Include="M2V\MDK\Interface\IToVC2017.cs" />
+    <Compile Include="M2V\MDK\Properties\Resources.cs" />
+    <Compile Include="M2V\MDK\Properties\Settings.cs" />
+    <Compile Include="M2V\MDK\SysConfig.cs" />
+    <Compile Include="M2V\MDK\To\ToVC2017.cs" />
+    <Compile Include="M2V\MDK\UI\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="M2V\MDK\UI\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="M2V\SysConfig.cs" />
     <Compile Include="M2V\UI\FormMain.cs">
       <SubType>Form</SubType>
@@ -63,6 +81,10 @@
     <Compile Include="M2V\Xml\To\ToVC2017.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="M2V\MDK\Properties\Properties.resx" />
+    <EmbeddedResource Include="M2V\MDK\UI\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="M2V\UI\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
