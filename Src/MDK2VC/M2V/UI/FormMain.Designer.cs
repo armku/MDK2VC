@@ -85,7 +85,7 @@
             this.tBoxMDKPath.ReadOnly = true;
             this.tBoxMDKPath.Size = new System.Drawing.Size(448, 21);
             this.tBoxMDKPath.TabIndex = 2;
-            this.tBoxMDKPath.TextChanged += new System.EventHandler(this.tBoxMDKPath_TextChanged);
+            this.tBoxMDKPath.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tBoxMDKPath_MouseDoubleClick);
             // 
             // tBoxvcxproj
             // 

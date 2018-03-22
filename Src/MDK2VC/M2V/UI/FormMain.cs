@@ -241,7 +241,7 @@ namespace MDK2VC
             new MDK.Form1().ShowDialog();
         }
 
-        private void tBoxMDKPath_TextChanged(object sender, EventArgs e)
+        private void tBoxMDKPath_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             var fileDlg = new OpenFileDialog();
             fileDlg.Multiselect = true;
