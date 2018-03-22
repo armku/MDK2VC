@@ -35,7 +35,6 @@
             this.tBoxMDKPath = new System.Windows.Forms.TextBox();
             this.tBoxvcxproj = new System.Windows.Forms.TextBox();
             this.btnTrans = new System.Windows.Forms.Button();
-            this.btnSelMDKPath = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.btnTest = new System.Windows.Forms.Button();
             this.tboxfilters = new System.Windows.Forms.TextBox();
@@ -79,14 +78,19 @@
             // 
             // tBoxMDKPath
             // 
+            this.tBoxMDKPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tBoxMDKPath.Location = new System.Drawing.Point(65, 11);
             this.tBoxMDKPath.Name = "tBoxMDKPath";
             this.tBoxMDKPath.ReadOnly = true;
-            this.tBoxMDKPath.Size = new System.Drawing.Size(397, 21);
+            this.tBoxMDKPath.Size = new System.Drawing.Size(448, 21);
             this.tBoxMDKPath.TabIndex = 2;
+            this.tBoxMDKPath.TextChanged += new System.EventHandler(this.tBoxMDKPath_TextChanged);
             // 
             // tBoxvcxproj
             // 
+            this.tBoxvcxproj.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tBoxvcxproj.Location = new System.Drawing.Point(65, 43);
             this.tBoxvcxproj.Name = "tBoxvcxproj";
             this.tBoxvcxproj.ReadOnly = true;
@@ -103,16 +107,6 @@
             this.btnTrans.UseVisualStyleBackColor = true;
             this.btnTrans.Click += new System.EventHandler(this.btnTrans_Click);
             // 
-            // btnSelMDKPath
-            // 
-            this.btnSelMDKPath.Location = new System.Drawing.Point(468, 9);
-            this.btnSelMDKPath.Name = "btnSelMDKPath";
-            this.btnSelMDKPath.Size = new System.Drawing.Size(45, 23);
-            this.btnSelMDKPath.TabIndex = 6;
-            this.btnSelMDKPath.Text = "...";
-            this.btnSelMDKPath.UseVisualStyleBackColor = true;
-            this.btnSelMDKPath.Click += new System.EventHandler(this.btnSelMDKPath_Click);
-            // 
             // richTextBox1
             // 
             this.richTextBox1.Location = new System.Drawing.Point(4, 184);
@@ -123,7 +117,7 @@
             // 
             // btnTest
             // 
-            this.btnTest.Location = new System.Drawing.Point(226, 124);
+            this.btnTest.Location = new System.Drawing.Point(170, 124);
             this.btnTest.Name = "btnTest";
             this.btnTest.Size = new System.Drawing.Size(75, 23);
             this.btnTest.TabIndex = 9;
@@ -133,6 +127,8 @@
             // 
             // tboxfilters
             // 
+            this.tboxfilters.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tboxfilters.Location = new System.Drawing.Point(65, 70);
             this.tboxfilters.Name = "tboxfilters";
             this.tboxfilters.ReadOnly = true;
@@ -161,6 +157,8 @@
             // 
             // tboxsln
             // 
+            this.tboxsln.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tboxsln.Location = new System.Drawing.Point(65, 97);
             this.tboxsln.Name = "tboxsln";
             this.tboxsln.ReadOnly = true;
@@ -170,7 +168,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(316, 129);
+            this.label5.Location = new System.Drawing.Point(309, 129);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 12);
             this.label5.TabIndex = 15;
@@ -272,7 +270,6 @@
             this.Controls.Add(this.tboxfilters);
             this.Controls.Add(this.btnTest);
             this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.btnSelMDKPath);
             this.Controls.Add(this.btnTrans);
             this.Controls.Add(this.tBoxvcxproj);
             this.Controls.Add(this.tBoxMDKPath);
@@ -300,7 +297,6 @@
         private System.Windows.Forms.TextBox tBoxMDKPath;
         private System.Windows.Forms.TextBox tBoxvcxproj;
         private System.Windows.Forms.Button btnTrans;
-        private System.Windows.Forms.Button btnSelMDKPath;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button btnTest;
         private System.Windows.Forms.TextBox tboxfilters;

@@ -34,36 +34,13 @@ namespace MDK2VC
             tBoxvcxproj.Text = cfg.vcxproj;
             tboxfilters.Text = cfg.filters;
             tboxsln.Text = cfg.sln;
-            btnSelMDKPath.Focus();
             this.Text = "MDK4 MDK5 2 VC2017 Ver:"+ Assembly.GetExecutingAssembly().GetName().Version.ToString() + " Net:"+System.Environment.Version.ToString();
         }
-
-        private void btnSelMDKPath_Click(object sender, EventArgs e)
-        {
-            var fileDlg = new OpenFileDialog();
-            fileDlg.Multiselect = true;
-            fileDlg.Title = "请选择文件";
-            fileDlg.Filter = "MDK|*.uvprojx;*.uvproj;*cyprj";
-            if (fileDlg.ShowDialog() == DialogResult.OK)
-            {
-                cfg.FromFilePath = fileDlg.FileName;
-
-                tBoxMDKPath.Text = cfg.FromFilePath;
-                tBoxvcxproj.Text = cfg.vcxproj;
-                tboxfilters.Text = cfg.filters;
-                tboxsln.Text = cfg.sln;
-
-                Properties.Settings.Default.LastFileName = cfg.FromFilePath;
-                Properties.Settings.Default.Save();
-            }
-        }
-
         private void btnTrans_Click(object sender, EventArgs e)
         {
             if ((cfg.FromFilePath == null) || (!File.Exists(cfg.FromFilePath)))
             {
                 MessageBox.Show("请选择正确的文件");
-                btnSelMDKPath.Focus();
                 return;
             }
             switch (Path.GetExtension(cfg.FromFilePath))
@@ -262,6 +239,26 @@ namespace MDK2VC
         private void label3_Click(object sender, EventArgs e)
         {
             new MDK.Form1().ShowDialog();
+        }
+
+        private void tBoxMDKPath_TextChanged(object sender, EventArgs e)
+        {
+            var fileDlg = new OpenFileDialog();
+            fileDlg.Multiselect = true;
+            fileDlg.Title = "请选择文件";
+            fileDlg.Filter = "MDK|*.uvprojx;*.uvproj;*cyprj";
+            if (fileDlg.ShowDialog() == DialogResult.OK)
+            {
+                cfg.FromFilePath = fileDlg.FileName;
+
+                tBoxMDKPath.Text = cfg.FromFilePath;
+                tBoxvcxproj.Text = cfg.vcxproj;
+                tboxfilters.Text = cfg.filters;
+                tboxsln.Text = cfg.sln;
+
+                Properties.Settings.Default.LastFileName = cfg.FromFilePath;
+                Properties.Settings.Default.Save();
+            }
         }
     }
 }
