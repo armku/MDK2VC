@@ -46,6 +46,7 @@
             this.toolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.labelOpenProj = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.TargetStatus = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -53,11 +54,10 @@
             this.GroupListBox = new System.Windows.Forms.ListBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.elementHost = new System.Windows.Forms.Integration.ElementHost();
-            this.labelOpenProj = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
             this.labelOpenVC = new System.Windows.Forms.Label();
             this.tBoxSlnPath = new System.Windows.Forms.TextBox();
+            this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
             this.contextMenuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -74,7 +74,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tBoxMDKPath.Location = new System.Drawing.Point(44, 20);
             this.tBoxMDKPath.Name = "tBoxMDKPath";
-            this.tBoxMDKPath.ReadOnly = true;
             this.tBoxMDKPath.Size = new System.Drawing.Size(891, 21);
             this.tBoxMDKPath.TabIndex = 2;
             this.tBoxMDKPath.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tBoxMDKPath_MouseDoubleClick);
@@ -205,6 +204,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Project File Path";
             // 
+            // labelOpenProj
+            // 
+            this.labelOpenProj.AutoSize = true;
+            this.labelOpenProj.Location = new System.Drawing.Point(9, 23);
+            this.labelOpenProj.Name = "labelOpenProj";
+            this.labelOpenProj.Size = new System.Drawing.Size(29, 12);
+            this.labelOpenProj.TabIndex = 3;
+            this.labelOpenProj.Text = "Open";
+            this.labelOpenProj.Click += new System.EventHandler(this.labelOpenProj_Click);
+            // 
             // groupBox4
             // 
             this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -311,16 +320,6 @@
             this.elementHost.Text = "elementHost1";
             this.elementHost.Child = null;
             // 
-            // labelOpenProj
-            // 
-            this.labelOpenProj.AutoSize = true;
-            this.labelOpenProj.Location = new System.Drawing.Point(9, 23);
-            this.labelOpenProj.Name = "labelOpenProj";
-            this.labelOpenProj.Size = new System.Drawing.Size(29, 12);
-            this.labelOpenProj.TabIndex = 3;
-            this.labelOpenProj.Text = "Open";
-            this.labelOpenProj.Click += new System.EventHandler(this.labelOpenProj_Click);
-            // 
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -337,18 +336,6 @@
             this.groupBox2.TabIndex = 24;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Target";
-            // 
-            // elementHost1
-            // 
-            this.elementHost1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.elementHost1.Location = new System.Drawing.Point(6, 16);
-            this.elementHost1.Name = "elementHost1";
-            this.elementHost1.Size = new System.Drawing.Size(930, 34);
-            this.elementHost1.TabIndex = 11;
-            this.elementHost1.Text = "elementHost1";
-            this.elementHost1.Child = null;
             // 
             // labelOpenVC
             // 
@@ -370,6 +357,18 @@
             this.tBoxSlnPath.ReadOnly = true;
             this.tBoxSlnPath.Size = new System.Drawing.Size(885, 22);
             this.tBoxSlnPath.TabIndex = 12;
+            // 
+            // elementHost1
+            // 
+            this.elementHost1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.elementHost1.Location = new System.Drawing.Point(6, 16);
+            this.elementHost1.Name = "elementHost1";
+            this.elementHost1.Size = new System.Drawing.Size(930, 34);
+            this.elementHost1.TabIndex = 11;
+            this.elementHost1.Text = "elementHost1";
+            this.elementHost1.Child = null;
             // 
             // FormMain
             // 
