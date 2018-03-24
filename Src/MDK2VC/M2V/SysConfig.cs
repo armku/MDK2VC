@@ -51,20 +51,38 @@ namespace MDK2VC.M2V
         [Description("vcxproj文件路径")]
         public string VCProject_Path { get; set; }
         /// <summary>
-        /// 
+        /// VC 工程名
         /// </summary>
-        [Description("")]
-        public string VcxprojName { get; set; }
+        [Description("VC 工程名")]
+        public string VcxprojName
+        {
+            get
+            {
+                return this.ProjectName + ".vcxproj";
+            }
+        }
         /// <summary>
-        /// 
+        /// VC filters文件名
         /// </summary>
-        [Description("")]
-        public string VC_Filters_Name { get; set; }
+        [Description("VC filters 文件名")]
+        public string VC_Filters_Name
+        {
+            get
+            {
+                return this.VcxprojName + ".filters";
+            }
+        }
         /// <summary>
-        /// 
+        /// VC用户文件
         /// </summary>
-        [Description("")]
-        public string VC_UserFileName { get; set; }
+        [Description("VC用户文件")]
+        public string VC_UserFileName
+        {
+            get
+            {
+                return this.VcxprojName + ".user";
+            }
+        }
         /// <summary>
         /// 
         /// </summary>

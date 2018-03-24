@@ -83,6 +83,11 @@ namespace MDK2VC
             manager.to.createfilters(cfg);
             manager.to.createsln(cfg);
             label5.Text = "转换完：" + DateTime.Now.ToString("HH:mm:ss");
+
+
+
+
+            tBoxSlnPath.Text = "123";
         }
         /// <summary>
         /// 打开文件

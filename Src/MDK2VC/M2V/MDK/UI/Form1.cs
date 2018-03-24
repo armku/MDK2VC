@@ -135,9 +135,6 @@ namespace MDK
                     manager.ProjectIno.MDK_Project_File = dialog.FileName;
                     manager.ProjectIno.MDK_Project_Path = manager.ProjectIno.MDK_Project_File.Replace(dialog.SafeFileName, "");
                     manager.ProjectIno.ProjectName = dialog.SafeFileName.Remove(dialog.SafeFileName.IndexOf("."));
-                    manager.ProjectIno.VcxprojName = manager.ProjectIno.ProjectName + ".vcxproj";
-                    manager.ProjectIno.VC_Filters_Name = manager.ProjectIno.VcxprojName + ".filters";
-                    manager.ProjectIno.VC_UserFileName = manager.ProjectIno.VcxprojName + ".user";
                 }
                 else
                 {
@@ -160,9 +157,6 @@ namespace MDK
                 manager.ProjectIno.MDK_Project_File = text;
                 manager.ProjectIno.MDK_Project_Path = Path.GetDirectoryName(text) + @"\";
                 manager.ProjectIno.ProjectName = Path.GetFileNameWithoutExtension(text);
-                manager.ProjectIno.VcxprojName = manager.ProjectIno.ProjectName + ".vcxproj";
-                manager.ProjectIno.VC_Filters_Name = manager.ProjectIno.VcxprojName + ".filters";
-                manager.ProjectIno.VC_UserFileName = manager.ProjectIno.VcxprojName + ".user";
             }
             else
             {
