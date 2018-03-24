@@ -9,6 +9,7 @@ using System.IO;
 using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
+using System.Xml;
 using System.Xml.Linq;
 
 namespace MDK2VC
@@ -74,8 +75,26 @@ namespace MDK2VC
             builder.AppendLine(cfg.IncludePathStr);
 
             TargetStatus.Text= builder.ToString();
-        }
+            tBoxSlnPath.Text = "123";
+            tBoxSlnPath.Text = MDK_TargetRead(cfg.FromFilePath)[0];
 
+        }
+        public string[] MDK_TargetRead(string Doc)
+        {
+            XmlDocument xmlDoc = new XmlDocument();
+
+            if (Doc == "") return null;
+            xmlDoc.Load(Doc);
+            XmlNodeList list = xmlDoc.SelectNodes(".//Targets/*");
+            string[] strArray = new string[list.Count];
+            int index = 0;
+            foreach (XmlNode node in list)
+            {
+                strArray[index] = node.SelectSingleNode("./TargetName").InnerText;
+                index++;
+            }
+            return strArray;
+        }
         private void btnTest_Click(object sender, EventArgs e)
         {
             btnTrans_Click(sender, e);
@@ -83,11 +102,7 @@ namespace MDK2VC
             manager.to.createfilters(cfg);
             manager.to.createsln(cfg);
             label5.Text = "转换完：" + DateTime.Now.ToString("HH:mm:ss");
-
-
-
-
-            tBoxSlnPath.Text = "123";
+            
         }
         /// <summary>
         /// 打开文件
