@@ -75,8 +75,18 @@ namespace MDK2VC
             builder.AppendLine(cfg.IncludePathStr);
 
             TargetStatus.Text= builder.ToString();
-            tBoxSlnPath.Text = "123";
-            tBoxSlnPath.Text = MDK_TargetRead(cfg.FromFilePath)[0];
+            
+            comboBoxTarget.Items.Clear();
+            foreach (var vn in MDK_TargetRead(cfg.FromFilePath))
+            {
+                comboBoxTarget.Items.Add(vn);
+            }
+            if (comboBoxTarget.Items.Count > 0)
+            {
+                comboBoxTarget.SelectedIndex = 0;
+            }
+            else
+                comboBoxTarget.Text = "";
 
         }
         public string[] MDK_TargetRead(string Doc)

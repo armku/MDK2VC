@@ -56,8 +56,9 @@
             this.elementHost = new System.Windows.Forms.Integration.ElementHost();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.labelOpenVC = new System.Windows.Forms.Label();
-            this.tBoxSlnPath = new System.Windows.Forms.TextBox();
             this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
+            this.comboBoxTarget = new System.Windows.Forms.ComboBox();
+            this.tBoxSlnPath = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -297,13 +298,14 @@
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.comboBoxTarget);
             this.groupBox3.Controls.Add(this.elementHost);
             this.groupBox3.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(11, 138);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox3.Size = new System.Drawing.Size(942, 48);
+            this.groupBox3.Size = new System.Drawing.Size(942, 67);
             this.groupBox3.TabIndex = 23;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Target Groups";
@@ -315,7 +317,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.elementHost.Location = new System.Drawing.Point(6, 16);
             this.elementHost.Name = "elementHost";
-            this.elementHost.Size = new System.Drawing.Size(930, 25);
+            this.elementHost.Size = new System.Drawing.Size(930, 44);
             this.elementHost.TabIndex = 11;
             this.elementHost.Text = "elementHost1";
             this.elementHost.Child = null;
@@ -347,17 +349,6 @@
             this.labelOpenVC.Text = "Open";
             this.labelOpenVC.Click += new System.EventHandler(this.labelOpenVC_Click);
             // 
-            // tBoxSlnPath
-            // 
-            this.tBoxSlnPath.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tBoxSlnPath.Location = new System.Drawing.Point(45, 22);
-            this.tBoxSlnPath.Name = "tBoxSlnPath";
-            this.tBoxSlnPath.ReadOnly = true;
-            this.tBoxSlnPath.Size = new System.Drawing.Size(885, 22);
-            this.tBoxSlnPath.TabIndex = 12;
-            // 
             // elementHost1
             // 
             this.elementHost1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -369,6 +360,28 @@
             this.elementHost1.TabIndex = 11;
             this.elementHost1.Text = "elementHost1";
             this.elementHost1.Child = null;
+            // 
+            // comboBoxTarget
+            // 
+            this.comboBoxTarget.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxTarget.FormattingEnabled = true;
+            this.comboBoxTarget.Location = new System.Drawing.Point(12, 22);
+            this.comboBoxTarget.Name = "comboBoxTarget";
+            this.comboBoxTarget.Size = new System.Drawing.Size(917, 22);
+            this.comboBoxTarget.TabIndex = 14;
+            // 
+            // tBoxSlnPath
+            // 
+            this.tBoxSlnPath.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tBoxSlnPath.Location = new System.Drawing.Point(45, 22);
+            this.tBoxSlnPath.Name = "tBoxSlnPath";
+            this.tBoxSlnPath.ReadOnly = true;
+            this.tBoxSlnPath.Size = new System.Drawing.Size(885, 22);
+            this.tBoxSlnPath.TabIndex = 12;
             // 
             // FormMain
             // 
@@ -434,8 +447,9 @@
         private System.Windows.Forms.Label labelOpenProj;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label labelOpenVC;
-        private System.Windows.Forms.TextBox tBoxSlnPath;
         public System.Windows.Forms.Integration.ElementHost elementHost1;
+        private System.Windows.Forms.ComboBox comboBoxTarget;
+        private System.Windows.Forms.TextBox tBoxSlnPath;
     }
 }
 
