@@ -10,7 +10,19 @@ namespace MDK2VC.M2V.Xml
     /// 
     /// </summary>
     public interface IFrom
-    {        
+    {
+        /// <summary>
+        /// 获取生成目标
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        List<String> GetMacroTarget(string path);
+
+
+
+
+
+
         /// <summary>
         /// 获取宏定义
         /// </summary>

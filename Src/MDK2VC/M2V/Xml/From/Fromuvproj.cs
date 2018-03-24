@@ -11,6 +11,31 @@ namespace MDK2VC.M2V.Xml
     public class Fromuvproj : IFrom
     {
         /// <summary>
+        /// 获取生成目标
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        public List<String> GetMacroTarget(string path)
+        {
+            var ret = new List<String>();
+
+            var xmlDoc = new XmlDocument();
+
+            if (path == "") return ret;
+            xmlDoc.Load(path);
+            var list = xmlDoc.SelectNodes(".//Targets/*");
+            foreach (XmlNode node in list)
+            {
+                ret.Add(node.SelectSingleNode("./TargetName").InnerText);
+            }
+            return ret;
+        }
+
+
+
+
+
+        /// <summary>
         /// 获取宏定义
         /// </summary>
         /// <param name="path"></param>

@@ -77,7 +77,7 @@ namespace MDK2VC
             TargetStatus.Text= builder.ToString();
             
             comboBoxTarget.Items.Clear();
-            foreach (var vn in MDK_TargetRead(cfg.FromFilePath))
+            foreach (var vn in manager.from.GetMacroTarget(cfg.FromFilePath))
             {
                 comboBoxTarget.Items.Add(vn);
             }
@@ -89,22 +89,7 @@ namespace MDK2VC
                 comboBoxTarget.Text = "";
 
         }
-        public string[] MDK_TargetRead(string Doc)
-        {
-            XmlDocument xmlDoc = new XmlDocument();
-
-            if (Doc == "") return null;
-            xmlDoc.Load(Doc);
-            XmlNodeList list = xmlDoc.SelectNodes(".//Targets/*");
-            string[] strArray = new string[list.Count];
-            int index = 0;
-            foreach (XmlNode node in list)
-            {
-                strArray[index] = node.SelectSingleNode("./TargetName").InnerText;
-                index++;
-            }
-            return strArray;
-        }
+        
         private void btnTest_Click(object sender, EventArgs e)
         {
             btnTrans_Click(sender, e);

@@ -10,11 +10,26 @@ using System.Xml.Linq;
 namespace MDK2VC.M2V.Xml
 {
     class Fromcyprj : IFrom
-    {/// <summary>
-     /// 获取宏定义
-     /// </summary>
-     /// <param name="path"></param>
-     /// <returns></returns>
+    {
+        /// <summary>
+        /// 获取生成目标
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        public List<String> GetMacroTarget(string path)
+        {
+            var ret = new List<String>();
+
+            return ret;
+        }
+
+
+
+        /// <summary>
+        /// 获取宏定义
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
         public List<String> GetMacroDefine(string path)
         {
             var ret = new List<String>();
