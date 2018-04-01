@@ -88,8 +88,23 @@ namespace MDK2VC
             else
                 comboBoxTarget.Text = "";
 
+
+
+
+
+
+
+            //var aa = GetRelativePath(manager.ProjectIno.VCProject_Path, manager.ProjectIno.MDK_Project_File);
+
+
         }
-        
+        public string GetRelativePath(string basePath, string targetPath)
+        {
+            Uri uri = new Uri(basePath);
+            Uri uri2 = new Uri(targetPath);
+            return uri.MakeRelativeUri(uri2).ToString().Replace("/", @"\");
+        }
+
         private void btnTest_Click(object sender, EventArgs e)
         {
             btnTrans_Click(sender, e);

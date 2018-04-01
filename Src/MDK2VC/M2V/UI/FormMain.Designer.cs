@@ -50,15 +50,13 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.TargetStatus = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.FileBox = new System.Windows.Forms.ListBox();
-            this.GroupListBox = new System.Windows.Forms.ListBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.comboBoxTarget = new System.Windows.Forms.ComboBox();
             this.elementHost = new System.Windows.Forms.Integration.ElementHost();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.labelOpenVC = new System.Windows.Forms.Label();
-            this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
-            this.comboBoxTarget = new System.Windows.Forms.ComboBox();
             this.tBoxSlnPath = new System.Windows.Forms.TextBox();
+            this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
             this.contextMenuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -185,11 +183,10 @@
             // 
             // treeView1
             // 
-            this.treeView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.treeView1.Location = new System.Drawing.Point(643, 16);
+            this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeView1.Location = new System.Drawing.Point(3, 19);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(292, 153);
+            this.treeView1.Size = new System.Drawing.Size(936, 153);
             this.treeView1.TabIndex = 18;
             // 
             // groupBox1
@@ -251,8 +248,6 @@
             this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox5.Controls.Add(this.FileBox);
-            this.groupBox5.Controls.Add(this.GroupListBox);
             this.groupBox5.Controls.Add(this.treeView1);
             this.groupBox5.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(5, 292);
@@ -263,36 +258,6 @@
             this.groupBox5.TabIndex = 22;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Source Groups";
-            // 
-            // FileBox
-            // 
-            this.FileBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.FileBox.FormattingEnabled = true;
-            this.FileBox.HorizontalScrollbar = true;
-            this.FileBox.IntegralHeight = false;
-            this.FileBox.ItemHeight = 14;
-            this.FileBox.Location = new System.Drawing.Point(264, 16);
-            this.FileBox.Name = "FileBox";
-            this.FileBox.Size = new System.Drawing.Size(351, 155);
-            this.FileBox.TabIndex = 1;
-            // 
-            // GroupListBox
-            // 
-            this.GroupListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.GroupListBox.BackColor = System.Drawing.SystemColors.Window;
-            this.GroupListBox.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GroupListBox.FormattingEnabled = true;
-            this.GroupListBox.HorizontalScrollbar = true;
-            this.GroupListBox.IntegralHeight = false;
-            this.GroupListBox.ItemHeight = 14;
-            this.GroupListBox.Location = new System.Drawing.Point(5, 16);
-            this.GroupListBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.GroupListBox.Name = "GroupListBox";
-            this.GroupListBox.Size = new System.Drawing.Size(255, 155);
-            this.GroupListBox.TabIndex = 0;
             // 
             // groupBox3
             // 
@@ -305,10 +270,21 @@
             this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox3.Size = new System.Drawing.Size(942, 67);
+            this.groupBox3.Size = new System.Drawing.Size(942, 56);
             this.groupBox3.TabIndex = 23;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Target Groups";
+            // 
+            // comboBoxTarget
+            // 
+            this.comboBoxTarget.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.comboBoxTarget.FormattingEnabled = true;
+            this.comboBoxTarget.Location = new System.Drawing.Point(12, 22);
+            this.comboBoxTarget.Name = "comboBoxTarget";
+            this.comboBoxTarget.Size = new System.Drawing.Size(917, 22);
+            this.comboBoxTarget.TabIndex = 14;
             // 
             // elementHost
             // 
@@ -317,7 +293,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.elementHost.Location = new System.Drawing.Point(6, 16);
             this.elementHost.Name = "elementHost";
-            this.elementHost.Size = new System.Drawing.Size(930, 44);
+            this.elementHost.Size = new System.Drawing.Size(930, 33);
             this.elementHost.TabIndex = 11;
             this.elementHost.Text = "elementHost1";
             this.elementHost.Child = null;
@@ -349,6 +325,17 @@
             this.labelOpenVC.Text = "Open";
             this.labelOpenVC.Click += new System.EventHandler(this.labelOpenVC_Click);
             // 
+            // tBoxSlnPath
+            // 
+            this.tBoxSlnPath.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tBoxSlnPath.Location = new System.Drawing.Point(45, 22);
+            this.tBoxSlnPath.Name = "tBoxSlnPath";
+            this.tBoxSlnPath.ReadOnly = true;
+            this.tBoxSlnPath.Size = new System.Drawing.Size(885, 22);
+            this.tBoxSlnPath.TabIndex = 12;
+            // 
             // elementHost1
             // 
             this.elementHost1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -360,28 +347,6 @@
             this.elementHost1.TabIndex = 11;
             this.elementHost1.Text = "elementHost1";
             this.elementHost1.Child = null;
-            // 
-            // comboBoxTarget
-            // 
-            this.comboBoxTarget.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBoxTarget.FormattingEnabled = true;
-            this.comboBoxTarget.Location = new System.Drawing.Point(12, 22);
-            this.comboBoxTarget.Name = "comboBoxTarget";
-            this.comboBoxTarget.Size = new System.Drawing.Size(917, 22);
-            this.comboBoxTarget.TabIndex = 14;
-            // 
-            // tBoxSlnPath
-            // 
-            this.tBoxSlnPath.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tBoxSlnPath.Location = new System.Drawing.Point(45, 22);
-            this.tBoxSlnPath.Name = "tBoxSlnPath";
-            this.tBoxSlnPath.ReadOnly = true;
-            this.tBoxSlnPath.Size = new System.Drawing.Size(885, 22);
-            this.tBoxSlnPath.TabIndex = 12;
             // 
             // FormMain
             // 
@@ -440,8 +405,6 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.TextBox TargetStatus;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.ListBox FileBox;
-        private System.Windows.Forms.ListBox GroupListBox;
         private System.Windows.Forms.GroupBox groupBox3;
         public System.Windows.Forms.Integration.ElementHost elementHost;
         private System.Windows.Forms.Label labelOpenProj;
