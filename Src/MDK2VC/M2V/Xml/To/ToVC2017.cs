@@ -132,7 +132,13 @@ namespace MDK2VC.M2V.Xml
 
 
             builder.AppendLine("type ..\\build.log</NMakeBuildCommandLine>");
-            builder.AppendLine("    <NMakeReBuildCommandLine>\"C:\\Keil\\UV4\\Uv4.exe \" -r ..\\rtt_stm32.uvprojx -t \"rtt_stm32\" -j0 -o Build.log");
+            //builder.AppendLine("    <NMakeReBuildCommandLine>\"C:\\Keil\\UV4\\Uv4.exe \" -r ..\\rtt_stm32.uvprojx -t \"rtt_stm32\" -j0 -o Build.log");
+            builder.Append("    <NMakeReBuildCommandLine>\"C:\\Keil\\UV4\\Uv4.exe \" -r ..\\");
+            builder.Append(cfg.FileNameWithoutExtension);
+            builder.Append(".uvprojx -t \"");
+            builder.Append(cfg.FileNameWithoutExtension);
+            builder.AppendLine("\" -j0 -o Build.log");
+
             builder.AppendLine("type ..\\build.log</NMakeReBuildCommandLine>");
             builder.AppendLine("    <NMakeCleanCommandLine>\"C:\\Keil\\UV4\\Uv4.exe \" -f ..\\rtt_stm32.uvprojx -t \"rtt_stm32\" -j0 -o flash_download.log");
             builder.AppendLine("type ..\\flash_download.log");
