@@ -263,11 +263,6 @@ namespace MDK2VC
             treeView1.Nodes.Add(tn);
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-            new MDK.Form1().ShowDialog();
-        }
-
         private void tBoxMDKPath_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             var fileDlg = new OpenFileDialog();
