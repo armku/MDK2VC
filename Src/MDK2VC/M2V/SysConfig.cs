@@ -192,6 +192,22 @@ namespace MDK2VC.M2V
             }
         }
         /// <summary>
+        /// 预定义
+        /// </summary>
+        public string MacroDefineStrCNMake
+        {
+            get
+            {
+                var builder = new StringBuilder();
+                foreach (var str in MacroDefine)
+                {
+                    builder.Append(str.Trim()).Append(",");
+                }
+                builder = builder.Remove(builder.Length-1,1);
+                return builder.ToString();
+            }
+        }
+        /// <summary>
         /// 
         /// </summary>
         public string projguid { get; set; }

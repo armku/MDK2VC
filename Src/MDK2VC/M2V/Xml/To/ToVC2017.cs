@@ -113,7 +113,11 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine(".exe</NMakeOutput>");
 
 
-            builder.AppendLine("    <NMakePreprocessorDefinitions>STM32F10X_HD, USE_STDPERIPH_DRIVER</NMakePreprocessorDefinitions>");
+            //builder.AppendLine("    <NMakePreprocessorDefinitions>STM32F10X_HD, USE_STDPERIPH_DRIVER</NMakePreprocessorDefinitions>");
+            builder.Append("    <NMakePreprocessorDefinitions>");
+            builder.Append(cfg.MacroDefineStrCNMake);
+            builder.AppendLine("</NMakePreprocessorDefinitions>");
+
             builder.AppendLine(@"    <IncludePath>..\Application;..\Drivers;..\RT_Thread\components\finsh;..\RT_Thread\include;..\RT_Thread\libcpu\arm\common;..\RT_Thread\libcpu\arm\cortex-m3;..\ST_Library\STM32F10x_StdPeriph_Driver\inc;..\ST_Library\CMSIS\CM3\DeviceSupport\ST\STM32F10x;..\ST_Library\CMSIS\CM3\CoreSupport</IncludePath>");
             builder.AppendLine("    <NMakeBuildCommandLine>\"C:\\Keil\\UV4\\Uv4.exe \" -b ..\\rtt_stm32.uvprojx -t \"rtt_stm32\" -j0 -o Build.log");
             builder.AppendLine("type ..\\build.log</NMakeBuildCommandLine>");
