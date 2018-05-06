@@ -111,6 +111,7 @@ namespace MDK2VC
             manager.to.createvcxproj(cfg);
             manager.to.createfilters(cfg);
             manager.to.createsln(cfg);
+            manager.to.createvcxusers(cfg);
             label5.Text = "转换完：" + DateTime.Now.ToString("HH:mm:ss");
             
         }

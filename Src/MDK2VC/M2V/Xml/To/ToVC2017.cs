@@ -240,6 +240,14 @@ namespace MDK2VC.M2V.Xml
             fs.Close();
         }
         /// <summary>
+        /// 创建users文件
+        /// </summary>
+        /// <param name="cfg"></param>
+        public void createvcxusers(SysConfig cfg)
+        {
+
+        }
+        /// <summary>
         /// 获取所有文件列表
         /// </summary>
         /// <param name="cfg"></param>

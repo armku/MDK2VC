@@ -21,6 +21,11 @@ namespace MDK2VC.M2V.Xml
         /// <param name="cfg"></param>
         void createfilters(SysConfig cfg);
         /// <summary>
+        /// 创建users文件
+        /// </summary>
+        /// <param name="cfg"></param>
+        void createvcxusers(SysConfig cfg);
+        /// <summary>
         /// 创建解决方案
         /// </summary>
         /// <param name="cfg"></param>
