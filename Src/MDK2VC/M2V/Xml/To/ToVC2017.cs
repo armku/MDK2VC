@@ -123,7 +123,14 @@ namespace MDK2VC.M2V.Xml
             builder.Append(cfg.IncludePathStr);
             builder.AppendLine(@"</IncludePath>");
 
-            builder.AppendLine("    <NMakeBuildCommandLine>\"C:\\Keil\\UV4\\Uv4.exe \" -b ..\\rtt_stm32.uvprojx -t \"rtt_stm32\" -j0 -o Build.log");
+            //builder.AppendLine("    <NMakeBuildCommandLine>\"C:\\Keil\\UV4\\Uv4.exe \" -b ..\\rtt_stm32.uvprojx -t \"rtt_stm32\" -j0 -o Build.log");
+            builder.Append("    <NMakeBuildCommandLine>\"C:\\Keil\\UV4\\Uv4.exe \" -b ..\\");
+            builder.Append(cfg.FileNameWithoutExtension);
+            builder.Append(".uvprojx -t \"");
+            builder.Append(cfg.FileNameWithoutExtension);
+            builder.AppendLine("\" -j0 -o Build.log");
+
+
             builder.AppendLine("type ..\\build.log</NMakeBuildCommandLine>");
             builder.AppendLine("    <NMakeReBuildCommandLine>\"C:\\Keil\\UV4\\Uv4.exe \" -r ..\\rtt_stm32.uvprojx -t \"rtt_stm32\" -j0 -o Build.log");
             builder.AppendLine("type ..\\build.log</NMakeReBuildCommandLine>");
