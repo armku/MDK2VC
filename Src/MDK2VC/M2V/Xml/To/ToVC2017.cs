@@ -204,14 +204,14 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("    <None Include=\"..\\Application\\stm32f10x_conf.h\" />");
             builder.AppendLine("  </ItemGroup>");
             builder.AppendLine("  <ItemGroup>");
-            builder.AppendLine("    <ClCompile Include=\"..\\Application\\application.c\" />");
-            builder.AppendLine("    <ClCompile Include=\"..\\Application\\startup.c\" />");
+            builder.Append(cfg.ToProj_Files.ToString());
             builder.AppendLine("  </ItemGroup>");
             builder.AppendLine("  <Import Project=\"$(VCTargetsPath)\\Microsoft.Cpp.targets\" />");
             builder.AppendLine("  <ImportGroup Label=\"ExtensionTargets\">");
             builder.AppendLine("  </ImportGroup>");
             builder.AppendLine("</Project>");
 #endif
+            
             if (!Directory.Exists(cfg.VCPath))
             {
                 Directory.CreateDirectory(cfg.VCPath);
