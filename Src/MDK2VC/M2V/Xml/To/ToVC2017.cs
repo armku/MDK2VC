@@ -55,8 +55,17 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
             builder.AppendLine("<Project DefaultTargets=\"Build\" ToolsVersion=\"15.0\" xmlns=\"http://schemas.microsoft.com/developer/msbuild/2003\">");
             builder.AppendLine("  <ItemGroup Label=\"ProjectConfigurations\">");
-            builder.AppendLine("    <ProjectConfiguration Include=\"rtt_stm32|Win32\">");
-            builder.AppendLine("      <Configuration>rtt_stm32</Configuration>");
+            //builder.AppendLine("    <ProjectConfiguration Include=\"rtt_stm32|Win32\">");
+            builder.AppendLine("    <ProjectConfiguration Include=\"");
+            builder.AppendLine(cfg.FileNameWithoutExtension);
+            builder.AppendLine("|Win32\">");
+
+            //builder.AppendLine("      <Configuration>rtt_stm32</Configuration>");
+            builder.Append("      <Configuration>");
+            builder.Append(cfg.FileNameWithoutExtension);
+            builder.AppendLine("</Configuration>");
+
+
             builder.AppendLine("      <Platform>Win32</Platform>");
             builder.AppendLine("    </ProjectConfiguration>");
             builder.AppendLine("  </ItemGroup>");
