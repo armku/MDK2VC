@@ -211,9 +211,6 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("  <ImportGroup Label=\"ExtensionTargets\">");
             builder.AppendLine("  </ImportGroup>");
             builder.AppendLine("</Project>");
-            builder.AppendLine("");
-            builder.AppendLine("");
-            builder.AppendLine("");
 #endif
             if (!Directory.Exists(cfg.VCPath))
             {
