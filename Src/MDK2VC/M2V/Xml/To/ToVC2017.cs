@@ -252,44 +252,12 @@ namespace MDK2VC.M2V.Xml
         {
             var builder = new StringBuilder();
 #if false
-            builder.AppendLine("");
-            builder.AppendLine("Microsoft Visual Studio Solution File, Format Version 12.00");
-            builder.AppendLine("# Visual Studio 15");
-            builder.AppendLine("VisualStudioVersion = 15.0.27130.2020");
-            builder.AppendLine("MinimumVisualStudioVersion = 10.0.40219.1");
-
             builder.Append("Project(\"{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}\") = \"");
             builder.Append(cfg.FileNameWithoutExtension);
             builder.Append("\",\"");
             builder.Append(cfg.FileNameWithoutExtension);
             builder.AppendLine(".vcxproj\", \"{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}\"");
-
             builder.AppendLine("EndProject");
-            builder.AppendLine("Global");
-            builder.AppendLine("	GlobalSection(SolutionConfigurationPlatforms) = preSolution");
-            builder.AppendLine("		Debug|x64 = Debug|x64");
-            builder.AppendLine("		Debug|x86 = Debug|x86");
-            builder.AppendLine("		Release|x64 = Release|x64");
-            builder.AppendLine("		Release|x86 = Release|x86");
-            builder.AppendLine("	EndGlobalSection");
-            builder.AppendLine("	GlobalSection(ProjectConfigurationPlatforms) = postSolution");
-            builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Debug|x64.ActiveCfg = Debug|x64");
-            builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Debug|x64.Build.0 = Debug|x64");
-            builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Debug|x86.ActiveCfg = Debug|Win32");
-            builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Debug|x86.Build.0 = Debug|Win32");
-            builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Release|x64.ActiveCfg = Release|x64");
-            builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Release|x64.Build.0 = Release|x64");
-            builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Release|x86.ActiveCfg = Release|Win32");
-            builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Release|x86.Build.0 = Release|Win32");
-            builder.AppendLine("	EndGlobalSection");
-            builder.AppendLine("	GlobalSection(SolutionProperties) = preSolution");
-            builder.AppendLine("		HideSolutionNode = FALSE");
-            builder.AppendLine("	EndGlobalSection");
-            builder.AppendLine("	GlobalSection(ExtensibilityGlobals) = postSolution");
-            builder.AppendLine("		SolutionGuid = {133C6D99-11F2-4EE7-A3DA-7F3CF3AB45A5}");
-            builder.AppendLine("	EndGlobalSection");
-            builder.AppendLine("EndGlobal");
-            builder.AppendLine("");
 #else
             builder.AppendLine("Microsoft Visual Studio Solution File, Format Version 12.00");
             builder.AppendLine("# Visual Studio 2013");
