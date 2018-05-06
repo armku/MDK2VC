@@ -56,8 +56,8 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("<Project DefaultTargets=\"Build\" ToolsVersion=\"15.0\" xmlns=\"http://schemas.microsoft.com/developer/msbuild/2003\">");
             builder.AppendLine("  <ItemGroup Label=\"ProjectConfigurations\">");
             //builder.AppendLine("    <ProjectConfiguration Include=\"rtt_stm32|Win32\">");
-            builder.AppendLine("    <ProjectConfiguration Include=\"");
-            builder.AppendLine(cfg.FileNameWithoutExtension);
+            builder.Append("    <ProjectConfiguration Include=\"");
+            builder.Append(cfg.FileNameWithoutExtension);
             builder.AppendLine("|Win32\">");
 
             //builder.AppendLine("      <Configuration>rtt_stm32</Configuration>");
@@ -82,6 +82,7 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("  </PropertyGroup>");
             builder.AppendLine("  <Import Project=\"$(VCTargetsPath)\\Microsoft.Cpp.Default.props\" />");
             builder.AppendLine("  <PropertyGroup Condition=\"'$(Configuration)|$(Platform)'=='rtt_stm32|Win32'\" Label=\"Configuration\">");
+
             builder.AppendLine("    <ConfigurationType>Makefile</ConfigurationType>");
             builder.AppendLine("    <UseDebugLibraries>true</UseDebugLibraries>");
             builder.AppendLine("    <PlatformToolset>v141</PlatformToolset>");
