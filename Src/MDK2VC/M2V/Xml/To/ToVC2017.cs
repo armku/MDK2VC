@@ -263,7 +263,15 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("# Visual Studio 2013");
             builder.AppendLine("VisualStudioVersion = 12.0.21005.1");
             builder.AppendLine("MinimumVisualStudioVersion = 10.0.40219.1");
-            builder.AppendLine("Project(\"{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}\") = \"rtt_stm32\", \"rtt_stm32.vcxproj\", \"{E7B8D0E4-50A4-40FD-A6BD-3E7C38558110}\"");
+            //builder.AppendLine("Project(\"{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}\") = \"rtt_stm32\", \"rtt_stm32.vcxproj\", \"{E7B8D0E4-50A4-40FD-A6BD-3E7C38558110}\"");
+            builder.Append("Project(\"{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}\") = \"");
+            builder.Append(cfg.FileNameWithoutExtension);
+            builder.Append("\", \"rtt_stm32.vcxproj\", \"{E7B8D0E4-50A4-40FD-A6BD-3E7C38558110}\"");
+            builder.Append(cfg.FileNameWithoutExtension);
+            builder.AppendLine(".vcxproj\", \"{E7B8D0E4-50A4-40FD-A6BD-3E7C38558110}\"");
+
+
+
             builder.AppendLine("EndProject");
             builder.AppendLine("Global");
             builder.AppendLine("	GlobalSection(SolutionConfigurationPlatforms) = preSolution");
