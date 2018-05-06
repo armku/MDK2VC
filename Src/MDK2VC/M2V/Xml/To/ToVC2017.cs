@@ -253,6 +253,7 @@ namespace MDK2VC.M2V.Xml
         public void createsln(SysConfig cfg)
         {
             var builder = new StringBuilder();
+#if false
             builder.AppendLine("");
             builder.AppendLine("Microsoft Visual Studio Solution File, Format Version 12.00");
             builder.AppendLine("# Visual Studio 15");
@@ -291,7 +292,26 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("	EndGlobalSection");
             builder.AppendLine("EndGlobal");
             builder.AppendLine("");
-
+#else
+            builder.AppendLine("Microsoft Visual Studio Solution File, Format Version 12.00");
+            builder.AppendLine("# Visual Studio 2013");
+            builder.AppendLine("VisualStudioVersion = 12.0.21005.1");
+            builder.AppendLine("MinimumVisualStudioVersion = 10.0.40219.1");
+            builder.AppendLine("Project(\"{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}\") = \"rtt_stm32\", \"rtt_stm32.vcxproj\", \"{E7B8D0E4-50A4-40FD-A6BD-3E7C38558110}\"");
+            builder.AppendLine("EndProject");
+            builder.AppendLine("Global");
+            builder.AppendLine("	GlobalSection(SolutionConfigurationPlatforms) = preSolution");
+            builder.AppendLine("		rtt_stm32|Win32 = rtt_stm32|Win32");
+            builder.AppendLine("	EndGlobalSection");
+            builder.AppendLine("	GlobalSection(ProjectConfigurationPlatforms) = postSolution");
+            builder.AppendLine("		{E7B8D0E4-50A4-40FD-A6BD-3E7C38558110}.rtt_stm32|Win32.ActiveCfg = rtt_stm32|Win32");
+            builder.AppendLine("		{E7B8D0E4-50A4-40FD-A6BD-3E7C38558110}.rtt_stm32|Win32.Build.0 = rtt_stm32|Win32");
+            builder.AppendLine("	EndGlobalSection");
+            builder.AppendLine("	GlobalSection(SolutionProperties) = preSolution");
+            builder.AppendLine("		HideSolutionNode = FALSE");
+            builder.AppendLine("	EndGlobalSection");
+            builder.AppendLine("EndGlobal");
+#endif
             var fs = new FileStream(cfg.sln, FileMode.Create);
             byte[] data = new UTF8Encoding().GetBytes(builder.ToString());
             fs.Write(data);
