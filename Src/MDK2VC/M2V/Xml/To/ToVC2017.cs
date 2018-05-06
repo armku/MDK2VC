@@ -250,8 +250,19 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("<Project ToolsVersion=\"4.0\" xmlns=\"http://schemas.microsoft.com/developer/msbuild/2003\">");
             builder.AppendLine("  <PropertyGroup Condition=\"'$(Configuration)|$(Platform)'=='rtt_stm32|Win32'\">");
             builder.AppendLine(@"    <LocalDebuggerCommand>C:\Keil\UV4\UV4.exe </LocalDebuggerCommand>");
-            builder.AppendLine("    <LocalDebuggerCommandArguments>-d rtt_stm32.uvproj -t \"rtt_stm32\"</LocalDebuggerCommandArguments>");
-            builder.AppendLine(@"    <LocalDebuggerWorkingDirectory>..\MDK_Project\</LocalDebuggerWorkingDirectory>");
+            //builder.AppendLine("    <LocalDebuggerCommandArguments>-d rtt_stm32.uvproj -t \"rtt_stm32\"</LocalDebuggerCommandArguments>");
+            builder.Append("    <LocalDebuggerCommandArguments>-d ");
+            builder.Append(cfg.FileNameWithoutExtension);
+            builder.Append(".uvproj -t \"");
+            builder.Append(cfg.FileNameWithoutExtension);
+            builder.Append("\"</LocalDebuggerCommandArguments>");
+            builder.AppendLine("\"</LocalDebuggerCommandArguments>");
+
+            //builder.AppendLine(@"    <LocalDebuggerWorkingDirectory>..\MDK_Project\</LocalDebuggerWorkingDirectory>");
+            builder.Append(@"    <LocalDebuggerWorkingDirectory>");
+            builder.Append(@"..\");
+            builder.AppendLine(@"</LocalDebuggerWorkingDirectory>");
+
             builder.AppendLine("    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>");
             builder.AppendLine("  </PropertyGroup>");
             builder.AppendLine("  <PropertyGroup>");
