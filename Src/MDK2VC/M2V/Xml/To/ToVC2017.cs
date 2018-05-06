@@ -169,7 +169,13 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("    </ProjectConfiguration>");
             builder.AppendLine("  </ItemGroup>");
             builder.AppendLine("  <PropertyGroup Label=\"Globals\">");
-            builder.AppendLine("    <ProjectGuid>{e7b8d0e4-50a4-40fd-a6bd-3e7c38558110}</ProjectGuid>");
+            //builder.AppendLine("    <ProjectGuid>{e7b8d0e4-50a4-40fd-a6bd-3e7c38558110}</ProjectGuid>");
+            builder.Append("    <ProjectGuid>");
+            builder.Append(cfg.projguidvc);
+            builder.AppendLine("</ProjectGuid>");
+
+
+
             builder.AppendLine("    <Keyword>MakeFileProj</Keyword>");
             builder.AppendLine("    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>");
             builder.AppendLine("  </PropertyGroup>");
