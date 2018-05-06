@@ -108,6 +108,11 @@ namespace MDK2VC
         private void btnTest_Click(object sender, EventArgs e)
         {
             btnTrans_Click(sender, e);
+            if (manager.from.GetMacroTarget(cfg.FromFilePath).Count > 0)
+                cfg.TargetName = manager.from.GetMacroTarget(cfg.FromFilePath)[0];
+            else
+                cfg.TargetName = cfg.FileNameWithoutExtension;
+
             manager.to.createvcxproj(cfg);
             manager.to.createfilters(cfg);
             manager.to.createsln(cfg);
