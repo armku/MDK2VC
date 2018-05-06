@@ -26,32 +26,7 @@ namespace MDK2VC.M2V.Xml
         public void createvcxproj(SysConfig cfg)
         {
             var builder = new StringBuilder();
-#if false
-            builder.AppendLine("    <VCProjectVersion>15.0</VCProjectVersion>");
-            builder.Append("    <ProjectGuid>").Append(cfg.projguidvc).AppendLine("</ProjectGuid>");
-            builder.AppendLine("    <RootNamespace>STM32F1</RootNamespace>");
-            builder.AppendLine("      <ConformanceMode>true</ConformanceMode>");
-            builder.AppendLine(this.getIncludePathVC(cfg));
-            builder.AppendLine(this.getMacroDefineVC(cfg.MacroDefineStr));
-            builder.AppendLine("    </ClCompile>");
-            builder.AppendLine("      <ConformanceMode>true</ConformanceMode>");
-            builder.AppendLine(this.getIncludePathVC(cfg));
-            builder.AppendLine(this.getMacroDefineVC(cfg.MacroDefineStr));
-            builder.AppendLine("    </ClCompile>");
-            builder.AppendLine("      <ConformanceMode>true</ConformanceMode>");
-            builder.AppendLine(this.getIncludePathVC(cfg));
-            builder.AppendLine(this.getMacroDefineVC(cfg.MacroDefineStr));
-            builder.AppendLine("    </ClCompile>");
-            builder.AppendLine("      <ConformanceMode>true</ConformanceMode>");
-            builder.AppendLine(this.getIncludePathVC(cfg));
-            builder.AppendLine(this.getMacroDefineVC(cfg.MacroDefineStr));
-            builder.AppendLine("    </ClCompile>");
-            builder.AppendLine(@"  <ItemGroup>");
-            //Fromuvprojx.getGroupsToProj(builder, cfg.MdkPath);
-            builder.Append(cfg.ToProj_Files.ToString());
-            builder.AppendLine(@"  </ItemGroup>");
-            
-#else
+
             builder.AppendLine("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
             builder.AppendLine("<Project DefaultTargets=\"Build\" ToolsVersion=\"15.0\" xmlns=\"http://schemas.microsoft.com/developer/msbuild/2003\">");
             builder.AppendLine("  <ItemGroup Label=\"ProjectConfigurations\">");
@@ -74,9 +49,7 @@ namespace MDK2VC.M2V.Xml
             //builder.Append("    <ProjectGuid>");
             //builder.Append(cfg.projguidvc);
             //builder.AppendLine("</ProjectGuid>");
-
-
-
+            
             builder.AppendLine("    <Keyword>MakeFileProj</Keyword>");
             builder.AppendLine("    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>");
             builder.AppendLine("  </PropertyGroup>");
@@ -96,8 +69,7 @@ namespace MDK2VC.M2V.Xml
             builder.Append("  <ImportGroup Condition=\"'$(Configuration)|$(Platform)'=='");
             builder.Append(cfg.FileNameWithoutExtension);
             builder.AppendLine("|Win32'\" Label=\"PropertySheets\">");
-
-
+            
             builder.AppendLine("    <Import Project=\"$(UserRootDir)\\Microsoft.Cpp.$(Platform).user.props\" Condition=\"exists('$(UserRootDir)\\Microsoft.Cpp.$(Platform).user.props')\" Label=\"LocalAppDataPlatform\" />");
             builder.AppendLine("  </ImportGroup>");
             builder.AppendLine("  <PropertyGroup Label=\"UserMacros\" />");
@@ -105,14 +77,12 @@ namespace MDK2VC.M2V.Xml
             builder.Append("  <PropertyGroup Condition=\"'$(Configuration)|$(Platform)'=='");
             builder.Append(cfg.FileNameWithoutExtension);
             builder.AppendLine("|Win32'\">");
-
-
+            
             //builder.AppendLine("    <NMakeOutput>rtt_stm32.exe</NMakeOutput>");
             builder.Append("    <NMakeOutput>");
             builder.Append(cfg.FileNameWithoutExtension);
             builder.AppendLine(".exe</NMakeOutput>");
-
-
+            
             //builder.AppendLine("    <NMakePreprocessorDefinitions>STM32F10X_HD, USE_STDPERIPH_DRIVER</NMakePreprocessorDefinitions>");
             builder.Append("    <NMakePreprocessorDefinitions>");
             builder.Append(cfg.MacroDefineStrCNMake);
@@ -129,8 +99,7 @@ namespace MDK2VC.M2V.Xml
             builder.Append(".uvprojx -t \"");
             builder.Append(cfg.FileNameWithoutExtension);
             builder.AppendLine("\" -j0 -o Build.log");
-
-
+            
             builder.AppendLine("type ..\\build.log</NMakeBuildCommandLine>");
             //builder.AppendLine("    <NMakeReBuildCommandLine>\"C:\\Keil\\UV4\\Uv4.exe \" -r ..\\rtt_stm32.uvprojx -t \"rtt_stm32\" -j0 -o Build.log");
             builder.Append("    <NMakeReBuildCommandLine>\"C:\\Keil\\UV4\\Uv4.exe \" -r ..\\");
@@ -159,7 +128,6 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("  <ImportGroup Label=\"ExtensionTargets\">");
             builder.AppendLine("  </ImportGroup>");
             builder.AppendLine("</Project>");
-#endif
             
             if (!Directory.Exists(cfg.VCPath))
             {
