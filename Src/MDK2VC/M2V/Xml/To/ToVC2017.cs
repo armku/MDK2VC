@@ -97,7 +97,7 @@ namespace MDK2VC.M2V.Xml
             builder.Append("    <NMakeBuildCommandLine>\"C:\\Keil_v5\\UV4\\Uv4.exe \" -b ..\\");
             builder.Append(cfg.FileNameWithoutExtension);
             builder.Append(".uvprojx -t \"");
-            builder.Append(cfg.FileNameWithoutExtension);
+            builder.Append(cfg.TargetName);
             builder.AppendLine("\" -j0 -o Build.log");
             
             builder.AppendLine("type ..\\build.log</NMakeBuildCommandLine>");
@@ -105,7 +105,7 @@ namespace MDK2VC.M2V.Xml
             builder.Append("    <NMakeReBuildCommandLine>\"C:\\Keil_v5\\UV4\\Uv4.exe \" -r ..\\");
             builder.Append(cfg.FileNameWithoutExtension);
             builder.Append(".uvprojx -t \"");
-            builder.Append(cfg.FileNameWithoutExtension);
+            builder.Append(cfg.TargetName);
             builder.AppendLine("\" -j0 -o Build.log");
 
             builder.AppendLine("type ..\\build.log</NMakeReBuildCommandLine>");
@@ -113,7 +113,7 @@ namespace MDK2VC.M2V.Xml
             builder.Append("    <NMakeCleanCommandLine>\"C:\\Keil_v5\\UV4\\Uv4.exe \" -f ..\\");
             builder.Append(cfg.FileNameWithoutExtension);
             builder.Append(".uvprojx -t \"");
-            builder.Append(cfg.FileNameWithoutExtension);
+            builder.Append(cfg.TargetName);
             builder.AppendLine("\" -j0 -o flash_download.log");
             
             builder.AppendLine("type ..\\flash_download.log");
