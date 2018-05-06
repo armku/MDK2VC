@@ -245,7 +245,7 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("  </ItemGroup>");
             builder.AppendLine("</Project>");
 #else            
-            builder.AppendLine("<?xml version=\"1.0\" encoding=\"utf - 8\"?>");
+            builder.AppendLine("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
             builder.AppendLine("<Project DefaultTargets=\"Build\" ToolsVersion=\"4.0\" xmlns=\"http://schemas.microsoft.com/developer/msbuild/2003\">");
             builder.AppendLine("  <ItemGroup>");
             builder.AppendLine("    <Filter Include=\"源文件\">");
