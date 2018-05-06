@@ -159,6 +159,19 @@ namespace MDK2VC.M2V.Xml
             fs.Flush();
             fs.Close();
         }
+        /// <summary>
+        /// 生成日志文件
+        /// </summary>
+        /// <param name="cfg">配置文件</param>
+        public void createlog(SysConfig cfg)
+        {
+            var Buildlog =cfg.DirectoryName+ "\\Build.log";
+            var flash_downloadlog = cfg.DirectoryName + "\\flash_download.log";
+            if (!File.Exists(Buildlog))
+                File.Create(Buildlog);
+            if (!File.Exists(flash_downloadlog))
+                File.Create(flash_downloadlog);
+        }
         public void createsln(SysConfig cfg)
         {
             var builder = new StringBuilder();

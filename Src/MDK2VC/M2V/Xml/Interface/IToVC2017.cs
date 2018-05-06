@@ -31,6 +31,11 @@ namespace MDK2VC.M2V.Xml
         /// <param name="cfg"></param>
         void createsln(SysConfig cfg);
         /// <summary>
+        /// 生成日志文件
+        /// </summary>
+        /// <param name="cfg">配置文件</param>
+        void createlog(SysConfig cfg);
+        /// <summary>
         /// 获取过滤器文件、文件夹列表
         /// </summary>
         /// <param name="cfg"></param>
