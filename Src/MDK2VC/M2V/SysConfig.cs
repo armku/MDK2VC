@@ -165,6 +165,13 @@ namespace MDK2VC.M2V
                 return this.VCPath + "\\" + FileNameWithoutExtension + ".sln";
             }
         }
+        public string vcusers
+        {
+            get
+            {
+                return this.VCPath + "\\" + FileNameWithoutExtension + ".vcxproj.user";
+            }
+        }
         /// <summary>
         /// 宏定义
         /// </summary>

@@ -245,7 +245,24 @@ namespace MDK2VC.M2V.Xml
         /// <param name="cfg"></param>
         public void createvcxusers(SysConfig cfg)
         {
-
+            var builder = new StringBuilder();
+            builder.AppendLine("<?xml version=\"1.0\" encoding=\"utf - 8\"?>");
+            builder.AppendLine("<Project ToolsVersion=\"4.0\" xmlns=\"http://schemas.microsoft.com/developer/msbuild/2003\">");
+            builder.AppendLine("  <PropertyGroup Condition=\"'$(Configuration)|$(Platform)'=='rtt_stm32|Win32'\">");
+            builder.AppendLine(@"    <LocalDebuggerCommand>C:\Keil\UV4\UV4.exe </LocalDebuggerCommand>");
+            builder.AppendLine("    <LocalDebuggerCommandArguments>-d rtt_stm32.uvproj -t \"rtt_stm32\"</LocalDebuggerCommandArguments>");
+            builder.AppendLine(@"    <LocalDebuggerWorkingDirectory>..\MDK_Project\</LocalDebuggerWorkingDirectory>");
+            builder.AppendLine("    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>");
+            builder.AppendLine("  </PropertyGroup>");
+            builder.AppendLine("  <PropertyGroup>");
+            builder.AppendLine("    <ShowAllFiles>false</ShowAllFiles>");
+            builder.AppendLine("  </PropertyGroup>");
+            builder.AppendLine("</Project>");
+            var fs = new FileStream(cfg.vcusers, FileMode.Create);
+            byte[] data = new UTF8Encoding().GetBytes(builder.ToString());
+            fs.Write(data);
+            fs.Flush();
+            fs.Close();
         }
         /// <summary>
         /// 获取所有文件列表
