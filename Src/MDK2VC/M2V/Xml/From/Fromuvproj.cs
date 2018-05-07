@@ -30,11 +30,6 @@ namespace MDK2VC.M2V.Xml
             }
             return ret;
         }
-
-
-
-
-
         /// <summary>
         /// 获取宏定义
         /// </summary>

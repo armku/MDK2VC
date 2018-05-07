@@ -16,13 +16,7 @@ namespace MDK2VC.M2V.Xml
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        List<String> GetMacroTarget(string path);
-
-
-
-
-
-
+        List<String> GetMacroTarget(string path);        
         /// <summary>
         /// 获取宏定义
         /// </summary>

@@ -108,13 +108,6 @@ namespace MDK2VC.M2V
         /// </summary>
         [Description("")]
         public string LocalDebuggerWorkingDirectory { get; set; }
-
-
-
-
-
-
-
         /// <summary>
         /// 工程文件路径
         /// </summary>

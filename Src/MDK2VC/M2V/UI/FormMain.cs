@@ -87,16 +87,7 @@ namespace MDK2VC
             }
             else
                 comboBoxTarget.Text = "";
-
-
-
-
-
-
-
             //var aa = GetRelativePath(manager.ProjectIno.VCProject_Path, manager.ProjectIno.MDK_Project_File);
-
-
         }
         public string GetRelativePath(string basePath, string targetPath)
         {
@@ -132,7 +123,6 @@ namespace MDK2VC
             else
                 MessageBox.Show("文件不存在 " + file);
         }
-                
 
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
@@ -180,7 +170,6 @@ namespace MDK2VC
         {
             WindowState = FormWindowState.Normal;
         }
-
         BTree<Node> GetFiles(string filename)
         {
             var tree1 = new BTree<Node>();
