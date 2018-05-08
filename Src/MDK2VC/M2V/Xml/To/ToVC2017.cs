@@ -26,10 +26,9 @@ namespace MDK2VC.M2V.Xml
         public void createvcxproj(SysConfig cfg)
         {
             var builder = new StringBuilder();
-
-#if FLAGNMAKE
             builder.AppendLine("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
             builder.AppendLine("<Project DefaultTargets=\"Build\" ToolsVersion=\"15.0\" xmlns=\"http://schemas.microsoft.com/developer/msbuild/2003\">");
+#if FLAGNMAKE                        
             builder.AppendLine("  <ItemGroup Label=\"ProjectConfigurations\">");
             //builder.AppendLine("    <ProjectConfiguration Include=\"rtt_stm32|Win32\">");
             builder.Append("    <ProjectConfiguration Include=\"");
@@ -130,8 +129,6 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("  </ImportGroup>");
             builder.AppendLine("</Project>");
 #else
-            builder.AppendLine("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
-            builder.AppendLine("<Project DefaultTargets=\"Build\" ToolsVersion=\"15.0\" xmlns=\"http://schemas.microsoft.com/developer/msbuild/2003\">");
             builder.AppendLine("  <ItemGroup Label=\"ProjectConfigurations\">");
             builder.AppendLine("    <ProjectConfiguration Include=\"Debug | Win32\">");
             builder.AppendLine("      <Configuration>Debug</Configuration>");
@@ -276,9 +273,10 @@ namespace MDK2VC.M2V.Xml
         public void createfilters(SysConfig cfg)
         {
             var builder = new StringBuilder();
-#if FLAGNMAKE
+
             builder.AppendLine("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
             builder.AppendLine("<Project DefaultTargets=\"Build\" ToolsVersion=\"4.0\" xmlns=\"http://schemas.microsoft.com/developer/msbuild/2003\">");
+#if FLAGNMAKE            
             builder.AppendLine("  <ItemGroup>");
             builder.Append(cfg.ToFilter_files.ToString());            
             builder.AppendLine("  </ItemGroup>");
@@ -287,8 +285,6 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("  </ItemGroup>");
             builder.AppendLine("</Project>");
 #else
-            builder.AppendLine("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
-            builder.AppendLine("<Project ToolsVersion=\"4.0\" xmlns=\"http://schemas.microsoft.com/developer/msbuild/2003\">");
             builder.AppendLine("  <ItemGroup>");
             builder.Append(cfg.ToFilter_files.ToString());
             //Fromuvprojx.getGrouptoFilters(builder, cfg.MdkPath);
@@ -322,11 +318,12 @@ namespace MDK2VC.M2V.Xml
         {
             var builder = new StringBuilder();
 
-#if FLAGNMAKE
             builder.AppendLine("Microsoft Visual Studio Solution File, Format Version 12.00");
             builder.AppendLine("# Visual Studio 2013");
             builder.AppendLine("VisualStudioVersion = 12.0.21005.1");
             builder.AppendLine("MinimumVisualStudioVersion = 10.0.40219.1");
+
+#if FLAGNMAKE            
             //builder.AppendLine("Project(\"{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}\") = \"rtt_stm32\", \"rtt_stm32.vcxproj\", \"{E7B8D0E4-50A4-40FD-A6BD-3E7C38558110}\"");
             builder.Append("Project(\"{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}\") = \"");
             builder.Append(cfg.FileNameWithoutExtension);
@@ -368,12 +365,6 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("	EndGlobalSection");
             builder.AppendLine("EndGlobal");
 #else
-            builder.AppendLine("");
-            builder.AppendLine("Microsoft Visual Studio Solution File, Format Version 12.00");
-            builder.AppendLine("# Visual Studio 15");
-            builder.AppendLine("VisualStudioVersion = 15.0.27130.2020");
-            builder.AppendLine("MinimumVisualStudioVersion = 10.0.40219.1");
-
             builder.Append("Project(\"{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}\") = \"");
             builder.Append(cfg.FileNameWithoutExtension);
             builder.Append("\",\"");
@@ -405,7 +396,6 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("		SolutionGuid = {133C6D99-11F2-4EE7-A3DA-7F3CF3AB45A5}");
             builder.AppendLine("	EndGlobalSection");
             builder.AppendLine("EndGlobal");
-            builder.AppendLine("");
 #endif
             var fs = new FileStream(cfg.sln, FileMode.Create);
             byte[] data = new UTF8Encoding().GetBytes(builder.ToString());
