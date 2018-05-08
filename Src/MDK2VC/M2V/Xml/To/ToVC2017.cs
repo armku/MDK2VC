@@ -276,15 +276,6 @@ namespace MDK2VC.M2V.Xml
 
             builder.AppendLine("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
             builder.AppendLine("<Project DefaultTargets=\"Build\" ToolsVersion=\"4.0\" xmlns=\"http://schemas.microsoft.com/developer/msbuild/2003\">");
-#if FLAGNMAKE            
-            builder.AppendLine("  <ItemGroup>");
-            builder.Append(cfg.ToFilter_files.ToString());            
-            builder.AppendLine("  </ItemGroup>");
-            builder.AppendLine("  <ItemGroup>");
-            builder.Append(cfg.ToFilter_FileFolders.ToString());
-            builder.AppendLine("  </ItemGroup>");
-            builder.AppendLine("</Project>");
-#else
             builder.AppendLine("  <ItemGroup>");
             builder.Append(cfg.ToFilter_files.ToString());
             //Fromuvprojx.getGrouptoFilters(builder, cfg.MdkPath);
@@ -294,7 +285,6 @@ namespace MDK2VC.M2V.Xml
             //Fromuvprojx.getGroupsToFilters(builder, cfg.MdkPath);
             builder.AppendLine("  </ItemGroup>");
             builder.AppendLine("</Project>");
-#endif
             var fs = new FileStream(cfg.filters, FileMode.Create);
             byte[] data = new UTF8Encoding().GetBytes(builder.ToString());
             fs.Write(data);
