@@ -27,6 +27,7 @@ namespace MDK2VC.M2V.Xml
         {
             var builder = new StringBuilder();
 
+#if FLAGNMAKE
             builder.AppendLine("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
             builder.AppendLine("<Project DefaultTargets=\"Build\" ToolsVersion=\"15.0\" xmlns=\"http://schemas.microsoft.com/developer/msbuild/2003\">");
             builder.AppendLine("  <ItemGroup Label=\"ProjectConfigurations\">");
@@ -128,7 +129,9 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("  <ImportGroup Label=\"ExtensionTargets\">");
             builder.AppendLine("  </ImportGroup>");
             builder.AppendLine("</Project>");
-            
+#else
+
+#endif
             if (!Directory.Exists(cfg.VCPath))
             {
                 Directory.CreateDirectory(cfg.VCPath);
@@ -142,7 +145,7 @@ namespace MDK2VC.M2V.Xml
         public void createfilters(SysConfig cfg)
         {
             var builder = new StringBuilder();
-
+#if FLAGNMAKE
             builder.AppendLine("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
             builder.AppendLine("<Project DefaultTargets=\"Build\" ToolsVersion=\"4.0\" xmlns=\"http://schemas.microsoft.com/developer/msbuild/2003\">");
             builder.AppendLine("  <ItemGroup>");
@@ -152,7 +155,9 @@ namespace MDK2VC.M2V.Xml
             builder.Append(cfg.ToFilter_FileFolders.ToString());
             builder.AppendLine("  </ItemGroup>");
             builder.AppendLine("</Project>");
+#else
 
+#endif
             var fs = new FileStream(cfg.filters, FileMode.Create);
             byte[] data = new UTF8Encoding().GetBytes(builder.ToString());
             fs.Write(data);
@@ -176,6 +181,7 @@ namespace MDK2VC.M2V.Xml
         {
             var builder = new StringBuilder();
 
+#if FLAGNMAKE
             builder.AppendLine("Microsoft Visual Studio Solution File, Format Version 12.00");
             builder.AppendLine("# Visual Studio 2013");
             builder.AppendLine("VisualStudioVersion = 12.0.21005.1");
@@ -220,7 +226,9 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("		HideSolutionNode = FALSE");
             builder.AppendLine("	EndGlobalSection");
             builder.AppendLine("EndGlobal");
+#else
 
+#endif
             var fs = new FileStream(cfg.sln, FileMode.Create);
             byte[] data = new UTF8Encoding().GetBytes(builder.ToString());
             fs.Write(data);
