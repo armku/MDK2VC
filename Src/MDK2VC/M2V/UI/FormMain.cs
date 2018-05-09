@@ -59,6 +59,7 @@ namespace MDK2VC
 
             manager.to = new ToVC2017();
 
+            cfg.UV4_Path = "C:\\Keil_v5\\UV4\\Uv4.exe";
             cfg.MacroDefine = manager.from.GetMacroDefine(cfg.FromFilePath);
             cfg.IncludePathOld = manager.from.getIncludePath(cfg.FromFilePath);
             cfg.ProjFiles = manager.from.GetFiles(cfg.FromFilePath);
