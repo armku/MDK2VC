@@ -365,7 +365,10 @@ namespace MDK2VC.M2V.Xml
             builder.Append(cfg.FileNameWithoutExtension);
             builder.Append("\",\"");
             builder.Append(cfg.FileNameWithoutExtension);
-            builder.AppendLine(".vcxproj\", \"{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}\"");
+            //builder.AppendLine(".vcxproj\", \"{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}\"");
+            builder.Append(".vcxproj\", \"");
+            builder.Append(cfg.projguidvc);
+            builder.AppendLine("\"");
 
             builder.AppendLine("EndProject");
             builder.AppendLine("Global");
@@ -376,14 +379,46 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("		Release|x86 = Release|x86");
             builder.AppendLine("	EndGlobalSection");
             builder.AppendLine("	GlobalSection(ProjectConfigurationPlatforms) = postSolution");
-            builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Debug|x64.ActiveCfg = Debug|x64");
-            builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Debug|x64.Build.0 = Debug|x64");
-            builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Debug|x86.ActiveCfg = Debug|Win32");
-            builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Debug|x86.Build.0 = Debug|Win32");
-            builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Release|x64.ActiveCfg = Release|x64");
-            builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Release|x64.Build.0 = Release|x64");
-            builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Release|x86.ActiveCfg = Release|Win32");
-            builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Release|x86.Build.0 = Release|Win32");
+            //builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Debug|x64.ActiveCfg = Debug|x64");
+            builder.Append("		{");
+            builder.Append(cfg.projguidvc);
+            builder.AppendLine(".Debug|x64.ActiveCfg = Debug|x64");
+
+            //builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Debug|x64.Build.0 = Debug|x64");
+            builder.Append("		");
+            builder.Append(cfg.projguidvc);
+            builder.AppendLine(".Debug|x64.Build.0 = Debug|x64");
+
+            //builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Debug|x86.ActiveCfg = Debug|Win32");
+            builder.Append("		");
+            builder.Append(cfg.projguidvc);
+            builder.AppendLine(".Debug|x86.ActiveCfg = Debug|Win32");
+
+            //builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Debug|x86.Build.0 = Debug|Win32");
+            builder.Append("		");
+            builder.Append(cfg.projguidvc);
+            builder.AppendLine(".Debug|x86.Build.0 = Debug|Win32");
+
+            //builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Release|x64.ActiveCfg = Release|x64");
+            builder.Append("		");
+            builder.Append(cfg.projguidvc);
+            builder.AppendLine("		.Release|x64.ActiveCfg = Release|x64");
+
+            //builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Release|x64.Build.0 = Release|x64");
+            builder.Append("		");
+            builder.Append(cfg.projguidvc);
+            builder.AppendLine(".Release|x64.Build.0 = Release|x64");
+
+            //builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Release|x86.ActiveCfg = Release|Win32");
+            builder.Append("		");
+            builder.Append(cfg.projguidvc);
+            builder.AppendLine(".Release|x86.ActiveCfg = Release|Win32");
+
+            //builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Release|x86.Build.0 = Release|Win32");
+            builder.Append("		");
+            builder.Append(cfg.projguidvc);
+            builder.AppendLine(".Release|x86.Build.0 = Release|Win32");
+
             builder.AppendLine("	EndGlobalSection");
             builder.AppendLine("	GlobalSection(SolutionProperties) = preSolution");
             builder.AppendLine("		HideSolutionNode = FALSE");
