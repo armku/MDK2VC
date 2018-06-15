@@ -72,6 +72,17 @@ namespace MDK2VC.M2V.Xml
             else
                 return "DEBUG";
         }
+        /// <summary>
+        /// 编码转换
+        /// </summary>
+        /// <param name="utf8str"></param>
+        /// <returns></returns>
+        private string utf8togb2312(string utf8str)
+        {
+            Encoding utf8 = Encoding.GetEncoding(65001);//使用code page 
+            Encoding gb2312 = Encoding.GetEncoding("gb2312");//通过bodyname
+            return Encoding.GetEncoding("GB2312").GetString(Encoding.Convert(utf8, gb2312, utf8.GetBytes(utf8str)));
+        }
         private XmlDocument xmlDoc = new XmlDocument();
         private string[] MDK_TargetRead(string Doc)
         {
@@ -83,9 +94,7 @@ namespace MDK2VC.M2V.Xml
             foreach (XmlNode node in list)
             {
                 var ss = node.SelectSingleNode("./TargetName").InnerText;
-                Encoding utf8 = Encoding.GetEncoding(65001);//使用code page 
-                Encoding gb2312 = Encoding.GetEncoding("gb2312");//通过bodyname
-                strArray[index] = Encoding.GetEncoding("GB2312").GetString(Encoding.Convert(utf8, gb2312, utf8.GetBytes(ss)));
+                strArray[index] = utf8togb2312(ss);
                 index++;
             }
             return strArray;
