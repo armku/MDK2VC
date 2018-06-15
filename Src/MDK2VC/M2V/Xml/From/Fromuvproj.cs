@@ -66,6 +66,7 @@ namespace MDK2VC.M2V.Xml
         public String GetTargetName(string path)
         {
             string[] items = this.MDK_TargetRead(path);
+            
             if (items.Length > 0)
                 return items[0];
             else
@@ -81,7 +82,10 @@ namespace MDK2VC.M2V.Xml
             int index = 0;
             foreach (XmlNode node in list)
             {
-                strArray[index] = node.SelectSingleNode("./TargetName").InnerText;
+                var ss = node.SelectSingleNode("./TargetName").InnerText;
+                Encoding utf8 = Encoding.GetEncoding(65001);//使用code page 
+                Encoding gb2312 = Encoding.GetEncoding("gb2312");//通过bodyname
+                strArray[index] = Encoding.GetEncoding("GB2312").GetString(Encoding.Convert(utf8, gb2312, utf8.GetBytes(ss)));
                 index++;
             }
             return strArray;
