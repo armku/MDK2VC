@@ -315,13 +315,13 @@ namespace MDK2VC.M2V.Xml
             var builder = new StringBuilder();
 
             builder.AppendLine("Microsoft Visual Studio Solution File, Format Version 12.00");
-            builder.AppendLine("# Visual Studio 2013");
-            builder.AppendLine("VisualStudioVersion = 12.0.21005.1");
+            builder.AppendLine("# Visual Studio 15");
+            builder.AppendLine("VisualStudioVersion = 15.0.27130.2036");
             builder.AppendLine("MinimumVisualStudioVersion = 10.0.40219.1");
 
-            builder.Append("Project(\"{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}\") = \"");
+            builder.Append("Project(\"{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}\") = \"").Append("").Append("");
             builder.Append(cfg.FileNameWithoutExtension);
-            builder.Append("\",\"");
+            builder.Append("\", \"");
             builder.Append(cfg.FileNameWithoutExtension);
             //builder.AppendLine(".vcxproj\", \"{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}\"");
             builder.Append(".vcxproj\", \"");
@@ -332,15 +332,23 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("Global");
             builder.AppendLine("	GlobalSection(SolutionConfigurationPlatforms) = preSolution");
             //builder.AppendLine("		Debug|x64 = Debug|x64");
+#if false
             builder.Append("		");
             builder.Append(cfg.FileNameWithoutExtension);
             builder.Append("|x86 = ");
             builder.Append(cfg.FileNameWithoutExtension);
             builder.AppendLine("|x86");
+#else
+            builder.AppendLine("		Debug|x64 = Debug|x64");
+            builder.AppendLine("		Debug|x86 = Debug|x86");
+            builder.AppendLine("		Release|x64 = Release|x64");
+            builder.AppendLine("		Release|x86 = Release|x86");
+#endif
 
             builder.AppendLine("	EndGlobalSection");
             builder.AppendLine("	GlobalSection(ProjectConfigurationPlatforms) = postSolution");
             //builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Debug|x64.ActiveCfg = Debug|x64");
+#if false
             builder.Append("		");
             builder.Append(cfg.projguidvc);
             //builder.AppendLine(".Debug|x64.ActiveCfg = Debug|x64");
@@ -359,6 +367,16 @@ namespace MDK2VC.M2V.Xml
             builder.Append("|x86.Build.0 = ");
             builder.Append(cfg.FileNameWithoutExtension);
             builder.AppendLine("|Win32");
+#else
+            builder.Append("		").Append(cfg.projguidvc).AppendLine(".Debug|x64.ActiveCfg = Debug|x64");
+            builder.Append("		").Append(cfg.projguidvc).AppendLine(".Debug|x64.Build.0 = Debug|x64");
+            builder.Append("		").Append(cfg.projguidvc).AppendLine(".Debug|x86.ActiveCfg = Debug|Win32");
+            builder.Append("		").Append(cfg.projguidvc).AppendLine(".Debug|x86.Build.0 = Debug|Win32");
+            builder.Append("		").Append(cfg.projguidvc).AppendLine(".Release|x64.ActiveCfg = Release|x64");
+            builder.Append("		").Append(cfg.projguidvc).AppendLine(".Release|x64.Build.0 = Release|x64");
+            builder.Append("		").Append(cfg.projguidvc).AppendLine(".Release|x86.ActiveCfg = Release|Win32");
+            builder.Append("		").Append(cfg.projguidvc).AppendLine(".Release|x86.Build.0 = Release|Win32");
+#endif
 
             builder.AppendLine("	EndGlobalSection");
             builder.AppendLine("	GlobalSection(SolutionProperties) = preSolution");
