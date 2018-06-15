@@ -332,23 +332,18 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("Global");
             builder.AppendLine("	GlobalSection(SolutionConfigurationPlatforms) = preSolution");
             //builder.AppendLine("		Debug|x64 = Debug|x64");
-#if false
+
             builder.Append("		");
             builder.Append(cfg.FileNameWithoutExtension);
             builder.Append("|x86 = ");
             builder.Append(cfg.FileNameWithoutExtension);
             builder.AppendLine("|x86");
-#else
-            builder.AppendLine("		Debug|x64 = Debug|x64");
-            builder.AppendLine("		Debug|x86 = Debug|x86");
-            builder.AppendLine("		Release|x64 = Release|x64");
-            builder.AppendLine("		Release|x86 = Release|x86");
-#endif
+
 
             builder.AppendLine("	EndGlobalSection");
             builder.AppendLine("	GlobalSection(ProjectConfigurationPlatforms) = postSolution");
             //builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Debug|x64.ActiveCfg = Debug|x64");
-#if false
+
             builder.Append("		");
             builder.Append(cfg.projguidvc);
             //builder.AppendLine(".Debug|x64.ActiveCfg = Debug|x64");
@@ -367,16 +362,6 @@ namespace MDK2VC.M2V.Xml
             builder.Append("|x86.Build.0 = ");
             builder.Append(cfg.FileNameWithoutExtension);
             builder.AppendLine("|Win32");
-#else
-            builder.Append("		").Append(cfg.projguidvc).AppendLine(".Debug|x64.ActiveCfg = Debug|x64");
-            builder.Append("		").Append(cfg.projguidvc).AppendLine(".Debug|x64.Build.0 = Debug|x64");
-            builder.Append("		").Append(cfg.projguidvc).AppendLine(".Debug|x86.ActiveCfg = Debug|Win32");
-            builder.Append("		").Append(cfg.projguidvc).AppendLine(".Debug|x86.Build.0 = Debug|Win32");
-            builder.Append("		").Append(cfg.projguidvc).AppendLine(".Release|x64.ActiveCfg = Release|x64");
-            builder.Append("		").Append(cfg.projguidvc).AppendLine(".Release|x64.Build.0 = Release|x64");
-            builder.Append("		").Append(cfg.projguidvc).AppendLine(".Release|x86.ActiveCfg = Release|Win32");
-            builder.Append("		").Append(cfg.projguidvc).AppendLine(".Release|x86.Build.0 = Release|Win32");
-#endif
 
             builder.AppendLine("	EndGlobalSection");
             builder.AppendLine("	GlobalSection(SolutionProperties) = preSolution");
