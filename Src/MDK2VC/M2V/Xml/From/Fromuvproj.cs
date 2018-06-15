@@ -94,7 +94,7 @@ namespace MDK2VC.M2V.Xml
             foreach (XmlNode node in list)
             {
                 var ss = node.SelectSingleNode("./TargetName").InnerText;
-                strArray[index] = utf8togb2312(ss);
+                strArray[index] = ss;
                 index++;
             }
             return strArray;
