@@ -45,10 +45,10 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("    </ProjectConfiguration>");
             builder.AppendLine("  </ItemGroup>");
             builder.AppendLine("  <PropertyGroup Label=\"Globals\">");
-            builder.AppendLine("    <ProjectGuid>{e7b8d0e4-50a4-40fd-a6bd-3e7c38558110}</ProjectGuid>");
-            //builder.Append("    <ProjectGuid>");
-            //builder.Append(cfg.projguidvc);
-            //builder.AppendLine("</ProjectGuid>");
+            //builder.AppendLine("    <ProjectGuid>{e7b8d0e4-50a4-40fd-a6bd-3e7c38558110}</ProjectGuid>");
+            builder.Append("    <ProjectGuid>");
+            builder.Append(cfg.projguidvc);
+            builder.AppendLine("</ProjectGuid>");
             
             builder.AppendLine("    <Keyword>MakeFileProj</Keyword>");
             builder.AppendLine("    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>");
@@ -319,71 +319,47 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("VisualStudioVersion = 12.0.21005.1");
             builder.AppendLine("MinimumVisualStudioVersion = 10.0.40219.1");
 
-#if FLAGNMAKE            
-            //builder.AppendLine("Project(\"{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}\") = \"rtt_stm32\", \"rtt_stm32.vcxproj\", \"{E7B8D0E4-50A4-40FD-A6BD-3E7C38558110}\"");
-            builder.Append("Project(\"{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}\") = \"");
-            builder.Append(cfg.FileNameWithoutExtension);
-            builder.Append("\", \"");
-            builder.Append(cfg.FileNameWithoutExtension);
-            builder.Append(".vcxproj\", \"{E7B8D0E4-50A4-40FD-A6BD-3E7C38558110}\"");
-            builder.Append(cfg.FileNameWithoutExtension);
-            builder.AppendLine(".vcxproj\", \"{E7B8D0E4-50A4-40FD-A6BD-3E7C38558110}\"");
-            
-            builder.AppendLine("EndProject");
-            builder.AppendLine("Global");
-            builder.AppendLine("	GlobalSection(SolutionConfigurationPlatforms) = preSolution");
-            //builder.AppendLine("		rtt_stm32|Win32 = rtt_stm32|Win32");
-            builder.Append("		");
-            builder.Append(cfg.FileNameWithoutExtension);
-            builder.Append("|Win32 = ");
-            builder.Append(cfg.FileNameWithoutExtension);
-            builder.AppendLine("|Win32");
-
-            builder.AppendLine("	EndGlobalSection");
-            builder.AppendLine("	GlobalSection(ProjectConfigurationPlatforms) = postSolution");
-            //builder.AppendLine("		{E7B8D0E4-50A4-40FD-A6BD-3E7C38558110}.rtt_stm32|Win32.ActiveCfg = rtt_stm32|Win32");
-            builder.Append("		{E7B8D0E4-50A4-40FD-A6BD-3E7C38558110}.");
-            builder.Append(cfg.FileNameWithoutExtension);
-            builder.Append("|Win32.ActiveCfg = ");
-            builder.Append(cfg.FileNameWithoutExtension);
-            builder.AppendLine("|Win32");
-
-            //builder.AppendLine("		{E7B8D0E4-50A4-40FD-A6BD-3E7C38558110}.rtt_stm32|Win32.Build.0 = rtt_stm32|Win32");
-            builder.Append("		{E7B8D0E4-50A4-40FD-A6BD-3E7C38558110}.");
-            builder.Append(cfg.FileNameWithoutExtension);
-            builder.Append("|Win32.Build.0 = ");
-            builder.Append(cfg.FileNameWithoutExtension);
-            builder.AppendLine("|Win32");
-
-            builder.AppendLine("	EndGlobalSection");
-            builder.AppendLine("	GlobalSection(SolutionProperties) = preSolution");
-            builder.AppendLine("		HideSolutionNode = FALSE");
-            builder.AppendLine("	EndGlobalSection");
-            builder.AppendLine("EndGlobal");
-#else
             builder.Append("Project(\"{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}\") = \"");
             builder.Append(cfg.FileNameWithoutExtension);
             builder.Append("\",\"");
             builder.Append(cfg.FileNameWithoutExtension);
-            builder.AppendLine(".vcxproj\", \"{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}\"");
+            //builder.AppendLine(".vcxproj\", \"{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}\"");
+            builder.Append(".vcxproj\", \"");
+            builder.Append(cfg.projguidvc);
+            builder.AppendLine("\"");
 
             builder.AppendLine("EndProject");
             builder.AppendLine("Global");
             builder.AppendLine("	GlobalSection(SolutionConfigurationPlatforms) = preSolution");
-            builder.AppendLine("		Debug|x64 = Debug|x64");
-            builder.AppendLine("		Debug|x86 = Debug|x86");
-            builder.AppendLine("		Release|x64 = Release|x64");
-            builder.AppendLine("		Release|x86 = Release|x86");
+            //builder.AppendLine("		Debug|x64 = Debug|x64");
+            builder.Append("		");
+            builder.Append(cfg.FileNameWithoutExtension);
+            builder.Append("|x86 = ");
+            builder.Append(cfg.FileNameWithoutExtension);
+            builder.AppendLine("|x86");
+
             builder.AppendLine("	EndGlobalSection");
             builder.AppendLine("	GlobalSection(ProjectConfigurationPlatforms) = postSolution");
-            builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Debug|x64.ActiveCfg = Debug|x64");
-            builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Debug|x64.Build.0 = Debug|x64");
-            builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Debug|x86.ActiveCfg = Debug|Win32");
-            builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Debug|x86.Build.0 = Debug|Win32");
-            builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Release|x64.ActiveCfg = Release|x64");
-            builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Release|x64.Build.0 = Release|x64");
-            builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Release|x86.ActiveCfg = Release|Win32");
-            builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Release|x86.Build.0 = Release|Win32");
+            //builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Debug|x64.ActiveCfg = Debug|x64");
+            builder.Append("		");
+            builder.Append(cfg.projguidvc);
+            //builder.AppendLine(".Debug|x64.ActiveCfg = Debug|x64");
+            builder.Append(".");
+            builder.Append(cfg.FileNameWithoutExtension);
+            builder.Append("|x86.ActiveCfg = ");
+            builder.Append(cfg.FileNameWithoutExtension);
+            builder.AppendLine("|Win32");
+
+            //builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Debug|x64.Build.0 = Debug|x64");
+            builder.Append("		");
+            builder.Append(cfg.projguidvc);
+            //builder.AppendLine(".Debug|x64.Build.0 = Debug|x64");
+            builder.Append(".");
+            builder.Append(cfg.FileNameWithoutExtension);
+            builder.Append("|x86.Build.0 = ");
+            builder.Append(cfg.FileNameWithoutExtension);
+            builder.AppendLine("|Win32");
+
             builder.AppendLine("	EndGlobalSection");
             builder.AppendLine("	GlobalSection(SolutionProperties) = preSolution");
             builder.AppendLine("		HideSolutionNode = FALSE");
@@ -392,7 +368,7 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("		SolutionGuid = {133C6D99-11F2-4EE7-A3DA-7F3CF3AB45A5}");
             builder.AppendLine("	EndGlobalSection");
             builder.AppendLine("EndGlobal");
-#endif
+
             var fs = new FileStream(cfg.sln, FileMode.Create);
             byte[] data = new UTF8Encoding().GetBytes(builder.ToString());
             fs.Write(data);
