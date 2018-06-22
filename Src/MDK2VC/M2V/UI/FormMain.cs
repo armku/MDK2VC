@@ -31,7 +31,7 @@ namespace MDK2VC
             cfg.FromFilePath = Properties.Settings.Default.LastFileName;
             if (cfg.FromFilePath.Length < 5)
                 cfg.FromFilePath = ".uvprojx";
-            tBoxMDKPath.Text = cfg.FromFilePath;
+            comboBoxMDKPath.Text = cfg.FromFilePath;
             tBoxSlnPath.Text = cfg.sln;
             this.Text = "MDK4 MDK5 2 VC2017 Ver:"+ Assembly.GetExecutingAssembly().GetName().Version.ToString() + " Net:"+System.Environment.Version.ToString();
         }
@@ -262,7 +262,7 @@ namespace MDK2VC
             if (fileDlg.ShowDialog() == DialogResult.OK)
             {
                 cfg.FromFilePath = fileDlg.FileName;
-                tBoxMDKPath.Text = cfg.FromFilePath;
+                comboBoxMDKPath.Text = cfg.FromFilePath;
                 tBoxSlnPath.Text = cfg.sln;
 
                 Properties.Settings.Default.LastFileName = cfg.FromFilePath;

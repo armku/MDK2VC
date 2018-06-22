@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-            this.tBoxMDKPath = new System.Windows.Forms.TextBox();
             this.btnTrans = new System.Windows.Forms.Button();
             this.btnTest = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
@@ -57,6 +56,7 @@
             this.labelOpenVC = new System.Windows.Forms.Label();
             this.tBoxSlnPath = new System.Windows.Forms.TextBox();
             this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
+            this.comboBoxMDKPath = new System.Windows.Forms.ComboBox();
             this.contextMenuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -65,17 +65,6 @@
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // tBoxMDKPath
-            // 
-            this.tBoxMDKPath.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tBoxMDKPath.Location = new System.Drawing.Point(44, 20);
-            this.tBoxMDKPath.Name = "tBoxMDKPath";
-            this.tBoxMDKPath.Size = new System.Drawing.Size(891, 21);
-            this.tBoxMDKPath.TabIndex = 2;
-            this.tBoxMDKPath.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tBoxMDKPath_MouseDoubleClick);
             // 
             // btnTrans
             // 
@@ -193,8 +182,8 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.comboBoxMDKPath);
             this.groupBox1.Controls.Add(this.labelOpenProj);
-            this.groupBox1.Controls.Add(this.tBoxMDKPath);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(942, 54);
@@ -348,6 +337,14 @@
             this.elementHost1.Text = "elementHost1";
             this.elementHost1.Child = null;
             // 
+            // comboBoxMDKPath
+            // 
+            this.comboBoxMDKPath.FormattingEnabled = true;
+            this.comboBoxMDKPath.Location = new System.Drawing.Point(44, 20);
+            this.comboBoxMDKPath.Name = "comboBoxMDKPath";
+            this.comboBoxMDKPath.Size = new System.Drawing.Size(884, 20);
+            this.comboBoxMDKPath.TabIndex = 4;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -386,7 +383,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox tBoxMDKPath;
         private System.Windows.Forms.Button btnTrans;
         private System.Windows.Forms.Button btnTest;
         private System.Windows.Forms.Label label5;
@@ -413,6 +409,7 @@
         public System.Windows.Forms.Integration.ElementHost elementHost1;
         private System.Windows.Forms.ComboBox comboBoxTarget;
         private System.Windows.Forms.TextBox tBoxSlnPath;
+        private System.Windows.Forms.ComboBox comboBoxMDKPath;
     }
 }
 
