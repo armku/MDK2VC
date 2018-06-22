@@ -57,6 +57,7 @@
             this.tBoxSlnPath = new System.Windows.Forms.TextBox();
             this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
             this.comboBoxMDKPath = new System.Windows.Forms.ComboBox();
+            this.btnSelFileName = new System.Windows.Forms.Button();
             this.contextMenuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -182,6 +183,7 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.btnSelFileName);
             this.groupBox1.Controls.Add(this.comboBoxMDKPath);
             this.groupBox1.Controls.Add(this.labelOpenProj);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
@@ -342,8 +344,18 @@
             this.comboBoxMDKPath.FormattingEnabled = true;
             this.comboBoxMDKPath.Location = new System.Drawing.Point(44, 20);
             this.comboBoxMDKPath.Name = "comboBoxMDKPath";
-            this.comboBoxMDKPath.Size = new System.Drawing.Size(884, 20);
+            this.comboBoxMDKPath.Size = new System.Drawing.Size(830, 20);
             this.comboBoxMDKPath.TabIndex = 4;
+            // 
+            // btnSelFileName
+            // 
+            this.btnSelFileName.Location = new System.Drawing.Point(881, 23);
+            this.btnSelFileName.Name = "btnSelFileName";
+            this.btnSelFileName.Size = new System.Drawing.Size(51, 23);
+            this.btnSelFileName.TabIndex = 5;
+            this.btnSelFileName.Text = "...";
+            this.btnSelFileName.UseVisualStyleBackColor = true;
+            this.btnSelFileName.Click += new System.EventHandler(this.btnSelFileName_Click);
             // 
             // FormMain
             // 
@@ -410,6 +422,7 @@
         private System.Windows.Forms.ComboBox comboBoxTarget;
         private System.Windows.Forms.TextBox tBoxSlnPath;
         private System.Windows.Forms.ComboBox comboBoxMDKPath;
+        private System.Windows.Forms.Button btnSelFileName;
     }
 }
 

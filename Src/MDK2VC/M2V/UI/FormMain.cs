@@ -253,23 +253,6 @@ namespace MDK2VC
             treeView1.Nodes.Add(tn);
         }
 
-        private void tBoxMDKPath_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            var fileDlg = new OpenFileDialog();
-            fileDlg.Multiselect = true;
-            fileDlg.Title = "请选择文件";
-            fileDlg.Filter = "MDK|*.uvprojx;*.uvproj;*cyprj";
-            if (fileDlg.ShowDialog() == DialogResult.OK)
-            {
-                cfg.FromFilePath = fileDlg.FileName;
-                comboBoxMDKPath.Text = cfg.FromFilePath;
-                tBoxSlnPath.Text = cfg.sln;
-
-                Properties.Settings.Default.LastFileName = cfg.FromFilePath;
-                Properties.Settings.Default.Save();
-            }
-        }
-
         private void labelOpenProj_Click(object sender, EventArgs e)
         {
             this.OpenFile(cfg.FromFilePath);
@@ -278,6 +261,24 @@ namespace MDK2VC
         private void labelOpenVC_Click(object sender, EventArgs e)
         {
             this.OpenFile(cfg.sln);
+        }
+
+        private void btnSelFileName_Click(object sender, EventArgs e)
+        {
+            var fileDlg = new OpenFileDialog();
+            fileDlg.Multiselect = true;
+            fileDlg.Title = "请选择文件";
+            fileDlg.Filter = "MDK|*.uvprojx;*.uvproj;*cyprj";
+            if (fileDlg.ShowDialog() == DialogResult.OK)
+            {
+                cfg.FromFilePath = fileDlg.FileName;
+                comboBoxMDKPath.Items.Add(comboBoxMDKPath.Text);
+                comboBoxMDKPath.Text = cfg.FromFilePath;
+                tBoxSlnPath.Text = cfg.sln;
+
+                Properties.Settings.Default.LastFileName = cfg.FromFilePath;
+                Properties.Settings.Default.Save();
+            }
         }
     }
 }
