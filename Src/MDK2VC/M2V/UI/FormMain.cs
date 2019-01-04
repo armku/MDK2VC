@@ -255,19 +255,14 @@ namespace MDK2VC
                                 Text = tree1.Nodes[i].Nodes[j].Nodes[k].Nodes[l].Data.Name
                             };
 
-
                             tn3.Nodes.Add(tn4);
                         }
 
                         tn2.Nodes.Add(tn3);
                     }
-
-
                     tn1.Nodes.Add(tn2);
                 }
-
                 tn.Nodes.Add(tn1);
-
             }
             treeView1.Nodes.Clear();
             treeView1.Nodes.Add(tn);
