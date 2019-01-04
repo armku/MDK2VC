@@ -65,7 +65,7 @@ namespace MDK2VC.M2V.Xml
         {
             return "DEBUG";
         }
-        public List<String> getIncludePath(string path)
+        public List<String> GetIncludePath(string path)
         {
             var ret = new List<String>();
             var doc = XElement.Load(path);
@@ -92,8 +92,10 @@ namespace MDK2VC.M2V.Xml
         [Description("获取工程中文件")]
         public BTree<Node> GetFiles(string filename)
         {
-            var tree1 = new BTree<Node>();
-            tree1.Data = new Node("文件","", true);
+            var tree1 = new BTree<Node>
+            {
+                Data = new Node("文件", "", true)
+            };
 
             var doc = XElement.Load(filename);
             var Targets = doc.Element("Targets");
@@ -105,8 +107,10 @@ namespace MDK2VC.M2V.Xml
             foreach (var grou in Group)
             {
                 var aa = grou.Element("GroupName");
-                var tree2 = new BTree<Node>();
-                tree2.Data = new Node(aa.Value,"", false);
+                var tree2 = new BTree<Node>
+                {
+                    Data = new Node(aa.Value, "", false)
+                };
                 tree1.AddNode(tree2);
 
                 var Files = grou.Elements("Files");
@@ -118,8 +122,10 @@ namespace MDK2VC.M2V.Xml
                         var FilePath = ff.Element("FilePath");
                         if (FilePath != null)
                         {
-                            var tree3 = new BTree<Node>();
-                            tree3.Data = new Node(FilePath.Value,"", false);
+                            var tree3 = new BTree<Node>
+                            {
+                                Data = new Node(FilePath.Value, "", false)
+                            };
                             tree2.AddNode(tree3);
                         }
                     }

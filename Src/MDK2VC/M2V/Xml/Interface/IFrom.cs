@@ -34,7 +34,7 @@ namespace MDK2VC.M2V.Xml
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        List<String> getIncludePath(string path);
+        List<String> GetIncludePath(string path);
         /// <summary>
         /// 获取工程中文件
         /// </summary>

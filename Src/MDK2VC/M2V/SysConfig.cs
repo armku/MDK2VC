@@ -129,7 +129,7 @@ namespace MDK2VC.M2V
         /// vcxproj文件路径
         /// </summary>
         [Description("vcxproj文件路径")]
-        public string vcxproj
+        public string Vcxproj
         {
             get
             {
@@ -140,7 +140,7 @@ namespace MDK2VC.M2V
         /// filters文件路径
         /// </summary>
         [Description("filters文件路径")]
-        public string filters
+        public string Filters
         {
             get
             {
@@ -151,14 +151,14 @@ namespace MDK2VC.M2V
         /// sln文件路径
         /// </summary>
         [Description("sln文件路径")]
-        public string sln
+        public string Sln
         {
             get
             {
                 return this.VCPath + "\\" + FileNameWithoutExtension + ".sln";
             }
         }
-        public string vcusers
+        public string Vcusers
         {
             get
             {
@@ -203,13 +203,13 @@ namespace MDK2VC.M2V
         /// <summary>
         /// 
         /// </summary>
-        public string projguid { get; set; }
-        public string projguidvc
+        public string Projguid { get; set; }
+        public string Projguidvc
         {
             get
             {
                 var builder = new StringBuilder();
-                builder.Append(projguid);
+                builder.Append(Projguid);
                 return builder.ToString();
             }
         }
@@ -304,7 +304,7 @@ namespace MDK2VC.M2V
         public string DocName { get; set; }
     }
 }
-static class fff
+static class Fff
 {
     public static void Write(this FileStream fs, byte[] array)
     {

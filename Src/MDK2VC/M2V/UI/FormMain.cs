@@ -32,7 +32,7 @@ namespace MDK2VC
             if (cfg.FromFilePath.Length < 5)
                 cfg.FromFilePath = ".uvprojx";
             comboBoxMDKPath.Text = cfg.FromFilePath;
-            tBoxSlnPath.Text = cfg.sln;
+            tBoxSlnPath.Text = cfg.Sln;
             this.Text = "MDK4 MDK5 2 VC2017 Ver:"+ Assembly.GetExecutingAssembly().GetName().Version.ToString() + " Net:"+System.Environment.Version.ToString();
         }
         private void BtnTrans_Click(object sender, EventArgs e)
@@ -45,31 +45,31 @@ namespace MDK2VC
             switch (Path.GetExtension(cfg.FromFilePath))
             {
                 case ".uvproj":
-                    manager.from = new Fromuvproj();
+                    manager.From = new Fromuvproj();
                     break;
                 case ".uvprojx":
-                    manager.from = new Fromuvprojx();
+                    manager.From = new Fromuvprojx();
                     break;
                 case ".cyprj":
-                    manager.from = new Fromcyprj();
+                    manager.From = new Fromcyprj();
                     break;
                 default:
                     break;
             }
 
-            manager.to = new ToVC2017();
+            manager.To = new ToVC2017();
 
             cfg.UV4_Path = "C:\\Keil_v5\\UV4\\Uv4.exe";
-            cfg.MacroDefine = manager.from.GetMacroDefine(cfg.FromFilePath);
-            cfg.IncludePathOld = manager.from.getIncludePath(cfg.FromFilePath);
-            cfg.ProjFiles = manager.from.GetFiles(cfg.FromFilePath);
-            cfg.TargetName = manager.from.GetTargetName(cfg.FromFilePath);
+            cfg.MacroDefine = manager.From.GetMacroDefine(cfg.FromFilePath);
+            cfg.IncludePathOld = manager.From.GetIncludePath(cfg.FromFilePath);
+            cfg.ProjFiles = manager.From.GetFiles(cfg.FromFilePath);
+            cfg.TargetName = manager.From.GetTargetName(cfg.FromFilePath);
             this.ShowFiles(cfg.ProjFiles);
 
-            cfg.ToFilter_FileFolders = manager.to.Get_ToFilter_FolderFiles(cfg);
-            cfg.ToProj_Files = manager.to.Get_ToProj_Files(cfg);
-            cfg.ToFilter_files = manager.to.Get_ToFilter_Folders(cfg);
-            cfg.projguid = Guid.NewGuid().ToString("B");
+            cfg.ToFilter_FileFolders = manager.To.Get_ToFilter_FolderFiles(cfg);
+            cfg.ToProj_Files = manager.To.Get_ToProj_Files(cfg);
+            cfg.ToFilter_files = manager.To.Get_ToFilter_Folders(cfg);
+            cfg.Projguid = Guid.NewGuid().ToString("B");
 
             var builder = new StringBuilder();
             builder.AppendLine(cfg.MacroDefineStr);
@@ -78,7 +78,7 @@ namespace MDK2VC
             TargetStatus.Text= builder.ToString();
             
             comboBoxTarget.Items.Clear();
-            foreach (var vn in manager.from.GetMacroTarget(cfg.FromFilePath))
+            foreach (var vn in manager.From.GetMacroTarget(cfg.FromFilePath))
             {
                 comboBoxTarget.Items.Add(vn);
             }
@@ -100,15 +100,15 @@ namespace MDK2VC
         private void BtnTest_Click(object sender, EventArgs e)
         {
             BtnTrans_Click(sender, e);
-            if (manager.from.GetMacroTarget(cfg.FromFilePath).Count > 0)
-                cfg.TargetName = manager.from.GetMacroTarget(cfg.FromFilePath)[0];
+            if (manager.From.GetMacroTarget(cfg.FromFilePath).Count > 0)
+                cfg.TargetName = manager.From.GetMacroTarget(cfg.FromFilePath)[0];
             else
                 cfg.TargetName = cfg.FileNameWithoutExtension;
 
-            manager.to.createvcxproj(cfg);
-            manager.to.createfilters(cfg);
-            manager.to.createsln(cfg);
-            manager.to.createlog(cfg);
+            manager.To.Createvcxproj(cfg);
+            manager.To.Createfilters(cfg);
+            manager.To.Createsln(cfg);
+            manager.To.Createlog(cfg);
             //manager.to.createvcxusers(cfg);
             label5.Text = "转换完：" + DateTime.Now.ToString("HH:mm:ss");
             
@@ -275,7 +275,7 @@ namespace MDK2VC
         
         private void LabelOpenVC_Click(object sender, EventArgs e)
         {
-            this.OpenFile(cfg.sln);
+            this.OpenFile(cfg.Sln);
         }
 
         private void BtnSelFileName_Click(object sender, EventArgs e)
@@ -291,7 +291,7 @@ namespace MDK2VC
                 cfg.FromFilePath = fileDlg.FileName;
                 comboBoxMDKPath.Items.Add(comboBoxMDKPath.Text);
                 comboBoxMDKPath.Text = cfg.FromFilePath;
-                tBoxSlnPath.Text = cfg.sln;
+                tBoxSlnPath.Text = cfg.Sln;
 
                 Properties.Settings.Default.LastFileName = cfg.FromFilePath;
                 Properties.Settings.Default.Save();

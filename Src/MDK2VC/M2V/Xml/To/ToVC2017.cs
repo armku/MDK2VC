@@ -7,14 +7,14 @@ namespace MDK2VC.M2V.Xml
 {
     public class ToVC2017 : IToVC2017
     {
-        private String getMacroDefineVC(string definestr)
+        private String GetMacroDefineVC(string definestr)
         {
             var builder = new StringBuilder();
             builder.Append("      <PreprocessorDefinitions>");
             builder.Append(definestr).Append("%(PreprocessorDefinitions)</PreprocessorDefinitions>");
             return builder.ToString();
         }
-        private String getIncludePathVC(SysConfig cfg)
+        private String GetIncludePathVC(SysConfig cfg)
         {
             var builder = new StringBuilder();
             builder.Append("      <AdditionalIncludeDirectories>");
@@ -23,7 +23,7 @@ namespace MDK2VC.M2V.Xml
             return builder.ToString();
         }
 
-        public void createvcxproj(SysConfig cfg)
+        public void Createvcxproj(SysConfig cfg)
         {
             var builder = new StringBuilder();
             builder.AppendLine("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
@@ -155,7 +155,7 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("  </ItemGroup>");
             builder.AppendLine("  <PropertyGroup Label=\"Globals\">");
             builder.AppendLine("    <VCProjectVersion>15.0</VCProjectVersion>");
-            builder.Append("    <ProjectGuid>").Append(cfg.projguidvc).AppendLine("</ProjectGuid>");
+            builder.Append("    <ProjectGuid>").Append(cfg.Projguidvc).AppendLine("</ProjectGuid>");
             builder.AppendLine("    <RootNamespace>STM32F1</RootNamespace>");
             builder.AppendLine("    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>");
             builder.AppendLine("  </PropertyGroup>");
@@ -211,8 +211,8 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("      <Optimization>Disabled</Optimization>");
             builder.AppendLine("      <SDLCheck>true</SDLCheck>");
             builder.AppendLine("      <ConformanceMode>true</ConformanceMode>");
-            builder.AppendLine(this.getIncludePathVC(cfg));
-            builder.AppendLine(this.getMacroDefineVC(cfg.MacroDefineStr));
+            builder.AppendLine(this.GetIncludePathVC(cfg));
+            builder.AppendLine(this.GetMacroDefineVC(cfg.MacroDefineStr));
             builder.AppendLine("    </ClCompile>");
             builder.AppendLine("  </ItemDefinitionGroup>");
             builder.AppendLine("  <ItemDefinitionGroup Condition=\"'$(Configuration)|$(Platform)' == 'Debug|x64'\">");
@@ -221,8 +221,8 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("      <Optimization>Disabled</Optimization>");
             builder.AppendLine("      <SDLCheck>true</SDLCheck>");
             builder.AppendLine("      <ConformanceMode>true</ConformanceMode>");
-            builder.AppendLine(this.getIncludePathVC(cfg));
-            builder.AppendLine(this.getMacroDefineVC(cfg.MacroDefineStr));
+            builder.AppendLine(this.GetIncludePathVC(cfg));
+            builder.AppendLine(this.GetMacroDefineVC(cfg.MacroDefineStr));
             builder.AppendLine("    </ClCompile>");
             builder.AppendLine("  </ItemDefinitionGroup>");
             builder.AppendLine("  <ItemDefinitionGroup Condition=\"'$(Configuration)|$(Platform)' == 'Release|Win32'\">");
@@ -233,8 +233,8 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("      <IntrinsicFunctions>true</IntrinsicFunctions>");
             builder.AppendLine("      <SDLCheck>true</SDLCheck>");
             builder.AppendLine("      <ConformanceMode>true</ConformanceMode>");
-            builder.AppendLine(this.getIncludePathVC(cfg));
-            builder.AppendLine(this.getMacroDefineVC(cfg.MacroDefineStr));
+            builder.AppendLine(this.GetIncludePathVC(cfg));
+            builder.AppendLine(this.GetMacroDefineVC(cfg.MacroDefineStr));
             builder.AppendLine("    </ClCompile>");
             builder.AppendLine("    <Link>");
             builder.AppendLine("      <EnableCOMDATFolding>true</EnableCOMDATFolding>");
@@ -249,8 +249,8 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("      <IntrinsicFunctions>true</IntrinsicFunctions>");
             builder.AppendLine("      <SDLCheck>true</SDLCheck>");
             builder.AppendLine("      <ConformanceMode>true</ConformanceMode>");
-            builder.AppendLine(this.getIncludePathVC(cfg));
-            builder.AppendLine(this.getMacroDefineVC(cfg.MacroDefineStr));
+            builder.AppendLine(this.GetIncludePathVC(cfg));
+            builder.AppendLine(this.GetMacroDefineVC(cfg.MacroDefineStr));
             builder.AppendLine("    </ClCompile>");
             builder.AppendLine(@"    <Link>");
             builder.AppendLine(@"      <EnableCOMDATFolding>true</EnableCOMDATFolding>");
@@ -270,13 +270,13 @@ namespace MDK2VC.M2V.Xml
             {
                 Directory.CreateDirectory(cfg.VCPath);
             }
-            var fs = new FileStream(cfg.vcxproj, FileMode.Create);
+            var fs = new FileStream(cfg.Vcxproj, FileMode.Create);
             byte[] data = new UTF8Encoding().GetBytes(builder.ToString());
             fs.Write(data);
             fs.Flush();
             fs.Close();
         }
-        public void createfilters(SysConfig cfg)
+        public void Createfilters(SysConfig cfg)
         {
             var builder = new StringBuilder();
 
@@ -291,7 +291,7 @@ namespace MDK2VC.M2V.Xml
             //Fromuvprojx.getGroupsToFilters(builder, cfg.MdkPath);
             builder.AppendLine("  </ItemGroup>");
             builder.AppendLine("</Project>");
-            var fs = new FileStream(cfg.filters, FileMode.Create);
+            var fs = new FileStream(cfg.Filters, FileMode.Create);
             byte[] data = new UTF8Encoding().GetBytes(builder.ToString());
             fs.Write(data);
             fs.Flush();
@@ -301,7 +301,7 @@ namespace MDK2VC.M2V.Xml
         /// 生成日志文件
         /// </summary>
         /// <param name="cfg">配置文件</param>
-        public void createlog(SysConfig cfg)
+        public void Createlog(SysConfig cfg)
         {
             var Buildlog =cfg.DirectoryName+ "\\Build.log";
             var flash_downloadlog = cfg.DirectoryName + "\\flash_download.log";
@@ -310,7 +310,7 @@ namespace MDK2VC.M2V.Xml
             if (!File.Exists(flash_downloadlog))
                 File.Create(flash_downloadlog);
         }
-        public void createsln(SysConfig cfg)
+        public void Createsln(SysConfig cfg)
         {
             var builder = new StringBuilder();
 
@@ -325,7 +325,7 @@ namespace MDK2VC.M2V.Xml
             builder.Append(cfg.FileNameWithoutExtension);
             //builder.AppendLine(".vcxproj\", \"{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}\"");
             builder.Append(".vcxproj\", \"");
-            builder.Append(cfg.projguidvc);
+            builder.Append(cfg.Projguidvc);
             builder.AppendLine("\"");
 
             builder.AppendLine("EndProject");
@@ -342,7 +342,7 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("	GlobalSection(ProjectConfigurationPlatforms) = postSolution");
             //builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Debug|x64.ActiveCfg = Debug|x64");
             builder.Append("		");
-            builder.Append(cfg.projguidvc);
+            builder.Append(cfg.Projguidvc);
             //builder.AppendLine(".Debug|x64.ActiveCfg = Debug|x64");
             builder.Append(".");
             builder.Append(cfg.FileNameWithoutExtension);
@@ -352,7 +352,7 @@ namespace MDK2VC.M2V.Xml
 
             //builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Debug|x64.Build.0 = Debug|x64");
             builder.Append("		");
-            builder.Append(cfg.projguidvc);
+            builder.Append(cfg.Projguidvc);
             //builder.AppendLine(".Debug|x64.Build.0 = Debug|x64");
             builder.Append(".");
             builder.Append(cfg.FileNameWithoutExtension);
@@ -369,7 +369,7 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("	EndGlobalSection");
             builder.AppendLine("EndGlobal");
 
-            var fs = new FileStream(cfg.sln, FileMode.Create);
+            var fs = new FileStream(cfg.Sln, FileMode.Create);
             byte[] data = new UTF8Encoding().GetBytes(builder.ToString());
             fs.Write(data);
             fs.Flush();
@@ -379,7 +379,7 @@ namespace MDK2VC.M2V.Xml
         /// 创建users文件
         /// </summary>
         /// <param name="cfg"></param>
-        public void createvcxusers(SysConfig cfg)
+        public void Createvcxusers(SysConfig cfg)
         {
             var builder = new StringBuilder();
             builder.AppendLine("<?xml version=\"1.0\" encoding=\"utf - 8\"?>");
@@ -409,7 +409,7 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("    <ShowAllFiles>false</ShowAllFiles>");
             builder.AppendLine("  </PropertyGroup>");
             builder.AppendLine("</Project>");
-            var fs = new FileStream(cfg.vcusers, FileMode.Create);
+            var fs = new FileStream(cfg.Vcusers, FileMode.Create);
             byte[] data = new UTF8Encoding().GetBytes(builder.ToString());
             fs.Write(data);
             fs.Flush();

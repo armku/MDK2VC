@@ -11,11 +11,11 @@ namespace MDK2VC.M2V.Xml
         /// <summary>
         /// 来源
         /// </summary>
-        public  IFrom from { get; set; }
+        public  IFrom From { get; set; }
         /// <summary>
         /// 目标
         /// </summary>
-        public IToVC2017 to
+        public IToVC2017 To
         { get; set; }
         /// <summary>
         /// 获取Keil路径

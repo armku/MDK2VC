@@ -14,27 +14,27 @@ namespace MDK2VC.M2V.Xml
         /// 创建工程
         /// </summary>
         /// <param name="cfg"></param>
-        void createvcxproj(SysConfig cfg);
+        void Createvcxproj(SysConfig cfg);
         /// <summary>
         /// 创建VCFilters
         /// </summary>
         /// <param name="cfg"></param>
-        void createfilters(SysConfig cfg);
+        void Createfilters(SysConfig cfg);
         /// <summary>
         /// 创建users文件
         /// </summary>
         /// <param name="cfg"></param>
-        void createvcxusers(SysConfig cfg);
+        void Createvcxusers(SysConfig cfg);
         /// <summary>
         /// 创建解决方案
         /// </summary>
         /// <param name="cfg"></param>
-        void createsln(SysConfig cfg);
+        void Createsln(SysConfig cfg);
         /// <summary>
         /// 生成日志文件
         /// </summary>
         /// <param name="cfg">配置文件</param>
-        void createlog(SysConfig cfg);
+        void Createlog(SysConfig cfg);
         /// <summary>
         /// 获取过滤器文件、文件夹列表
         /// </summary>

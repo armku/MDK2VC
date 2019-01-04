@@ -29,9 +29,10 @@ namespace MDK2VC.M2V.Xml
         /// <returns></returns>
         public List<String> GetMacroDefine(string path)
         {
-            var ret = new List<String>();
-                       
-            ret.Add("DEBUG");
+            var ret = new List<String>
+            {
+                "DEBUG"
+            };
             return ret;
         }
         /// <summary>
@@ -43,12 +44,13 @@ namespace MDK2VC.M2V.Xml
         {
             return "DEBUG";
         }
-        public List<String> getIncludePath(string path)
+        public List<String> GetIncludePath(string path)
         {
-            var ret = new List<String>();
-
-            ret.Add(@"..");
-            ret.Add(@"..\Generated_Source\PSoC5");
+            var ret = new List<String>
+            {
+                @"..",
+                @"..\Generated_Source\PSoC5"
+            };
             return ret;
         }
         /// <summary>
@@ -59,9 +61,11 @@ namespace MDK2VC.M2V.Xml
         [Description("获取工程中文件")]
         public BTree<Node> GetFiles(string filename)
         {
-            var treelevel_0 = new BTree<Node>();
-            treelevel_0.Data = new Node("文件", "", true);
-                       
+            var treelevel_0 = new BTree<Node>
+            {
+                Data = new Node("文件", "", true)
+            };
+
             var namegroup = "";
             var currentnode = treelevel_0;
             var parentnode = treelevel_0;//上一级
@@ -91,9 +95,11 @@ namespace MDK2VC.M2V.Xml
                                 if (ssequals[1].Split('"')[1].Length == 0)
                                 {
                                     //文件夹
-                                    var tnode = new BTree<Node>();
-                                    tnode.Data = new Node(namegroup, "", true);
-                                    
+                                    var tnode = new BTree<Node>
+                                    {
+                                        Data = new Node(namegroup, "", true)
+                                    };
+
                                     if (hasfiles)
                                     {
                                         //已经有文件
@@ -132,8 +138,10 @@ namespace MDK2VC.M2V.Xml
                                     else if ((ssequals[1].Split('"')[1].IndexOf("Generated_Source") >= 0)&&((ssequals[1].Split('"')[1].Length== "Generated_Source".Length)))
                                     {
                                         //特殊目录
-                                        var tree3 = new BTree<Node>();
-                                        tree3.Data = new Node(ssequals[1].Split('"')[1]);
+                                        var tree3 = new BTree<Node>
+                                        {
+                                            Data = new Node(ssequals[1].Split('"')[1])
+                                        };
                                         treelevel_0.AddNode(tree3);
 
                                         grandparentnode = treelevel_0;
@@ -144,8 +152,10 @@ namespace MDK2VC.M2V.Xml
                                     else if ((ssequals[1].Split('"')[1].IndexOf(@"Generated_Source\PSoC5") >= 0) && ((ssequals[1].Split('"')[1].Length == @"Generated_Source\PSoC5".Length)))
                                     {
                                         //特殊目录
-                                        var tree3 = new BTree<Node>();
-                                        tree3.Data = new Node(ssequals[1].Split('"')[1]);
+                                        var tree3 = new BTree<Node>
+                                        {
+                                            Data = new Node(ssequals[1].Split('"')[1])
+                                        };
                                         tree3.Data.Name = "PSoC5";
                                         currentnode.AddNode(tree3);
 
@@ -161,8 +171,10 @@ namespace MDK2VC.M2V.Xml
                                     else
                                     {
                                         //常规文件
-                                        var tree3 = new BTree<Node>();
-                                        tree3.Data = new Node(ssequals[1].Split('"')[1]);
+                                        var tree3 = new BTree<Node>
+                                        {
+                                            Data = new Node(ssequals[1].Split('"')[1])
+                                        };
                                         currentnode.AddNode(tree3);
                                         hasfiles = true;
                                     }
