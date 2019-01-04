@@ -177,8 +177,10 @@ namespace MDK2VC
         }
         BTree<Node> GetFiles(string filename)
         {
-            var tree1 = new BTree<Node>();
-            tree1.Data = new Node("文件","", true);
+            var tree1 = new BTree<Node>
+            {
+                Data = new Node("文件", "", true)
+            };
 
             var doc = XElement.Load(cfg.FromFilePath);
             var Targets = doc.Element("Targets");
@@ -189,8 +191,10 @@ namespace MDK2VC
             foreach (var grou in Group)
             {
                 var aa = grou.Element("GroupName");
-                var tree2 = new BTree<Node>();
-                tree2.Data = new Node(aa.Value,tree1.Data.Name, false);
+                var tree2 = new BTree<Node>
+                {
+                    Data = new Node(aa.Value, tree1.Data.Name, false)
+                };
                 tree1.AddNode(tree2);
 
                 var Files = grou.Elements("Files");
@@ -202,8 +206,10 @@ namespace MDK2VC
                         var FilePath = ff.Element("FilePath");
                         if (FilePath != null)
                         {
-                            var tree3 = new BTree<Node>();
-                            tree3.Data = new Node(FilePath.Value,tree2.Data.Name, false);
+                            var tree3 = new BTree<Node>
+                            {
+                                Data = new Node(FilePath.Value, tree2.Data.Name, false)
+                            };
                             tree2.AddNode(tree3);
                         }
                     }
@@ -213,32 +219,42 @@ namespace MDK2VC
         }
         void ShowFiles(BTree<Node> tree1)
         {
-            var tn = new TreeNode();
-            tn.Tag = tree1;
-            tn.Text = tree1.Data.Name;
+            var tn = new TreeNode
+            {
+                Tag = tree1,
+                Text = tree1.Data.Name
+            };
             for (int i = 0; i < tree1.Nodes.Count; i++)
             {
-                var tn1 = new TreeNode();
-                tn1.Tag = tree1.Nodes[i];
-                tn1.Text = tree1.Nodes[i].Data.Name;
+                var tn1 = new TreeNode
+                {
+                    Tag = tree1.Nodes[i],
+                    Text = tree1.Nodes[i].Data.Name
+                };
 
                 for (int j = 0; j < tree1.Nodes[i].Nodes.Count; j++)
                 {
-                    var tn2 = new TreeNode();
-                    tn2.Tag = tree1.Nodes[i].Nodes[j];
-                    tn2.Text = tree1.Nodes[i].Nodes[j].Data.Name;
+                    var tn2 = new TreeNode
+                    {
+                        Tag = tree1.Nodes[i].Nodes[j],
+                        Text = tree1.Nodes[i].Nodes[j].Data.Name
+                    };
                     for (int k = 0; k < tree1.Nodes[i].Nodes[j].Nodes.Count; k++)
                     {
-                        var tn3 = new TreeNode();
-                        tn3.Tag = tree1.Nodes[i].Nodes[j].Nodes[k];
-                        tn3.Text = tree1.Nodes[i].Nodes[j].Nodes[k].Data.Name;
+                        var tn3 = new TreeNode
+                        {
+                            Tag = tree1.Nodes[i].Nodes[j].Nodes[k],
+                            Text = tree1.Nodes[i].Nodes[j].Nodes[k].Data.Name
+                        };
 
                         for (int l = 0; l < tree1.Nodes[i].Nodes[j].Nodes[k].Nodes.Count; l++)
                         {
-                            var tn4 = new TreeNode();
-                            tn4.Tag = tree1.Nodes[i].Nodes[j].Nodes[k].Nodes[l];
-                            tn4.Text = tree1.Nodes[i].Nodes[j].Nodes[k].Nodes[l].Data.Name;
-                            
+                            var tn4 = new TreeNode
+                            {
+                                Tag = tree1.Nodes[i].Nodes[j].Nodes[k].Nodes[l],
+                                Text = tree1.Nodes[i].Nodes[j].Nodes[k].Nodes[l].Data.Name
+                            };
+
 
                             tn3.Nodes.Add(tn4);
                         }
@@ -269,10 +285,12 @@ namespace MDK2VC
 
         private void BtnSelFileName_Click(object sender, EventArgs e)
         {
-            var fileDlg = new OpenFileDialog();
-            fileDlg.Multiselect = true;
-            fileDlg.Title = "请选择文件";
-            fileDlg.Filter = "MDK|*.uvprojx;*.uvproj;*cyprj";
+            var fileDlg = new OpenFileDialog
+            {
+                Multiselect = true,
+                Title = "请选择文件",
+                Filter = "MDK|*.uvprojx;*.uvproj;*cyprj"
+            };
             if (fileDlg.ShowDialog() == DialogResult.OK)
             {
                 cfg.FromFilePath = fileDlg.FileName;
