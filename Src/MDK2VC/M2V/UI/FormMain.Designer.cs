@@ -76,7 +76,7 @@
             this.btnTrans.TabIndex = 4;
             this.btnTrans.Text = "测试读取";
             this.btnTrans.UseVisualStyleBackColor = true;
-            this.btnTrans.Click += new System.EventHandler(this.btnTrans_Click);
+            this.btnTrans.Click += new System.EventHandler(this.BtnTrans_Click);
             // 
             // btnTest
             // 
@@ -87,7 +87,7 @@
             this.btnTest.TabIndex = 9;
             this.btnTest.Text = "转换";
             this.btnTest.UseVisualStyleBackColor = true;
-            this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
+            this.btnTest.Click += new System.EventHandler(this.BtnTest_Click);
             // 
             // label5
             // 
@@ -105,8 +105,8 @@
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
             this.notifyIcon1.Text = "MDK2VC";
             this.notifyIcon1.Visible = true;
-            this.notifyIcon1.DoubleClick += new System.EventHandler(this.notifyIcon1_DoubleClick);
-            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
+            this.notifyIcon1.DoubleClick += new System.EventHandler(this.NotifyIcon1_DoubleClick);
+            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.NotifyIcon1_MouseDoubleClick);
             // 
             // contextMenuStrip1
             // 
@@ -205,7 +205,7 @@
             this.btnSelFileName.TabIndex = 5;
             this.btnSelFileName.Text = "...";
             this.btnSelFileName.UseVisualStyleBackColor = true;
-            this.btnSelFileName.Click += new System.EventHandler(this.btnSelFileName_Click);
+            this.btnSelFileName.Click += new System.EventHandler(this.BtnSelFileName_Click);
             // 
             // comboBoxMDKPath
             // 
@@ -226,7 +226,7 @@
             this.labelOpenProj.Size = new System.Drawing.Size(29, 12);
             this.labelOpenProj.TabIndex = 3;
             this.labelOpenProj.Text = "Open";
-            this.labelOpenProj.Click += new System.EventHandler(this.labelOpenProj_Click);
+            this.labelOpenProj.Click += new System.EventHandler(this.LabelOpenProj_Click);
             // 
             // groupBox4
             // 
@@ -339,7 +339,7 @@
             this.labelOpenVC.Size = new System.Drawing.Size(35, 14);
             this.labelOpenVC.TabIndex = 13;
             this.labelOpenVC.Text = "Open";
-            this.labelOpenVC.Click += new System.EventHandler(this.labelOpenVC_Click);
+            this.labelOpenVC.Click += new System.EventHandler(this.LabelOpenVC_Click);
             // 
             // tBoxSlnPath
             // 

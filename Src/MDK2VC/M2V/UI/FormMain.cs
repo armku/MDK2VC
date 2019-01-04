@@ -35,7 +35,7 @@ namespace MDK2VC
             tBoxSlnPath.Text = cfg.sln;
             this.Text = "MDK4 MDK5 2 VC2017 Ver:"+ Assembly.GetExecutingAssembly().GetName().Version.ToString() + " Net:"+System.Environment.Version.ToString();
         }
-        private void btnTrans_Click(object sender, EventArgs e)
+        private void BtnTrans_Click(object sender, EventArgs e)
         {
             if ((cfg.FromFilePath == null) || (!File.Exists(cfg.FromFilePath)))
             {
@@ -97,9 +97,9 @@ namespace MDK2VC
             return uri.MakeRelativeUri(uri2).ToString().Replace("/", @"\");
         }
 
-        private void btnTest_Click(object sender, EventArgs e)
+        private void BtnTest_Click(object sender, EventArgs e)
         {
-            btnTrans_Click(sender, e);
+            BtnTrans_Click(sender, e);
             if (manager.from.GetMacroTarget(cfg.FromFilePath).Count > 0)
                 cfg.TargetName = manager.from.GetMacroTarget(cfg.FromFilePath)[0];
             else
@@ -125,7 +125,7 @@ namespace MDK2VC
                 MessageBox.Show("文件不存在 " + file);
         }
 
-        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void NotifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (WindowState == FormWindowState.Minimized)
             {
@@ -166,8 +166,12 @@ namespace MDK2VC
                 notifyIcon1.Visible = true;
             }
         }
-
-        private void notifyIcon1_DoubleClick(object sender, EventArgs e)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void NotifyIcon1_DoubleClick(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Normal;
         }
@@ -253,17 +257,17 @@ namespace MDK2VC
             treeView1.Nodes.Add(tn);
         }
 
-        private void labelOpenProj_Click(object sender, EventArgs e)
+        private void LabelOpenProj_Click(object sender, EventArgs e)
         {
             this.OpenFile(cfg.FromFilePath);
         }
         
-        private void labelOpenVC_Click(object sender, EventArgs e)
+        private void LabelOpenVC_Click(object sender, EventArgs e)
         {
             this.OpenFile(cfg.sln);
         }
 
-        private void btnSelFileName_Click(object sender, EventArgs e)
+        private void BtnSelFileName_Click(object sender, EventArgs e)
         {
             var fileDlg = new OpenFileDialog();
             fileDlg.Multiselect = true;
