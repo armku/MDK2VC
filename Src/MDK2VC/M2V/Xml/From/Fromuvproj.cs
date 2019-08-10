@@ -55,7 +55,8 @@ namespace MDK2VC.M2V.Xml
             {
                 ret.Add(str);
             }
-            
+            ret.Add("__CC_ARM");
+
             return ret;
         }
         /// <summary>

@@ -53,6 +53,8 @@ namespace MDK2VC.M2V.Xml
                 builder.Append(str).Append(";");
                 ret.Add(str);
             }
+            builder.Append("__CC_ARM;");
+            ret.Add("__CC_ARM");
             //return builder.ToString();
             return ret;
         }
