@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MDK2VC.M2V.Xml
 {
-    public class ToVC2017 : IToVC2017
+    public class ToVC2017 : IToVC
     {
         private String GetMacroDefineVC(string definestr)
         {

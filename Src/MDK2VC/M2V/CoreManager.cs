@@ -15,7 +15,7 @@ namespace MDK2VC.M2V.Xml
         /// <summary>
         /// 目标
         /// </summary>
-        public IToVC2017 To
+        public IToVC To
         { get; set; }
         /// <summary>
         /// 获取Keil路径

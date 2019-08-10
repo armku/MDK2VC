@@ -8,7 +8,7 @@ namespace MDK2VC.M2V.Xml
     /// <summary>
     /// 创建目标工程
     /// </summary>
-    public interface IToVC2017
+    public interface IToVC
     {
         /// <summary>
         /// 创建工程
