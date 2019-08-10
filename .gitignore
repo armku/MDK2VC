@@ -8,3 +8,4 @@
 *.pdb
 /Src/.vs/MDK2VC/v15
 /Src/MDK2VC/obj/Debug
+/Src/.vs
