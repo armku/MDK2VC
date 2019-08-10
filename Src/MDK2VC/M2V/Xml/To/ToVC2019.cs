@@ -157,32 +157,32 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("    <VCProjectVersion>15.0</VCProjectVersion>");
             builder.Append("    <ProjectGuid>").Append(cfg.Projguidvc).AppendLine("</ProjectGuid>");
             builder.AppendLine("    <RootNamespace>STM32F1</RootNamespace>");
-            builder.AppendLine("    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>");
+            builder.AppendLine("    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>");
             builder.AppendLine("  </PropertyGroup>");
             builder.AppendLine("  <Import Project=\"$(VCTargetsPath)\\Microsoft.Cpp.Default.props\" />");
             builder.AppendLine("  <PropertyGroup Condition=\"'$(Configuration)|$(Platform)' == 'Debug|Win32'\" Label=\"Configuration\">");
             builder.AppendLine("    <ConfigurationType>Application</ConfigurationType>");
             builder.AppendLine("    <UseDebugLibraries>true</UseDebugLibraries>");
-            builder.AppendLine("    <PlatformToolset>v141</PlatformToolset>");
+            builder.AppendLine("    <PlatformToolset>v142</PlatformToolset>");
             builder.AppendLine("    <CharacterSet>MultiByte</CharacterSet>");
             builder.AppendLine("  </PropertyGroup>");
             builder.AppendLine("  <PropertyGroup Condition=\"'$(Configuration)|$(Platform)' == 'Release|Win32'\" Label=\"Configuration\">");
             builder.AppendLine("    <ConfigurationType>Application</ConfigurationType>");
             builder.AppendLine("    <UseDebugLibraries>false</UseDebugLibraries>");
-            builder.AppendLine("    <PlatformToolset>v141</PlatformToolset>");
+            builder.AppendLine("    <PlatformToolset>v142</PlatformToolset>");
             builder.AppendLine("    <WholeProgramOptimization>true</WholeProgramOptimization>");
             builder.AppendLine("    <CharacterSet>MultiByte</CharacterSet>");
             builder.AppendLine("  </PropertyGroup>");
             builder.AppendLine("  <PropertyGroup Condition=\"'$(Configuration)|$(Platform)' == 'Debug|x64'\" Label=\"Configuration\">");
             builder.AppendLine("    <ConfigurationType>Application</ConfigurationType>");
             builder.AppendLine("    <UseDebugLibraries>true</UseDebugLibraries>");
-            builder.AppendLine("    <PlatformToolset>v141</PlatformToolset>");
+            builder.AppendLine("    <PlatformToolset>v142</PlatformToolset>");
             builder.AppendLine("    <CharacterSet>MultiByte</CharacterSet>");
             builder.AppendLine("  </PropertyGroup>");
             builder.AppendLine("  <PropertyGroup Condition=\"'$(Configuration)|$(Platform)' == 'Release|x64'\" Label=\"Configuration\">");
             builder.AppendLine("    <ConfigurationType>Application</ConfigurationType>");
             builder.AppendLine("    <UseDebugLibraries>false</UseDebugLibraries>");
-            builder.AppendLine("    <PlatformToolset>v141</PlatformToolset>");
+            builder.AppendLine("    <PlatformToolset>v142</PlatformToolset>");
             builder.AppendLine("    <WholeProgramOptimization>true</WholeProgramOptimization>");
             builder.AppendLine("    <CharacterSet>MultiByte</CharacterSet>");
             builder.AppendLine("  </PropertyGroup>");
@@ -315,8 +315,8 @@ namespace MDK2VC.M2V.Xml
             var builder = new StringBuilder();
 
             builder.AppendLine("Microsoft Visual Studio Solution File, Format Version 12.00");
-            builder.AppendLine("# Visual Studio 2013");
-            builder.AppendLine("VisualStudioVersion = 12.0.21005.1");
+            builder.AppendLine("# Visual Studio Version 16");
+            builder.AppendLine("VisualStudioVersion = 16.0.29201.188");
             builder.AppendLine("MinimumVisualStudioVersion = 10.0.40219.1");
 
             builder.Append("Project(\"{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}\") = \"");
