@@ -80,8 +80,19 @@ namespace MDK2VC
                 default:
                     break;
             }
+            if (cfg.TargetType == 2017)
+            {
+                manager.To = new ToVC2017();
+            }
+            else if (cfg.TargetType == 2019)
+            {
+                manager.To = new ToVC2019();
+            }
 
-            manager.To = new ToVC2017();
+            else
+            {
+                manager.To = new ToVC2019();
+            }
 
             cfg.UV4_Path = "C:\\Keil_v5\\UV4\\Uv4.exe";
             cfg.MacroDefine = manager.From.GetMacroDefine(cfg.FromFilePath);
