@@ -33,7 +33,19 @@ namespace MDK2VC
                 cfg.FromFilePath = ".uvprojx";
             comboBoxMDKPath.Text = cfg.FromFilePath;
             tBoxSlnPath.Text = cfg.Sln;
-            this.Text = "MDK4 MDK5 2 VC2017 Ver:"+ Assembly.GetExecutingAssembly().GetName().Version.ToString() + " Net:"+System.Environment.Version.ToString();
+            this.Text = "MDK4 MDK5 2 VC Ver:"+ Assembly.GetExecutingAssembly().GetName().Version.ToString() + " Net:"+System.Environment.Version.ToString();
+            switch(cfg.TargetType)
+            {
+                case 2019:
+                    comboBoxTarget.Text = "VC2019";
+                    break;
+                case 2017:
+                    comboBoxTarget.Text = "VC2017";
+                    break;
+                default:
+                    comboBoxTarget.Text = "VC2019";
+                    break;
+            }
         }
         private void BtnTrans_Click(object sender, EventArgs e)
         {
@@ -104,6 +116,18 @@ namespace MDK2VC
                 cfg.TargetName = manager.From.GetMacroTarget(cfg.FromFilePath)[0];
             else
                 cfg.TargetName = cfg.FileNameWithoutExtension;
+            if(comboBoxTarget.Text.Contains("2019"))
+            {
+                cfg.TargetType = 2019;
+            }
+            else if (comboBoxTarget.Text.Contains("2017"))
+            {
+                cfg.TargetType = 2017;
+            }
+            else
+            {
+                cfg.TargetType = 2019;
+            }
 
             manager.To.Createvcxproj(cfg);
             manager.To.Createfilters(cfg);

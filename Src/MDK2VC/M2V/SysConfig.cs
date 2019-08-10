@@ -16,6 +16,11 @@ namespace MDK2VC.M2V
     public class SysConfig 
     {
         /// <summary>
+        /// 转换目标 2017:VC2017 2019:VC2019
+        /// </summary>
+        [Description("转换目标 2017:VC2017 2019:VC2019")]
+        public int TargetType { get; set; } = 2019;
+        /// <summary>
         /// 
         /// </summary>
         [Description("")]
@@ -122,7 +127,19 @@ namespace MDK2VC.M2V
         {
             get
             {
-                return this.DirectoryName + "\\VC2017";
+                var outdir = "\\VC2019";
+                switch(TargetType)
+                {
+                    case 2019:
+                        outdir = "\\VC2019";
+                        break;
+                    case 2017:
+                        outdir = "\\VC2017";
+                        break;
+                    default:
+                        break;
+                }
+                return this.DirectoryName + outdir;
             }
         }
         /// <summary>

@@ -58,6 +58,8 @@
             this.labelOpenVC = new System.Windows.Forms.Label();
             this.tBoxSlnPath = new System.Windows.Forms.TextBox();
             this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
+            this.comboBoxOutTarget = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.contextMenuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -364,11 +366,34 @@
             this.elementHost1.Text = "elementHost1";
             this.elementHost1.Child = null;
             // 
+            // comboBoxOutTarget
+            // 
+            this.comboBoxOutTarget.FormattingEnabled = true;
+            this.comboBoxOutTarget.Items.AddRange(new object[] {
+            "VC2019",
+            "VC2017"});
+            this.comboBoxOutTarget.Location = new System.Drawing.Point(552, 512);
+            this.comboBoxOutTarget.Name = "comboBoxOutTarget";
+            this.comboBoxOutTarget.Size = new System.Drawing.Size(121, 20);
+            this.comboBoxOutTarget.TabIndex = 25;
+            this.comboBoxOutTarget.Text = "VC2019";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(484, 515);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 12);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "输出目标";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.comboBoxOutTarget);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox5);
@@ -429,6 +454,8 @@
         private System.Windows.Forms.TextBox tBoxSlnPath;
         private System.Windows.Forms.ComboBox comboBoxMDKPath;
         private System.Windows.Forms.Button btnSelFileName;
+        private System.Windows.Forms.ComboBox comboBoxOutTarget;
+        private System.Windows.Forms.Label label1;
     }
 }
 
