@@ -37,18 +37,30 @@ namespace MDK2VC
             switch(cfg.TargetType)
             {
                 case 2019:
-                    comboBoxTarget.Text = "VC2019";
+                    comboBoxOutTarget.Text = "VC2019";
                     break;
                 case 2017:
-                    comboBoxTarget.Text = "VC2017";
+                    comboBoxOutTarget.Text = "VC2017";
                     break;
                 default:
-                    comboBoxTarget.Text = "VC2019";
+                    comboBoxOutTarget.Text = "VC2019";
                     break;
             }
         }
         private void BtnTrans_Click(object sender, EventArgs e)
         {
+            if (comboBoxOutTarget.Text.Contains("2019"))
+            {
+                cfg.TargetType = 2019;
+            }
+            else if (comboBoxOutTarget.Text.Contains("2017"))
+            {
+                cfg.TargetType = 2017;
+            }
+            else
+            {
+                cfg.TargetType = 2019;
+            }
             if ((cfg.FromFilePath == null) || (!File.Exists(cfg.FromFilePath)))
             {
                 MessageBox.Show("请选择正确的文件");
@@ -116,19 +128,7 @@ namespace MDK2VC
                 cfg.TargetName = manager.From.GetMacroTarget(cfg.FromFilePath)[0];
             else
                 cfg.TargetName = cfg.FileNameWithoutExtension;
-            if(comboBoxTarget.Text.Contains("2019"))
-            {
-                cfg.TargetType = 2019;
-            }
-            else if (comboBoxTarget.Text.Contains("2017"))
-            {
-                cfg.TargetType = 2017;
-            }
-            else
-            {
-                cfg.TargetType = 2019;
-            }
-
+            
             manager.To.Createvcxproj(cfg);
             manager.To.Createfilters(cfg);
             manager.To.Createsln(cfg);
