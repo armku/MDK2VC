@@ -24,5 +24,10 @@ namespace MDK2VC.M2V.Config
         /// </summary>
         [Description("输出工程目标")]
         public String StrOutputPathTarget { get; set; } = "VC2019";
+        /// <summary>
+        /// mdk工程路径
+        /// </summary>
+        [Description("mdk工程路径")]
+        public String StrMDKFilePath { get; set; } = "";
     }
 }

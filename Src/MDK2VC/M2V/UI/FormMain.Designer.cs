@@ -221,6 +221,7 @@
             this.comboBoxMDKPath.Name = "comboBoxMDKPath";
             this.comboBoxMDKPath.Size = new System.Drawing.Size(648, 20);
             this.comboBoxMDKPath.TabIndex = 4;
+            this.comboBoxMDKPath.SelectedIndexChanged += new System.EventHandler(this.comboBoxMDKPath_SelectedIndexChanged);
             // 
             // labelOpenProj
             // 

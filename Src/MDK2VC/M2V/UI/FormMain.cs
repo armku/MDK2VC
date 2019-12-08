@@ -49,6 +49,7 @@ namespace MDK2VC
             }
             checkBoxManulSetTarget.Checked = MDK2VCConfig.Current.OutputPathManulSet;
             comboBoxOutTarget.Text = MDK2VCConfig.Current.StrOutputPathTarget;
+            comboBoxMDKPath.Text = MDK2VCConfig.Current.StrMDKFilePath;
         }
         private void BtnTrans_Click(object sender, EventArgs e)
         {
@@ -348,6 +349,13 @@ namespace MDK2VC
         {
             var cmb = sender as ComboBox;
             MDK2VCConfig.Current.StrOutputPathTarget = cmb.Text;
+            MDK2VCConfig.Current.Save();
+        }
+
+        private void comboBoxMDKPath_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var cmb = sender as ComboBox;
+            MDK2VCConfig.Current.StrMDKFilePath = cmb.Text;
             MDK2VCConfig.Current.Save();
         }
     }
