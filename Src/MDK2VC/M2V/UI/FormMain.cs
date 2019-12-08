@@ -1,4 +1,5 @@
 ﻿using MDK2VC.M2V;
+using MDK2VC.M2V.Config;
 using MDK2VC.M2V.Xml;
 using System;
 using System.Collections.Generic;
@@ -46,6 +47,7 @@ namespace MDK2VC
                     comboBoxOutTarget.Text = "VC2019";
                     break;
             }
+            checkBoxManulSetTarget.Checked = MDK2VCConfig.Current.OutputPathManulSet;
         }
         private void BtnTrans_Click(object sender, EventArgs e)
         {
@@ -337,6 +339,8 @@ namespace MDK2VC
         {
             var chk = sender as CheckBox;
             buttonLoadManulTarget.Visible = chk.Checked;
+            MDK2VCConfig.Current.OutputPathManulSet = checkBoxManulSetTarget.Checked;
+            MDK2VCConfig.Current.Save();
         }
     }
 }
