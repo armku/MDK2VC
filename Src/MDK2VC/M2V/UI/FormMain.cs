@@ -335,6 +335,8 @@ namespace MDK2VC
                 Properties.Settings.Default.LastFileName = cfg.FromFilePath;
                 Properties.Settings.Default.Save();
             }
+            MDK2VCConfig.Current.StrMDKFilePath = comboBoxMDKPath.Text;
+            MDK2VCConfig.Current.Save();
         }
 
         private void checkBoxManulSetTarget_CheckedChanged(object sender, EventArgs e)
