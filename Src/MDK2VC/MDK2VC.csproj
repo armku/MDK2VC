@@ -53,6 +53,7 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="M2V\Config\MDK2VCConfig.cs" />
     <Compile Include="M2V\SysConfig.cs" />
     <Compile Include="M2V\UI\FormMain.cs">
       <SubType>Form</SubType>
