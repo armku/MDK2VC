@@ -381,6 +381,7 @@
             this.comboBoxOutTarget.Size = new System.Drawing.Size(121, 20);
             this.comboBoxOutTarget.TabIndex = 25;
             this.comboBoxOutTarget.Text = "VC2019";
+            this.comboBoxOutTarget.SelectedIndexChanged += new System.EventHandler(this.comboBoxOutTarget_SelectedIndexChanged);
             // 
             // label1
             // 

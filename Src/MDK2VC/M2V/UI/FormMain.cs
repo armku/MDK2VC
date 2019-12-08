@@ -48,6 +48,7 @@ namespace MDK2VC
                     break;
             }
             checkBoxManulSetTarget.Checked = MDK2VCConfig.Current.OutputPathManulSet;
+            comboBoxOutTarget.Text = MDK2VCConfig.Current.StrOutputPathTarget;
         }
         private void BtnTrans_Click(object sender, EventArgs e)
         {
@@ -340,6 +341,13 @@ namespace MDK2VC
             var chk = sender as CheckBox;
             buttonLoadManulTarget.Visible = chk.Checked;
             MDK2VCConfig.Current.OutputPathManulSet = checkBoxManulSetTarget.Checked;
+            MDK2VCConfig.Current.Save();
+        }
+
+        private void comboBoxOutTarget_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var cmb = sender as ComboBox;
+            MDK2VCConfig.Current.StrOutputPathTarget = cmb.Text;
             MDK2VCConfig.Current.Save();
         }
     }

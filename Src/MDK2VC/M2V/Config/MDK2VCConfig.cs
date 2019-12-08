@@ -19,5 +19,10 @@ namespace MDK2VC.M2V.Config
         /// </summary>
         [Description("手动设置输出路径")]
         public Boolean OutputPathManulSet { get; set; } = false;
+        /// <summary>
+        /// 输出工程目标
+        /// </summary>
+        [Description("输出工程目标")]
+        public String StrOutputPathTarget { get; set; } = "VC2019";
     }
 }
