@@ -60,6 +60,8 @@
             this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
             this.comboBoxOutTarget = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.checkBoxManulSetTarget = new System.Windows.Forms.CheckBox();
+            this.buttonLoadManulTarget = new System.Windows.Forms.Button();
             this.contextMenuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -181,7 +183,7 @@
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.Location = new System.Drawing.Point(3, 19);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(761, 191);
+            this.treeView1.Size = new System.Drawing.Size(761, 155);
             this.treeView1.TabIndex = 18;
             // 
             // groupBox1
@@ -236,7 +238,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox4.Controls.Add(this.TargetStatus);
             this.groupBox4.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(6, 194);
+            this.groupBox4.Location = new System.Drawing.Point(4, 230);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -252,7 +254,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TargetStatus.BackColor = System.Drawing.SystemColors.Window;
             this.TargetStatus.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TargetStatus.Location = new System.Drawing.Point(5, 19);
+            this.TargetStatus.Location = new System.Drawing.Point(6, 16);
             this.TargetStatus.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TargetStatus.Multiline = true;
             this.TargetStatus.Name = "TargetStatus";
@@ -268,11 +270,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox5.Controls.Add(this.treeView1);
             this.groupBox5.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(5, 292);
+            this.groupBox5.Location = new System.Drawing.Point(5, 328);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox5.Size = new System.Drawing.Size(767, 214);
+            this.groupBox5.Size = new System.Drawing.Size(767, 178);
             this.groupBox5.TabIndex = 22;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Source Groups";
@@ -284,7 +286,7 @@
             this.groupBox3.Controls.Add(this.comboBoxTarget);
             this.groupBox3.Controls.Add(this.elementHost);
             this.groupBox3.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(11, 138);
+            this.groupBox3.Location = new System.Drawing.Point(8, 166);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -320,6 +322,8 @@
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.buttonLoadManulTarget);
+            this.groupBox2.Controls.Add(this.checkBoxManulSetTarget);
             this.groupBox2.Controls.Add(this.labelOpenVC);
             this.groupBox2.Controls.Add(this.tBoxSlnPath);
             this.groupBox2.Controls.Add(this.elementHost1);
@@ -328,7 +332,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox2.Size = new System.Drawing.Size(760, 57);
+            this.groupBox2.Size = new System.Drawing.Size(760, 85);
             this.groupBox2.TabIndex = 24;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Target";
@@ -351,7 +355,7 @@
             this.tBoxSlnPath.Location = new System.Drawing.Point(45, 22);
             this.tBoxSlnPath.Name = "tBoxSlnPath";
             this.tBoxSlnPath.ReadOnly = true;
-            this.tBoxSlnPath.Size = new System.Drawing.Size(703, 22);
+            this.tBoxSlnPath.Size = new System.Drawing.Size(649, 22);
             this.tBoxSlnPath.TabIndex = 12;
             // 
             // elementHost1
@@ -361,7 +365,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.elementHost1.Location = new System.Drawing.Point(6, 16);
             this.elementHost1.Name = "elementHost1";
-            this.elementHost1.Size = new System.Drawing.Size(748, 34);
+            this.elementHost1.Size = new System.Drawing.Size(748, 62);
             this.elementHost1.TabIndex = 11;
             this.elementHost1.Text = "elementHost1";
             this.elementHost1.Child = null;
@@ -386,6 +390,26 @@
             this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 26;
             this.label1.Text = "输出目标";
+            // 
+            // checkBoxManulSetTarget
+            // 
+            this.checkBoxManulSetTarget.AutoSize = true;
+            this.checkBoxManulSetTarget.Location = new System.Drawing.Point(13, 50);
+            this.checkBoxManulSetTarget.Name = "checkBoxManulSetTarget";
+            this.checkBoxManulSetTarget.Size = new System.Drawing.Size(166, 18);
+            this.checkBoxManulSetTarget.TabIndex = 14;
+            this.checkBoxManulSetTarget.Text = "手动设置输出工程路径";
+            this.checkBoxManulSetTarget.UseVisualStyleBackColor = true;
+            // 
+            // buttonLoadManulTarget
+            // 
+            this.buttonLoadManulTarget.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.buttonLoadManulTarget.Location = new System.Drawing.Point(700, 22);
+            this.buttonLoadManulTarget.Name = "buttonLoadManulTarget";
+            this.buttonLoadManulTarget.Size = new System.Drawing.Size(51, 23);
+            this.buttonLoadManulTarget.TabIndex = 15;
+            this.buttonLoadManulTarget.Text = "...";
+            this.buttonLoadManulTarget.UseVisualStyleBackColor = true;
             // 
             // FormMain
             // 
@@ -456,6 +480,8 @@
         private System.Windows.Forms.Button btnSelFileName;
         private System.Windows.Forms.ComboBox comboBoxOutTarget;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox checkBoxManulSetTarget;
+        private System.Windows.Forms.Button buttonLoadManulTarget;
     }
 }
 
