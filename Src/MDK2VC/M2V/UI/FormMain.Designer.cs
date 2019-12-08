@@ -400,6 +400,7 @@
             this.checkBoxManulSetTarget.TabIndex = 14;
             this.checkBoxManulSetTarget.Text = "手动设置输出工程路径";
             this.checkBoxManulSetTarget.UseVisualStyleBackColor = true;
+            this.checkBoxManulSetTarget.CheckedChanged += new System.EventHandler(this.checkBoxManulSetTarget_CheckedChanged);
             // 
             // buttonLoadManulTarget
             // 
@@ -410,6 +411,7 @@
             this.buttonLoadManulTarget.TabIndex = 15;
             this.buttonLoadManulTarget.Text = "...";
             this.buttonLoadManulTarget.UseVisualStyleBackColor = true;
+            this.buttonLoadManulTarget.Visible = false;
             // 
             // FormMain
             // 

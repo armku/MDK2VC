@@ -332,5 +332,11 @@ namespace MDK2VC
                 Properties.Settings.Default.Save();
             }
         }
+
+        private void checkBoxManulSetTarget_CheckedChanged(object sender, EventArgs e)
+        {
+            var chk = sender as CheckBox;
+            buttonLoadManulTarget.Visible = chk.Checked;
+        }
     }
 }
