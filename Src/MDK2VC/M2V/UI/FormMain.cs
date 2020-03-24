@@ -375,6 +375,8 @@ namespace MDK2VC
             var cmb = sender as ComboBox;
             MDK2VCConfig.Current.StrMDKFilePath = cmb.Text;
             MDK2VCConfig.Current.Save();
+            cfg.FromFilePath = MDK2VCConfig.Current.StrMDKFilePath;
+            tBoxSlnPath.Text = cfg.Sln;
         }
     }
 }
