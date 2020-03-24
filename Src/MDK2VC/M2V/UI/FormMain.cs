@@ -50,6 +50,11 @@ namespace MDK2VC
             checkBoxManulSetTarget.Checked = MDK2VCConfig.Current.OutputPathManulSet;
             comboBoxOutTarget.Text = MDK2VCConfig.Current.StrOutputPathTarget;
             comboBoxMDKPath.Text = MDK2VCConfig.Current.StrMDKFilePath;
+            comboBoxMDKPath.Items.Clear();
+            foreach(var v in MDK2VCConfig.Current.StrMDKFilePathHis)
+            {
+                comboBoxMDKPath.Items.Add(v);
+            }
         }
         private void BtnTrans_Click(object sender, EventArgs e)
         {
@@ -150,7 +155,18 @@ namespace MDK2VC
             manager.To.Createlog(cfg);
             //manager.to.createvcxusers(cfg);
             label5.Text = "转换完：" + DateTime.Now.ToString("HH:mm:ss");
+            bool has = false;
             
+            foreach(var v in MDK2VCConfig.Current.StrMDKFilePathHis)
+            {
+                if (v.Equals(MDK2VCConfig.Current.StrMDKFilePath))
+                    has = true;
+            }
+            if(!has)
+            {
+                MDK2VCConfig.Current.StrMDKFilePathHis.Add(MDK2VCConfig.Current.StrMDKFilePath);
+                MDK2VCConfig.Current.Save();
+            }
         }
         /// <summary>
         /// 打开文件

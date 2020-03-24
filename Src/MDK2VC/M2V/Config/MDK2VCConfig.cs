@@ -29,5 +29,10 @@ namespace MDK2VC.M2V.Config
         /// </summary>
         [Description("mdk工程路径")]
         public String StrMDKFilePath { get; set; } = "";
+        /// <summary>
+        /// 历史
+        /// </summary>
+        [Description("历史")]
+        public List<String> StrMDKFilePathHis { get; set; } = new List<string>();
     }
 }
