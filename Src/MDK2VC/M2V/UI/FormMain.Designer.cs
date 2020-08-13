@@ -55,13 +55,18 @@
             this.comboBoxTarget = new System.Windows.Forms.ComboBox();
             this.elementHost = new System.Windows.Forms.Integration.ElementHost();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.buttonLoadManulTarget = new System.Windows.Forms.Button();
+            this.checkBoxManulSetTarget = new System.Windows.Forms.CheckBox();
             this.labelOpenVC = new System.Windows.Forms.Label();
             this.tBoxSlnPath = new System.Windows.Forms.TextBox();
             this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
             this.comboBoxOutTarget = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.checkBoxManulSetTarget = new System.Windows.Forms.CheckBox();
-            this.buttonLoadManulTarget = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.工具ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.清理路径ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.退出ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -69,12 +74,13 @@
             this.groupBox5.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnTrans
             // 
             this.btnTrans.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnTrans.Location = new System.Drawing.Point(11, 510);
+            this.btnTrans.Location = new System.Drawing.Point(11, 582);
             this.btnTrans.Name = "btnTrans";
             this.btnTrans.Size = new System.Drawing.Size(75, 23);
             this.btnTrans.TabIndex = 4;
@@ -85,7 +91,7 @@
             // btnTest
             // 
             this.btnTest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnTest.Location = new System.Drawing.Point(136, 510);
+            this.btnTest.Location = new System.Drawing.Point(136, 582);
             this.btnTest.Name = "btnTest";
             this.btnTest.Size = new System.Drawing.Size(75, 23);
             this.btnTest.TabIndex = 9;
@@ -97,7 +103,7 @@
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(261, 515);
+            this.label5.Location = new System.Drawing.Point(261, 587);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(41, 12);
             this.label5.TabIndex = 15;
@@ -142,7 +148,7 @@
             this.toolStripStatusLabel3,
             this.toolStripStatusLabel4,
             this.toolStripStatusLabel5});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 539);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 611);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(784, 22);
             this.statusStrip1.TabIndex = 17;
@@ -183,7 +189,7 @@
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeView1.Location = new System.Drawing.Point(3, 19);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(761, 155);
+            this.treeView1.Size = new System.Drawing.Size(761, 227);
             this.treeView1.TabIndex = 18;
             // 
             // groupBox1
@@ -275,7 +281,7 @@
             this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox5.Size = new System.Drawing.Size(767, 178);
+            this.groupBox5.Size = new System.Drawing.Size(767, 250);
             this.groupBox5.TabIndex = 22;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Source Groups";
@@ -338,6 +344,28 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Target";
             // 
+            // buttonLoadManulTarget
+            // 
+            this.buttonLoadManulTarget.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.buttonLoadManulTarget.Location = new System.Drawing.Point(700, 22);
+            this.buttonLoadManulTarget.Name = "buttonLoadManulTarget";
+            this.buttonLoadManulTarget.Size = new System.Drawing.Size(51, 23);
+            this.buttonLoadManulTarget.TabIndex = 15;
+            this.buttonLoadManulTarget.Text = "...";
+            this.buttonLoadManulTarget.UseVisualStyleBackColor = true;
+            this.buttonLoadManulTarget.Visible = false;
+            // 
+            // checkBoxManulSetTarget
+            // 
+            this.checkBoxManulSetTarget.AutoSize = true;
+            this.checkBoxManulSetTarget.Location = new System.Drawing.Point(13, 50);
+            this.checkBoxManulSetTarget.Name = "checkBoxManulSetTarget";
+            this.checkBoxManulSetTarget.Size = new System.Drawing.Size(166, 18);
+            this.checkBoxManulSetTarget.TabIndex = 14;
+            this.checkBoxManulSetTarget.Text = "手动设置输出工程路径";
+            this.checkBoxManulSetTarget.UseVisualStyleBackColor = true;
+            this.checkBoxManulSetTarget.CheckedChanged += new System.EventHandler(this.checkBoxManulSetTarget_CheckedChanged);
+            // 
             // labelOpenVC
             // 
             this.labelOpenVC.AutoSize = true;
@@ -393,33 +421,52 @@
             this.label1.TabIndex = 26;
             this.label1.Text = "输出目标";
             // 
-            // checkBoxManulSetTarget
+            // menuStrip1
             // 
-            this.checkBoxManulSetTarget.AutoSize = true;
-            this.checkBoxManulSetTarget.Location = new System.Drawing.Point(13, 50);
-            this.checkBoxManulSetTarget.Name = "checkBoxManulSetTarget";
-            this.checkBoxManulSetTarget.Size = new System.Drawing.Size(166, 18);
-            this.checkBoxManulSetTarget.TabIndex = 14;
-            this.checkBoxManulSetTarget.Text = "手动设置输出工程路径";
-            this.checkBoxManulSetTarget.UseVisualStyleBackColor = true;
-            this.checkBoxManulSetTarget.CheckedChanged += new System.EventHandler(this.checkBoxManulSetTarget_CheckedChanged);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.文件ToolStripMenuItem,
+            this.工具ToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(784, 25);
+            this.menuStrip1.TabIndex = 27;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // buttonLoadManulTarget
+            // 文件ToolStripMenuItem
             // 
-            this.buttonLoadManulTarget.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.buttonLoadManulTarget.Location = new System.Drawing.Point(700, 22);
-            this.buttonLoadManulTarget.Name = "buttonLoadManulTarget";
-            this.buttonLoadManulTarget.Size = new System.Drawing.Size(51, 23);
-            this.buttonLoadManulTarget.TabIndex = 15;
-            this.buttonLoadManulTarget.Text = "...";
-            this.buttonLoadManulTarget.UseVisualStyleBackColor = true;
-            this.buttonLoadManulTarget.Visible = false;
+            this.文件ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.退出ToolStripMenuItem1});
+            this.文件ToolStripMenuItem.Name = "文件ToolStripMenuItem";
+            this.文件ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.文件ToolStripMenuItem.Text = "文件";
+            // 
+            // 工具ToolStripMenuItem
+            // 
+            this.工具ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.清理路径ToolStripMenuItem});
+            this.工具ToolStripMenuItem.Name = "工具ToolStripMenuItem";
+            this.工具ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
+            this.工具ToolStripMenuItem.Text = "工具";
+            // 
+            // 清理路径ToolStripMenuItem
+            // 
+            this.清理路径ToolStripMenuItem.Name = "清理路径ToolStripMenuItem";
+            this.清理路径ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.清理路径ToolStripMenuItem.Text = "清理路径";
+            this.清理路径ToolStripMenuItem.Click += new System.EventHandler(this.清理路径ToolStripMenuItem_Click);
+            // 
+            // 退出ToolStripMenuItem1
+            // 
+            this.退出ToolStripMenuItem1.Name = "退出ToolStripMenuItem1";
+            this.退出ToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.退出ToolStripMenuItem1.Text = "退出";
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(784, 633);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBoxOutTarget);
             this.Controls.Add(this.groupBox2);
@@ -448,6 +495,8 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -486,6 +535,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox checkBoxManulSetTarget;
         private System.Windows.Forms.Button buttonLoadManulTarget;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 文件ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 工具ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 清理路径ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 退出ToolStripMenuItem1;
     }
 }
 

@@ -272,6 +272,10 @@ namespace MDK2VC
             }
             return tree1;
         }
+        /// <summary>
+        /// 显示历史记录
+        /// </summary>
+        /// <param name="tree1"></param>
         void ShowFiles(BTree<Node> tree1)
         {
             var tn = new TreeNode
@@ -377,6 +381,18 @@ namespace MDK2VC
             MDK2VCConfig.Current.Save();
             cfg.FromFilePath = MDK2VCConfig.Current.StrMDKFilePath;
             tBoxSlnPath.Text = cfg.Sln;
+        }
+
+        private void 清理路径ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MDK2VCConfig.Current.StrMDKFilePathHis.Clear();
+            MDK2VCConfig.Current.StrMDKFilePathHis.Add(MDK2VCConfig.Current.StrMDKFilePath);
+            comboBoxMDKPath.Items.Clear();
+            foreach (var v in MDK2VCConfig.Current.StrMDKFilePathHis)
+            {
+                comboBoxMDKPath.Items.Add(v);
+            }
+            MDK2VCConfig.Current.Save();
         }
     }
 }
