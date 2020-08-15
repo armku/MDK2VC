@@ -55,6 +55,12 @@
   <ItemGroup>
     <Compile Include="M2V\Config\MDK2VCConfig.cs" />
     <Compile Include="M2V\SysConfig.cs" />
+    <Compile Include="M2V\UI\FormHelper.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="M2V\UI\FormHelper.Designer.cs">
+      <DependentUpon>FormHelper.cs</DependentUpon>
+    </Compile>
     <Compile Include="M2V\UI\FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,9 @@
     <Compile Include="M2V\Xml\To\ToVC2017.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="M2V\UI\FormHelper.resx">
+      <DependentUpon>FormHelper.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="M2V\UI\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>

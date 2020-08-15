@@ -477,6 +477,7 @@
             this.使用说明ToolStripMenuItem.Name = "使用说明ToolStripMenuItem";
             this.使用说明ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.使用说明ToolStripMenuItem.Text = "使用说明";
+            this.使用说明ToolStripMenuItem.Click += new System.EventHandler(this.使用说明ToolStripMenuItem_Click);
             // 
             // FormMain
             // 

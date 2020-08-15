@@ -1,5 +1,6 @@
 ﻿using MDK2VC.M2V;
 using MDK2VC.M2V.Config;
+using MDK2VC.M2V.UI;
 using MDK2VC.M2V.Xml;
 using System;
 using System.Collections.Generic;
@@ -393,6 +394,11 @@ namespace MDK2VC
                 comboBoxMDKPath.Items.Add(v);
             }
             MDK2VCConfig.Current.Save();
+        }
+
+        private void 使用说明ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FormHelper().ShowDialog();
         }
     }
 }
