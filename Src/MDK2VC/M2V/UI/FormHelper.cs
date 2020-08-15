@@ -15,5 +15,10 @@ namespace MDK2VC.M2V.UI
         {
             InitializeComponent();
         }
+
+        private void FormHelper_Load(object sender, EventArgs e)
+        {
+            pictureBox1.Focus();
+        }
     }
 }
