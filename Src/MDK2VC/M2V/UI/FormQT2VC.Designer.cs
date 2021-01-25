@@ -30,9 +30,9 @@ namespace MDK2VC.M2V.UI
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.mDK2VCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.mDK2VCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,6 +45,13 @@ namespace MDK2VC.M2V.UI
             this.menuStrip1.Size = new System.Drawing.Size(800, 25);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // mDK2VCToolStripMenuItem
+            // 
+            this.mDK2VCToolStripMenuItem.Name = "mDK2VCToolStripMenuItem";
+            this.mDK2VCToolStripMenuItem.Size = new System.Drawing.Size(72, 21);
+            this.mDK2VCToolStripMenuItem.Text = "MDK2VC";
+            this.mDK2VCToolStripMenuItem.Click += new System.EventHandler(this.mDK2VCToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -62,13 +69,6 @@ namespace MDK2VC.M2V.UI
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // mDK2VCToolStripMenuItem
-            // 
-            this.mDK2VCToolStripMenuItem.Name = "mDK2VCToolStripMenuItem";
-            this.mDK2VCToolStripMenuItem.Size = new System.Drawing.Size(72, 21);
-            this.mDK2VCToolStripMenuItem.Text = "MDK2VC";
-            this.mDK2VCToolStripMenuItem.Click += new System.EventHandler(this.mDK2VCToolStripMenuItem_Click);
-            // 
             // FormQT2VC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -79,6 +79,7 @@ namespace MDK2VC.M2V.UI
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormQT2VC";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormQT2VC";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
