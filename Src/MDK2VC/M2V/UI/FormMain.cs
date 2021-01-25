@@ -400,5 +400,10 @@ namespace MDK2VC
         {
             new FormHelper().ShowDialog();
         }
+
+        private void qT2VCToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

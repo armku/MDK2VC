@@ -69,6 +69,7 @@
             this.清理路径ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.使用说明ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.qT2VCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -428,7 +429,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.文件ToolStripMenuItem,
             this.工具ToolStripMenuItem,
-            this.帮助ToolStripMenuItem});
+            this.帮助ToolStripMenuItem,
+            this.qT2VCToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(784, 25);
@@ -446,7 +448,7 @@
             // 退出ToolStripMenuItem1
             // 
             this.退出ToolStripMenuItem1.Name = "退出ToolStripMenuItem1";
-            this.退出ToolStripMenuItem1.Size = new System.Drawing.Size(100, 22);
+            this.退出ToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.退出ToolStripMenuItem1.Text = "退出";
             // 
             // 工具ToolStripMenuItem
@@ -460,7 +462,7 @@
             // 清理路径ToolStripMenuItem
             // 
             this.清理路径ToolStripMenuItem.Name = "清理路径ToolStripMenuItem";
-            this.清理路径ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.清理路径ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.清理路径ToolStripMenuItem.Text = "清理路径";
             this.清理路径ToolStripMenuItem.Click += new System.EventHandler(this.清理路径ToolStripMenuItem_Click);
             // 
@@ -478,6 +480,13 @@
             this.使用说明ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.使用说明ToolStripMenuItem.Text = "使用说明";
             this.使用说明ToolStripMenuItem.Click += new System.EventHandler(this.使用说明ToolStripMenuItem_Click);
+            // 
+            // qT2VCToolStripMenuItem
+            // 
+            this.qT2VCToolStripMenuItem.Name = "qT2VCToolStripMenuItem";
+            this.qT2VCToolStripMenuItem.Size = new System.Drawing.Size(60, 21);
+            this.qT2VCToolStripMenuItem.Text = "QT2VC";
+            this.qT2VCToolStripMenuItem.Click += new System.EventHandler(this.qT2VCToolStripMenuItem_Click);
             // 
             // FormMain
             // 
@@ -560,6 +569,7 @@
         private System.Windows.Forms.ToolStripMenuItem 退出ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem 帮助ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 使用说明ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem qT2VCToolStripMenuItem;
     }
 }
 
