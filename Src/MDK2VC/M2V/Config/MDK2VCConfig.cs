@@ -35,6 +35,11 @@ namespace MDK2VC.M2V.Config
         [Description("QT工程路径")]
         public String StrQTFilePath { get; set; } = "";
         /// <summary>
+        /// QTVs工程路径
+        /// </summary>
+        [Description("QTVs工程路径")]
+        public String StrQTVsFilePath { get; set; } = "";
+        /// <summary>
         /// 历史
         /// </summary>
         [Description("历史")]
