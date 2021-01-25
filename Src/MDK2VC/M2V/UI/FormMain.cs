@@ -403,7 +403,9 @@ namespace MDK2VC
 
         private void qT2VCToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            new FormQT2VC().ShowDialog();
+            this.Show();
         }
     }
 }
