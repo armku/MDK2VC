@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MDK2VC.M2V.Config;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,6 +25,28 @@ namespace MDK2VC.M2V.UI
         private void btnTest_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnSelFileName_Click(object sender, EventArgs e)
+        {
+            var fileDlg = new OpenFileDialog
+            {
+                Multiselect = true,
+                Title = "请选择文件",
+                Filter = "QT|*.pro"
+            };
+            if (fileDlg.ShowDialog() == DialogResult.OK)
+            {
+                comboBoxMDKPath.Text = fileDlg.FileName;
+                tBoxSlnPath.Text = comboBoxMDKPath.Text +@"VC2019\MCU2080B.sln";
+            }
+            MDK2VCConfig.Current.StrQTFilePath = comboBoxMDKPath.Text;
+            MDK2VCConfig.Current.Save();
+        }
+
+        private void FormQT2VC_Load(object sender, EventArgs e)
+        {
+            comboBoxMDKPath.Text = MDK2VCConfig.Current.StrQTFilePath;
         }
     }
 }

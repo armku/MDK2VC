@@ -105,6 +105,7 @@ namespace MDK2VC.M2V.UI
             this.btnSelFileName.TabIndex = 5;
             this.btnSelFileName.Text = "...";
             this.btnSelFileName.UseVisualStyleBackColor = true;
+            this.btnSelFileName.Click += new System.EventHandler(this.btnSelFileName_Click);
             // 
             // comboBoxMDKPath
             // 
@@ -224,6 +225,7 @@ namespace MDK2VC.M2V.UI
             this.Name = "FormQT2VC";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormQT2VC";
+            this.Load += new System.EventHandler(this.FormQT2VC_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
