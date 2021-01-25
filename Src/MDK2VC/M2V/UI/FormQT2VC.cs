@@ -262,10 +262,10 @@ namespace MDK2VC.M2V.UI
             builder.AppendLine(@"  </ImportGroup>");
             builder.AppendLine(@"</Project>");
 
-            if (!Directory.Exists(cfg.VCPath))
-            {
-                Directory.CreateDirectory(cfg.VCPath);
-            }
+            //if (!Directory.Exists(cfg.VCPath))
+            //{
+            //    Directory.CreateDirectory(cfg.VCPath);
+            //}
             var fs = new FileStream(cfg.Vcxproj, FileMode.Create);
             byte[] data = new UTF8Encoding().GetBytes(builder.ToString());
             fs.Write(data);
@@ -284,7 +284,17 @@ namespace MDK2VC.M2V.UI
             }
 
             tosln();
-            Createvcxproj();
+
+
+           cfg.Filters="";
+            cfg.ToFilter_FileFolders="";
+            cfg.ToFilter_files="";
+            cfg.ToProj_Files="";
+            cfg.VCPath="";
+            cfg.Vcxproj="";
+            cfg.MacroDefineStr="";
+            cfg.IncludePathStr="";
+        Createvcxproj();
             Createfilters();
 
         }
