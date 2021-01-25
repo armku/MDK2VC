@@ -20,5 +20,10 @@ namespace MDK2VC.M2V.UI
         {
             base.Close();
         }
+
+        private void btnTest_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
