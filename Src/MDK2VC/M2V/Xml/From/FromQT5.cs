@@ -137,11 +137,78 @@ namespace MDK2VC.M2V.Xml
                     if (vn.StartsWith("SOURCES"))
                         continue;
 
-                    var tree21 = new BTree<Node>
+                    var vns = vn.Split('/');
+
+                    if (vns.Length == 1)
                     {
-                        Data = new Node(vn, "", false)
-                    };
-                    tree2.AddNode(tree21);
+                        var tree00 = new BTree<Node>
+                        {
+                            Data = new Node(vns[0], "", false)
+                        };
+                        tree2.AddNode(tree00);
+                    }
+                    else if(vns.Length==2)
+                    {
+                        var tree00 = new BTree<Node>
+                        {
+                            Data = new Node(vns[0], "", false)
+                        };
+                        var tree01 = new BTree<Node>
+                        {
+                            Data = new Node(vns[1], "", false)
+                        };
+                        tree00.AddNode(tree01);
+
+                        tree2.AddNode(tree00);
+                    }
+                    else if (vns.Length == 3)
+                    {
+                        var tree00 = new BTree<Node>
+                        {
+                            Data = new Node(vns[0], "", false)
+                        };
+                        var tree01 = new BTree<Node>
+                        {
+                            Data = new Node(vns[1], "", false)
+                        };
+                        var tree02 = new BTree<Node>
+                        {
+                            Data = new Node(vns[2], "", false)
+                        };
+
+                        tree01.AddNode(tree02);
+
+                        tree00.AddNode(tree01);
+
+                        tree2.AddNode(tree00);
+                    }
+                    else if (vns.Length == 4)
+                    {
+                        var tree00 = new BTree<Node>
+                        {
+                            Data = new Node(vns[0], "", false)
+                        };
+                        var tree01 = new BTree<Node>
+                        {
+                            Data = new Node(vns[1], "", false)
+                        };
+                        var tree02 = new BTree<Node>
+                        {
+                            Data = new Node(vns[2], "", false)
+                        };
+                        var tree03 = new BTree<Node>
+                        {
+                            Data = new Node(vns[3], "", false)
+                        };
+
+                        tree02.AddNode(tree03);
+
+                        tree01.AddNode(tree02);
+
+                        tree00.AddNode(tree01);
+
+                        tree2.AddNode(tree00);
+                    }
                 }
 
                 //System.Windows.Forms.MessageBox.Show(SOURCES);
