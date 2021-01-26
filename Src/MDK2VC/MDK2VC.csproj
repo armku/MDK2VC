@@ -68,12 +68,6 @@
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
     <Compile Include="M2V\CoreManager.cs" />
-    <Compile Include="M2V\UI\FormQT2VC.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="M2V\UI\FormQT2VC.Designer.cs">
-      <DependentUpon>FormQT2VC.cs</DependentUpon>
-    </Compile>
     <Compile Include="M2V\Xml\BTree.cs" />
     <Compile Include="M2V\Xml\From\Fromcyprj.cs" />
     <Compile Include="M2V\Xml\From\Fromuvproj.cs" />
@@ -89,9 +83,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="M2V\UI\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="M2V\UI\FormQT2VC.resx">
-      <DependentUpon>FormQT2VC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

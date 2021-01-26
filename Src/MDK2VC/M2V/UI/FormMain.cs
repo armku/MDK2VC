@@ -344,7 +344,7 @@ namespace MDK2VC
             {
                 Multiselect = true,
                 Title = "请选择文件",
-                Filter = "MDK|*.uvprojx;*.uvproj;*cyprj"
+                Filter = "MDK|*.uvprojx;*.uvproj;*cyprj;*.pro"
             };
             if (fileDlg.ShowDialog() == DialogResult.OK)
             {
@@ -399,13 +399,6 @@ namespace MDK2VC
         private void 使用说明ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new FormHelper().ShowDialog();
-        }
-
-        private void qT2VCToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            new FormQT2VC().ShowDialog();
-            this.Show();
         }
     }
 }
