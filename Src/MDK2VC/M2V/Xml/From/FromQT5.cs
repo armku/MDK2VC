@@ -143,7 +143,7 @@ namespace MDK2VC.M2V.Xml
                     {
                         var tree00 = new BTree<Node>
                         {
-                            Data = new Node(vns[0], "", false)
+                            Data = new Node(vn, "", false)
                         };
                         tree2.AddNode(tree00);
                     }
@@ -155,7 +155,7 @@ namespace MDK2VC.M2V.Xml
                         };
                         var tree01 = new BTree<Node>
                         {
-                            Data = new Node(vns[1], "", false)
+                            Data = new Node(vn, "", false)
                         };
                         tree00.AddNode(tree01);
 
@@ -173,7 +173,7 @@ namespace MDK2VC.M2V.Xml
                         };
                         var tree02 = new BTree<Node>
                         {
-                            Data = new Node(vns[2], "", false)
+                            Data = new Node(vn, "", false)
                         };
 
                         tree01.AddNode(tree02);
@@ -198,7 +198,7 @@ namespace MDK2VC.M2V.Xml
                         };
                         var tree03 = new BTree<Node>
                         {
-                            Data = new Node(vns[3], "", false)
+                            Data = new Node(vn, "", false)
                         };
 
                         tree02.AddNode(tree03);
