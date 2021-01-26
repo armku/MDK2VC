@@ -144,7 +144,7 @@ namespace MDK2VC.M2V.Xml
                     tree2.AddNode(tree21);
                 }
 
-                System.Windows.Forms.MessageBox.Show(SOURCES);
+                //System.Windows.Forms.MessageBox.Show(SOURCES);
                 //System.Windows.Forms.MessageBox.Show(HEADERS);
 
             }
