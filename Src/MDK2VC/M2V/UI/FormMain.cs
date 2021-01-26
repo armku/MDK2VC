@@ -87,6 +87,9 @@ namespace MDK2VC
                 case ".cyprj":
                     manager.From = new Fromcyprj();
                     break;
+                case ".pro":
+                    manager.From = new FromQT5();
+                    break;
                 default:
                     break;
             }
