@@ -84,7 +84,10 @@ namespace MDK2VC.M2V.Xml
             {
                 Data = new Node("文件", "", true)
             };
-
+            var tree2 = new BTree<Node>
+            {
+                Data = new Node("QT", "", false)
+            };
             using (StreamReader sr = new StreamReader(filename))
             {
                 string line;
@@ -113,7 +116,7 @@ namespace MDK2VC.M2V.Xml
                     }
                 }
 
-                System.Windows.Forms.MessageBox.Show(files);
+                //System.Windows.Forms.MessageBox.Show(files);
 
                 //分析文件
                 var fileline = files.Split(Environment.NewLine);
@@ -123,34 +126,30 @@ namespace MDK2VC.M2V.Xml
                     {
                         SOURCES = vn;
                     }
+                    if (vn.StartsWith("HEADERS"))
+                    {
+                        HEADERS = vn;
+                    }
+                }
+                var sourceline = SOURCES.Split(";");
+                foreach(var vn in sourceline)
+                {
+                    if (vn.StartsWith("SOURCES"))
+                        continue;
+
+                    var tree21 = new BTree<Node>
+                    {
+                        Data = new Node(vn, "", false)
+                    };
+                    tree2.AddNode(tree21);
                 }
 
-
                 System.Windows.Forms.MessageBox.Show(SOURCES);
-
-
-
+                //System.Windows.Forms.MessageBox.Show(HEADERS);
 
             }
 
-
-            var tree2 = new BTree<Node>
-            {
-                Data = new Node("AA.C", "", false)
-            };
             tree1.AddNode(tree2);
-
-
-
-
-            var tree3 = new BTree<Node>
-            {
-                Data = new Node("BB.C", "", false)
-            };
-            tree2.AddNode(tree3);
-
-
-
 
             return tree1;
         }
