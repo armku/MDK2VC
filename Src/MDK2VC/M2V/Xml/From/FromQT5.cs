@@ -53,7 +53,8 @@ namespace MDK2VC.M2V.Xml
         public List<String> GetIncludePath(string path)
         {
             var ret = new List<String>();
-
+            var aa = Path.GetDirectoryName(path);
+            ret.Add(aa);
             return ret;
         }
         /// <summary>
