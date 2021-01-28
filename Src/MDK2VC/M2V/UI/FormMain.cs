@@ -35,7 +35,7 @@ namespace MDK2VC
                 cfg.FromFilePath = ".uvprojx";
             comboBoxMDKPath.Text = cfg.FromFilePath;
             tBoxSlnPath.Text = cfg.Sln;
-            this.Text = "MDK4 MDK5 2 VC Ver:"+ Assembly.GetExecutingAssembly().GetName().Version.ToString() + " Net:"+System.Environment.Version.ToString();
+            this.Text += " Ver:"+ Assembly.GetExecutingAssembly().GetName().Version.ToString() + " Net:"+System.Environment.Version.ToString();
             switch(cfg.TargetType)
             {
                 case 2019:
