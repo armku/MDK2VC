@@ -33,6 +33,9 @@ namespace MDK2VC
             this.Text += " Ver:"+ Assembly.GetExecutingAssembly().GetName().Version.ToString() + " Net:"+System.Environment.Version.ToString();
             switch(cfg.TargetType)
             {
+                case 2013:
+                    comboBoxOutTarget.Text = "VC2013";
+                    break;
                 case 2017:
                     comboBoxOutTarget.Text = "VC2017";
                     break;
@@ -57,7 +60,11 @@ namespace MDK2VC
         }
         private void BtnTrans_Click(object sender, EventArgs e)
         {
-            if (comboBoxOutTarget.Text.Contains("2017"))
+            if (comboBoxOutTarget.Text.Contains("2013"))
+            {
+                cfg.TargetType = 2013;
+            }
+            else if (comboBoxOutTarget.Text.Contains("2017"))
             {
                 cfg.TargetType = 2017;
             }
@@ -95,7 +102,11 @@ namespace MDK2VC
                 default:
                     break;
             }
-            if (cfg.TargetType == 2017)
+            if (cfg.TargetType == 2013)
+            {
+                manager.To = new ToVC2013();
+            }
+            else if (cfg.TargetType == 2017)
             {
                 manager.To = new ToVC2017();
             }

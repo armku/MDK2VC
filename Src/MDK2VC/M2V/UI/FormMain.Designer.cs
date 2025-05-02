@@ -407,7 +407,8 @@
             this.comboBoxOutTarget.Items.AddRange(new object[] {
             "VC2022",
             "VC2019",
-            "VC2017"});
+            "VC2017",
+            "VC2013"});
             this.comboBoxOutTarget.Location = new System.Drawing.Point(552, 512);
             this.comboBoxOutTarget.Name = "comboBoxOutTarget";
             this.comboBoxOutTarget.Size = new System.Drawing.Size(121, 20);
