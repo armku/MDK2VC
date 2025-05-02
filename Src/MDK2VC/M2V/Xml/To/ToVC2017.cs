@@ -150,7 +150,6 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine(@"    </Link>");
             builder.AppendLine(@"  </ItemDefinitionGroup>");
             builder.AppendLine(@"  <ItemGroup>");
-            //Fromuvprojx.getGroupsToProj(builder, cfg.MdkPath);
             builder.Append(cfg.ToProj_Files.ToString());
             builder.AppendLine(@"  </ItemGroup>");
             builder.AppendLine("  <Import Project=\"$(VCTargetsPath)\\Microsoft.Cpp.targets\" />");
@@ -176,11 +175,9 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("<Project DefaultTargets=\"Build\" ToolsVersion=\"4.0\" xmlns=\"http://schemas.microsoft.com/developer/msbuild/2003\">");
             builder.AppendLine("  <ItemGroup>");
             builder.Append(cfg.ToFilter_files.ToString());
-            //Fromuvprojx.getGrouptoFilters(builder, cfg.MdkPath);
             builder.AppendLine("  </ItemGroup>");
             builder.AppendLine("  <ItemGroup>");
             builder.Append(cfg.ToFilter_FileFolders.ToString());
-            //Fromuvprojx.getGroupsToFilters(builder, cfg.MdkPath);
             builder.AppendLine("  </ItemGroup>");
             builder.AppendLine("</Project>");
             var fs = new FileStream(cfg.Filters, FileMode.Create);
@@ -210,48 +207,37 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("# Visual Studio 2013");
             builder.AppendLine("VisualStudioVersion = 12.0.21005.1");
             builder.AppendLine("MinimumVisualStudioVersion = 10.0.40219.1");
-
             builder.Append("Project(\"{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}\") = \"");
             builder.Append(cfg.FileNameWithoutExtension);
             builder.Append("\",\"");
             builder.Append(cfg.FileNameWithoutExtension);
-            //builder.AppendLine(".vcxproj\", \"{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}\"");
             builder.Append(".vcxproj\", \"");
             builder.Append(cfg.Projguidvc);
             builder.AppendLine("\"");
-
             builder.AppendLine("EndProject");
             builder.AppendLine("Global");
             builder.AppendLine("	GlobalSection(SolutionConfigurationPlatforms) = preSolution");
-            //builder.AppendLine("		Debug|x64 = Debug|x64");
             builder.Append("		");
             builder.Append(cfg.FileNameWithoutExtension);
             builder.Append("|x86 = ");
             builder.Append(cfg.FileNameWithoutExtension);
             builder.AppendLine("|x86");
-
             builder.AppendLine("	EndGlobalSection");
             builder.AppendLine("	GlobalSection(ProjectConfigurationPlatforms) = postSolution");
-            //builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Debug|x64.ActiveCfg = Debug|x64");
             builder.Append("		");
             builder.Append(cfg.Projguidvc);
-            //builder.AppendLine(".Debug|x64.ActiveCfg = Debug|x64");
             builder.Append(".");
             builder.Append(cfg.FileNameWithoutExtension);
             builder.Append("|x86.ActiveCfg = ");
             builder.Append(cfg.FileNameWithoutExtension);
             builder.AppendLine("|Win32");
-
-            //builder.AppendLine("		{0CEFE3F1-D04E-4470-8EBF-0A193EAD57AD}.Debug|x64.Build.0 = Debug|x64");
             builder.Append("		");
             builder.Append(cfg.Projguidvc);
-            //builder.AppendLine(".Debug|x64.Build.0 = Debug|x64");
             builder.Append(".");
             builder.Append(cfg.FileNameWithoutExtension);
             builder.Append("|x86.Build.0 = ");
             builder.Append(cfg.FileNameWithoutExtension);
             builder.AppendLine("|Win32");
-
             builder.AppendLine("	EndGlobalSection");
             builder.AppendLine("	GlobalSection(SolutionProperties) = preSolution");
             builder.AppendLine("		HideSolutionNode = FALSE");
@@ -277,24 +263,18 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("<?xml version=\"1.0\" encoding=\"utf - 8\"?>");
             builder.AppendLine("<Project ToolsVersion=\"4.0\" xmlns=\"http://schemas.microsoft.com/developer/msbuild/2003\">");
             builder.AppendLine("  <PropertyGroup Condition=\"'$(Configuration)|$(Platform)'=='rtt_stm32|Win32'\">");
-            //builder.AppendLine(@"    <LocalDebuggerCommand>C:\Keil\UV4\UV4.exe </LocalDebuggerCommand>");
             builder.Append(@"    <LocalDebuggerCommand>");
             builder.Append(cfg.UV4_Path);
             builder.AppendLine(@" </LocalDebuggerCommand>");
-
-            //builder.AppendLine("    <LocalDebuggerCommandArguments>-d rtt_stm32.uvproj -t \"rtt_stm32\"</LocalDebuggerCommandArguments>");
             builder.Append("    <LocalDebuggerCommandArguments>-d ");
             builder.Append(cfg.FileNameWithoutExtension);
             builder.Append(".uvproj -t \"");
             builder.Append(cfg.FileNameWithoutExtension);
             builder.Append("\"</LocalDebuggerCommandArguments>");
             builder.AppendLine("\"</LocalDebuggerCommandArguments>");
-
-            //builder.AppendLine(@"    <LocalDebuggerWorkingDirectory>..\MDK_Project\</LocalDebuggerWorkingDirectory>");
             builder.Append(@"    <LocalDebuggerWorkingDirectory>");
             builder.Append(@"..\");
             builder.AppendLine(@"</LocalDebuggerWorkingDirectory>");
-
             builder.AppendLine("    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>");
             builder.AppendLine("  </PropertyGroup>");
             builder.AppendLine("  <PropertyGroup>");
