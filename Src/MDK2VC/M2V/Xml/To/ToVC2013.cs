@@ -2,21 +2,22 @@
 
 namespace MDK2VC.M2V.Xml
 {
-    public class ToVC2022 : ToVCBase, IToVC
+    public class ToVC2013 : ToVCBase, IToVC
     {
         public void Createsln(SysConfig cfg)
         {
             var builder = new StringBuilder();
+
             builder.AppendLine("Microsoft Visual Studio Solution File, Format Version 12.00");
-            builder.AppendLine("# Visual Studio Version 16");
-            builder.AppendLine("VisualStudioVersion = 16.0.29201.188");
-            builder.AppendLine("MinimumVisualStudioVersion = 10.0.40219.1"); 
+            builder.AppendLine("# Visual Studio 2013");
+            builder.AppendLine("VisualStudioVersion = 12.0.21005.1");
+            builder.AppendLine("MinimumVisualStudioVersion = 10.0.40219.1");
 
             CreateslnBase(cfg, builder.ToString());
         }
         public void Createvcxproj(SysConfig cfg)
         {
-            CreatevcxprojBase(cfg, 143);
+            CreatevcxprojBase(cfg, 141);
         }
     }
 }

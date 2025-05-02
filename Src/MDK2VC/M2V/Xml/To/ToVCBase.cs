@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MDK2VC.M2V.Xml
 {
-    public class ToVC2019Base
+    public class ToVCBase
     {
         public void Createfilters(SysConfig cfg)
         {

@@ -2,7 +2,7 @@
 
 namespace MDK2VC.M2V.Xml
 {
-    public class ToVC2019 : ToVC2019Base, IToVC
+    public class ToVC2019 : ToVCBase, IToVC
     {
         public void Createsln(SysConfig cfg)
         {
