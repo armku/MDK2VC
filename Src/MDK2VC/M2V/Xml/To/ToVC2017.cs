@@ -27,113 +27,6 @@ namespace MDK2VC.M2V.Xml
             var builder = new StringBuilder();
             builder.AppendLine("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
             builder.AppendLine("<Project DefaultTargets=\"Build\" ToolsVersion=\"15.0\" xmlns=\"http://schemas.microsoft.com/developer/msbuild/2003\">");
-#if FLAGNMAKE                        
-            builder.AppendLine("  <ItemGroup Label=\"ProjectConfigurations\">");
-            //builder.AppendLine("    <ProjectConfiguration Include=\"rtt_stm32|Win32\">");
-            builder.Append("    <ProjectConfiguration Include=\"");
-            builder.Append(cfg.FileNameWithoutExtension);
-            builder.AppendLine("|Win32\">");
-
-            //builder.AppendLine("      <Configuration>rtt_stm32</Configuration>");
-            builder.Append("      <Configuration>");
-            builder.Append(cfg.FileNameWithoutExtension);
-            builder.AppendLine("</Configuration>");
-
-
-            builder.AppendLine("      <Platform>Win32</Platform>");
-            builder.AppendLine("    </ProjectConfiguration>");
-            builder.AppendLine("  </ItemGroup>");
-            builder.AppendLine("  <PropertyGroup Label=\"Globals\">");
-            //builder.AppendLine("    <ProjectGuid>{e7b8d0e4-50a4-40fd-a6bd-3e7c38558110}</ProjectGuid>");
-            builder.Append("    <ProjectGuid>");
-            builder.Append(cfg.projguidvc);
-            builder.AppendLine("</ProjectGuid>");
-            
-            builder.AppendLine("    <Keyword>MakeFileProj</Keyword>");
-            builder.AppendLine("    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>");
-            builder.AppendLine("  </PropertyGroup>");
-            builder.AppendLine("  <Import Project=\"$(VCTargetsPath)\\Microsoft.Cpp.Default.props\" />");
-            //builder.AppendLine("  <PropertyGroup Condition=\"'$(Configuration)|$(Platform)'=='rtt_stm32|Win32'\" Label=\"Configuration\">");
-            builder.Append("  <PropertyGroup Condition=\"'$(Configuration)|$(Platform)'=='");
-            builder.Append(cfg.FileNameWithoutExtension);
-            builder.AppendLine("|Win32'\" Label=\"Configuration\">");
-
-            builder.AppendLine("    <ConfigurationType>Makefile</ConfigurationType>");
-            builder.AppendLine("    <UseDebugLibraries>true</UseDebugLibraries>");
-            builder.AppendLine("    <PlatformToolset>v141</PlatformToolset>");
-            builder.AppendLine("  </PropertyGroup>");
-            builder.AppendLine("  <Import Project=\"$(VCTargetsPath)\\Microsoft.Cpp.props\" />");
-            builder.AppendLine("  <ImportGroup Label=\"ExtensionSettings\" />");
-            //builder.AppendLine("  <ImportGroup Condition=\"'$(Configuration)|$(Platform)'=='rtt_stm32|Win32'\" Label=\"PropertySheets\">");
-            builder.Append("  <ImportGroup Condition=\"'$(Configuration)|$(Platform)'=='");
-            builder.Append(cfg.FileNameWithoutExtension);
-            builder.AppendLine("|Win32'\" Label=\"PropertySheets\">");
-            
-            builder.AppendLine("    <Import Project=\"$(UserRootDir)\\Microsoft.Cpp.$(Platform).user.props\" Condition=\"exists('$(UserRootDir)\\Microsoft.Cpp.$(Platform).user.props')\" Label=\"LocalAppDataPlatform\" />");
-            builder.AppendLine("  </ImportGroup>");
-            builder.AppendLine("  <PropertyGroup Label=\"UserMacros\" />");
-            //builder.AppendLine("  <PropertyGroup Condition=\"'$(Configuration)|$(Platform)'=='rtt_stm32|Win32'\">");
-            builder.Append("  <PropertyGroup Condition=\"'$(Configuration)|$(Platform)'=='");
-            builder.Append(cfg.FileNameWithoutExtension);
-            builder.AppendLine("|Win32'\">");
-            
-            //builder.AppendLine("    <NMakeOutput>rtt_stm32.exe</NMakeOutput>");
-            builder.Append("    <NMakeOutput>");
-            builder.Append(cfg.FileNameWithoutExtension);
-            builder.AppendLine(".exe</NMakeOutput>");
-            
-            //builder.AppendLine("    <NMakePreprocessorDefinitions>STM32F10X_HD, USE_STDPERIPH_DRIVER</NMakePreprocessorDefinitions>");
-            builder.Append("    <NMakePreprocessorDefinitions>");
-            builder.Append(cfg.MacroDefineStrCNMake);
-            builder.AppendLine("</NMakePreprocessorDefinitions>");
-
-            //builder.AppendLine(@"    <IncludePath>..\Application;..\Drivers;..\RT_Thread\components\finsh;..\RT_Thread\include;..\RT_Thread\libcpu\arm\common;..\RT_Thread\libcpu\arm\cortex-m3;..\ST_Library\STM32F10x_StdPeriph_Driver\inc;..\ST_Library\CMSIS\CM3\DeviceSupport\ST\STM32F10x;..\ST_Library\CMSIS\CM3\CoreSupport</IncludePath>");
-            builder.Append(@"    <IncludePath>");
-            builder.Append(cfg.IncludePathStr);
-            builder.AppendLine(@"</IncludePath>");
-
-            //builder.AppendLine("    <NMakeBuildCommandLine>\"C:\\Keil\\UV4\\Uv4.exe \" -b ..\\rtt_stm32.uvprojx -t \"rtt_stm32\" -j0 -o Build.log");
-            builder.Append("    <NMakeBuildCommandLine>\"");
-            builder.Append(cfg.UV4_Path);
-            builder.Append(" \" -b ..\\");
-            builder.Append(cfg.FileNameWithoutExtension);
-            builder.Append(".uvprojx -t \"");
-            builder.Append(cfg.TargetName);
-            builder.AppendLine("\" -j0 -o Build.log");
-            
-            builder.AppendLine("type ..\\build.log</NMakeBuildCommandLine>");
-            //builder.AppendLine("    <NMakeReBuildCommandLine>\"C:\\Keil\\UV4\\Uv4.exe \" -r ..\\rtt_stm32.uvprojx -t \"rtt_stm32\" -j0 -o Build.log");
-            builder.Append("    <NMakeReBuildCommandLine>\"");
-            builder.Append(cfg.UV4_Path);
-            builder.Append(" \" -r ..\\");
-            builder.Append(cfg.FileNameWithoutExtension);
-            builder.Append(".uvprojx -t \"");
-            builder.Append(cfg.TargetName);
-            builder.AppendLine("\" -j0 -o Build.log");
-
-            builder.AppendLine("type ..\\build.log</NMakeReBuildCommandLine>");
-            //builder.AppendLine("    <NMakeCleanCommandLine>\"C:\\Keil\\UV4\\Uv4.exe \" -f ..\\rtt_stm32.uvprojx -t \"rtt_stm32\" -j0 -o flash_download.log");
-            builder.Append("    <NMakeCleanCommandLine>\"");
-            builder.Append(cfg.UV4_Path);
-            builder.Append(" \" -f ..\\");
-            builder.Append(cfg.FileNameWithoutExtension);
-            builder.Append(".uvprojx -t \"");
-            builder.Append(cfg.TargetName);
-            builder.AppendLine("\" -j0 -o flash_download.log");
-            
-            builder.AppendLine("type ..\\flash_download.log");
-            builder.AppendLine("</NMakeCleanCommandLine>");
-            builder.AppendLine("  </PropertyGroup>");
-            builder.AppendLine("  <ItemDefinitionGroup>");
-            builder.AppendLine("  </ItemDefinitionGroup>");
-            builder.AppendLine("  <ItemGroup>");
-            builder.Append(cfg.ToProj_Files.ToString());
-            builder.AppendLine("  </ItemGroup>");
-            builder.AppendLine("  <Import Project=\"$(VCTargetsPath)\\Microsoft.Cpp.targets\" />");
-            builder.AppendLine("  <ImportGroup Label=\"ExtensionTargets\">");
-            builder.AppendLine("  </ImportGroup>");
-            builder.AppendLine("</Project>");
-#else
             builder.AppendLine("  <ItemGroup Label=\"ProjectConfigurations\">");
             builder.AppendLine("    <ProjectConfiguration Include=\"Debug | Win32\">");
             builder.AppendLine("      <Configuration>Debug</Configuration>");
@@ -264,7 +157,7 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("  <ImportGroup Label=\"ExtensionTargets\">");
             builder.AppendLine(@"  </ImportGroup>");
             builder.AppendLine(@"</Project>");
-#endif
+
             if (!Directory.Exists(cfg.VCPath))
             {
                 Directory.CreateDirectory(cfg.VCPath);
