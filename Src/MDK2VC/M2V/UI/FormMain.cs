@@ -7,7 +7,6 @@ using System.IO;
 using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace MDK2VC
 {
@@ -118,7 +117,6 @@ namespace MDK2VC
             {
                 manager.To = new ToVC2022();
             }
-
             else
             {
                 manager.To = new ToVC2017();
@@ -153,13 +151,6 @@ namespace MDK2VC
             }
             else
                 comboBoxTarget.Text = "";
-            //var aa = GetRelativePath(manager.ProjectIno.VCProject_Path, manager.ProjectIno.MDK_Project_File);
-        }
-        public string GetRelativePath(string basePath, string targetPath)
-        {
-            Uri uri = new Uri(basePath);
-            Uri uri2 = new Uri(targetPath);
-            return uri.MakeRelativeUri(uri2).ToString().Replace("/", @"\");
         }
 
         private void BtnTest_Click(object sender, EventArgs e)
@@ -251,48 +242,7 @@ namespace MDK2VC
         {
             WindowState = FormWindowState.Normal;
         }
-        BTree<Node> GetFiles(string filename)
-        {
-            var tree1 = new BTree<Node>
-            {
-                Data = new Node("文件", "", true)
-            };
-
-            var doc = XElement.Load(cfg.FromFilePath);
-            var Targets = doc.Element("Targets");
-            var Target = Targets.Element("Target");
-            var Groups = Target.Element("Groups");
-
-            var Group = Groups.Elements("Group");
-            foreach (var grou in Group)
-            {
-                var aa = grou.Element("GroupName");
-                var tree2 = new BTree<Node>
-                {
-                    Data = new Node(aa.Value, tree1.Data.Name, false)
-                };
-                tree1.AddNode(tree2);
-
-                var Files = grou.Elements("Files");
-                foreach (var File in Files)
-                {
-                    var file = File.Elements("File");
-                    foreach (var ff in file)
-                    {
-                        var FilePath = ff.Element("FilePath");
-                        if (FilePath != null)
-                        {
-                            var tree3 = new BTree<Node>
-                            {
-                                Data = new Node(FilePath.Value, tree2.Data.Name, false)
-                            };
-                            tree2.AddNode(tree3);
-                        }
-                    }
-                }
-            }
-            return tree1;
-        }
+        
         /// <summary>
         /// 显示历史记录
         /// </summary>
