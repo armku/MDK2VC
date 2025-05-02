@@ -93,9 +93,8 @@ namespace MDK2VC.M2V.Xml
             fs.Close();
         }
 
-        public void Createvcxproj(SysConfig cfg, int type = 0)
+        public void CreatevcxprojBase(SysConfig cfg, int type = 0)
         {
-            type = 142;
             var builder = new StringBuilder();
             builder.AppendLine("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
             builder.AppendLine("<Project DefaultTargets=\"Build\" ToolsVersion=\"15.0\" xmlns=\"http://schemas.microsoft.com/developer/msbuild/2003\">");
