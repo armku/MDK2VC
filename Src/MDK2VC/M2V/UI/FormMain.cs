@@ -3,15 +3,10 @@ using MDK2VC.M2V.Config;
 using MDK2VC.M2V.UI;
 using MDK2VC.M2V.Xml;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
-using System.Xml;
 using System.Xml.Linq;
 
 namespace MDK2VC
@@ -38,11 +33,14 @@ namespace MDK2VC
             this.Text += " Ver:"+ Assembly.GetExecutingAssembly().GetName().Version.ToString() + " Net:"+System.Environment.Version.ToString();
             switch(cfg.TargetType)
             {
+                case 2017:
+                    comboBoxOutTarget.Text = "VC2017";
+                    break;
                 case 2019:
                     comboBoxOutTarget.Text = "VC2019";
                     break;
-                case 2017:
-                    comboBoxOutTarget.Text = "VC2017";
+                case 2022:
+                    comboBoxOutTarget.Text = "VC2022";
                     break;
                 default:
                     comboBoxOutTarget.Text = "VC2019";
@@ -59,17 +57,21 @@ namespace MDK2VC
         }
         private void BtnTrans_Click(object sender, EventArgs e)
         {
-            if (comboBoxOutTarget.Text.Contains("2019"))
-            {
-                cfg.TargetType = 2019;
-            }
-            else if (comboBoxOutTarget.Text.Contains("2017"))
+            if (comboBoxOutTarget.Text.Contains("2017"))
             {
                 cfg.TargetType = 2017;
             }
-            else
+            else if (comboBoxOutTarget.Text.Contains("2019"))
             {
                 cfg.TargetType = 2019;
+            }
+            else if (comboBoxOutTarget.Text.Contains("2022"))
+            {
+                cfg.TargetType = 2022;
+            }
+            else
+            {
+                cfg.TargetType = 2017;
             }
             if ((cfg.FromFilePath == null) || (!File.Exists(cfg.FromFilePath)))
             {
@@ -108,7 +110,7 @@ namespace MDK2VC
 
             else
             {
-                manager.To = new ToVC2019();
+                manager.To = new ToVC2017();
             }
 
             cfg.UV4_Path = "C:\\Keil_v5\\UV4\\Uv4.exe";
