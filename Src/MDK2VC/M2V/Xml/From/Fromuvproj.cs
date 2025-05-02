@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
 using System.Xml;
 using System.Xml.Linq;
 
@@ -15,9 +12,9 @@ namespace MDK2VC.M2V.Xml
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        public List<String> GetMacroTarget(string path)
+        public List<string> GetMacroTarget(string path)
         {
-            var ret = new List<String>();
+            var ret = new List<string>();
 
             var xmlDoc = new XmlDocument();
 
@@ -35,7 +32,7 @@ namespace MDK2VC.M2V.Xml
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        public List<String> GetMacroDefine(string path)
+        public List<string> GetMacroDefine(string path)
         {
             var TargetName = GetTargetName(path);
             var xmlDoc = new XmlDocument();
@@ -49,7 +46,7 @@ namespace MDK2VC.M2V.Xml
                     break;
                 }
             }
-            var ret = new List<String>();
+            var ret = new List<string>();
             var strs = aa.Split(new char[] { ',' });
             foreach (var str in strs)
             {
@@ -64,7 +61,7 @@ namespace MDK2VC.M2V.Xml
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        public String GetTargetName(string path)
+        public string GetTargetName(string path)
         {
             string[] items = this.MDK_TargetRead(path);
             if (items.Length > 0)
@@ -87,11 +84,11 @@ namespace MDK2VC.M2V.Xml
             }
             return strArray;
         }
-        public List<String> GetIncludePath(string path)
+        public List<string> GetIncludePath(string path)
         {
             XElement IncludePath = null;
 
-            var ret = new List<String>();
+            var ret = new List<string>();
             var doc = XElement.Load(path);
             var Targets = doc.Element("Targets");
             var Target = Targets.Element("Target");

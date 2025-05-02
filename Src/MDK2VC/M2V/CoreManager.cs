@@ -1,8 +1,4 @@
 ﻿using Microsoft.Win32;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace MDK2VC.M2V.Xml
 {
@@ -21,7 +17,7 @@ namespace MDK2VC.M2V.Xml
         /// 获取Keil路径
         /// </summary>
         /// <returns></returns>
-        static String GetKeil()
+        static string GetKeil()
         {
             var reg = Registry.LocalMachine.OpenSubKey("Software\\Keil\\Products\\MDK");
             if (reg == null) return null;

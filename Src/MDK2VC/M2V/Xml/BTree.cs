@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace MDK2VC.M2V.Xml
 {
@@ -91,7 +88,7 @@ namespace MDK2VC.M2V.Xml
         /// <param name="name">名称</param>
         /// <param name="parentname">上级名称，默认空</param>
         /// <param name="isdir">是否文件夹，默认false</param>
-        public Node(string name,String parentname="", bool isdir=false)
+        public Node(string name,string parentname="", bool isdir=false)
         {
             this.Name = name;
             this.ParentName = parentname;
@@ -104,7 +101,7 @@ namespace MDK2VC.M2V.Xml
         /// <summary>
         /// 上级名称
         /// </summary>
-        public String ParentName { get; set; }
+        public string ParentName { get; set; }
         /// <summary>
         /// 是否是文件
         /// </summary>

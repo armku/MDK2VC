@@ -15,9 +15,9 @@ namespace MDK2VC.M2V
     public class SysConfig 
     {
         /// <summary>
-        /// 转换目标 2017:VC2017 2019:VC2019
+        /// 转换目标 VC2013 VC2017 2019 VC2022
         /// </summary>
-        [Description("转换目标 2017:VC2017 2019:VC2019 2022:VC2022")]
+        [Description("转换目标 VC2013 VC2017 VC2019 VC2022")]
         public int TargetType { get; set; } = 2022;
         /// <summary>
         /// 
@@ -137,6 +137,9 @@ namespace MDK2VC.M2V
                         break;
                     case 2017:
                         outdir = "\\VC2017";
+                        break;
+                    case 2013:
+                        outdir = "\\VC2013";
                         break;
                     default:
                         break;

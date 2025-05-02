@@ -2,10 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Xml;
-using System.Xml.Linq;
 
 namespace MDK2VC.M2V.Xml
 {
@@ -16,9 +13,9 @@ namespace MDK2VC.M2V.Xml
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        public List<String> GetMacroTarget(string path)
+        public List<string> GetMacroTarget(string path)
         {
-            var ret = new List<String>();
+            var ret = new List<string>();
 
             if (path == "") return ret;
 
@@ -31,9 +28,9 @@ namespace MDK2VC.M2V.Xml
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        public List<String> GetMacroDefine(string path)
+        public List<string> GetMacroDefine(string path)
         {
-            var ret = new List<String>();
+            var ret = new List<string>();
             var builder = new StringBuilder();
 
             builder.Append("__CC_ARM;");
@@ -46,13 +43,13 @@ namespace MDK2VC.M2V.Xml
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        public String GetTargetName(string path)
+        public string GetTargetName(string path)
         {
             return "DEBUG";
         }
-        public List<String> GetIncludePath(string path)
+        public List<string> GetIncludePath(string path)
         {
-            var ret = new List<String>();
+            var ret = new List<string>();
             var aa = Path.GetDirectoryName(path);
             ret.Add(aa);
 

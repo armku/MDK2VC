@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Xml;
-using System.Xml.Linq;
 
 namespace MDK2VC.M2V.Xml
 {
@@ -16,9 +11,9 @@ namespace MDK2VC.M2V.Xml
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        public List<String> GetMacroTarget(string path)
+        public List<string> GetMacroTarget(string path)
         {
-            var ret = new List<String>();
+            var ret = new List<string>();
 
             return ret;
         }
@@ -27,9 +22,9 @@ namespace MDK2VC.M2V.Xml
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        public List<String> GetMacroDefine(string path)
+        public List<string> GetMacroDefine(string path)
         {
-            var ret = new List<String>
+            var ret = new List<string>
             {
                 "DEBUG"
             };
@@ -40,13 +35,13 @@ namespace MDK2VC.M2V.Xml
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        public String GetTargetName(string path)
+        public string GetTargetName(string path)
         {
             return "DEBUG";
         }
-        public List<String> GetIncludePath(string path)
+        public List<string> GetIncludePath(string path)
         {
-            var ret = new List<String>
+            var ret = new List<string>
             {
                 @"..",
                 @"..\Generated_Source\PSoC5"

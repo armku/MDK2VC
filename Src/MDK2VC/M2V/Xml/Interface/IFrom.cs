@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
 
 namespace MDK2VC.M2V.Xml
 {
@@ -16,25 +13,25 @@ namespace MDK2VC.M2V.Xml
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        List<String> GetMacroTarget(string path);        
+        List<string> GetMacroTarget(string path);        
         /// <summary>
         /// 获取宏定义
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        List<String> GetMacroDefine(string path);
+        List<string> GetMacroDefine(string path);
         /// <summary>
         /// 
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        String GetTargetName(string path);
+        string GetTargetName(string path);
         /// <summary>
         /// 获取包含路径
         /// </summary>
         /// <param name="path"></param>
         /// <returns></returns>
-        List<String> GetIncludePath(string path);
+        List<string> GetIncludePath(string path);
         /// <summary>
         /// 获取工程中文件
         /// </summary>
