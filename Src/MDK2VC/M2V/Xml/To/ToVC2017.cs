@@ -22,7 +22,7 @@ namespace MDK2VC.M2V.Xml
             return builder.ToString();
         }
 
-        public void Createvcxproj(SysConfig cfg)
+        public void Createvcxproj(SysConfig cfg, int type)
         {
             var builder = new StringBuilder();
             builder.AppendLine("<?xml version=\"1.0\" encoding=\"utf-8\"?>");

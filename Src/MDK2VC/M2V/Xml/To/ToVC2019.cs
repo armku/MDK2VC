@@ -22,8 +22,9 @@ namespace MDK2VC.M2V.Xml
             return builder.ToString();
         }
 
-        public void Createvcxproj(SysConfig cfg)
+        public void Createvcxproj(SysConfig cfg, int type = 0)
         {
+            type = 142;
             var builder = new StringBuilder();
             builder.AppendLine("<?xml version=\"1.0\" encoding=\"utf-8\"?>");
             builder.AppendLine("<Project DefaultTargets=\"Build\" ToolsVersion=\"15.0\" xmlns=\"http://schemas.microsoft.com/developer/msbuild/2003\">");
@@ -55,26 +56,26 @@ namespace MDK2VC.M2V.Xml
             builder.AppendLine("  <PropertyGroup Condition=\"'$(Configuration)|$(Platform)' == 'Debug|Win32'\" Label=\"Configuration\">");
             builder.AppendLine("    <ConfigurationType>Application</ConfigurationType>");
             builder.AppendLine("    <UseDebugLibraries>true</UseDebugLibraries>");
-            builder.AppendLine("    <PlatformToolset>v142</PlatformToolset>");
+            builder.AppendLine($"    <PlatformToolset>v{type}</PlatformToolset>");
             builder.AppendLine("    <CharacterSet>MultiByte</CharacterSet>");
             builder.AppendLine("  </PropertyGroup>");
             builder.AppendLine("  <PropertyGroup Condition=\"'$(Configuration)|$(Platform)' == 'Release|Win32'\" Label=\"Configuration\">");
             builder.AppendLine("    <ConfigurationType>Application</ConfigurationType>");
             builder.AppendLine("    <UseDebugLibraries>false</UseDebugLibraries>");
-            builder.AppendLine("    <PlatformToolset>v142</PlatformToolset>");
+            builder.AppendLine($"    <PlatformToolset>v{type}</PlatformToolset>");
             builder.AppendLine("    <WholeProgramOptimization>true</WholeProgramOptimization>");
             builder.AppendLine("    <CharacterSet>MultiByte</CharacterSet>");
             builder.AppendLine("  </PropertyGroup>");
             builder.AppendLine("  <PropertyGroup Condition=\"'$(Configuration)|$(Platform)' == 'Debug|x64'\" Label=\"Configuration\">");
             builder.AppendLine("    <ConfigurationType>Application</ConfigurationType>");
             builder.AppendLine("    <UseDebugLibraries>true</UseDebugLibraries>");
-            builder.AppendLine("    <PlatformToolset>v142</PlatformToolset>");
+            builder.AppendLine($"    <PlatformToolset>v{type}</PlatformToolset>");
             builder.AppendLine("    <CharacterSet>MultiByte</CharacterSet>");
             builder.AppendLine("  </PropertyGroup>");
             builder.AppendLine("  <PropertyGroup Condition=\"'$(Configuration)|$(Platform)' == 'Release|x64'\" Label=\"Configuration\">");
             builder.AppendLine("    <ConfigurationType>Application</ConfigurationType>");
             builder.AppendLine("    <UseDebugLibraries>false</UseDebugLibraries>");
-            builder.AppendLine("    <PlatformToolset>v142</PlatformToolset>");
+            builder.AppendLine($"    <PlatformToolset>v{type}</PlatformToolset>");
             builder.AppendLine("    <WholeProgramOptimization>true</WholeProgramOptimization>");
             builder.AppendLine("    <CharacterSet>MultiByte</CharacterSet>");
             builder.AppendLine("  </PropertyGroup>");
