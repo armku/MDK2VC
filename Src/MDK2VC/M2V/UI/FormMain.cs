@@ -101,6 +101,10 @@ namespace MDK2VC
             {
                 manager.To = new ToVC2019();
             }
+            else if (cfg.TargetType == 2022)
+            {
+                manager.To = new ToVC2022();
+            }
 
             else
             {

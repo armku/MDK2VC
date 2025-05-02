@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
-using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 
@@ -18,8 +17,8 @@ namespace MDK2VC.M2V
         /// <summary>
         /// 转换目标 2017:VC2017 2019:VC2019
         /// </summary>
-        [Description("转换目标 2017:VC2017 2019:VC2019")]
-        public int TargetType { get; set; } = 2019;
+        [Description("转换目标 2017:VC2017 2019:VC2019 2022:VC2022")]
+        public int TargetType { get; set; } = 2022;
         /// <summary>
         /// 
         /// </summary>
@@ -127,9 +126,12 @@ namespace MDK2VC.M2V
         {
             get
             {
-                var outdir = "\\VC2019";
+                var outdir = "\\VC2022";
                 switch(TargetType)
                 {
+                    case 2022:
+                        outdir = "\\VC2022";
+                        break;
                     case 2019:
                         outdir = "\\VC2019";
                         break;

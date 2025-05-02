@@ -405,6 +405,7 @@
             // 
             this.comboBoxOutTarget.FormattingEnabled = true;
             this.comboBoxOutTarget.Items.AddRange(new object[] {
+            "VC2022",
             "VC2019",
             "VC2017"});
             this.comboBoxOutTarget.Location = new System.Drawing.Point(552, 512);
