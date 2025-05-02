@@ -38,14 +38,14 @@ namespace MDK2VC.M2V.Xml
             if (!File.Exists(flash_downloadlog))
                 File.Create(flash_downloadlog);
         }
-        public void CreateslnBase(SysConfig cfg)
+        public void CreateslnBase(SysConfig cfg,string VisualStudioVersion,string MinimumVisualStudioVersion)
         {
             var builder = new StringBuilder();
 
             builder.AppendLine("Microsoft Visual Studio Solution File, Format Version 12.00");
             builder.AppendLine("# Visual Studio Version 16");
-            builder.AppendLine("VisualStudioVersion = 16.0.29201.188");
-            builder.AppendLine("MinimumVisualStudioVersion = 10.0.40219.1");
+            builder.AppendLine(VisualStudioVersion);
+            builder.AppendLine(MinimumVisualStudioVersion);
             builder.Append("Project(\"{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}\") = \"");
             builder.Append(cfg.FileNameWithoutExtension);
             builder.Append("\",\"");

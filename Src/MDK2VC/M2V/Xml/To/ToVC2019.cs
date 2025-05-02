@@ -4,7 +4,7 @@
     {
         public void Createsln(SysConfig cfg)
         {
-            CreateslnBase(cfg);
+            CreateslnBase(cfg, "# Visual Studio Version 16", "VisualStudioVersion = 16.0.29201.188");
         }
         public void Createvcxproj(SysConfig cfg)
         {
