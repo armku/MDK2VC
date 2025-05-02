@@ -2,7 +2,11 @@
 {
     public class ToVC2019 : ToVC2019Base, IToVC
     {
-        public void Createvcxproj(SysConfig cfg, int type = 0)
+        public void Createsln(SysConfig cfg)
+        {
+            CreateslnBase(cfg);
+        }
+        public void Createvcxproj(SysConfig cfg)
         {
             CreatevcxprojBase(cfg, 142);
         }

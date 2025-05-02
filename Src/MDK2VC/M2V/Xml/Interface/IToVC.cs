@@ -14,7 +14,7 @@ namespace MDK2VC.M2V.Xml
         /// 创建工程
         /// </summary>
         /// <param name="cfg"></param>
-        void Createvcxproj(SysConfig cfg,int type=0);
+        void Createvcxproj(SysConfig cfg);
         /// <summary>
         /// 创建VCFilters
         /// </summary>

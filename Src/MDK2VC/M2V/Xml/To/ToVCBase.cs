@@ -38,7 +38,7 @@ namespace MDK2VC.M2V.Xml
             if (!File.Exists(flash_downloadlog))
                 File.Create(flash_downloadlog);
         }
-        public void Createsln(SysConfig cfg)
+        public void CreateslnBase(SysConfig cfg)
         {
             var builder = new StringBuilder();
 
